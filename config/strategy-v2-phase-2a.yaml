@@ -1,0 +1,91 @@
+schema_version: strategy-v2-phase-2a-v1
+
+ranking:
+  enabled: false
+
+photo:
+  required_space_groups:
+    - exterior
+    - living
+    - basement
+    - site
+  duplicate_policy: exact_sha256_then_perceptual_hash
+  missing_source_policy: preserve_unknown_continue
+  visual_adapter: disabled
+  acquisition:
+    enabled: false
+    output_root: data/research/raw/photo-assets
+    timeout_seconds: 20
+    max_bytes: 26214400
+    perceptual_distance: 5
+  visual:
+    enabled: false
+    adapter: json_http
+    request_mode: one_request_per_image
+    endpoint: https://newcpa.manqiaotechnology.com/v1
+    api_key_env: VISION_API_KEY
+    model: gpt-5.6-luna
+    wire_api: responses
+    timeout_seconds: 60
+    max_attempts: 3
+    retry_backoff_seconds: 1.0
+
+shortlist:
+  target_range: [25, 35]
+  track_targets:
+    HOME_REBUILD: 20
+    LAND_DEVELOPMENT: 5
+    PREMIUM_SMALL_LOT: 5
+  special_tracks_excluded:
+    - SPECIAL_SITUATION
+  protect_pareto_frontier: true
+  protect_exceptional_signal: true
+
+analysis_routing:
+  enabled: true
+  min_home_bedrooms: 3
+  min_home_bathrooms: 2
+  min_home_lot_area_sqft: 3000
+  min_visual_photo_count: 3
+  min_full_visual_photo_count: 6
+  representative_photo_budget: 3
+  land_dominant_phrases:
+    - land value only
+    - being sold for land value
+    - sold for land value
+    - offered at land value
+    - value of the land
+    - building lot
+    - tear down
+    - teardown
+    - no value in the house
+  development_signal_phrases:
+    - rebuild
+    - re-develop
+    - redevelop
+    - development site
+    - development opportunity
+    - development potential
+    - future development
+    - developer
+    - builder alert
+    - building lot
+    - land value
+  special_tracks:
+    - SPECIAL_SITUATION
+
+calibration:
+  random_seed: 20260909
+  calibration_count: 120
+  blind_test_count: 46
+  must_keep_recall_target: 1.0
+  keep_recall_target: 0.90
+
+scoring:
+  unknown_value: UNKNOWN
+  capex_bands:
+    - A
+    - B
+    - C
+    - D
+    - E

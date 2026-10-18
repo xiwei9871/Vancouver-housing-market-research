@@ -1,0 +1,23 @@
+{
+  "property_id": "case:2553-bendale",
+  "address": "2553 Bendale Road",
+  "municipality": "District of North Vancouver",
+  "neighbourhood": "Blueridge",
+  "property_type": "detached house",
+  "source_url": "https://www.zolo.ca/north-vancouver-real-estate/2553-bendale-road",
+  "listing_id": "R3126455",
+  "mls_number": "R3126455",
+  "listing_status": "Active",
+  "asking": 1499900,
+  "original_asking": 1499900,
+  "lot_area_sqft": 7200,
+  "frontage_ft": null,
+  "year_built": 1972,
+  "finished_sqft": 2040,
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "basement": "finished",
+  "permanent_defects": [],
+  "fixable_defects": ["as-is where-is condition"],
+  "verification_notes": "Active aggregator snapshot; frontage, assessment, title, official zoning and approved use unknown."
+}

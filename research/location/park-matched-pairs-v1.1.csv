@@ -1,0 +1,2 @@
+pair_id,factor,left_id,right_id,left_factor_value,right_factor_value,price_difference,price_difference_pct,matched,diagnostics
+,park,,,,,,,false,NO_MATCHED_PAIRS

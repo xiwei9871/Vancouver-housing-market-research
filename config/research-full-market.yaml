@@ -1,0 +1,86 @@
+extends: research.yaml
+
+schema_version: research-full-market-v1
+source_registry_path: data/research/sources/full_market_source_registry.yaml
+
+research_filters:
+  minimum_bedrooms: 2
+  minimum_bathrooms: 1
+  minimum_finished_sqft: 1250
+  minimum_lot_area_sqft: 3000
+  minimum_frontage_ft: 33
+  minimum_depth_ft: 100
+  major_road_distance_threshold_m: 50
+  major_road_discount_threshold: 0.15
+  allow_small_lot_house_rebuild_exception: true
+  current_target_property_types:
+    - DETACHED_HOUSE
+    - SINGLE_FAMILY_RESIDENCE
+  excluded_current_property_types:
+    - DUPLEX
+    - TRIPLEX
+    - TOWNHOUSE
+    - COACH_HOUSE
+    - STRATA
+    - LEASEHOLD
+
+acquisition:
+  strategy: FULL_MARKET_SCRAPY_PLAYWRIGHT
+  allow_single_source_provisional: true
+  priority_order:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+  primary_source_roles:
+    - MLS_PRIMARY
+  sources: []
+  crawl:
+    enabled: true
+    respect_robots: true
+    concurrency_per_domain: 1
+    delay_seconds: 1.0
+    max_search_pages: 200
+    max_detail_requests: 2000
+    max_requests: 3000
+    timeout_seconds: 45
+    max_retries: 2
+    headless: true
+    browser: chromium
+    screenshot_on_error: true
+    screenshot_entrypoints: true
+  crawl_sources:
+    - name: zolo-full-market
+      source_type: AGGREGATOR
+      source_role: ZOLO_PUBLIC
+      source_registry_id: source:zolo-full-market
+      allowed_domains: [www.zolo.ca, zolo.ca]
+      parser: zolo_html
+      detail_parser: zolo_detail
+      entrypoints:
+        - municipality: City of Vancouver
+          url: https://www.zolo.ca/vancouver-real-estate/houses
+        - municipality: North Vancouver
+          url: https://www.zolo.ca/north-vancouver-real-estate/houses
+        - municipality: West Vancouver
+          url: https://www.zolo.ca/west-vancouver-real-estate/houses
+        - municipality: Burnaby
+          url: https://www.zolo.ca/burnaby-real-estate/houses
+    - name: realtor-full-market
+      source_type: MLS
+      source_role: REALTOR_CA_PUBLIC
+      source_registry_id: source:realtor-full-market
+      allowed_domains: [www.realtor.ca, realtor.ca]
+      parser: realtor_ca_html
+      detail_parser: realtor_ca_html
+      pagination_mode: browser_control
+      entrypoints:
+        - municipality: City of Vancouver
+          url: https://www.realtor.ca/bc/vancouver/single-family-homes-for-sale
+        - municipality: City of North Vancouver
+          url: https://www.realtor.ca/bc/city-of-north-vancouver/single-family-homes-for-sale
+        - municipality: District of North Vancouver
+          url: https://www.realtor.ca/bc/district-of-north-vancouver/single-family-homes-for-sale
+        - municipality: District of West Vancouver
+          url: https://www.realtor.ca/bc/west-vancouver/single-family-homes-for-sale
+        - municipality: City of Burnaby
+          url: https://www.realtor.ca/bc/burnaby/single-family-homes-for-sale

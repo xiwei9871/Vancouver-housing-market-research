@@ -1,0 +1,41 @@
+schema_version: location-standard-profile-v1.4
+profile:
+  profile_name: VANCOUVER_STANDARD_PROPERTY_V2
+  property_type: DETACHED_FREEHOLD
+  lot_area_sqft: 4026
+  frontage_ft: 33
+  depth_ft: 122
+  lot_shape: REGULAR_RECTANGULAR
+  living_area_sqft: 1700
+  beds: 3
+  baths: 2
+  year_built: 1960
+  year_built_reference: 1960
+  year_built_sensitivity:
+  - 1940
+  - 1960
+  - 1980
+  condition: NEUTRAL
+  condition_definition: Normally habitable, ordinary maintenance, no luxury renovation
+    premium, no major deferred maintenance.
+  zoning: R1-1
+  zoning_group: R
+  road_class: E
+  view: NONE
+  park_facing: false
+  waterfront: false
+  bca_improvement_reference: ELIGIBLE_SAMPLE_MEDIAN_CONTROL
+  bca_improvement: 219000.0
+  sale_date: '2026-07-01'
+neutral_standard_value: 2064000.0
+neutral_standard_value_age_sensitivity:
+  '1940': 2072000.0
+  '1960': 2064000.0
+  '1980': 2056000.0
+automatic_application: false
+bca_improvement_rule: Resolved profile uses the eligible sample median as a control
+  variable because the standard-property contract does not specify a BCA improvement
+  amount.
+interpretation: Year built 1960 is the primary midpoint; 1940 and 1980 are sensitivity
+  cases. The profile is a counterfactual valuation anchor, not a claim that every
+  address has these attributes.

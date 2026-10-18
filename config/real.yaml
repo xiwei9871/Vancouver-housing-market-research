@@ -1,0 +1,190 @@
+budgets:
+  west_vancouver:
+    official_max: 1700000
+    watch_max: 2000000
+  north_vancouver:
+    official_max: 1500000
+    watch_max: 1750000
+    near_miss_review_max: 1800000
+
+target_cities:
+  - West Vancouver
+  - North Vancouver
+
+source_domains:
+  allowed_listing_domains:
+    - realtor.ca
+    - zolo.ca
+
+year_built:
+  core_min: 1970
+  core_max: 2000
+  backup_min: 1950
+  backup_max: 2005
+
+exclusions:
+  pre_1965_hard_exclude: false
+  post_2010_hard_exclude: true
+
+scoring_options:
+  penalize_missing_frontage: false
+
+grade_thresholds:
+  b_without_assessment_min: 58
+  review_min: 45
+
+grade_caps:
+  missing_assessment: B
+  near_miss_price: B
+  older_home_pre_1965: Review
+  older_home_1950s_1960s: B
+  lifestyle_or_slope_region: Review
+  west_vancouver_downgraded_region: Review
+
+lot_size:
+  west_vancouver:
+    target: [6000, 9000]
+    risk_above: 10000
+    strong_downgrade_above: 12000
+  north_vancouver:
+    target: [4000, 7500]
+    risk_above: 8500
+
+frontage:
+  west_vancouver: 50
+  north_vancouver: 40
+
+regions:
+  west_vancouver:
+    preferred_region: [Ambleside, Sentinel Hill, Cedardale, Lower Dundarave, Lower British Properties]
+    acceptable_region: [Dundarave, Park Royal]
+    downgraded_region: [Upper British Properties, Chartwell, Whitby Estates, Cypress, Cypress Park, Eagle Harbour, Horseshoe Bay, Caulfeild, Westmount, Altamont, Skilift, Chelsea Park]
+    lifestyle_or_slope_region: [creek, ravine, steep, slope, view estate]
+  north_vancouver:
+    preferred_region: [Central Lonsdale, Upper Lonsdale, Calverhall, Queensbury, Moodyville, Lynn Valley, Princess Park, Boulevard, Blueridge]
+    acceptable_region: [Grand Boulevard, Pemberton Heights, Pemberton, Capilano, Windsor Park, Norgate, Edgemont, Forest Hills, Westlynn, Westlynn Terrace]
+    downgraded_region: [Deep Cove, Indian River, Upper Delbrook, Canyon Heights, Montroyal, Grouse Woods, Seymour, Indian Arm, Dollarton]
+    lifestyle_or_slope_region: [high slope, ravine, creek, waterfront, float home, marina]
+
+risk_keywords:
+  - creek
+  - ravine
+  - steep
+  - slope
+  - geotechnical
+  - retaining wall
+  - landslide
+  - erosion
+  - water ingress
+  - foundation issue
+  - structural issue
+  - oil tank
+  - asbestos
+  - knob and tube
+  - aluminum wiring
+  - poly-b
+  - court ordered sale
+  - as is where is
+  - strata
+  - leasehold
+  - float home
+  - marina
+
+risk_keyword_ignore_phrases:
+  - Mosquito Creek trails
+  - mosquito creek trails
+  - Mosquito Creek Trail
+  - mosquito creek trail
+
+opportunity_keywords:
+  - original condition
+  - needs TLC
+  - handyman special
+  - renovate or rebuild
+  - estate sale
+  - vacant
+  - price reduced
+  - motivated seller
+  - awaiting your ideas
+  - potential suite
+
+scoring_weights:
+  assessment_discount: 25
+  location_liquidity: 20
+  livability: 20
+  land_regularness: 15
+  age_fit: 10
+  optionality: 5
+  seller_motivation: 5
+
+collectors:
+  email_alert:
+    enabled: true
+    input_dir: data/email_alerts
+    allowed_domains:
+      - realtor.ca
+      - zolo.ca
+  search_page_snapshot:
+    enabled: true
+    input_dirs:
+      - data/realtor_snapshots
+      - data/zolo_snapshots
+    allowed_domains:
+      - realtor.ca
+      - zolo.ca
+  public_page_detail:
+    enabled: false
+    max_requests_per_domain_per_day: 20
+    min_delay_seconds: 30
+    max_delay_seconds: 90
+    timeout_seconds: 10
+  official_feed_stub:
+    enabled: false
+    input_path: data/samples/official_feed_sample.json
+  third_party_api:
+    enabled: false
+    token_env: THIRD_PARTY_PROPERTY_API_TOKEN
+    mock_listings: []
+  manual_links:
+    enabled: false
+    links: []
+
+monitoring:
+  max_age_days: 7
+  required_collectors:
+    - search_page_snapshot
+  require_each_input_dir: true
+  alert_dir: outputs/alerts
+
+assessment:
+  input_path: data/real_assessment/assessment.csv
+
+storage:
+  sqlite_path: outputs/watchdog_real.sqlite
+
+notifiers:
+  feishu:
+    enabled: true
+    webhook_url_env: FEISHU_WEBHOOK_URL
+    secret_env: FEISHU_WEBHOOK_SECRET
+    timeout_seconds: 10
+  openclaw:
+    enabled: true
+    base_url_env: OPENCLAW_BASE_URL
+    api_key_env: OPENCLAW_API_KEY
+    route: property_watchdog
+    action: send_weekly_report
+    endpoint: /api/routes/dispatch
+    fallback_to_feishu: true
+    timeout_seconds: 15
+
+alert_thresholds:
+  normal_score: 70
+  daily_urgent_limit: 5
+
+report:
+  weekly_output: outputs/real_weekly_report.md
+  daily_output: outputs/real_daily_digest.md
+
+run:
+  send_notifications: false

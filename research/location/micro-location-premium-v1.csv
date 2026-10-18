@@ -1,0 +1,3 @@
+component,segment,value,applied_value,method,sample_size,confidence,automatic_rankable,source_ids,notes
+micro_location,b,0.0,0.0,NO_SALE_OUTCOME_ESTIMATE,0,UNKNOWN,false,,"Official road observations exist for some current cards, but no controlled sold outcome separates the effect."
+micro_location,d,0.0,0.0,NO_SALE_OUTCOME_ESTIMATE,0,UNKNOWN,false,,"Official road observations exist for some current cards, but no controlled sold outcome separates the effect."

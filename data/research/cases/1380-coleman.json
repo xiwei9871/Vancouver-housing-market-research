@@ -1,0 +1,23 @@
+{
+  "property_id": "case:1380-coleman",
+  "address": "1380 Coleman Street",
+  "municipality": "District of North Vancouver",
+  "neighbourhood": "Lynn Valley",
+  "property_type": "detached house",
+  "source_url": "https://www.zolo.ca/north-vancouver-real-estate/1380-coleman-street",
+  "listing_id": "R3131292",
+  "mls_number": "R3131292",
+  "listing_status": "Active",
+  "asking": 1475000,
+  "original_asking": 1475000,
+  "lot_area_sqft": 8728,
+  "frontage_ft": null,
+  "year_built": 1956,
+  "finished_sqft": 1816,
+  "bedrooms": 4,
+  "bathrooms": 2,
+  "basement": "lower level with possible side entry",
+  "permanent_defects": [],
+  "fixable_defects": ["older house systems require inspection"],
+  "verification_notes": "Active aggregator snapshot; livable wording and possible suite are not official approved-use evidence."
+}

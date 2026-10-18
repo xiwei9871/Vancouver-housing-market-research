@@ -1,0 +1,281 @@
+# Official City of Vancouver zoning rule registry used by the 166-property
+# report.  Numeric rules are only populated where the current schedule/guide
+# was checked.  A registered schedule with null numeric fields is deliberate:
+# it prevents the report from copying a rule from a similar district.
+registry_version: city-of-vancouver-zoning-2026-06-2026-09-07
+retrieved_at: '2026-09-07'
+municipality: City of Vancouver
+source_index_url: https://vancouver.ca/home-property-development/zoning-and-land-use-policies-document-library.aspx
+official_consolidated_bylaw_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-consolidated.pdf
+low_density_guide_url: https://guidelines.vancouver.ca/bulletins/bulletin-low-density-housing-options-how-to-guide.pdf
+rules:
+  R1-1:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-r1-1.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_height_m: 11.5
+    maximum_storeys: 3
+    rear_access_required: true
+    floodplain_exclusion: true
+    tiers:
+      - {minimum_frontage_ft: 32.8, minimum_site_area_sqft: 3293.8, maximum_units: 4, ownership_max_units: 4, rental_max_units: 4}
+      - {minimum_frontage_ft: 44.0, minimum_site_area_sqft: 4994.5, maximum_units: 5, ownership_max_units: 5, rental_max_units: 5}
+      - {minimum_frontage_ft: 49.5, minimum_site_area_sqft: 5995.5, maximum_units: 6, ownership_max_units: 6, rental_max_units: 8}
+    notes: '3–8 units are site-condition and tenure dependent; 7–8 are secured rental only. Multiplex is new construction, not conversion.'
+  RT-7:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-7.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_height_m: 11.5
+    maximum_storeys: 3
+    rear_access_required: true
+    floodplain_exclusion: true
+    minimum_site_area_sqft: 3013.9
+    maximum_units: 6
+    multiplex_permitted: true
+    tiers:
+      - {maximum_site_area_sqft: 4983.7, maximum_units: 3}
+      - {minimum_site_area_sqft: 3013.9, maximum_units: 6}
+      - {minimum_site_area_sqft: 5995.5, maximum_units: 6, rental_only_max_units: 8}
+    notes: 'RT-7 multiple dwelling has 3–6 units, or up to 8 secured rental units; the 3-unit and 4–6/7–8 site thresholds differ.'
+  RT-2:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-2.pdf
+    bylaw_version: 'City of Vancouver May 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    duplex_max_fsr: 0.60
+    maximum_fsr: 0.60
+    duplex_max_fsr: 0.60
+    multiple_max_fsr: 0.75
+    maximum_height_m: 9.2
+    duplex_min_site_area_sqft: 4789.2
+    multiplex_min_site_area_sqft: 7190.3
+    multiple_min_site_area_sqft: 7190.3
+    maximum_units: 2
+    duplex_permitted: true
+    multiplex_permitted: true
+    rear_access_required: false
+    notes: 'Standard duplex base path is 0.60 FSR. Multiple dwelling is conditional, uses a separate 0.75 FSR path, and requires a larger site; it is not promoted for ordinary small lots.'
+  RT-8:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-8.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.50
+    discretionary_max_fsr: 0.75
+    maximum_height_m: 9.2
+    maximum_units: 2
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'Director discretion and retention provisions can change the permitted FSR; use the base FSR for conservative screening.'
+  RT-10:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-10.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.40
+    discretionary_max_fsr: 0.80
+    maximum_units: 2
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'Dwelling FSR may be increased by the Director; the report keeps this conditional increase separate from base entitlement.'
+  RT-11:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-11.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.75
+    discretionary_max_fsr: 0.85
+    maximum_units: 3
+    conditional_additional_units: 1
+    minimum_site_area_sqft: 3264.6
+    minimum_frontage_ft: 32.2
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'Duplex base path is 0.75 FSR. Multiple conversion is 2 units outright or up to 3 conditionally. Sites at least 511 m2 and 18.3 m frontage use a density cap of 74 units/ha; smaller frontage sites are capped at 3, with one additional unit only at Director discretion. A second principal building/infill path has additional site conditions.'
+  RT-3:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-3.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.60
+    discretionary_max_fsr: 0.75
+    maximum_units: 2
+    minimum_site_area_sqft: 2798.6
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Base FSR is 0.60; Director may increase to 0.75 for multiple dwelling, duplex and related uses. Multiple dwelling has a 510 m2 minimum site area; duplex/single detached has a 260 m2 minimum. A 1.00 FSR path is limited to qualifying affordable/non-profit housing.'
+  RT-5:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rt-5.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.75
+    multiple_base_fsr: 0.60
+    discretionary_multiple_max_fsr: 0.75
+    maximum_units: 2
+    minimum_site_area_sqft: 3293.8
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'New duplex base is 0.75 FSR. New multiple dwelling base is 0.60 FSR, with Director discretion up to 0.75. Multiple dwelling minimum site area is 338 m2 and density is 74 units/ha; duplex minimum site area is 306 m2. Character retention and existing-building conditions can change the path.'
+  R3-1:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-r3.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_units: 8
+    delegated_rule: R1-1_SMALL_SCALE_MULTIPLE
+    minimum_site_area_sqft: 4951.4
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Duplex, single detached and multiple dwelling of no more than 8 units are regulated through the R1-1 path. Larger R3-1 low-rise rental/apartment paths have separate 1.60–3.00 FSR tables and tenure/affordability conditions; they are not assumed for a normal house lot.'
+  R3-2:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-r3.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_units: 8
+    delegated_rule: R1-1_SMALL_SCALE_MULTIPLE
+    minimum_site_area_sqft: 4951.4
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Small-scale duplex and multiple dwelling up to 8 units follow the R1-1 rules. High-rise/low-rise rental paths have separate tenure and affordable-housing conditions.'
+  R3-3:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-r3.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_units: 8
+    delegated_rule: R1-1_SMALL_SCALE_MULTIPLE
+    minimum_site_area_sqft: 4951.4
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Small-scale duplex and multiple dwelling up to 8 units follow the R1-1 rules. Rental-housing replacement and larger low-rise/high-rise paths require the R3-3 rental/tenure conditions.'
+  R5-3:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-r5.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    maximum_units: 8
+    delegated_rule: R1-1_SMALL_SCALE_MULTIPLE
+    minimum_site_area_sqft: 4951.4
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Duplex and multiple dwelling of no more than 8 units follow the R1-1 path. R5 high-rise apartment/mixed-use paths require a minimum 1,532 m2 site (or 1,348 m2 corner) and rental/social-housing conditions; they are not assumed for ordinary detached lots.'
+  RM-1:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-1.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.40
+    discretionary_max_fsr: 0.65
+    maximum_units: 2
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'RM-1 multiple conversion/other dwelling rules differ; use-specific review is required before a full multiplex claim.'
+  RM-3A:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-3a.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.60
+    multiple_max_fsr: 1.0
+    discretionary_multiple_max_fsr: 1.45
+    maximum_units: null
+    multiple_min_site_area_sqft: 5920.1
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Duplex/single detached base FSR is 0.60. Multiple dwelling is a separate 1.00 FSR path on a 550 m2 minimum site, with possible site/parking/site-coverage increases. The report uses the duplex/small-site path unless the lot satisfies the multiple-dwelling gate.'
+  RM-4:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-4.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.0
+    multiple_max_fsr: 1.45
+    maximum_units: null
+    multiple_min_site_area_sqft: 5920.1
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Duplex/single detached path has 1.00 FSR. Multiple dwelling has 1.45 FSR on a 550 m2 minimum site, with separate form, height and conditional-use review.'
+  RM-7:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-7-7a.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.60
+    discretionary_max_fsr: 1.20
+    maximum_units: null
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Multiple use and form-specific rules vary within the schedule; 0.60 is the conservative general base.'
+  RM-9A:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-9a.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.70
+    maximum_units: null
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Apartment, duplex-in-combination, and other-use FSR/unit rules vary by site frontage and use.'
+  RM-9B:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-9-9b.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.70
+    maximum_units: 2
+    minimum_site_area_sqft: 3264.6
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'RM-9B base FSR for apartment/townhouse and most small-scale dwelling paths is 0.70. Higher 1.20/1.50/2.00 paths depend on frontage and use; ordinary detached-house underwriting must not assume them.'
+  RM-11:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-11.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.75
+    maximum_units: 3
+    minimum_site_area_sqft: 3264.6
+    duplex_permitted: true
+    multiplex_permitted: true
+    notes: 'Triplex path is 0.75 FSR on a 303 m2 minimum site. Townhouse path is 0.75 FSR on 566 m2; the large-site apartment path is separate. Duplex/single detached uses are regulated through RT-5.'
+  RM-12:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-rm-12.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 0.75
+    maximum_units: 2
+    delegated_rule: RT-5_SMALL_SCALE
+    minimum_site_area_sqft: 3293.8
+    duplex_permitted: true
+    multiplex_permitted: false
+    notes: 'Duplex, single detached and related small-scale uses are regulated by RT-5. RM-12 triplex requires 306 m2; townhouse requires 910 m2 and 1.45 FSR; apartment requires 1,000 m2 and 1.70 FSR. The report uses the RT-5/duplex path for ordinary house lots.'
+  C-1:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-c-1.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 1.20
+    dwelling_max_fsr: 0.75
+    maximum_units: null
+    duplex_permitted: false
+    multiplex_permitted: false
+    notes: 'Commercial district; not a standard detached-house/rebuild product without use-specific and development review.'
+  C-2A:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-c-2a.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: OFFICIAL_CONFIRMED
+    maximum_fsr: 2.50
+    rental_max_fsr: 3.50
+    maximum_units: null
+    duplex_permitted: false
+    multiplex_permitted: false
+    notes: 'Mixed-use/commercial rules; residential floor area and tenure conditions must be separately underwritten.'
+  CD-1:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-cd-1.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: SITE_SPECIFIC_BYLAW_REQUIRED
+    maximum_fsr: null
+    maximum_units: null
+    duplex_permitted: null
+    multiplex_permitted: null
+    notes: 'CD-1 is site-specific; the district code alone cannot determine legal area or units.'
+  DEOD:
+    schedule_url: https://bylaws.vancouver.ca/zoning/zoning-by-law-district-schedule-deod.pdf
+    bylaw_version: 'City of Vancouver June 2026'
+    numeric_status: AREA_SPECIFIC_RULE_REVIEW_REQUIRED
+    maximum_fsr: null
+    maximum_units: null
+    duplex_permitted: false
+    multiplex_permitted: false
+    notes: 'Downtown Eastside/Oppenheimer area-specific district; not a standard detached-house product.'

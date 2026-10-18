@@ -1,0 +1,20 @@
+component,segment,value,applied_value,method,sample_size,confidence,automatic_rankable,source_ids,notes
+area_baseline,Cambie,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Collingwood,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Downtown Eastside,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Dunbar,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Fraser,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Grandview-Woodland,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Hastings-Sunrise,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Kensington-Cedar Cottage,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Killarney,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Kitsilano,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Knight,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,5,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Main,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Mount Pleasant,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Renfrew,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Strathcona,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Sunset,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Victoria,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,Victoria-Fraserview,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.
+area_baseline,West Point Grey,0.0,0.0,INSUFFICIENT_CROSS_AREA_CONTROL,0,UNKNOWN,false,,Neighbourhood residual requires controlled cross-area transactions; current local sample cannot isolate it.

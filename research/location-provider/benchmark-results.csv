@@ -1,0 +1,7 @@
+benchmark,address,status,property_id,mls,queried_at,walk_status,composite_status,walk,transit,bike,urban_access_score,external_location_score,residential_environment_score,residential_environment_status,missing_scores
+2876 W18,2876 W 18TH AVENUE,NOT_IN_INPUT,,,,,,,,,,,,,
+3974 W10,3974 W 10TH AVENUE,NOT_IN_INPUT,,,,,,,,,,,,,
+333 E13,333 E 13TH AVENUE,NOT_IN_INPUT,,,,,,,,,,,,,
+5454 Melbourne,5454 MELBOURNE STREET,FOUND,mls:R3124925,R3124925,2026-09-09T00:00:00+08:00,NOT_CONFIGURED,UNKNOWN,,,,,,,NOT_AVAILABLE,"walk,transit,bike"
+4561 Nanaimo,4561 NANAIMO STREET,FOUND,mls:R3158658,R3158658,2026-09-09T00:00:00+08:00,NOT_CONFIGURED,UNKNOWN,,,,,,,NOT_AVAILABLE,"walk,transit,bike"
+486 King Edward,486 E KING EDWARD AVENUE,NOT_IN_INPUT,,,,,,,,,,,,,

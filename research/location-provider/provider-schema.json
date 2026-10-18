@@ -1,0 +1,53 @@
+{
+  "schema_version": "location-provider-walk-score-v1",
+  "model_name": "FAMILY_DETACHED_WALK_SCORE",
+  "model_version": "1.0",
+  "required_external_scores": [
+    "walk",
+    "transit",
+    "bike"
+  ],
+  "score_scale": {
+    "walk_score_api": "0-100",
+    "canonical": "0-100"
+  },
+  "normalization": {
+    "walk_score": "identity"
+  },
+  "weights": {
+    "urban_access_and_external_location": {
+      "walk": 0.5,
+      "transit": 0.375,
+      "bike": 0.125
+    }
+  },
+  "provider_roles": {
+    "walk_score": {
+      "primary": [
+        "walk",
+        "transit",
+        "bike"
+      ]
+    }
+  },
+  "not_scored_here": [
+    "quiet",
+    "greenery",
+    "parks",
+    "car_friendly",
+    "daycares",
+    "school_quality",
+    "area_baseline_premium",
+    "park_facing",
+    "view",
+    "major_arterial",
+    "truck_route",
+    "zoning",
+    "lane",
+    "slope"
+  ],
+  "residential_environment": {
+    "status": "NOT_AVAILABLE",
+    "reason": "Walk Score does not provide quiet, greenery, parks, car-friendliness, or daycare dimensions."
+  }
+}

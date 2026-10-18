@@ -1,0 +1,1693 @@
+{
+  "schema_version": "strategy-v2-calibration-annotations-v1",
+  "exported_at": "2026-10-06T01:30:22.109Z",
+  "annotations": [
+    {
+      "property_key": "mls:R3170493",
+      "split": "unassigned",
+      "address": "1060 KELOWNA STREET",
+      "mls": "R3170493",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "HOME_REBUILD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T09:20:46.328Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_secondary_track",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3168777",
+      "split": "unassigned",
+      "address": "1062 E 20TH AVENUE",
+      "mls": "R3168777",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "LAND_DEVELOPMENT",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T09:22:19.285Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_secondary_track",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3171194",
+      "split": "unassigned",
+      "address": "1222 E 51ST AVENUE",
+      "mls": "R3171194",
+      "human_current_use_band": "41-60",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "41-60",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "21-40",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:35:14.458Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision",
+        "human_secondary_track"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "21-40",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3169904",
+      "split": "unassigned",
+      "address": "1329 E 12TH AVENUE",
+      "mls": "R3169904",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "ROAD",
+        "SCHOOL",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:35:03.875Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "ROAD",
+          "SCHOOL",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3168179",
+      "split": "unassigned",
+      "address": "1972 E 51ST AVENUE",
+      "mls": "R3168179",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:35:42.739Z",
+      "human_set_fields": [
+        "human_secondary_track",
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3162687",
+      "split": "unassigned",
+      "address": "1988 NANAIMO STREET",
+      "mls": "R3162687",
+      "human_current_use_band": "41-60",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "41-60",
+      "human_location_band": "21-40",
+      "human_lot_band": "21-40",
+      "human_price_value_band": "21-40",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:35:57.098Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "21-40",
+        "human_lot_band": "21-40",
+        "human_price_value_band": "21-40",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": "PASS",
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3164903",
+      "split": "unassigned",
+      "address": "2076 TURNER STREET",
+      "mls": "R3164903",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "21-40",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": null,
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:36:31.742Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "21-40",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3169505",
+      "split": "unassigned",
+      "address": "2168 E 27TH AVENUE",
+      "mls": "R3169505",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LANE",
+        "PRICE",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:36:46.273Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LANE",
+          "PRICE",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3169744",
+      "split": "unassigned",
+      "address": "2413 COLLINGWOOD STREET",
+      "mls": "R3169744",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": "PREMIUM_SMALL_LOT",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "PRICE",
+        "LOT",
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:37:20.439Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_secondary_track",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "PRICE",
+          "LOT",
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3171274",
+      "split": "unassigned",
+      "address": "2478 E 28TH AVENUE",
+      "mls": "R3171274",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL",
+        "PRICE"
+      ],
+      "annotated_at": "2026-10-05T14:44:43.737Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL",
+          "PRICE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3169092",
+      "split": "unassigned",
+      "address": "2554 ADANAC STREET",
+      "mls": "R3169092",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "LANE"
+      ],
+      "annotated_at": "2026-10-05T14:45:51.267Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "LANE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3136423",
+      "split": "unassigned",
+      "address": "2815 NANAIMO STREET",
+      "mls": "R3136423",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "41-60",
+      "human_lot_band": "21-40",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "LAND_DEVELOPMENT",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD"
+      ],
+      "annotated_at": "2026-10-05T14:46:03.735Z",
+      "human_set_fields": [
+        "human_secondary_track",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": "0-20",
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": "0-20",
+        "human_location_band": "41-60",
+        "human_lot_band": "21-40",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3170658",
+      "split": "unassigned",
+      "address": "3055 ROSEMONT DRIVE",
+      "mls": "R3170658",
+      "human_current_use_band": null,
+      "human_redevelopment_band": "81-100",
+      "human_house_reno_band": null,
+      "human_location_band": "61-80",
+      "human_lot_band": "81-100",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "KEEP",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "PRICE"
+      ],
+      "annotated_at": "2026-10-05T09:23:00.436Z",
+      "human_set_fields": [
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "81-100",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "81-100",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "PRICE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3167963",
+      "split": "unassigned",
+      "address": "3114 TURNER STREET",
+      "mls": "R3167963",
+      "human_current_use_band": "41-60",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "41-60",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "21-40",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [],
+      "annotated_at": "2026-10-05T14:46:18.137Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "21-40",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3171659",
+      "split": "unassigned",
+      "address": "3184 E 8TH AVENUE",
+      "mls": "R3171659",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "41-60",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "KEEP",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "PRICE",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:47:32.295Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "41-60",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "PRICE",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3170141",
+      "split": "unassigned",
+      "address": "3186 E 28TH AVENUE",
+      "mls": "R3170141",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "LANE"
+      ],
+      "annotated_at": "2026-10-05T14:47:24.722Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "LANE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3171170",
+      "split": "unassigned",
+      "address": "3281 E 2ND AVENUE",
+      "mls": "R3171170",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "81-100",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "41-60",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "LAND_DEVELOPMENT",
+      "human_decision": "KEEP",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LANE",
+        "PRICE",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:48:12.875Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision",
+        "human_secondary_track"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "81-100",
+        "human_house_reno_band": null,
+        "human_location_band": "41-60",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LANE",
+          "PRICE",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3171765",
+      "split": "unassigned",
+      "address": "3305 WORTHINGTON DRIVE",
+      "mls": "R3171765",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "81-100",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "41-60",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "LAND_DEVELOPMENT",
+      "human_decision": "KEEP",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD"
+      ],
+      "annotated_at": "2026-10-05T14:49:23.100Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_secondary_track",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "81-100",
+        "human_house_reno_band": null,
+        "human_location_band": "41-60",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3168584",
+      "split": "unassigned",
+      "address": "3587 TRIUMPH STREET",
+      "mls": "R3168584",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LANE",
+        "SCHOOL",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:49:36.198Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LANE",
+          "SCHOOL",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3170870",
+      "split": "unassigned",
+      "address": "4153 JOHN STREET",
+      "mls": "R3170870",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "NARROW_FRONTAGE",
+        "DEEP_LOT",
+        "LANE",
+        "SCHOOL",
+        "PRICE",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:50:07.575Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "NARROW_FRONTAGE",
+          "DEEP_LOT",
+          "LANE",
+          "SCHOOL",
+          "PRICE",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3170629",
+      "split": "unassigned",
+      "address": "4225 JOHN STREET",
+      "mls": "R3170629",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "NARROW_FRONTAGE",
+        "DEEP_LOT",
+        "SCHOOL",
+        "PRICE",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:50:22.417Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "NARROW_FRONTAGE",
+          "DEEP_LOT",
+          "SCHOOL",
+          "PRICE",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3169190",
+      "split": "unassigned",
+      "address": "4343 11TH AVENUE",
+      "mls": "R3169190",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "21-40",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:59:31.264Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision",
+        "human_redevelopment_band",
+        "human_price_value_band"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "21-40",
+        "human_price_value_band": null,
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3169523",
+      "split": "unassigned",
+      "address": "4605 RUPERT STREET",
+      "mls": "R3169523",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "41-60",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD",
+        "PRICE"
+      ],
+      "annotated_at": "2026-10-05T14:53:18.608Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "41-60",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD",
+          "PRICE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3168434",
+      "split": "unassigned",
+      "address": "4766 GOTHARD STREET",
+      "mls": "R3168434",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL",
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:53:30.141Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL",
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3171258",
+      "split": "unassigned",
+      "address": "5033 KILLARNEY STREET",
+      "mls": "R3171258",
+      "human_current_use_band": "21-40",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "21-40",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL",
+        "LOT",
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:53:45.124Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL",
+          "LOT",
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3167501",
+      "split": "unassigned",
+      "address": "505 N PENTICTON STREET",
+      "mls": "R3167501",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "21-40",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": null,
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:54:00.689Z",
+      "human_set_fields": [
+        "human_decision",
+        "human_current_use_band",
+        "human_house_reno_band"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "21-40",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3171964",
+      "split": "unassigned",
+      "address": "5109 SLOCAN STREET",
+      "mls": "R3171964",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "81-100",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": "LAND_DEVELOPMENT",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "PRICE"
+      ],
+      "annotated_at": "2026-10-05T14:54:23.840Z",
+      "human_set_fields": [
+        "human_decision",
+        "human_secondary_track"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": "0-20",
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": "0-20",
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "81-100",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "PRICE"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3170091",
+      "split": "unassigned",
+      "address": "5363 DUMFRIES STREET",
+      "mls": "R3170091",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "61-80",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:56:17.679Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "61-80",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "STRONG"
+    },
+    {
+      "property_key": "mls:R3170990",
+      "split": "unassigned",
+      "address": "550 CASSIAR STREET",
+      "mls": "R3170990",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "61-80",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "61-80",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LANE",
+        "SCHOOL",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:56:30.641Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "61-80",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "61-80",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LANE",
+          "SCHOOL",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3168873",
+      "split": "unassigned",
+      "address": "5555 KNIGHT STREET",
+      "mls": "R3168873",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "21-40",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "UNCLASSIFIED_REVIEW",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "LANE",
+        "ROAD",
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:56:41.348Z",
+      "human_set_fields": [
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": "0-20",
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": "0-20",
+        "human_location_band": "61-80",
+        "human_lot_band": "21-40",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "UNCLASSIFIED_REVIEW",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "LANE",
+          "ROAD",
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3167837",
+      "split": "unassigned",
+      "address": "659 E 22ND AVENUE",
+      "mls": "R3167837",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "DEEP_LOT",
+        "LOT"
+      ],
+      "annotated_at": "2026-10-05T14:57:08.341Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "DEEP_LOT",
+          "LOT"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    },
+    {
+      "property_key": "mls:R3170216",
+      "split": "unassigned",
+      "address": "6819 KNIGHT STREET",
+      "mls": "R3170216",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "0-20",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": null,
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD",
+        "SCHOOL"
+      ],
+      "annotated_at": "2026-10-05T14:57:24.003Z",
+      "human_set_fields": [
+        "human_decision",
+        "human_current_use_band",
+        "human_house_reno_band"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "0-20",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": null,
+        "human_decision": "PASS",
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD",
+          "SCHOOL"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3171406",
+      "split": "unassigned",
+      "address": "695 E 12TH AVENUE",
+      "mls": "R3171406",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "21-40",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "0-20",
+      "human_primary_track": "PREMIUM_SMALL_LOT",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "PASS",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "ROAD",
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:57:33.486Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "21-40",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "0-20",
+        "human_primary_track": "PREMIUM_SMALL_LOT",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": "PASS",
+        "human_must_keep": false,
+        "human_tags": [
+          "ROAD",
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "WEAK"
+    },
+    {
+      "property_key": "mls:R3170991",
+      "split": "unassigned",
+      "address": "777 E PENDER STREET",
+      "mls": "R3170991",
+      "human_current_use_band": "0-20",
+      "human_redevelopment_band": "21-40",
+      "human_house_reno_band": "0-20",
+      "human_location_band": "61-80",
+      "human_lot_band": "41-60",
+      "human_price_value_band": "41-60",
+      "human_primary_track": "HOME_REBUILD",
+      "human_secondary_track": "INCOME_HOLD",
+      "human_decision": "WATCH",
+      "human_must_keep": false,
+      "human_reason": "",
+      "dual_override": false,
+      "human_dual_band": null,
+      "human_tags": [
+        "NARROW_FRONTAGE",
+        "DEEP_LOT",
+        "SCHOOL",
+        "LOT",
+        "ZONING"
+      ],
+      "annotated_at": "2026-10-05T14:57:45.979Z",
+      "human_set_fields": [
+        "human_current_use_band",
+        "human_house_reno_band",
+        "human_decision"
+      ],
+      "auto_snapshot": {
+        "human_current_use_band": null,
+        "human_redevelopment_band": "21-40",
+        "human_house_reno_band": null,
+        "human_location_band": "61-80",
+        "human_lot_band": "41-60",
+        "human_price_value_band": "41-60",
+        "human_primary_track": "HOME_REBUILD",
+        "human_secondary_track": "INCOME_HOLD",
+        "human_decision": null,
+        "human_must_keep": false,
+        "human_tags": [
+          "NARROW_FRONTAGE",
+          "DEEP_LOT",
+          "SCHOOL",
+          "LOT",
+          "ZONING"
+        ],
+        "human_reason": "",
+        "dual_override": false,
+        "human_dual_band": null
+      },
+      "data_only_signal": "NORMAL"
+    }
+  ]
+}

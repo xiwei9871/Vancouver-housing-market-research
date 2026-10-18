@@ -1,0 +1,7 @@
+[
+  {"address": "1379 Haywood Avenue", "assessment_year": 2026, "assessment_total": 2550000, "assessment_land": 2080000, "assessment_improvement": 470000, "source_url": "local://bc-assessment/1379-haywood"},
+  {"address": "1531 Inglewood Avenue", "assessment_year": 2026, "assessment_total": 2300000, "assessment_land": 2070000, "assessment_improvement": 230000, "source_url": "local://bc-assessment/1531-inglewood"},
+  {"address": "4110 Burkeridge Place", "assessment_year": 2026, "assessment_total": 2450000, "assessment_land": 2250000, "assessment_improvement": 200000, "source_url": "local://bc-assessment/4110-burkeridge"},
+  {"address": "532 W 23 Street", "assessment_year": 2026, "assessment_total": 1750000, "assessment_land": 1500000, "assessment_improvement": 250000, "source_url": "local://bc-assessment/532-w-23"},
+  {"address": "1234 Knight Street", "assessment_year": 2026, "assessment_total": 1610000, "assessment_land": 1490000, "assessment_improvement": 120000, "source_url": "local://bc-assessment/1234-knight"}
+]

@@ -1,0 +1,32 @@
+{
+  "run_id": "ua-browser-20260902-realtor-v2",
+  "source_name": "realtor-full-market",
+  "started_at": "2026-09-02T10:48:22.583446Z",
+  "finished_at": "2026-09-02T10:48:24.911138Z",
+  "status": "BLOCKED_POLICY",
+  "coverage_complete": false,
+  "entrypoints": 1,
+  "entrypoints_complete": 0,
+  "pages_fetched": 1,
+  "details_fetched": 0,
+  "cards_found": 0,
+  "rows_extracted": 0,
+  "duplicate_pages": 0,
+  "skipped_details": 0,
+  "failed_requests": 1,
+  "coverage_gaps": [
+    "BLOCKED_POLICY"
+  ],
+  "errors": [
+    "CHALLENGE_DETECTED"
+  ],
+  "warnings": [
+    "BLOCKED_POLICY"
+  ],
+  "cap_reached": false,
+  "run_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/realtor-full-market/ua-browser-20260902-realtor-v2",
+  "job_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/realtor-full-market/ua-browser-20260902-realtor-v2/scrapy-jobdir",
+  "artifact_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/realtor-full-market/ua-browser-20260902-realtor-v2/artifacts",
+  "manifest_path": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/realtor-full-market/ua-browser-20260902-realtor-v2/artifacts/manifest.jsonl",
+  "summary_path": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/realtor-full-market/ua-browser-20260902-realtor-v2/artifacts/summary.json"
+}

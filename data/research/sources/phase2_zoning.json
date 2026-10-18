@@ -1,0 +1,5 @@
+[
+  {"address": "532 W 23 Street", "zoning": "GO", "approved_use": "Single Detached", "maximum_fsr": 1.0, "maximum_units": 4, "permitted_uses": ["single detached", "duplex", "multiple dwelling"], "minimum_frontage": 10.0, "bylaw_version": "local-official-fixture-v1", "source_url": "local://city-north-vancouver-zoning/532-w-23"},
+  {"address": "1234 Knight Street", "pid": "PID-KNIGHT-LOCAL", "ownership_type": "FREEHOLD_NON_STRATA", "legal_description": "LOT KNIGHT OFFICIAL FIXTURE", "zoning": "R1-1", "approved_use": "Single Detached", "maximum_fsr": 1.0, "maximum_units": 6, "permitted_uses": ["single detached", "duplex", "multiple dwelling"], "minimum_frontage": 13.4, "bylaw_version": "local-official-fixture-v1", "source_url": "local://vancouver-zoning/1234-knight"},
+  {"address": "4110 Burkeridge Place", "zoning": "RS5", "approved_use": "Single Detached", "maximum_fsr": 0.35, "maximum_units": 1, "permitted_uses": ["single detached"], "bylaw_version": "local-official-fixture-v1", "source_url": "local://west-vancouver-zoning/4110-burkeridge"}
+]

@@ -1,0 +1,15 @@
+From: alerts@example.com
+To: investor@example.com
+Subject: Saved search alert
+Date: Wed, 03 Jun 2026 08:00:00 +0800
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<html>
+  <body>
+    <p>New listing alert:</p>
+    <a href="https://example.com/listings/1379-haywood">1379 Haywood Avenue, West Vancouver</a>
+    <p>Price: $1,700,000</p>
+    <p>Detached freehold. Original condition. Lot size 7,500 sqft. Built 1981.</p>
+  </body>
+</html>

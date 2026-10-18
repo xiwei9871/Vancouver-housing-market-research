@@ -1,0 +1,477 @@
+extends: config/research.yaml
+
+schema_version: research-v1-mls-first
+
+coverage_gaps:
+  - Direct MLS primary feed/export is not supplied in this environment; the MLS_PRIMARY slot is intentionally unavailable.
+  - REALTOR.ca and Zolo public HTTP feeds are used for bounded listing discovery; exploratory single-source observations are allowed and enter a manual cross-check queue.
+  - Direct official enrichment is enabled only for the bounded in-range Stage 2 research/verification queue; municipality-specific portals outside the currently implemented Vancouver routes may still produce NEED_VERIFICATION until an address result is returned.
+  - Government tenure/approved-use/permit and sold-comparable data remain separate verification items; Vancouver assessment identity, zoning, road geometry, and VSB catchment are queried when their official endpoints return a deterministic result.
+
+market_buckets:
+  vancouver_west:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Point Grey
+      - Kitsilano
+      - Dunbar
+      - Kerrisdale
+      - Arbutus
+      - Cambie
+      - Riley Park
+      - Oakridge
+      - Shaughnessy
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  vancouver_east:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Mount Pleasant
+      - Grandview-Woodland
+      - Renfrew
+      - Nanaimo
+      - Renfrew-Collingwood
+      - Collingwood
+      - Kensington
+      - Kensington-Cedar Cottage
+      - Knight
+      - Hastings-Sunrise
+      - South Vancouver
+      - Killarney
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  vancouver_value:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Fairview
+      - Marpole
+      - Sunset
+      - Victoria-Fraserview
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  city_north_vancouver:
+    municipality: City of North Vancouver
+    neighbourhoods:
+      - Central Lonsdale
+      - Upper Lonsdale
+      - Queensbury
+      - Grand Boulevard
+      - Moodyville
+      - Pemberton Heights
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  district_north_vancouver:
+    municipality: District of North Vancouver
+    neighbourhoods:
+      - Edgemont
+      - Capilano
+      - Lynn Valley
+      - Seymour
+      - Deep Cove
+      - Blueridge
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  west_vancouver:
+    municipality: District of West Vancouver
+    neighbourhoods:
+      - Ambleside
+      - Dundarave
+      - British Properties
+      - Sentinel Hill
+      - Caulfeild
+      - Horseshoe Bay
+      - Bayridge
+      - Westmount
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  burnaby_north:
+    municipality: City of Burnaby
+    neighbourhoods:
+      - Westridge
+      - Sperling-Duthie
+      - Capitol Hill
+      - Willingdon Heights
+      - Brentwood Park
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  burnaby_south:
+    municipality: City of Burnaby
+    neighbourhoods:
+      - Garden Village
+      - Metrotown
+      - Patterson
+      - South Slope
+      - Royal Oak
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+
+source_registry_path: data/research/sources/mls_first_source_registry.yaml
+
+storage:
+  sqlite_path: outputs/research_mls_first.sqlite
+
+reports:
+  weekly_dir: reports/weekly-mls-first
+  latest_path: reports/latest-mls-first.md
+
+acquisition:
+  strategy: MLS_FIRST_PUBLIC_PROVISIONAL
+  allow_single_source_provisional: true
+  provisional_source_roles:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+  priority_order:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+  primary_source_roles:
+    - MLS_PRIMARY
+  fallback_policy: RECORD_PRIMARY_UNAVAILABLE_AND_CONTINUE
+  sources:
+    - name: mls-primary
+      type: AUTHORIZED_JSON
+      source_type: MLS
+      source_role: MLS_PRIMARY
+      priority: 0
+      source_registry_id: source:mls-primary
+      access_method: authorized_injected_transport_or_export
+      authorization_status: UNKNOWN
+      enabled: false
+    - name: realtor-ca-public
+      type: PUBLIC_HTTP
+      source_type: MLS
+      source_role: REALTOR_CA_PUBLIC
+      priority: 1
+      source_registry_id: source:realtor-ca-public
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      source_version: public-feed-2026-08-31
+      coverage_complete: false
+      respect_robots: true
+      allowed_domains:
+        - api2.realtor.ca
+        - www.realtor.ca
+      raw_snapshot_dir: data/research/raw/public-feeds/realtor-ca
+      max_requests_per_run: 6
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      feed_requests:
+        - url: https://api2.realtor.ca/Listing.svc/PropertySearch_Post
+          method: POST
+          parser: realtor_ca_json
+          base_url: https://www.realtor.ca
+          data:
+            ZoomLevel: "11"
+            LatitudeMin: "49.19"
+            LatitudeMax: "49.50"
+            LongitudeMin: "-123.30"
+            LongitudeMax: "-122.50"
+            Sort: 6-D
+            PropertyTypeGroupID: 1
+            TransactionTypeId: 2
+            PropertySearchTypeId: 0
+            Currency: CAD
+            IncludeHiddenListings: "false"
+            RecordsPerPage: 100
+            ApplicationId: 1
+            CultureId: 1
+            Version: "7.0"
+            CurrentPage: 1
+        - url: https://www.realtor.ca/bc/vancouver/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+        - url: https://www.realtor.ca/bc/city-of-north-vancouver/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+        - url: https://www.realtor.ca/bc/district-of-north-vancouver/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+        - url: https://www.realtor.ca/bc/west-vancouver/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+        - url: https://www.realtor.ca/bc/burnaby/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+      enabled: true
+    - name: zolo-public
+      type: PUBLIC_HTTP
+      source_type: AGGREGATOR
+      source_role: ZOLO_PUBLIC
+      priority: 2
+      source_registry_id: source:zolo-public
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      source_version: public-feed-2026-08-31
+      coverage_complete: false
+      respect_robots: true
+      allowed_domains:
+        - www.zolo.ca
+      raw_snapshot_dir: data/research/raw/public-feeds/zolo
+      max_requests_per_run: 4
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      feed_requests:
+        - url: https://www.zolo.ca/north-vancouver-real-estate/north-vancouver/houses
+          method: GET
+          parser: public_html
+        - url: https://www.zolo.ca/vancouver-real-estate/vancouver/houses
+          method: GET
+          parser: public_html
+        - url: https://www.zolo.ca/burnaby-real-estate/burnaby/houses
+          method: GET
+          parser: public_html
+        - url: https://www.zolo.ca/west-vancouver-real-estate/west-vancouver/houses
+          method: GET
+          parser: public_html
+      enabled: true
+
+enrichment:
+  providers: []
+
+official_enrichment:
+  enabled: true
+  stage2_only: true
+  max_properties_per_run: 30
+  raw_snapshot_dir: data/research/raw/official-enrichment
+  sources:
+    - name: bca-assessment
+      adapter: bca_assessment
+      source_type: BC_ASSESSMENT
+      source_registry_id: source:bca-assessment
+      source_url: https://www.bcassessment.ca/
+      lookup_mode: public_portal
+      pid_search_url: https://www.bcassessment.ca/Property/Search/GetByPid/{pid}
+      address_search_url: https://www.bcassessment.ca/Property/Search/GetByAddress?addr={address}
+      property_information_url: https://www.bcassessment.ca/Property/PropertyInformation
+      property_information_method: POST
+      property_information_oid_param: oid
+      allowed_domains:
+        - www.bcassessment.ca
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: public-portal-2026-09-07-fuzzy-address-retry-v2
+      coverage_complete: false
+      # Address variants are attempted after empty responses and transient
+      # transport failures. Allow the bounded batch to finish its variants
+      # rather than turning request-cap exhaustion into missing BCA fields.
+      max_requests_per_run: 240
+      timeout_seconds: 20
+      delay_seconds: 1
+      retry_attempts: 3
+      retry_delay_seconds: 2
+      trust_env: false
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      enabled: true
+    - name: municipal-zoning
+      adapter: municipal_zoning
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:municipal-zoning
+      source_url: https://maps.vancouver.ca/portal/home/item.html?id=b44f215c5c3c44cbad0ba1b0c334daaf
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: official-map-entrypoints-2026-09-01
+      lookup_mode: arcgis_address_spatial
+      parcel_search_url: https://maps.vancouver.ca/server/rest/services/Hosted/AddressSearchPolygons/FeatureServer/0/query
+      zoning_query_url: https://maps.vancouver.ca/server/rest/services/Hosted/ZoningDistrict/FeatureServer/0/query
+      parcel_spatial_reference: 3857
+      coverage_complete: false
+      allowed_domains:
+        - maps.vancouver.ca
+        - burnaby.ca
+        - www.burnaby.ca
+        - gis.burnaby.ca
+        - cnv.org
+        - www.cnv.org
+        - gisext2.cnv.org
+        - geoweb.dnv.org
+        - westvancouver.ca
+        - www.westvancouver.ca
+        - mapping.westvancouver.ca
+        - dwvmaps.westvancouver.ca
+      routes:
+        City of Vancouver:
+          name: municipal-zoning-vancouver
+          municipality: City of Vancouver
+          source_url: https://maps.vancouver.ca/portal/home/item.html?id=b44f215c5c3c44cbad0ba1b0c334daaf
+        City of Burnaby:
+          name: municipal-zoning-burnaby
+          municipality: City of Burnaby
+          source_url: https://gis.burnaby.ca/arcgis/rest/services/BurnabyMap/BBY_PUBLIC_TOC/MapServer
+        City of North Vancouver:
+          name: municipal-zoning-cnv
+          municipality: City of North Vancouver
+          source_url: https://gisext2.cnv.org/CityMap/
+        District of North Vancouver:
+          name: municipal-zoning-dnv
+          municipality: District of North Vancouver
+          source_url: https://geoweb.dnv.org/properties/
+        District of West Vancouver:
+          name: municipal-zoning-wv
+          municipality: District of West Vancouver
+          source_url: https://westvancouver.ca/services/online-services
+      max_requests_per_run: 30
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      enabled: true
+    - name: municipal-road
+      adapter: municipal_road
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:municipal-road
+      source_url: https://opendata.vancouver.ca/explore/dataset/public-streets/
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: public-streets-2026-09-07-coordinate-fallback-v1
+      lookup_mode: city_open_data_proximity
+      address_search_url: https://maps.vancouver.ca/server/rest/services/Hosted/AddressSearchPolygons/FeatureServer/0/query
+      street_records_url: https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/public-streets/records
+      allowed_domains:
+        - maps.vancouver.ca
+        - opendata.vancouver.ca
+      search_radius_m: 500
+      # Address matching is preferred, but every listing card already carries
+      # coordinates.  Use them as the deterministic fallback when the parcel
+      # address layer is missing/ambiguous, and classify a nearest official
+      # local street as E rather than reporting road UNKNOWN.
+      coordinate_fallback_enabled: true
+      local_street_fallback_enabled: true
+      trust_env: false
+      max_requests_per_run: 60
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      coverage_complete: false
+      enabled: true
+    - name: school-catchment
+      adapter: school_catchment
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:school-catchment
+      source_url: https://www.vsb.bc.ca/catchment-boundaries
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: official-vsb-boundary-address-variants-2026-09-04
+      lookup_mode: vsb_boundary_zip
+      address_search_url: https://maps.vancouver.ca/server/rest/services/Hosted/AddressSearchPolygons/FeatureServer/0/query
+      # The VSB page publishes these files through the storage origin below.
+      # Using the origin avoids an intermittent media.vsb.ca DNS/TLS failure
+      # while preserving the VSB page as the human-facing source URL.
+      elementary_boundary_url: https://sbvsbstorage.blob.core.windows.net/media/Default/medialib/elementarycatchmentboundaries.d7543490727.zip
+      secondary_boundary_url: https://sbvsbstorage.blob.core.windows.net/media/Default/medialib/secondarycatchmentboundaries.ea07bb90728.zip
+      # Catchment polygons are shared by all Vancouver market regions.  Cache
+      # once per official source version, then reuse for local point-in-polygon
+      # matching across the candidate batch.  Refresh weekly so a published
+      # boundary change is not retained indefinitely.
+      boundary_cache_dir: data/research/normalized/school-boundaries
+      boundary_cache_ttl_days: 7
+      coverage_complete: false
+      allowed_domains:
+        - maps.vancouver.ca
+        - media.vsb.ca
+        - sbvsbstorage.blob.core.windows.net
+        - vsb.bc.ca
+        - www.vsb.bc.ca
+        - sd41.bc.ca
+        - www.sd41.bc.ca
+        - burnabyschools.ca
+        - www.burnabyschools.ca
+        - sd44.ca
+        - www.sd44.ca
+        - westvancouverschools.ca
+        - www.westvancouverschools.ca
+      routes:
+        City of Vancouver:
+          name: school-catchment-sd39
+          district: SD39
+          municipality: City of Vancouver
+          source_url: https://www.vsb.bc.ca/catchment-boundaries
+        City of Burnaby:
+          name: school-catchment-sd41
+          district: SD41
+          municipality: City of Burnaby
+          source_url: https://www.sd41.bc.ca/
+        City of North Vancouver:
+          name: school-catchment-sd44
+          district: SD44
+          municipality: City of North Vancouver
+          source_url: https://www.sd44.ca/Schools/SchoolLocator/Pages/default.aspx
+        District of North Vancouver:
+          name: school-catchment-sd44
+          district: SD44
+          municipality: District of North Vancouver
+          source_url: https://www.sd44.ca/Schools/SchoolLocator/Pages/default.aspx
+        District of West Vancouver:
+          name: school-catchment-sd45
+          district: SD45
+          municipality: District of West Vancouver
+          source_url: https://westvancouverschools.ca/
+      max_requests_per_run: 30
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      enabled: true
+    - name: school-performance
+      adapter: school_performance
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:school-performance
+      source_url: https://catalogue.data.gov.bc.ca/dataset/5554165d-e365-422f-bf85-4f6e4c9167dc/resource/d9377320-2c9e-4a3a-ba4a-af84ae3e344c/download/foundational_skills_assessment_2021-22_to_2025-26_residents_only.csv
+      dataset_url: https://catalogue.data.gov.bc.ca/dataset/5554165d-e365-422f-bf85-4f6e4c9167dc/resource/d9377320-2c9e-4a3a-ba4a-af84ae3e344c/download/foundational_skills_assessment_2021-22_to_2025-26_residents_only.csv
+      latest_school_year: 2025/2026
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: data-bc-fsa-2025-26
+      allowed_domains:
+        - catalogue.data.gov.bc.ca
+      max_requests_per_run: 1
+      timeout_seconds: 30
+      delay_seconds: 0
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      coverage_complete: false
+      enabled: true
+    - name: sold-history
+      adapter: sold_history
+      source_type: BC_ASSESSMENT
+      source_registry_id: source:sold-history
+      source_url: https://www.bcassessment.ca/
+      lookup_mode: public_portal
+      pid_search_url: https://www.bcassessment.ca/Property/Search/GetByPid/{pid}
+      address_search_url: https://www.bcassessment.ca/Property/Search/GetByAddress?addr={address}
+      property_information_url: https://www.bcassessment.ca/Property/PropertyInformation
+      property_information_method: POST
+      property_information_oid_param: oid
+      allowed_domains:
+        - www.bcassessment.ca
+      access_method: public_http
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: public-portal-sales-2026-09-01
+      coverage_complete: false
+      max_requests_per_run: 60
+      timeout_seconds: 20
+      delay_seconds: 1
+      user_agent: northshore-property-watchdog/0.1 (+read-only-research)
+      enabled: true
+
+comparables:
+  allow_single_source_provisional: true
+  sources: []
+  source_path: null
+  min_reliable_comps: 5
+  lot_tolerance_pct: 0.20
+  primary_window_days: 180
+  fallback_window_days: 365
+  benchmark:
+    scope: same_municipality_neighbourhood_context
+    include_lot_outliers: true
+    require_cross_checked_for_relative_affordability: true
+  building_value_proxy:
+    method: assessment_improvement
+    value_per_sqft: null
+    value_per_sqft_by_condition: {}

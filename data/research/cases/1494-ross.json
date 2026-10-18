@@ -1,0 +1,20 @@
+{
+  "property_id": "case:1494-ross",
+  "address": "1494 Ross Road",
+  "municipality": "District of North Vancouver",
+  "neighbourhood": "Lynn Valley",
+  "property_type": "detached house",
+  "source_url": "local://outputs/sold_comps_public_search_2026-06-04.md#1494-ross",
+  "listing_status": "Sold",
+  "asking": null,
+  "previous_sale_dates": ["2025-01-01T00:00:00+00:00"],
+  "previous_sale_prices": [1105000],
+  "ownership_type": "BARE_LAND_STRATA",
+  "approved_use": "STRATA",
+  "lot_area_sqft": null,
+  "year_built": null,
+  "finished_sqft": 1624,
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "verification_notes": "Local sold-comps note explicitly labels bare land strata; PID, strata plan and unit entitlement unknown."
+}

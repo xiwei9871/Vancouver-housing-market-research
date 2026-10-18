@@ -1,0 +1,32 @@
+{
+  "run_id": "phase10-smoke-zolo-20260902",
+  "source_name": "zolo-full-market",
+  "started_at": "2026-09-02T10:13:10.882754Z",
+  "finished_at": "2026-09-02T10:13:17.100370Z",
+  "status": "BLOCKED_POLICY",
+  "coverage_complete": false,
+  "entrypoints": 4,
+  "entrypoints_complete": 0,
+  "pages_fetched": 4,
+  "details_fetched": 0,
+  "cards_found": 0,
+  "rows_extracted": 0,
+  "duplicate_pages": 0,
+  "skipped_details": 0,
+  "failed_requests": 4,
+  "coverage_gaps": [
+    "BLOCKED_POLICY"
+  ],
+  "errors": [
+    "CHALLENGE_DETECTED"
+  ],
+  "warnings": [
+    "BLOCKED_POLICY"
+  ],
+  "cap_reached": false,
+  "run_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/zolo-full-market/phase10-smoke-zolo-20260902",
+  "job_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/zolo-full-market/phase10-smoke-zolo-20260902/scrapy-jobdir",
+  "artifact_dir": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/zolo-full-market/phase10-smoke-zolo-20260902/artifacts",
+  "manifest_path": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/zolo-full-market/phase10-smoke-zolo-20260902/artifacts/manifest.jsonl",
+  "summary_path": "/Users/xiwei/northshore_property_watchdog/data/research/crawl_jobs/zolo-full-market/phase10-smoke-zolo-20260902/artifacts/summary.json"
+}

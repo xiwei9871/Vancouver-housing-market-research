@@ -1,0 +1,62 @@
+schema_version: strategy-v2-shadow-v1
+ranking:
+  enabled: false
+legacy_reference:
+  analysis_artifact: data/research/normalized/portfolio-analysis-2026-09-09.json
+  report_index: reports/properties/2026-09-09/index.md
+calibration_split:
+  random_seed: 20260909
+  calibration_count: 120
+  blind_test_count: 46
+tracks:
+  normal: [HOME_REBUILD, LAND_DEVELOPMENT, PREMIUM_SMALL_LOT, INCOME_HOLD]
+  special: [SPECIAL_SITUATION, UNCLASSIFIED_REVIEW]
+road_policy:
+  role: LOCATION_LEDGER_ONLY
+  unknown_value: UNKNOWN
+development:
+  include_toa_in_base: false
+  include_assembly_in_base: false
+  require_confirmed_access_for_base: true
+  economics:
+    enabled: false
+    note: "RALV stays UNKNOWN until scenario-specific exit and cost inputs are supplied."
+holding:
+  # Planning reserves for necessary 5–10 year survival work only.  Cosmetic
+  # renovation is not included.  Explicit listing evidence may reduce the
+  # matching component, but never implies that unmentioned systems are new.
+  survival_capex_bands:
+    pre_1960: {low: 60000, base: 120000, high: 180000}
+    1960_1979: {low: 50000, base: 90000, high: 140000}
+    1980_1999: {low: 35000, base: 65000, high: 110000}
+    2000_2015: {low: 20000, base: 40000, high: 75000}
+    post_2015: {low: 10000, base: 25000, high: 50000}
+    unknown: {low: 60000, base: 120000, high: 180000}
+  component_reserves:
+    ROOF: 30000
+    WINDOWS: 25000
+    HOT_WATER: 5000
+    ELECTRICAL: 20000
+    PLUMBING: 20000
+    HVAC: 15000
+    DRAINAGE: 20000
+    FOUNDATION: 40000
+    SEWER: 15000
+    FIRE_SPRINKLER: 8000
+location:
+  # These are explanatory priors, not market-proven premiums.  They are
+  # applied to a location ledger only and never create a ranking in Phase 1.
+  road_discount_priors_pct:
+    LOCAL_RESIDENTIAL: [0.00, 0.00, 0.00]
+    COLLECTOR: [0.02, 0.03, 0.04]
+    ORDINARY_ARTERIAL: [0.05, 0.065, 0.08]
+    HIGH_FLOW_ARTERIAL: [0.07, 0.085, 0.10]
+    ARTERIAL_BUS_TRUCK: [0.08, 0.10, 0.12]
+    ARTERIAL_TRUCK_INTERSECTION: [0.10, 0.125, 0.15]
+    UNKNOWN: [null, null, null]
+  exposure_factor:
+    direct_or_0_10m: 1.0
+    over_10_25m: 0.75
+    over_25_50m: 0.50
+    over_50_75m: 0.25
+    over_75m: 0.0

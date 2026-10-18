@@ -1,0 +1,22 @@
+{
+  "property_id": "fixture:88-leasehold",
+  "address": "88 Leasehold Lane",
+  "municipality": "District of West Vancouver",
+  "neighbourhood": "Ambleside",
+  "property_type": "detached house",
+  "source_url": "https://example.com/listings/88-leasehold",
+  "listing_status": "Active",
+  "asking": 1332000,
+  "ownership_type": "NON_PREPAID_LEASE",
+  "lot_area_sqft": 7500,
+  "frontage_ft": 50,
+  "year_built": 1980,
+  "finished_sqft": 2200,
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "assessment_year": 2025,
+  "assessment_total": 1800000,
+  "assessment_land": 1500000,
+  "assessment_improvement": 300000,
+  "verification_notes": "Synthetic leasehold boundary fixture; not a real acquisition candidate."
+}

@@ -1,0 +1,2 @@
+component,segment,value,applied_value,method,sample_size,confidence,automatic_rankable,source_ids,notes
+area_baseline,neighbourhood residual,0,0,INSUFFICIENT_EVIDENCE,3033,UNKNOWN,false,[],Area residual requires controlled cross-neighbourhood evidence and house/location controls.

@@ -1,0 +1,55 @@
+{
+  "schema_version": "location-feature-schema-v1",
+  "model_separation": {
+    "model_a": "price_normalization",
+    "model_b": "investment_redevelopment",
+    "rule": "normalized physical lot basis must never be compared directly with full local RALV for MOS"
+  },
+  "location_value": {
+    "school": [
+      "elementary",
+      "secondary",
+      "elementary_tier",
+      "secondary_tier",
+      "elementary_value",
+      "secondary_value",
+      "combined_value",
+      "confidence"
+    ],
+    "area_baseline": [
+      "neighbourhood",
+      "value",
+      "methodology",
+      "sample_size",
+      "confidence"
+    ],
+    "micro": [
+      "view_value",
+      "park_value",
+      "beach_value",
+      "walkability_value",
+      "transit_value",
+      "quiet_street_value",
+      "road_noise_discount",
+      "other_nuisance_discount"
+    ],
+    "total_location_value": "school + area_baseline + micro_adjustments"
+  },
+  "price_normalization": [
+    "raw_asking_price",
+    "market_house_basis",
+    "market_land_basis",
+    "normalized_physical_lot_basis",
+    "normalized_lot_price_per_sqft",
+    "normalized_price_per_buildable_sqft"
+  ],
+  "evidence": [
+    "value",
+    "applied_value",
+    "method",
+    "sample_size",
+    "confidence",
+    "automatic_rankable",
+    "source_ids"
+  ]
+}

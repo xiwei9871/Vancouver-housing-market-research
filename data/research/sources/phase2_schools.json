@@ -1,0 +1,4 @@
+[
+  {"address": "532 W 23 Street", "official_elementary_catchment": "Ridgeway Elementary", "official_secondary_catchment": "Sutherland Secondary", "current_school_score": 76, "school_future_score": 78, "special_programs": ["French Immersion"], "kindergarten_capacity": "monitor", "school_plan": "boundary stable in local fixture", "source_url": "local://school-district/532-w-23"},
+  {"address": "1234 Knight Street", "official_elementary_catchment": "Knight Elementary", "official_secondary_catchment": "Gladstone Secondary", "current_school_score": 74, "school_future_score": 80, "special_programs": ["French Immersion", "Music"], "kindergarten_capacity": "monitor", "school_plan": "densification requires monitoring", "source_url": "local://school-district/1234-knight"}
+]

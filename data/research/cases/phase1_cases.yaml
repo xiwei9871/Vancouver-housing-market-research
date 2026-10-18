@@ -1,0 +1,195 @@
+schema_version: research-v1
+observed_at: "2026-08-29T00:00:00+00:00"
+cases:
+  - case_id: 1379-haywood
+    quality: TRACEABLE_RESEARCH
+    payload_path: 1379-haywood.json
+    category: west_vancouver_standard_lot_assessment_discount
+    source_references:
+      - source_url: https://www.realtor.ca/real-estate/28792727/1379-haywood-avenue-west-vancouver
+        source_type: MLS
+        observed_at: "2026-06-04T00:00:00+00:00"
+        field_name: listing_history
+      - source_url: local://data/samples/assessment_sample.csv#1379-haywood
+        source_type: BC_ASSESSMENT
+        observed_at: "2026-08-29T00:00:00+00:00"
+        field_name: assessment_total
+    expected_behavior:
+      - sold historical reference, not an active site visit
+      - assessment discount must be shown without calling it cheap by itself
+      - clean West Vancouver standard-lot template remains useful for comps
+    verification_notes: Sold comp and assessment are traceable to local research artifacts; PID, title, zoning entitlement, and current condition remain unverified.
+
+  - case_id: 1531-inglewood
+    quality: TRACEABLE_RESEARCH
+    payload_path: 1531-inglewood.json
+    category: west_vancouver_old_house_discount
+    source_references:
+      - source_url: local://outputs/sold_comps_public_search_2026-06-04.md#1531-inglewood
+        source_type: MANUAL
+        observed_at: "2026-06-04T00:00:00+00:00"
+        field_name: sold_history
+      - source_url: local://data/samples/assessment_sample.csv#1531-inglewood
+        source_type: BC_ASSESSMENT
+        observed_at: "2026-08-29T00:00:00+00:00"
+        field_name: assessment_total
+    expected_behavior:
+      - old house is not an automatic tear-down
+      - keep in review until systems and structure are verified
+      - sold status excludes active site visit
+    verification_notes: Local sold-comps note records the MLS number, sale price, lot, and age; official title and approved use are not present locally.
+
+  - case_id: 4670-willow-creek
+    quality: BOUNDARY_FIXTURE
+    payload_path: 4670-willow-creek.json
+    category: west_vancouver_large_lot_permanent_risk_boundary
+    source_references:
+      - source_url: local://outputs/weekly_report.md#4670-willow-creek
+        source_type: MANUAL
+        observed_at: "2026-06-03T00:00:00+00:00"
+        field_name: listing_snapshot
+      - source_url: local://data/samples/assessment_sample.csv#4670-willow-creek
+        source_type: BC_ASSESSMENT
+        observed_at: "2026-08-29T00:00:00+00:00"
+        field_name: assessment_total
+    expected_behavior:
+      - separate large-lot value from creek, ravine, slope, and geotechnical risk
+      - indoor mitigation must not erase outdoor or terrain risk
+      - boundary fixture is not counted as a traceable live market record
+    verification_notes: Existing local feed uses example.com and is explicitly treated as a boundary fixture; no real listing provenance is claimed.
+
+  - case_id: 4110-burkeridge
+    quality: TRACEABLE_RESEARCH
+    payload_path: 4110-burkeridge.json
+    category: west_vancouver_large_lot_lifestyle_discount
+    source_references:
+      - source_url: https://www.realtor.ca/real-estate/29661583/4110-burkeridge-place-west-vancouver
+        source_type: MLS
+        observed_at: "2026-06-03T00:00:00+00:00"
+        field_name: listing
+      - source_url: local://outputs/real_weekly_report.md#4110-burkeridge
+        source_type: MANUAL
+        observed_at: "2026-08-22T00:00:00+00:00"
+        field_name: research_interpretation
+    expected_behavior:
+      - large lot cannot compensate automatically for lifestyle, slope, or access uncertainty
+      - current house may be livable but renovation and buildability need verification
+      - likely review rather than core A without official data
+    verification_notes: Local Realtor snapshot records active listing fields and source URL; title, official zoning, assessment, and school fields remain unknown.
+
+  - case_id: 532-w-23
+    quality: TRACEABLE_RESEARCH
+    payload_path: 532-w-23.json
+    category: north_vancouver_current_detached_candidate
+    source_references:
+      - source_url: https://www.realtor.ca/real-estate/29641477/532-w-23-street-north-vancouver
+        source_type: MLS
+        observed_at: "2026-06-03T00:00:00+00:00"
+        field_name: listing
+      - source_url: local://outputs/real_weekly_report.md#532-w-23
+        source_type: MANUAL
+        observed_at: "2026-08-22T00:00:00+00:00"
+        field_name: research_interpretation
+    expected_behavior:
+      - current candidate may be B or NEED_VERIFICATION until assessment and condition are confirmed
+      - GO zoning wording must not be treated as entitlement without official bylaw evidence
+      - nearby sold comps should drive fair value rather than absolute price
+    verification_notes: Local Realtor snapshot includes active listing fields, MLS number, and source URL; official PID, assessment, zoning, use, and systems are not locally confirmed.
+
+  - case_id: 2553-bendale
+    quality: TRACEABLE_RESEARCH
+    payload_path: 2553-bendale.json
+    category: north_vancouver_as_is_condition_discount
+    source_references:
+      - source_url: https://www.zolo.ca/north-vancouver-real-estate/2553-bendale-road
+        source_type: AGGREGATOR
+        observed_at: "2026-06-03T00:00:00+00:00"
+        field_name: listing
+      - source_url: local://outputs/real_weekly_report.md#2553-bendale
+        source_type: MANUAL
+        observed_at: "2026-08-22T00:00:00+00:00"
+        field_name: research_interpretation
+    expected_behavior:
+      - as-is wording is a condition risk, not automatic land-only classification
+      - missing frontage and assessment should lower confidence
+      - preserve unknown official use and title fields
+    verification_notes: Local Zolo snapshot records the listing URL and as-is wording; no official title, assessment, or frontage data is present locally.
+
+  - case_id: 1380-coleman
+    quality: TRACEABLE_RESEARCH
+    payload_path: 1380-coleman.json
+    category: north_vancouver_large_lot_livable_old_house
+    source_references:
+      - source_url: https://www.zolo.ca/north-vancouver-real-estate/1380-coleman-street
+        source_type: AGGREGATOR
+        observed_at: "2026-06-03T00:00:00+00:00"
+        field_name: listing
+      - source_url: local://outputs/real_weekly_report.md#1380-coleman
+        source_type: MANUAL
+        observed_at: "2026-08-22T00:00:00+00:00"
+        field_name: research_interpretation
+    expected_behavior:
+      - livable older house should be evaluated for five-to-ten-year use
+      - large lot alone cannot establish development rights
+      - missing frontage and assessment require verification
+    verification_notes: Local Zolo snapshot records a livable 1956 detached house and possible suite wording; official records are not present locally.
+
+  - case_id: 1006-hendecourt
+    quality: TRACEABLE_RESEARCH
+    payload_path: 1006-hendecourt.json
+    category: north_vancouver_target_shape_sold_comp
+    source_references:
+      - source_url: https://www.realtor.ca/real-estate/29087872/1006-hendecourt-road-north-vancouver
+        source_type: MLS
+        observed_at: "2026-06-04T00:00:00+00:00"
+        field_name: sold_history
+      - source_url: local://outputs/sold_comps_public_search_2026-06-04.md#1006-hendecourt
+        source_type: MANUAL
+        observed_at: "2026-06-04T00:00:00+00:00"
+        field_name: sold_history
+    expected_behavior:
+      - sold reference not site visit
+      - target-shape comp helps calibrate North Vancouver range
+      - sold price must not be confused with listing price
+    verification_notes: Local sold-comps record includes the sale/list price, MLS number, size, lot, year, and date range; title and zoning are not locally confirmed.
+
+  - case_id: 1494-ross
+    quality: TRACEABLE_RESEARCH
+    payload_path: 1494-ross.json
+    category: bare_land_strata_boundary_from_real_research
+    source_references:
+      - source_url: local://outputs/sold_comps_public_search_2026-06-04.md#1494-ross
+        source_type: MANUAL
+        observed_at: "2026-06-04T00:00:00+00:00"
+        field_name: sold_history
+    expected_behavior:
+      - bare land strata is excluded from normal freehold detached ranking
+      - low price must not override ownership gate
+      - classify as special situation or reject according to title facts
+    verification_notes: Local sold-comps note explicitly identifies bare land strata; PID and strata plan are not present locally and require official verification.
+
+  - case_id: 88-leasehold
+    quality: BOUNDARY_FIXTURE
+    payload_path: 88-leasehold.json
+    category: leasehold_boundary_fixture
+    source_references:
+      - source_url: local://data/samples/assessment_sample.csv#88-leasehold
+        source_type: MANUAL
+        observed_at: "2026-08-29T00:00:00+00:00"
+        field_name: assessment_total
+    expected_behavior:
+      - non-prepaid leasehold is a hard veto
+      - plausible price and assessment cannot promote it to A
+    verification_notes: Synthetic sample boundary fixture; not a real acquisition candidate.
+
+coverage_gaps:
+  - category: VANCOUVER_EAST_ASSESSMENT_DISCOUNT
+    reason: No traceable local Vancouver East detached case with official assessment and title evidence.
+  - category: KNIGHT_MAJOR_ROAD
+    reason: No traceable local case with verified road class, distance, buffer, and outdoor-noise evidence.
+  - category: TOA_LARGE_LOT
+    reason: No traceable local case with official TOA tier, current zoning, and rezoning requirements.
+  - category: PARTIAL_INTEREST_OR_COURT_SALE
+    reason: No traceable local partial-interest or court-sale case with title documents.
+  - category: FREEHOLD_STRATA_COACH_HOUSE
+    reason: No traceable local small freehold-strata coach-house case with Form B, bylaws, and unit entitlement.

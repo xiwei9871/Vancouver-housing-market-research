@@ -1,0 +1,87 @@
+schema_version: research-v1
+sources:
+  - source_registry_id: source:mls-primary
+    name: Direct MLS primary slot
+    source_type: MLS
+    source_role: MLS_PRIMARY
+    priority: 0
+    access_method: authorized_injected_transport_or_export
+    authorization_status: UNKNOWN
+    evidence_status: UNCONFIRMED
+    reliability_notes: Direct feed/export is a configured extension point and is disabled until supplied.
+    enabled: false
+  - source_registry_id: source:realtor-ca-public
+    name: REALTOR.ca public listing snapshot
+    source_type: MLS
+    source_role: REALTOR_CA_PUBLIC
+    priority: 1
+    domain: www.realtor.ca
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Public HTTP listing/search feed used for MLS-number discovery, provisional observation, and optional cross-check; not a direct board MLS entitlement.
+    enabled: true
+  - source_registry_id: source:zolo-public
+    name: Zolo public listing snapshot
+    source_type: AGGREGATOR
+    source_role: ZOLO_PUBLIC
+    priority: 2
+    domain: www.zolo.ca
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Public HTTP aggregator used as a second cross-check; field-level conflicts remain open.
+    enabled: true
+  - source_registry_id: source:bca-assessment
+    name: BC Assessment public property information
+    source_type: BC_ASSESSMENT
+    source_role: OFFICIAL_ENRICHMENT
+    priority: 10
+    domain: www.bcassessment.ca
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Official public portal queried by PID first or exact civic-address search; sales scope is the portal's displayed last three full calendar years.
+    enabled: true
+  - source_registry_id: source:municipal-zoning
+    name: Municipal official zoning/map entrypoints
+    source_type: OFFICIAL_GOV
+    source_role: OFFICIAL_ENRICHMENT
+    priority: 11
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Municipality-specific official map/bylaw entrypoints. Interactive pages do not by themselves confirm a parcel; unresolved lookups enter the verification queue.
+    enabled: true
+  - source_registry_id: source:municipal-road
+    name: City of Vancouver public streets open data
+    source_type: OFFICIAL_GOV
+    source_role: OFFICIAL_ENRICHMENT
+    priority: 11
+    domain: opendata.vancouver.ca
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Official City of Vancouver street centerline and street-use dataset used for bounded proximity analysis; distance is an estimate to the street centerline.
+    enabled: true
+  - source_registry_id: source:school-catchment
+    name: Official school-district catchment locators
+    source_type: OFFICIAL_GOV
+    source_role: OFFICIAL_ENRICHMENT
+    priority: 12
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Routes to SD39, SD41, SD44, and SD45 official locator entrypoints; catchment results remain address-specific and are not inferred from rankings.
+    enabled: true
+  - source_registry_id: source:sold-history
+    name: BC Assessment public registered sales history
+    source_type: BC_ASSESSMENT
+    source_role: OFFICIAL_ENRICHMENT
+    priority: 13
+    domain: www.bcassessment.ca
+    access_method: public_http
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Official registered-sales projection from the BCA public property page; never treated as an MLS listing price.
+    enabled: true

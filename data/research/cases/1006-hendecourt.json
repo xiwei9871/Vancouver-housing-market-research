@@ -1,0 +1,22 @@
+{
+  "property_id": "case:1006-hendecourt",
+  "address": "1006 Hendecourt Road",
+  "municipality": "District of North Vancouver",
+  "neighbourhood": "Lynn Valley",
+  "property_type": "detached house",
+  "source_url": "https://www.realtor.ca/real-estate/29087872/1006-hendecourt-road-north-vancouver",
+  "listing_status": "Sold",
+  "asking": 1788000,
+  "original_asking": 1788000,
+  "mls_number": "R3066104",
+  "previous_sale_dates": ["2025-12-05T00:00:00+00:00"],
+  "previous_sale_prices": [1788000],
+  "lot_area_sqft": 7980,
+  "frontage_ft": null,
+  "year_built": 1976,
+  "finished_sqft": 2646,
+  "bedrooms": 5,
+  "bathrooms": 3,
+  "zoning": null,
+  "verification_notes": "Sold target-shape comp; frontage, PID, official zoning and assessment unknown."
+}

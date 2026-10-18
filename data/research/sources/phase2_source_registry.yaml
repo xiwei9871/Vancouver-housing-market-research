@@ -1,0 +1,58 @@
+schema_version: research-v1
+sources:
+  - source_registry_id: source:phase2-local-listings
+    name: Phase 2 local listing snapshot
+    source_type: MLS
+    source_role: LEGACY_FIXTURE
+    priority: 3
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-assessments
+    name: Phase 2 BC Assessment fixture
+    source_type: BC_ASSESSMENT
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-zoning
+    name: Phase 2 official-style zoning fixture
+    source_type: OFFICIAL_GOV
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-schools
+    name: Phase 2 school catchment fixture
+    source_type: OFFICIAL_GOV
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-roads
+    name: Phase 2 road analysis fixture
+    source_type: OFFICIAL_GOV
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-history
+    name: Phase 2 listing history fixture
+    source_type: MLS
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-comparables
+    name: Phase 2 sold comparable fixture
+    source_type: MLS
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-comparables-primary
+    name: Phase 2 sold comparable primary cross-check fixture
+    source_type: MLS
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+  - source_registry_id: source:phase2-comparables-secondary
+    name: Phase 2 sold comparable secondary cross-check fixture
+    source_type: MLS
+    access_method: local_fixture
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED

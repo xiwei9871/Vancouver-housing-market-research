@@ -1,0 +1,730 @@
+extends: research-mls-first.yaml
+
+schema_version: research-discovery-v1
+
+discovery:
+  enabled: true
+  max_result_cards: 500
+  sample_size: 5
+  # null means retain every candidate that passes native and post-filter
+  # validation; ranking orders them but does not arbitrarily cut the set.
+  shortlist_limit: null
+
+  presets:
+    - name: vancouver-west
+      market_bucket: vancouver_west
+      geography:
+        map_params:
+          boundary_id: vancouver-westside
+          boundary_registry_path: data/research/boundaries/vancouver-market-boundaries-2026-09-05.json
+          Center: 49.255000,-123.185000
+          LatitudeMax: 49.29200
+          LongitudeMax: -123.08000
+          LatitudeMin: 49.20500
+          LongitudeMin: -123.26500
+          ZoomLevel: 13
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1500000
+        price_max: 2000000
+    - name: vancouver-east
+      market_bucket: vancouver_east
+      geography:
+        map_params:
+          boundary_id: vancouver-east
+          boundary_registry_path: data/research/boundaries/vancouver-market-boundaries-2026-09-05.json
+          Center: 49.255000,-123.055000
+          LatitudeMax: 49.29200
+          LongitudeMax: -123.01500
+          LatitudeMin: 49.20000
+          LongitudeMin: -123.11500
+          ZoomLevel: 13
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1000000
+        price_max: 1700000
+    - name: vancouver-central-core
+      market_bucket: central_core
+      geography:
+        map_params:
+          boundary_id: vancouver-central
+          boundary_registry_path: data/research/boundaries/vancouver-market-boundaries-2026-09-05.json
+          Center: 49.255000,-123.115000
+          LatitudeMax: 49.29200
+          LongitudeMax: -123.07500
+          LatitudeMin: 49.21500
+          LongitudeMin: -123.16000
+          ZoomLevel: 13
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1100000
+        price_max: 1800000
+    - name: vancouver-oakridge
+      market_bucket: central_core
+      geography:
+        map_params:
+          boundary_id: vancouver-oakridge
+          boundary_registry_path: data/research/boundaries/vancouver-market-boundaries-2026-09-05.json
+          Center: 49.225000,-123.123000
+          LatitudeMax: 49.24500
+          LongitudeMax: -123.10000
+          LatitudeMin: 49.21000
+          LongitudeMin: -123.14500
+          ZoomLevel: 14
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1100000
+        price_max: 1800000
+    - name: vancouver-south
+      market_bucket: south_vancouver
+      geography:
+        map_params:
+          boundary_id: vancouver-south
+          boundary_registry_path: data/research/boundaries/vancouver-market-boundaries-2026-09-05.json
+          Center: 49.215000,-123.105000
+          LatitudeMax: 49.24500
+          LongitudeMax: -123.02000
+          LatitudeMin: 49.19000
+          LongitudeMin: -123.18000
+          ZoomLevel: 13
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1000000
+        price_max: 1700000
+    - name: north-vancouver-city
+      market_bucket: city_north_vancouver
+      desired_filters:
+        status: ACTIVE
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1000000
+        price_max: 1600000
+    - name: north-vancouver-district
+      market_bucket: district_north_vancouver
+      desired_filters:
+        status: ACTIVE
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1000000
+        price_max: 1600000
+    - name: west-vancouver
+      market_bucket: west_vancouver
+      desired_filters:
+        status: ACTIVE
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        minimum_finished_sqft: 1250
+        price_min: 1500000
+        price_max: 2000000
+    - name: vancouver-broad-scan
+      market_bucket: vancouver_broad
+      desired_filters:
+        status: ACTIVE
+        municipality: Vancouver
+        property_type: DETACHED_HOUSE
+        ownership: FREEHOLD
+        minimum_bedrooms: 2
+        minimum_bathrooms: 1
+        price_min: 1000000
+        price_max: 1800000
+
+  sources:
+    - name: filtered-capture-replay
+      type: JSON_CAPTURE
+      enabled: true
+      path: data/samples/discovery_filtered_capture.json
+      capabilities:
+        native_filter_fields:
+          - property_type
+          - minimum_bedrooms
+          - price_min
+          - price_max
+        card_fields:
+          - municipality
+          - property_type
+          - bedrooms
+          - bathrooms
+          - finished_sqft
+          - ownership_type
+          - listing_status
+          - asking
+        filter_value_mapping: {}
+    - name: permitted-native-browser
+      type: PLAYWRIGHT_NATIVE
+      enabled: false
+      browser:
+        entrypoint: https://example.invalid/filtered-search
+        actions: []
+        selectors:
+          result_count: ".result-count"
+          applied_filter: ".applied-filter"
+          card: ".listing-card"
+      capabilities:
+        native_filter_fields: []
+        card_fields: []
+        filter_value_mapping: {}
+    - name: realtor-ca-native
+      type: PLAYWRIGHT_NATIVE
+      enabled: true
+      max_result_cards: 500
+      browser:
+        url_builder: REALTOR_CA_MAP
+        browser_engine: chromium
+        browser_channel: chrome
+        headless: false
+        browser_cdp_endpoint: http://127.0.0.1:9222
+        reuse_current_page: false
+        open_new_page: true
+        launch_options:
+          args:
+            - --window-size=1438,967
+        navigation_wait_until: domcontentloaded
+        navigation_settle_seconds: 10
+        raw_snapshot_path: data/research/raw/discovery/realtor-ca-native-vancouver.html
+        detail_enrichment:
+          enabled: true
+          max_requests: 500
+          continue_on_error: true
+          timeout_ms: 90000
+          delay_ms: 1500
+          stop_on_rate_limit: true
+          settle_ms: 0
+          raw_snapshot_dir: data/research/raw/discovery/realtor-ca-native-details
+        entrypoint: >-
+          https://www.realtor.ca/map#ZoomLevel=13&Center=49.242507%2C-123.114571&LatitudeMax=49.27707&LongitudeMax=-123.02127&LatitudeMin=49.20792&LongitudeMin=-123.20787&CurrentPage=1&Sort=6-D&PGeoIds=g30_c2b2nw3h&GeoName=Vancouver%2C%20BC&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&PriceMin=1000000&PriceMax=1800000&BedRange=2-0&BathRange=1-0&BuildingTypeId=1&OwnershipTypeGroupId=1&Currency=CAD
+        # The URL builder supplies the map bounds and filters directly.  Do
+        # not depend on a view-toggle selector that can differ between a
+        # reused Chrome tab and a newly opened REALTOR.ca page.
+        actions:
+          - action: apply_custom_boundary
+        selectors:
+          result_count: "#mapResultsNumVal, #listViewResultsNumVal"
+          applied_filter: >-
+            #mapTopFiltersInnerCon .select2-selection__rendered,
+            #mapSearchMoreFiltersInnerCon .select2-selection__rendered,
+            #mapSearchMoreFiltersInnerCon input:checked + label
+          card: "#mapSidebarBodyCon .smallListingCard, #listInnerCon .listingCard"
+        pagination:
+          enabled: true
+          next_selector: "a.lnkNextResultsPage.paginationLinkForward:not([disabled])"
+          max_pages: 50
+          wait_after_click_ms: 1000
+          progress_poll_interval_ms: 250
+          progress_timeout_ms: 15000
+          progress_stable_polls: 3
+        result_count_variance_tolerance: 2
+        applied_filter_selectors:
+          status:
+            selector: "#ddlTransactionTypeTopRes"
+            value_mapping:
+              "2": ACTIVE
+          property_type:
+            selector: "#ddlBuildingType"
+            value_mapping:
+              "1": DETACHED_HOUSE
+          ownership:
+            selector: "#ddlOwnershipType"
+            value_mapping:
+              "1": FREEHOLD
+          price_min: "#ddlMinPriceTop"
+          price_max: "#ddlMaxPriceTop"
+          minimum_bedrooms: "#ddlBedsTop"
+          minimum_bathrooms: "#ddlBathsTop"
+          minimum_finished_sqft: "#ddlSquareFootageMin"
+      capabilities:
+        native_filter_fields:
+          - status
+          - property_type
+          - ownership
+          - minimum_bedrooms
+          - minimum_bathrooms
+          - minimum_finished_sqft
+          - price_min
+          - price_max
+        card_fields:
+          - municipality
+          - property_type
+          - bedrooms
+          - bathrooms
+          - finished_sqft
+          - ownership_type
+          - listing_status
+          - asking
+        filter_value_mapping:
+          minimum_bathrooms: {}
+
+# Discovery is filter-first, but live native discovery automatically runs the
+# official read-only enrichment phase on the resulting cards before screening.
+# Zero means do not silently cap the discovered universe; adapters still use
+# bounded batches and retain every per-property status/evidence row.
+discovery_official_enrichment:
+  enabled: true
+  # Keep the official phase bounded by adapter batches, but do not silently
+  # stop after the first 30 cards of a filtered market result.
+  batch_size: 10
+  # BCA's official detail response already carries registered-sale history;
+  # the separate sold-history adapter is retained for explicit deep research
+  # but is not duplicated during discovery.
+  source_names:
+    - bca-assessment
+    - municipal-zoning
+    - municipal-road
+    - school-catchment
+    - school-performance
+
+# The inherited Phase 2 cap applies to ordinary deep research.  Discovery is
+# deliberately a separate, filter-first run and enriches every validated card
+# before scoring, subject to each adapter's request policy.
+official_enrichment:
+  enabled: true
+  max_properties_per_run: 0
+  discovery_batch_size: 10
+
+screening_v2:
+  enabled: true
+  allowed_municipalities:
+    - Vancouver
+  stage_a:
+    # Regional native-search presets own their price ranges. Do not apply a
+    # single global post-filter after regional acquisition.
+    price_gate_enabled: false
+    price_min: 1000000
+    price_max: 1800000
+    hard_lot_min_sqft: 3600
+    hard_frontage_min_ft: 30
+    exceptional_small_lot_price_max: 1250000
+    exceptional_small_lot_markers:
+      - corner
+      - double frontage
+      - assembly
+      - special zoning
+    severe_condition_markers:
+      - fire damaged
+      - fire damage
+      - fire and smoke damage
+      - smoke damage
+      - fire-damaged
+      - fire and smoke-damaged
+      - collapsed
+      - condemned
+      - uninhabitable
+      - sold as is, where is
+      - sold as-is, where-is
+  # V2.5: all normal properties receive independent scores.  A derived
+  # value_profile is descriptive only; it never routes a property out of a
+  # leaderboard.  Unknown school/zoning facts reduce confidence and remain
+  # visible in the verification queue rather than being guessed.
+  # V1.4 location residual is a combined neighbourhood/location effect from
+  # the fixed standard-property model. It replaces the coarse area tier and
+  # school proxy when scoring; listing-specific road/micro-location evidence
+  # remains separate. The CSV is local and versioned, so rescoring is
+  # reproducible without another web lookup.
+  location_residual_model:
+    enabled: true
+    artifact_version: V1.4
+    source_path: research/location/location-premium-stability-v1.4.csv
+    analysis_variant: ROBUST_SUMMARY
+    neutral_standard_value: 2064000
+    score_anchor: 50
+    score_min: 0
+    score_max: 100
+    # These are source-label joins, not new valuation assumptions. Unmapped
+    # labels remain neutral/UNKNOWN rather than being guessed.
+    segment_aliases:
+      Point Grey: West Point Grey
+      Dunbar: Dunbar-Southlands
+      Arbutus: Arbutus Ridge
+      Cambie: South Cambie
+      Main: Mount Pleasant
+      Fraser: Riley Park
+      Renfrew: Renfrew-Collingwood
+      Collingwood: Renfrew-Collingwood
+      Victoria: Victoria-Fraserview
+  # V1.5 physical normalization: split each local standard-property value
+  # into a land component and an existing-house component before comparing
+  # listings.  The land component is normalized to the reference 33 x 122 ft
+  # lot; extra area is intentionally capped at Stage B and must be justified
+  # by zoning/product evidence later.  BCA land share is a diagnostic prior,
+  # not a substitute for market house/land valuation.
+  physical_normalization:
+    enabled: true
+    reference_lot_area_sqft: 4026
+    reference_frontage_ft: 33
+    reference_depth_ft: 122
+    reference_house_sqft: 1700
+    standard_market_land_share: 0.75
+    bca_land_share_weight: 0.25
+  # User-approved initial prior for permanent road/location discount relative
+  # to a comparable quiet interior residential street.  The midpoint is used
+  # in automated ranking; low/high bounds remain in every decision for review.
+  # It is not a claim that every Vancouver road has the same empirically
+  # observed effect. Replace with local matched-pair estimates when available.
+  road_discount_prior:
+    enabled: true
+    direct_frontage_distance_m: 50
+    near_road_distance_m: 100
+    extended_road_distance_m: 200
+    bands:
+      collector: {low_pct: 0.02, base_pct: 0.03, high_pct: 0.04}
+      arterial: {low_pct: 0.05, base_pct: 0.065, high_pct: 0.08}
+      high_flow_arterial: {low_pct: 0.07, base_pct: 0.085, high_pct: 0.10}
+      arterial_bus_truck: {low_pct: 0.08, base_pct: 0.10, high_pct: 0.12}
+      arterial_truck_intersection: {low_pct: 0.10, base_pct: 0.125, high_pct: 0.15}
+      extreme: {low_pct: 0.10, base_pct: 0.125, high_pct: 0.15}
+      quiet: {low_pct: 0.0, base_pct: 0.0, high_pct: 0.0}
+    markers:
+      bus: [bus route, bus corridor, frequent bus, heavy bus, high-frequency bus]
+      truck: [truck route, truck corridor, heavy truck, truck traffic]
+      high_flow: [high traffic, high-volume, high volume, busy arterial, primary arterial]
+      intersection: [intersection, major intersection, busy intersection, corner exposure]
+      high_noise: [high noise, heavy noise, traffic noise, noise exposure]
+    # Nanaimo is explicitly treated as a bus/truck arterial in the approved
+    # current prior; additional roads can be added after official route review.
+    known_bus_truck_roads: [Nanaimo Street]
+  # V2.6 qualitative micro-location road subscore. Road contributes six of
+  # the fifteen micro-location points; the other nine are non-road facts.
+  # Direct frontage takes precedence over distance; distance is a fallback.
+  road_quality_model:
+    version: V2.6
+    road_points: 6
+    nonroad_micro_location_points: 9
+    direct_frontage_precedes_distance: true
+    direct_quality_by_category:
+      EXTREME_HIGHWAY_RAIL: 0.0
+      ARTERIAL_TRUCK_INTERSECTION: 2.5
+      ARTERIAL_BUS_TRUCK: 2.5
+      HIGH_FLOW_ARTERIAL: 4.0
+      ORDINARY_ARTERIAL: 5.5
+      COLLECTOR: 7.5
+      QUIET_RESIDENTIAL: 10.0
+      BACKGROUND_ROAD: 10.0
+      UNKNOWN_ROAD: 5.0
+    exposure_bands_m:
+      impactful: {50: 0.90, 100: 0.75, 200: 0.50, 300: 0.25, 400: 0.10}
+      ordinary_arterial: {50: 0.75, 100: 0.50, 150: 0.25, 250: 0.10}
+      collector: {50: 0.50, 100: 0.25}
+    # Current Use ceiling for homes directly fronting a major road, applied
+    # only when the unified value-for-money model is enabled.  Severe
+    # exposure corridors (bus/truck, highway, rail, high-flow) use
+    # HEAVY_ARTERIAL; ordinary arterials fall back to default.  A specific
+    # road category key may override either tier.
+    frontage_current_use_caps:
+      HEAVY_ARTERIAL: 35
+      default: 45
+  reno_estimation:
+    current_year: 2026
+    recent_years: 5
+    # Used only when no stronger official or listing-scope evidence exists.
+    age_fallback:
+      pre_1960: 100000
+      1960_1979: 100000
+      1980_1999: 80000
+      2000_2015: 60000
+      post_2015: 30000
+    scope_costs:
+      roof: 20000
+      hvac: 15000
+      electrical: 25000
+      plumbing: 20000
+      drainage: 20000
+      foundation: 30000
+      sewer: 20000
+      hot_water: 5000
+      fire_sprinkler: 5000
+      kitchen: 20000
+      bathroom: 15000
+      windows: 15000
+      flooring: 5000
+      paint: 5000
+    # Current Use caps sit one band step above each reno band so the score
+    # keeps package/location ordering instead of pinning every home in a
+    # holding-work tier to the same number.  A house needing significant work
+    # can still rank on real value, but cannot outscore move-in-ready homes.
+    current_use_caps:
+      - {max_cost: 0, max_score: 100}
+      - {max_cost: 30000, max_score: 100}
+      - {max_cost: 60000, max_score: 80}
+      - {max_cost: 100000, max_score: 60}
+      - {max_cost: 150000, max_score: 40}
+      - {max_cost: 999999999, max_score: 0}
+  orthogonal_scoring:
+    current_use_strong_min: 70
+    redevelopment_strong_min: 70
+    # All three leaderboards are projections of one complete value ledger.
+    # These weights are views over the same fields, not separate enrichment
+    # or candidate-universe rules.
+    value_for_money_components:
+      current_use:
+        # Current Use is a livability view first: the house component (itself
+        # 60% condition) carries the largest weight; lot cheapness and price
+        # safety stay visible but cannot carry a teardown into this view.
+        house_value_for_money: 35
+        location_value_for_money: 20
+        lot_value_for_money: 20
+        regional_price_safety: 10
+        bca_price_safety: 10
+        permanent_risk: 5
+      redevelopment:
+        house_value_for_money: 5
+        location_value_for_money: 15
+        lot_value_for_money: 30
+        # Development price efficiency is already represented inside the
+        # redevelopment lot component.  Use the freed weight for legal and
+        # physical product capacity instead of counting the same cheapness
+        # signal twice.
+        development_capacity_value_for_money: 30
+        regional_price_safety: 0
+        bca_price_safety: 10
+        permanent_risk: 10
+    current_use_weights:
+      # Combined location residual is the area/school/location component.
+      area_neighbourhood_value: 0
+      location_residual: 25
+      # Asking price is judged against the standard property value of the
+      # listing's own neighbourhood, not against a Vancouver-wide price.
+      regional_price_safety: 20
+      micro_location: 15
+      family_layout: 20
+      maintenance_systems: 20
+      school_proxy: 0
+    redevelopment_weights:
+      lot_geometry: 20
+      frontage_depth_threshold: 15
+      official_zoning_entitlement: 20
+      product_market_fit: 10
+      # This already includes the area's residual through the regional
+      # standard-value denominator; do not add the same residual a second
+      # time as a redevelopment bonus.
+      location_residual: 0
+      regional_price_safety: 15
+      lane_access_servicing: 10
+      permanent_execution_risk: 10
+    dual_value:
+      # In the unified ledger Dual is a third ranking view, not a separate
+      # filter. Every scored row receives sqrt(Current Use x Redevelopment);
+      # these thresholds remain as compatibility settings for older replays.
+      minimum_current_use: 60
+      minimum_redevelopment: 60
+    # Confidence is a manual-review indicator only. It does not reduce any
+    # Current Use, Redevelopment, Dual Value, Investment, or ranking score.
+    confidence:
+      verification_threshold: 70
+  # Assessment is a price-safety signal, not a market-value conclusion.  It
+  # is intentionally kept out of Current Use and Redevelopment scores, then
+  # enters the separate Investment score below.  Official BCA fields are
+  # required; missing fields remain UNKNOWN/neutral rather than guessed.
+  assessment_discount_signal:
+    bands:
+      - {minimum_discount_pct: 0.25, score: 100}
+      - {minimum_discount_pct: 0.20, score: 90}
+      - {minimum_discount_pct: 0.15, score: 80}
+      - {minimum_discount_pct: 0.10, score: 70}
+      - {minimum_discount_pct: 0.05, score: 55}
+      - {minimum_discount_pct: 0.00, score: 40}
+      - {minimum_discount_pct: -0.05, score: 25}
+      - {minimum_discount_pct: -999.0, score: 10}
+  price_safety_weights:
+    assessment_discount: 0.50
+    area_relative_price: 0.35
+    seller_fatigue: 0.15
+  investment_weights:
+    current_use: 0.40
+    redevelopment: 0.40
+    price_safety: 0.20
+  area_strata:
+    WESTSIDE:
+      - Point Grey
+      - West Point Grey
+      - Dunbar
+      - Arbutus
+      - Kitsilano
+      - Kerrisdale
+      - Mackenzie Heights
+      - Shaughnessy
+      - Southlands
+    CENTRAL_CORE:
+      - Mount Pleasant
+      - Main
+      - Riley Park
+      - Grandview-Woodland
+      - Cambie
+      - Fairview
+      - Fraser
+    SOUTH_VANCOUVER:
+      - Sunset
+      - Victoria-Fraserview
+      - Marpole
+      - South Marine
+      - Killarney
+    EAST_VANCOUVER:
+      - Renfrew
+      - Hastings-Sunrise
+      - Collingwood
+      - Kensington-Cedar Cottage
+      - Knight
+      - Victoria
+      - Cascade-Schou
+  area_tiers:
+    WESTSIDE: {tier: A, score: 18}
+    CENTRAL_CORE: {tier: B+, score: 15}
+    SOUTH_VANCOUVER: {tier: B-, score: 11}
+    EAST_VANCOUVER: {tier: B-, score: 10}
+    UNKNOWN: {tier: UNKNOWN, score: 8}
+  neighbourhood_tiers:
+    Point Grey: {tier: A+, score: 20}
+    Dunbar: {tier: A+, score: 20}
+    Arbutus: {tier: A, score: 19}
+    Kitsilano: {tier: A, score: 18}
+    Kerrisdale: {tier: A-, score: 17}
+    Cambie: {tier: A-, score: 17}
+    Mount Pleasant: {tier: B+, score: 16}
+    Main: {tier: B+, score: 16}
+    Riley Park: {tier: B+, score: 16}
+    Grandview-Woodland: {tier: B, score: 14}
+    Renfrew: {tier: B-, score: 10}
+    Hastings-Sunrise: {tier: B-, score: 10}
+    Collingwood: {tier: B-, score: 9}
+    Kensington-Cedar Cottage: {tier: B-, score: 11}
+    Knight: {tier: B-, score: 10}
+    Sunset: {tier: B-, score: 11}
+    Victoria-Fraserview: {tier: B-, score: 10}
+    Killarney: {tier: B, score: 12}
+    Marpole: {tier: B, score: 12}
+  # Initial, bounded screening references. Replace with dated SOLD benchmarks in Stage C.
+  reference_price_basis: CONFIG_INITIAL_ESTIMATE
+  neighbourhood_reference_prices:
+    Point Grey: 2100000
+    Dunbar: 2000000
+    Arbutus: 2100000
+    Kitsilano: 2000000
+    Kerrisdale: 2000000
+    Cambie: 1900000
+    Mount Pleasant: 1700000
+    Main: 1700000
+    Riley Park: 1750000
+    Grandview-Woodland: 1550000
+    Renfrew: 1400000
+    Hastings-Sunrise: 1500000
+    Collingwood: 1350000
+    Kensington-Cedar Cottage: 1500000
+    Knight: 1500000
+    Sunset: 1400000
+    Victoria-Fraserview: 1400000
+    Killarney: 1500000
+    Marpole: 1600000
+  # Empty until catchments are supplied from official school records or manual review.
+  school_proxy:
+    # These are joined against official catchment names returned by the VSB /
+    # school-district adapter.  A missing school is UNKNOWN, never inferred
+    # from neighbourhood or a third-party ranking.
+    elementary: {}
+    secondary: {}
+  current_use_layout:
+    # sqft per advertised bedroom; 3–4 bedrooms remain the family sweet spot.
+    neutral_sqft_per_bedroom: 500
+    tight_sqft_per_bedroom: 450
+    low_sqft_per_bedroom: 400
+    severe_sqft_per_bedroom: 350
+    # Zero means 5+ bedrooms are not rewarded, while density still governs
+    # whether the layout is penalized.
+    five_plus_bed_penalty: 0
+  road_tokens:
+    extreme:
+      - direct highway exposure
+      - highway adjacency
+      - highway noise
+      - railway adjacency
+      - extreme truck corridor
+    major:
+      - boundary road
+      - knight street
+      - kingsway
+      - nanaimo street
+      - marine drive
+      - victoria drive
+      - major arterial
+      - truck route
+    arterial:
+      - e 41st avenue
+      - w 41st avenue
+      - e 49th avenue
+      - w 49th avenue
+      - king edward avenue
+      - e 12th avenue
+      - w 12th avenue
+      - broadway
+      - hastings street
+      - arterial road
+      - direct arterial exposure
+      - commercial frontage
+      - heavy bus route
+    collector:
+      - collector road
+      - moderately busy local road
+
+# Full-portfolio report policy.  This is reporting metadata and does not
+# change the existing score engine.  Missing data is surfaced for review, not
+# converted into a negative score.
+portfolio_report:
+  research_as_of: '2026-09-07'
+  standard_lot_width_ft: 33
+  standard_lot_depth_ft: 122
+  standard_lot_area_sqft: 4026
+  standard_house_sqft: 1700
+  road_discount_mode: USER_APPROVED_PRIOR
+  data_completeness_affects_score: false
+  unknown_value_policy: SHOW_UNKNOWN
+  rule_registry: config/vancouver-zoning-rules-2026-09-07.yaml
+
+# Location Provider V2.1.  This section is an enrichment configuration only;
+# it is deliberately not read by the production Current Use/Redevelopment/
+# Dual Value ranking until the provider benchmark and stability audits pass.
+location_providers:
+  enabled: true
+  model_name: FAMILY_DETACHED_WALK_SCORE
+  model_version: '1.0'
+  cache_path: data/research/history/location-provider-snapshots.jsonl
+  cache_ttl_days: 180
+  output_dir: research/location-provider
+  walk_score:
+    enabled: true
+    api_key_env: WALK_SCORE_API_KEY
+    endpoint: https://api.walkscore.com/score

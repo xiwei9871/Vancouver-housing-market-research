@@ -1,0 +1,79 @@
+allowed_domains:
+  - realtor.ca
+  - zolo.ca
+
+budget:
+  target_min: 2500
+  target_max: 3000
+  stretch_max: 3300
+
+target_cities:
+  - Richmond
+  - Vancouver
+  - Burnaby
+
+target_layout:
+  min_bedrooms: 2
+  preferred_bathrooms: 2
+  acceptable_bathrooms: 1
+
+transit:
+  strong_minutes: 10
+  acceptable_minutes: 15
+
+regions:
+  preferred:
+    - Richmond City Centre
+    - Brighouse
+    - Lansdowne
+    - Aberdeen
+    - West Cambie
+  acceptable:
+    - Marine Gateway
+    - Cambie
+    - Oakridge
+    - Metrotown
+    - Edmonds
+    - Brentwood
+  opportunity:
+    - Downtown
+    - Yaletown
+    - Olympic Village
+    - Mount Pleasant
+
+amenities:
+  preferred:
+    - elevator
+    - in-suite laundry
+    - gym
+    - pool
+    - concierge
+    - amenity room
+    - parking
+
+collectors:
+  snapshot:
+    enabled: true
+    input_dirs:
+      - data/rentals/snapshots
+    allowed_domains:
+      - realtor.ca
+      - zolo.ca
+
+monitoring:
+  max_age_days: 7
+  required_collectors:
+    - snapshot
+  require_each_input_dir: true
+  alert_dir: outputs/alerts
+
+storage:
+  sqlite_path: outputs/rental_watchdog.sqlite
+
+report:
+  weekly_output: outputs/rental_weekly_report.zh.md
+
+notifiers:
+  openclaw:
+    route: rental_watchdog
+    action: send_weekly_report

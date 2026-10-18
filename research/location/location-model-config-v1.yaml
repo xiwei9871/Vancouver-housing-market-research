@@ -1,0 +1,35 @@
+schema_version: location-model-config-v1
+research_only: true
+school_weights:
+  elementary: 0.65
+  secondary: 0.35
+school_prior_cad:
+  A+: 200000
+  A: 170000
+  A-: 150000
+  B+: 120000
+  B: 90000
+  B-: 50000
+  C+_or_below: 0
+matched_pair:
+  date_window_days: 183
+  lot_tolerance_pct: 0.1
+  frontage_tolerance_pct: 0.15
+  living_area_tolerance_pct: 0.2
+  year_built_tolerance_years: 25
+hedonic:
+  minimum_rows: 20
+  dependent_variable: log(sold_price)
+  time_fixed_effect: sale_month
+benchmarks:
+- 2876 W 18th Avenue
+- 3974 W 10th Avenue
+- 333 E 13th Avenue
+- 486 E King Edward Avenue
+- 4561 Nanaimo Street
+automatic_application:
+  allowed_confidence:
+  - HIGH
+  - MEDIUM
+  prior_only: not applied
+  low_or_unknown: not applied

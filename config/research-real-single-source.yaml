@@ -1,0 +1,164 @@
+extends: config/research-mls-first.yaml
+
+schema_version: research-v1-real-single-source
+
+coverage_gaps:
+  - This profile uses one bounded REALTOR.ca public capture for real-data pipeline testing.
+  - Official Stage 2 enrichment is enabled for BC Assessment, municipal zoning, City of Vancouver road geometry, VSB catchment boundaries, and registered-sales history; unresolved municipality-specific endpoints still enter the verification queue.
+  - REALTOR.ca status/history remains a dated public-page observation; the current sold price, title tenure, approved use, and permit checks may still require manual follow-up. Road distance is an official street-centerline estimate, not a survey measurement.
+  - Values in the capture are observations from public listing pages, not an entitlement or government record.
+
+market_buckets:
+  vancouver_west:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Point Grey
+      - Kitsilano
+      - Dunbar
+      - Kerrisdale
+      - Arbutus
+      - Cambie
+      - Riley Park
+      - Oakridge
+      - Shaughnessy
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  vancouver_east_burnaby_edge:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Renfrew
+      - Renfrew-Collingwood
+      - Collingwood
+      - Killarney
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  vancouver_east:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Mount Pleasant
+      - Grandview-Woodland
+      - Renfrew
+      - Nanaimo
+      - Renfrew-Collingwood
+      - Collingwood
+      - Kensington
+      - Kensington-Cedar Cottage
+      - Knight
+      - Hastings-Sunrise
+      - South Vancouver
+      - Killarney
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  vancouver_value:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Fairview
+      - Marpole
+      - Sunset
+      - Victoria-Fraserview
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  west_vancouver:
+    municipality: District of West Vancouver
+    neighbourhoods:
+      - Ambleside
+      - Dundarave
+      - British Properties
+      - Sentinel Hill
+      - Caulfeild
+      - Horseshoe Bay
+      - Bayridge
+      - Westmount
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  district_north_vancouver:
+    municipality: District of North Vancouver
+    neighbourhoods:
+      - Upper Lynn
+      - Central Lynn
+      - Lynn Valley
+      - Canyon Heights
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  city_north_vancouver:
+    municipality: City of North Vancouver
+    neighbourhoods: []
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  burnaby_north:
+    municipality: City of Burnaby
+    neighbourhoods:
+      - Westridge
+      - Sperling-Duthie
+      - Capitol Hill
+      - Willingdon Heights
+      - Brentwood Park
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  burnaby_south:
+    municipality: City of Burnaby
+    neighbourhoods:
+      - Garden Village
+      - Metrotown
+      - Patterson
+      - South Slope
+      - Royal Oak
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+
+research_policy:
+  hard_price_range: true
+  allow_out_of_range_special_triggers: false
+  primary_asset_classes:
+    - DETACHED_HOUSE
+  supplementary_asset_classes:
+    - DUPLEX
+  excluded_asset_classes:
+    - STRATA_DUPLEX
+    - MULTIPLEX
+    - NON_TARGET
+  standard_redevelopment_min_lot_area_sqft: 3000
+  standard_redevelopment_min_frontage_ft: 33
+  standard_redevelopment_min_depth_ft: 100
+  house_rebuild_only_buckets:
+    - vancouver_west
+  exclude_steep_lots: true
+  current_house_minimums:
+    bedrooms: 2
+    bathrooms: 1
+    finished_sqft: 1250
+  major_road_discount_threshold: 0.15
+  major_road_distance_threshold_m: 50
+
+storage:
+  sqlite_path: outputs/research_real_single_source.sqlite
+
+reports:
+  weekly_dir: reports/weekly-real-single-source
+  latest_path: reports/latest-real-single-source.md
+
+acquisition:
+  strategy: REAL_DATA_SINGLE_SOURCE_PROVISIONAL
+  allow_single_source_provisional: true
+  sources:
+    - name: realtor-ca-real-capture
+      type: LOCAL_JSON
+      path: data/research/inputs/realtor_ca_real_capture_2026-09-01.json
+      source_type: MLS
+      source_role: REALTOR_CA_PUBLIC
+      source_registry_id: source:realtor-ca-public
+      source_url: https://www.realtor.ca/bc/greater-vancouver/single-family-homes-for-sale
+      access_method: manual_web_capture
+      authorization_status: NOT_APPLICABLE
+      evidence_status: CONFIRMED
+      source_version: public-page-visible-capture-2026-09-01
+      coverage_complete: false
+      enabled: true
+
+enrichment:
+  providers: []
+
+comparables:
+  sources: []
+  source_path: null
+  allow_single_source_provisional: true

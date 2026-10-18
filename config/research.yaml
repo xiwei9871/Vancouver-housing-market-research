@@ -1,0 +1,401 @@
+schema_version: research-v1
+timezone: Asia/Shanghai
+
+market_buckets:
+  vancouver_west:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Point Grey
+      - Kitsilano
+      - Dunbar
+      - Kerrisdale
+      - Arbutus
+      - Cambie
+      - Riley Park
+      - Oakridge
+      - Shaughnessy
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  vancouver_east:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Mount Pleasant
+      - Grandview-Woodland
+      - Renfrew
+      - Nanaimo
+      - Renfrew-Collingwood
+      - Collingwood
+      - Kensington
+      - Kensington-Cedar Cottage
+      - Knight
+      - Hastings-Sunrise
+      - South Vancouver
+      - Killarney
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  vancouver_value:
+    municipality: City of Vancouver
+    neighbourhoods:
+      - Fairview
+      - Marpole
+      - Sunset
+      - Victoria-Fraserview
+      - Oakridge
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  city_north_vancouver:
+    municipality: City of North Vancouver
+    neighbourhoods:
+      - Central Lonsdale
+      - Upper Lonsdale
+      - Queensbury
+      - Grand Boulevard
+      - Moodyville
+      - Pemberton Heights
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  district_north_vancouver:
+    municipality: District of North Vancouver
+    neighbourhoods:
+      - Edgemont
+      - Capilano
+      - Lynn Valley
+      - Seymour
+      - Deep Cove
+      - Blueridge
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+  west_vancouver:
+    municipality: District of West Vancouver
+    neighbourhoods:
+      - Ambleside
+      - Dundarave
+      - British Properties
+      - Sentinel Hill
+      - Caulfeild
+      - Horseshoe Bay
+      - Bayridge
+      - Westmount
+    core_range: [1500000, 2000000]
+    extended_range: [1500000, 2000000]
+  burnaby_north:
+    municipality: City of Burnaby
+    neighbourhoods:
+      - Westridge
+      - Sperling-Duthie
+      - Capitol Hill
+      - Willingdon Heights
+      - Brentwood Park
+    core_range: [1000000, 1600000]
+    extended_range: [1000000, 1600000]
+
+geometry:
+  vancouver_proper:
+    lot_area_sqft_bands:
+      small: [0, 2999]
+      below_standard: [3000, 3699]
+      standard: [3700, 4199]
+      good: [4200, 4999]
+      excellent: [5000, 5999]
+      large: [6000, 7999]
+      development: [8000, 999999]
+    frontage_bands_ft:
+      weak: [0, 29.99]
+      usable: [30, 32.99]
+      standard: [33, 34.99]
+      good: [35, 39.99]
+      very_good: [40, 43.99]
+      strong: [44, 49.99]
+      very_strong: [50, 999]
+    depth_bands_ft:
+      constrained: [0, 89.99]
+      general: [90, 104.99]
+      usable: [105, 114.99]
+      very_good: [115, 125]
+      extended: [125.01, 999]
+  municipality_percentiles_required:
+    - City of North Vancouver
+    - District of North Vancouver
+    - District of West Vancouver
+  lot_area_score:
+    fail_below_sqft: 3000
+    pass_sqft: 4000
+    full_score_sqft: 6000
+
+road_exposure:
+  distance_levels_m:
+    direct_fronting: 0
+    level_4_max: 50
+    level_3_max: 100
+    level_2_max: 200
+  classes:
+    A: Highway/freeway/railway or extreme truck corridor
+    B: Major arterial or major truck route
+    C: Secondary arterial
+    D: Collector or moderately busy local road
+    E: Quiet residential street
+
+zoning:
+  threshold_tolerance_m: 0.05
+
+defects:
+  permanent:
+    - highway
+    - truck route
+    - railway
+    - powerline
+    - airport noise
+    - industrial adjacency
+    - steep terrain
+    - flood risk
+    - title defect
+    - major arterial frontage
+  fixable:
+    - kitchen
+    - bathroom
+    - paint
+    - floor
+    - lighting
+    - roof
+    - HVAC
+    - electrical
+    - plumbing
+    - unfinished basement
+
+renovation:
+  estimates:
+    good: [70000, 120000]
+    normal: [120000, 180000]
+    old_systems: [180000, 250000]
+  rebuild_compare_threshold: 250000
+  future_demolition_penalty_threshold: 300000
+  user_strategy:
+    planned_budget: [30000, 50000]
+    baseline_hold_years: 5
+    allowed_work:
+      - heating
+      - paint
+      - flooring
+      - cabinets
+      - closets
+      - lighting_fixtures
+    disqualifying_work:
+      - major_wall_relocation
+      - major_electrical_rewire
+      - major_plumbing_replacement
+      - foundation
+      - structural_repair
+      - major_drainage
+      - major_sewer
+
+redevelopment:
+  hard_cost_per_sqft: [450, 550]
+  soft_cost_pct_of_hard: 0.20
+  developer_specific_cost_pct_of_hard: 0.10
+  contingency_pct_of_hard: 0.10
+  saleable_efficiency: 0.90
+  family_duplex_unit_size_sqft: [1250, 1800]
+  scenario_unit_range: [2, 3, 4, 5, 6]
+  realistic_efficiency: 0.82
+  floor_to_floor_height: 10
+  minimum_owner_uplift: 500000
+  minimum_project_profit: 500000
+  financing_mode: FINANCING_NOT_MODELED
+  developer_profit_hurdle_pct: 0.15
+  resale_price_per_sqft: 950
+  project_costs:
+    purchase_closing_pct: 0.0
+    selling_cost_pct: 0.03
+    gst_tax_pct: 0.0
+  rules:
+    "City of Vancouver:R1-1":
+      bylaw_version: "local-fixture-rule-v1"
+      maximum_fsr: 1.0
+      maximum_units: 6
+      duplex_permitted: true
+      multiplex_permitted: true
+    "City of North Vancouver:GO":
+      bylaw_version: "local-fixture-rule-v1"
+      maximum_fsr: 1.0
+      maximum_units: 4
+      duplex_permitted: true
+      multiplex_permitted: true
+    "District of North Vancouver:RS-2":
+      bylaw_version: "local-fixture-rule-v1"
+      maximum_fsr: 0.6
+      maximum_units: 2
+      duplex_permitted: true
+      multiplex_permitted: false
+
+scoring:
+  version: research-v1
+  unknown_points_ratio: 0.5
+  dimension_weights:
+    land_lot_title: 20
+    price_safety_margin: 15
+    current_house_utility: 15
+    family_location_noise: 10
+    school: 10
+    redevelopment_option_value: 20
+    resale_affordability: 5
+    carrying_cost_risk: 5
+  confidence_thresholds:
+    high: 85
+    medium: 70
+  candidate_thresholds:
+    a_min: 80
+    b_min: 70
+    c_min: 60
+    confidence_gate: 80
+    needs_verification: 70
+
+research_policy:
+  hard_price_range: true
+  allow_out_of_range_special_triggers: false
+  primary_asset_classes:
+    - DETACHED_HOUSE
+  supplementary_asset_classes:
+    - DUPLEX
+  excluded_asset_classes:
+    - STRATA_DUPLEX
+    - MULTIPLEX
+    - NON_TARGET
+  standard_redevelopment_min_lot_area_sqft: 3000
+  standard_redevelopment_min_frontage_ft: 33
+  standard_redevelopment_min_depth_ft: 100
+  house_rebuild_only_buckets:
+    - vancouver_west
+  exclude_steep_lots: true
+  current_house_minimums:
+    bedrooms: 2
+    bathrooms: 1
+    finished_sqft: 1250
+  major_road_discount_threshold: 0.15
+  major_road_distance_threshold_m: 50
+
+confidence_points:
+  official_pid_confirmed: 15
+  ownership_confirmed: 15
+  official_assessment: 10
+  lot_dimensions_confirmed: 10
+  official_zoning: 10
+  approved_use_confirmed: 10
+  listing_history_confirmed: 10
+  sold_history_cross_checked: 10
+  official_school_catchment: 5
+  road_location_verified: 5
+
+sources:
+  allowed_types:
+    - OFFICIAL_GOV
+    - BC_ASSESSMENT
+    - MLS
+    - VOW
+    - AGGREGATOR
+    - MANUAL
+
+cases:
+  manifest_path: data/research/cases/phase1_cases.yaml
+
+storage:
+  sqlite_path: outputs/research_watchdog.sqlite
+
+reports:
+  weekly_dir: reports/weekly
+  phase1_dir: reports/phase1
+  latest_path: reports/latest.md
+
+source_policy:
+  remote_default_enabled: false
+  remote_requires_authorization: true
+
+coverage_gaps:
+  - Default Phase 2–5 inputs are local validation fixtures, not a current market feed.
+  - PID/title and municipal approved-use records require an authorized or manual official-record lookup.
+  - Sold comparable rows must be replaced with independently cross-checked transaction data before acquisition decisions.
+
+source_registry_path: data/research/sources/phase2_source_registry.yaml
+
+acquisition:
+  strategy: MLS_FIRST_PUBLIC_CROSS_CHECK
+  allow_single_source_provisional: false
+  provisional_source_roles:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+  priority_order:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+    - LEGACY_FIXTURE
+  primary_source_roles:
+    - MLS_PRIMARY
+  sources:
+    - name: phase2-local-listings
+      type: LOCAL_JSON
+      path: data/research/sources/phase2_listings.json
+      source_type: MLS
+      source_role: LEGACY_FIXTURE
+      priority: 3
+      source_registry_id: source:phase2-local-listings
+      access_method: local_fixture
+      authorization_status: NOT_APPLICABLE
+      coverage_complete: true
+      enabled: true
+
+enrichment:
+  providers:
+    - name: phase2-assessments
+      type: JSON_MAPPING
+      path: data/research/sources/phase2_assessments.json
+      source_type: BC_ASSESSMENT
+      source_registry_id: source:phase2-assessments
+      enabled: true
+    - name: phase2-zoning
+      type: JSON_MAPPING
+      path: data/research/sources/phase2_zoning.json
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:phase2-zoning
+      enabled: true
+    - name: phase2-schools
+      type: JSON_MAPPING
+      path: data/research/sources/phase2_schools.json
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:phase2-schools
+      enabled: true
+    - name: phase2-roads
+      type: JSON_MAPPING
+      path: data/research/sources/phase2_roads.json
+      source_type: OFFICIAL_GOV
+      source_registry_id: source:phase2-roads
+      enabled: true
+    - name: phase2-history
+      type: JSON_MAPPING
+      path: data/research/sources/phase2_history.json
+      source_type: MLS
+      source_registry_id: source:phase2-history
+      enabled: true
+
+comparables:
+  allow_single_source_provisional: false
+  source_path: data/research/sources/phase2_comparables.json
+  source_registry_id: source:phase2-comparables
+  cross_check_source_registry_ids:
+    - source:phase2-comparables-primary
+    - source:phase2-comparables-secondary
+  min_reliable_comps: 5
+  lot_tolerance_pct: 0.20
+  primary_window_days: 180
+  fallback_window_days: 365
+  benchmark:
+    scope: same_municipality_neighbourhood_context
+    include_lot_outliers: true
+    require_cross_checked_for_relative_affordability: true
+  building_value_proxy:
+    method: assessment_improvement
+    value_per_sqft: null
+    value_per_sqft_by_condition: {}
+
+scheduler:
+  lock_path: outputs/research-weekly.lock
+  dry_run_default: false

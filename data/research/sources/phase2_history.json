@@ -1,0 +1,5 @@
+[
+  {"address": "4110 Burkeridge Place", "dom": 121, "cumulative_dom": 121, "original_asking": 1999000, "asking": 1799000, "relist_count": 1, "previous_listing_prices": [1999000], "source_url": "local://listing-history/4110-burkeridge"},
+  {"address": "1234 Knight Street", "dom": 102, "cumulative_dom": 102, "original_asking": 1599000, "asking": 1399000, "relist_count": 1, "previous_listing_prices": [1599000], "source_url": "local://listing-history/1234-knight"},
+  {"address": "532 W 23 Street", "dom": 60, "cumulative_dom": 60, "original_asking": 1598000, "asking": 1598000, "relist_count": 0, "source_url": "local://listing-history/532-w-23"}
+]

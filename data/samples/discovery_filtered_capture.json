@@ -1,0 +1,66 @@
+{
+  "source_name": "filtered-capture-replay",
+  "source_url": "https://listings.example/vancouver/detached",
+  "status_code": 200,
+  "result_count": 2,
+  "count_is_complete": true,
+  "applied_filters": {
+    "property_type": "Detached"
+  },
+  "applied_filter_evidence": {
+    "property_type": {
+      "present": true,
+      "label": "Detached house"
+    }
+  },
+  "detail_requests": 0,
+  "blocked": false,
+  "cards": [
+    {
+      "mls_number": "R3123456",
+      "address": "2145 East 33rd Avenue",
+      "municipality": "Vancouver",
+      "asking": 1688000,
+      "bedrooms": 4,
+      "bathrooms": 2,
+      "finished_sqft": 1850,
+      "lot_area_sqft": 3630,
+      "lot_dimensions": "33 x 110 ft",
+      "frontage_ft": 33,
+      "depth_ft": 110,
+      "property_type": "Detached House",
+      "ownership_type": "Freehold",
+      "listing_status": "Active",
+      "dom": 12,
+      "source_url": "https://listings.example/listing/R3123456",
+      "feed_url": "https://listings.example/vancouver/detached",
+      "reason_codes": [],
+      "raw": {
+        "capture_card_id": "fixture-card-1"
+      }
+    },
+    {
+      "mls_number": "R3123457",
+      "address": "4578 Fleming Street",
+      "municipality": "Vancouver",
+      "asking": 1499000,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "finished_sqft": 1375,
+      "lot_area_sqft": 3960,
+      "lot_dimensions": "33 x 120 ft",
+      "frontage_ft": 33,
+      "depth_ft": 120,
+      "property_type": "Detached House",
+      "ownership_type": "Freehold",
+      "listing_status": "Active",
+      "dom": 21,
+      "source_url": "https://listings.example/listing/R3123457",
+      "feed_url": "https://listings.example/vancouver/detached",
+      "reason_codes": [],
+      "raw": {
+        "capture_card_id": "fixture-card-2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+sources:
+  - source_registry_id: source:zolo-full-market
+    name: zolo-full-market
+    source_type: AGGREGATOR
+    source_role: ZOLO_PUBLIC
+    domain: zolo.ca
+    access_method: public_browser_read
+    authorization_status: NOT_APPLICABLE
+    evidence_status: UNCONFIRMED
+    reliability_notes: Public aggregator listing pages; use for discovery and provenance, not official title or assessment claims.
+    enabled: true
+  - source_registry_id: source:realtor-full-market
+    name: realtor-full-market
+    source_type: MLS
+    source_role: REALTOR_CA_PUBLIC
+    domain: realtor.ca
+    access_method: public_browser_read
+    authorization_status: NOT_APPLICABLE
+    evidence_status: UNCONFIRMED
+    reliability_notes: Public Realtor.ca listing pages; coverage is complete only when verified page advancement reaches natural exhaustion.
+    enabled: true

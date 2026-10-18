@@ -1,0 +1,183 @@
+budgets:
+  west_vancouver:
+    official_max: 1700000
+    watch_max: 1850000
+  north_vancouver:
+    official_max: 1500000
+    watch_max: 1650000
+
+target_cities:
+  - West Vancouver
+  - North Vancouver
+
+year_built:
+  core_min: 1970
+  core_max: 2000
+  backup_min: 1965
+  backup_max: 2005
+
+lot_size:
+  west_vancouver:
+    target: [6000, 9000]
+    risk_above: 10000
+    strong_downgrade_above: 12000
+  north_vancouver:
+    target: [4000, 7500]
+    risk_above: 8500
+
+frontage:
+  west_vancouver: 50
+  north_vancouver: 40
+
+regions:
+  west_vancouver:
+    preferred_region:
+      - Ambleside
+      - Sentinel Hill
+      - Cedardale
+      - Lower Dundarave
+      - Lower British Properties
+    acceptable_region:
+      - Dundarave
+      - Park Royal
+    downgraded_region:
+      - Upper British Properties
+      - Chartwell
+      - Whitby Estates
+      - Cypress
+      - Cypress Park
+      - Eagle Harbour
+      - Horseshoe Bay
+      - Caulfeild
+      - Westmount
+      - Altamont
+      - Skilift
+      - Chelsea Park
+    lifestyle_or_slope_region:
+      - creek
+      - ravine
+      - steep
+      - slope
+      - view estate
+  north_vancouver:
+    preferred_region:
+      - Central Lonsdale
+      - Upper Lonsdale
+      - Queensbury
+      - Moodyville
+      - Lynn Valley
+      - Princess Park
+      - Blueridge
+    acceptable_region:
+      - Grand Boulevard
+      - Boulevard
+      - Pemberton Heights
+    downgraded_region:
+      - Deep Cove
+      - Indian River
+      - Upper Delbrook
+      - Canyon Heights
+      - Grouse Woods
+      - Seymour
+    lifestyle_or_slope_region:
+      - high slope
+      - ravine
+      - creek
+
+risk_keywords:
+  - creek
+  - ravine
+  - steep
+  - slope
+  - geotechnical
+  - retaining wall
+  - landslide
+  - erosion
+  - water ingress
+  - foundation issue
+  - structural issue
+  - oil tank
+  - asbestos
+  - knob and tube
+  - aluminum wiring
+  - poly-b
+  - court ordered sale
+  - as is where is
+  - strata
+  - leasehold
+
+opportunity_keywords:
+  - original condition
+  - needs TLC
+  - handyman special
+  - renovate or rebuild
+  - estate sale
+  - vacant
+  - price reduced
+  - motivated seller
+
+scoring_weights:
+  assessment_discount: 25
+  location_liquidity: 20
+  livability: 20
+  land_regularness: 15
+  age_fit: 10
+  optionality: 5
+  seller_motivation: 5
+
+collectors:
+  email_alert:
+    enabled: true
+    input_dir: data/samples
+  search_page_snapshot:
+    enabled: true
+    input_dir: data/samples
+  public_page_detail:
+    enabled: false
+    max_requests_per_domain_per_day: 20
+    min_delay_seconds: 30
+    max_delay_seconds: 90
+    timeout_seconds: 10
+  official_feed_stub:
+    enabled: true
+    input_path: data/samples/official_feed_sample.json
+  third_party_api:
+    enabled: true
+    token_env: THIRD_PARTY_PROPERTY_API_TOKEN
+    mock_listings: []
+  manual_links:
+    enabled: false
+    links: []
+
+assessment:
+  input_path: data/samples/assessment_sample.csv
+
+storage:
+  sqlite_path: outputs/watchdog.sqlite
+
+notifiers:
+  feishu:
+    enabled: true
+    webhook_url_env: FEISHU_WEBHOOK_URL
+    secret_env: FEISHU_WEBHOOK_SECRET
+    timeout_seconds: 10
+  openclaw:
+    enabled: true
+    base_url_env: OPENCLAW_BASE_URL
+    api_key_env: OPENCLAW_API_KEY
+    route: property_watchdog
+    action: send_weekly_report
+    endpoint: /api/routes/dispatch
+    fallback_to_feishu: true
+    timeout_seconds: 15
+
+alert_thresholds:
+  normal_score: 70
+  daily_urgent_limit: 5
+
+report:
+  weekly_output: outputs/weekly_report.md
+  daily_output: outputs/daily_digest.md
+
+run:
+  send_notifications: false

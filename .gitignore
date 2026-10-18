@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+outputs/*.sqlite
+outputs/*.jsonl
+outputs/daily_digest.md
+.DS_Store
+.playwright-cli/
+
+# heavy reproducible artifacts — keep lightweight research inputs/annotations
+# and the watchlist in git; raw crawls and normalized enrichments regenerate
+outputs/
+data/research/raw/
+data/research/normalized/
+reports/

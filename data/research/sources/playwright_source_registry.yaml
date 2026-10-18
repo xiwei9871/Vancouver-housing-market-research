@@ -1,0 +1,34 @@
+schema_version: research-v1
+sources:
+  - source_registry_id: source:mls-primary
+    name: Direct MLS primary slot
+    source_type: MLS
+    source_role: MLS_PRIMARY
+    priority: 0
+    access_method: authorized_injected_transport_or_export
+    authorization_status: UNKNOWN
+    evidence_status: UNCONFIRMED
+    reliability_notes: Direct feed/export is a configured extension point and is disabled for this trial.
+    enabled: false
+  - source_registry_id: source:realtor-ca-public
+    name: REALTOR.ca rendered public listing snapshot
+    source_type: MLS
+    source_role: REALTOR_CA_PUBLIC
+    priority: 1
+    domain: www.realtor.ca
+    access_method: playwright_browser
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Bounded rendered-page observation for trial acquisition; public claims remain provisional and coverage is incomplete.
+    enabled: true
+  - source_registry_id: source:zolo-public
+    name: Zolo rendered public listing snapshot
+    source_type: AGGREGATOR
+    source_role: ZOLO_PUBLIC
+    priority: 2
+    domain: www.zolo.ca
+    access_method: playwright_browser
+    authorization_status: NOT_APPLICABLE
+    evidence_status: CONFIRMED
+    reliability_notes: Bounded rendered-page observation for trial acquisition; aggregator fields require manual verification.
+    enabled: true

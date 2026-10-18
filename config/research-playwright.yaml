@@ -1,0 +1,110 @@
+extends: config/research-mls-first.yaml
+
+schema_version: research-v1-playwright-trial
+
+coverage_gaps:
+  - This profile is a bounded browser-rendering trial, not a complete MLS or Greater Vancouver scan.
+  - The MLS_PRIMARY slot remains disabled; public pages remain provisional listing observations until manually verified.
+  - Official enrichment, sold-comparable expansion, and redevelopment scoring are intentionally disabled for this trial.
+
+source_registry_path: data/research/sources/playwright_source_registry.yaml
+
+storage:
+  sqlite_path: outputs/research_playwright.sqlite
+
+reports:
+  weekly_dir: reports/weekly-playwright
+  latest_path: reports/latest-playwright.md
+
+acquisition:
+  strategy: PLAYWRIGHT_PUBLIC_BOUNDED_TRIAL
+  allow_single_source_provisional: true
+  priority_order:
+    - MLS_PRIMARY
+    - REALTOR_CA_PUBLIC
+    - ZOLO_PUBLIC
+  primary_source_roles:
+    - MLS_PRIMARY
+  fallback_policy: RECORD_PRIMARY_UNAVAILABLE_AND_CONTINUE
+  sources:
+    - name: mls-primary
+      type: AUTHORIZED_JSON
+      source_type: MLS
+      source_role: MLS_PRIMARY
+      priority: 0
+      source_registry_id: source:mls-primary
+      access_method: authorized_injected_transport_or_export
+      authorization_status: UNKNOWN
+      enabled: false
+    - name: realtor-ca-playwright
+      type: PLAYWRIGHT_PUBLIC
+      source_type: MLS
+      source_role: REALTOR_CA_PUBLIC
+      priority: 1
+      source_registry_id: source:realtor-ca-public
+      source_url: https://www.realtor.ca/bc/vancouver/single-family-homes-for-sale
+      access_method: playwright_browser
+      authorization_status: NOT_APPLICABLE
+      source_version: browser-page-trial-2026-09-02
+      coverage_complete: false
+      respect_robots: true
+      allowed_domains:
+        - realtor.ca
+        - www.realtor.ca
+      raw_snapshot_dir: data/research/raw/browser-feeds/realtor-ca
+      max_requests_per_run: 1
+      max_pages_per_request: 1
+      timeout_seconds: 30
+      delay_seconds: 2
+      wait_until: domcontentloaded
+      capture_screenshot: true
+      browser: chromium
+      headless: true
+      locale: en-CA
+      user_agent: northshore-property-watchdog/0.1 (+bounded-read-only-browser-trial)
+      feed_requests:
+        - url: https://www.realtor.ca/bc/vancouver/single-family-homes-for-sale
+          method: GET
+          parser: public_html
+          max_pages_per_request: 1
+    - name: zolo-playwright
+      type: PLAYWRIGHT_PUBLIC
+      source_type: AGGREGATOR
+      source_role: ZOLO_PUBLIC
+      priority: 2
+      source_registry_id: source:zolo-public
+      source_url: https://www.zolo.ca/vancouver-real-estate/houses
+      access_method: playwright_browser
+      authorization_status: NOT_APPLICABLE
+      source_version: browser-page-trial-2026-09-02
+      coverage_complete: false
+      respect_robots: true
+      allowed_domains:
+        - zolo.ca
+        - www.zolo.ca
+      raw_snapshot_dir: data/research/raw/browser-feeds/zolo
+      max_requests_per_run: 1
+      max_pages_per_request: 1
+      timeout_seconds: 30
+      delay_seconds: 2
+      wait_until: domcontentloaded
+      capture_screenshot: true
+      browser: chromium
+      headless: true
+      locale: en-CA
+      user_agent: northshore-property-watchdog/0.1 (+bounded-read-only-browser-trial)
+      feed_requests:
+        - url: https://www.zolo.ca/vancouver-real-estate/houses
+          method: GET
+          parser: public_html
+          max_pages_per_request: 1
+
+official_enrichment:
+  enabled: false
+
+enrichment:
+  providers: []
+
+comparables:
+  sources: []
+  source_path: null

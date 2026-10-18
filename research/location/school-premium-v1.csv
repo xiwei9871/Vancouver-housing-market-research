@@ -1,0 +1,8 @@
+component,segment,value,applied_value,method,sample_size,confidence,automatic_rankable,source_ids,notes
+school,A+,200000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,A,170000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,A-,150000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,B+,120000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,B,90000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,B-,50000.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
+school,C+ or below,0.0,0.0,CONFIG_PRIOR,0,PRIOR_ONLY,false,,65% elementary / 35% secondary economic anchor; no matched-pair support in current local data.
