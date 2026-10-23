@@ -115,8 +115,12 @@ const table = document.getElementById('proptable');
 const tbody = table.querySelector('tbody');
 const dataRows = Array.from(tbody.querySelectorAll('tr'));
 let sortCol = -1, sortDir = 1;
-const cellVal = (row, i) =>
-    row.cells[i] ? row.cells[i].innerText.trim() : '';
+const cellVal = (row, i) => {
+    if (!row.cells[i]) return '';
+    const dv = row.cells[i].getAttribute('data-v');
+    return dv !== null && dv !== '' ? dv
+                                   : row.cells[i].innerText.trim();
+};
 function numOf(t) {
     const m = t.replace(/[$,%\\s]/g, '').match(/-?\\d+\\.?\\d*/);
     return m ? parseFloat(m[0]) : null;
@@ -239,6 +243,54 @@ def main():
     geo = {r["address"]: r for r in json.load(
         open(v.LISTING_JSON))["rows"]}
 
+    # ---- BCA assessment year + official values ----------------------
+    # property-tax roll: civic number + street name -> assessment year.
+    # Street names use short forms ("19TH AVE E"); a leading direction
+    # in the listing address ("614 E 19TH AVENUE") maps to a trailing
+    # suffix, while directional street names ("WEST BOULEVARD") stay.
+    DIR = {"E", "W", "N", "S", "EAST", "WEST", "NORTH", "SOUTH"}
+    TYPE_ABBR = {"AVENUE": "AVE", "STREET": "ST", "ROAD": "RD",
+                 "DRIVE": "DR", "CRESCENT": "CRES", "PLACE": "PL",
+                 "BOULEVARD": "BOULEVARD", "AVENUE E": "AVE E"}
+
+    def street_variants(street):
+        w = street.split()
+        out = {street, " ".join(TYPE_ABBR.get(t, t) for t in w)}
+        if w and w[0] in DIR:
+            d = w[0]
+            short = {"EAST": "E", "WEST": "W", "NORTH": "N",
+                     "SOUTH": "S"}.get(d, d)
+            rest = " ".join(TYPE_ABBR.get(t, t) for t in w[1:])
+            out.add(f"{rest} {short}")
+            out.add(f"{' '.join(w[1:])} {short}")
+        return out
+
+    tax_idx = {}
+    with open(ROOT / "data/research/raw/official/"
+              "property-tax-2026-full.csv", encoding="utf-8-sig") as f:
+        for t in csv.DictReader(f, delimiter=";"):
+            civ = (t.get("from_civic_number") or
+                   t.get("to_civic_number") or "").strip()
+            st = (t.get("street_name") or "").strip().upper()
+            if not civ or not st:
+                continue
+            key = f"{civ} {st}"
+            if key not in tax_idx:
+                tax_idx[key] = {
+                    "year": (t.get("tax_assessment_year") or "").strip(),
+                    "land": num_or_none(t.get("current_land_value")),
+                    "impr": num_or_none(t.get("current_improvement_value"))}
+
+    def tax_of(addr):
+        parts = addr.upper().split(None, 1)
+        if len(parts) != 2 or not parts[0][0].isdigit():
+            return None
+        for sv in street_variants(parts[1]):
+            hit = tax_idx.get(f"{parts[0]} {sv}")
+            if hit:
+                return hit
+        return None
+
     # ---- rebuild the exact V1.4.3 MAIN land pool for 社区均价 -------
     house_rows = list(csv.DictReader(
         open(v.V12 / "house_price_normalized_per_row.csv")))
@@ -317,8 +369,13 @@ def main():
                  ((k, s) for s in ("HOUSE", "DUPLEX", "MULTIPLEX"))
                  if k2 in roi] + [l["confidence"]]
         low = any("LOW" in c or "UNKNOWN" in c for c in confs)
+        tx = tax_of(k)
         rows.append({"k": k, "addr": k, "comm": comm, "band": band,
                      "zoning": l["zoning"], "asking": asking,
+                     "bca_t": num_or_none(g.get("bca")),
+                     "bca_l": num_or_none(g.get("bca_land")),
+                     "bca_yr": (tx or {}).get("year"),
+                     "bca_tax": tx,
                      "fair": fair, "disc": disc, "comm_avg": comm_avg,
                      "lot": float(l["lot_sqft"]) if l["lot_sqft"]
                      else None,
@@ -384,8 +441,7 @@ def main():
         "<h2>社区均价(土地主导旧房·age≥50·BCA土地占比≥95%·归一化2026-09)</h2>"
         "<div class='stat-note'>均价=该社区土地型成交池的归一化成交中位价"
         "(非当前挂牌价);$/sf 为土地单价中位;挂牌列为当前 ACTIVE 房源的"
-        " Ask 中位与均价之比。主表「社区均价」列取同社区×同面积段均价,"
-        "缺段时回退社区全段均价。</div>"
+        " Ask 中位与均价之比。</div>"
         "<table><tr><th>社区</th><th>土地型成交n</th><th>社区均价P50</th>"
         "<th>土地$/sf P50</th><th>lot P50</th><th>挂牌n</th>"
         "<th>挂牌Ask中位</th><th>Ask/均价</th><th>最优形态</th></tr>"
@@ -420,23 +476,39 @@ def main():
     for r in rows:
         cls = " class='best'" if r["roi"] is not None and r["roi"] >= 10 \
             else ""
-        ratio_avg = (f"{r['asking'] / r['comm_avg']:.2f}"
-                     if r["asking"] and r["comm_avg"] else "—")
         dc = "roi-pos" if (r["disc"] or 0) > 0 else "roi-neg"
+        disc_txt = "—" if r["disc"] is None else (
+            f"低于估值 {r['disc']:.1f}%" if r["disc"] > 0
+            else f"高于估值 {-r['disc']:.1f}%")
         best_txt = (f"<span class='roi-pos'>{r['roi']:.0f}% "
                     f"{r['best']}</span>") if r["roi"] is not None else "—"
         addr = (f'<a href="{html.escape(r["link"])}">'
                 f"{html.escape(r['addr'])}</a>"
                 if r["link"] else html.escape(r["addr"]))
+        # BCA 对照: two lines (total ratio / land ratio), hover detail
+        if r["bca_t"] or r["bca_l"]:
+            rt = f"{r['asking'] / r['bca_t']:.2f}" \
+                if r["asking"] and r["bca_t"] else "—"
+            rl = f"{r['asking'] / r['bca_l']:.2f}" \
+                if r["asking"] and r["bca_l"] else "—"
+            tip = (f"BCA总 {base.money(r['bca_t'])} · "
+                   f"BCA地 {base.money(r['bca_l'])}"
+                   + (f" · 评估年 {r['bca_yr']}" if r["bca_yr"]
+                      else " · 评估年未核"))
+            bca_td = (f"<td data-v='{rt if rt != '—' else ''}' "
+                      f"title='{tip}'>总 {rt}<br>"
+                      f"<span class='stat-note'>地 {rl}</span></td>")
+        else:
+            bca_td = "<td class='muted'>—</td>"
         body.append(
             f"<tr{cls}><td>{addr}<br><span class='stat-note'>"
             f"{r['band'] or ''}</span></td>"
             f"<td>{r['comm']}</td>"
             f"<td>{base.money(r['asking'])}</td>"
-            f"<td>{base.money(r['comm_avg'])}"
-            f"<br><span class='stat-note'>{ratio_avg}</span></td>"
+            + bca_td +
             f"<td>{base.money(r['fair'])}</td>"
-            f"<td class='{dc}'>{f'{r[chr(100)+chr(105)+chr(115)+chr(99)]:+.1f}%' if r['disc'] is not None else '—'}</td>"
+            f"<td data-v='{r['disc'] if r['disc'] is not None else ''}' "
+            f"class='{dc}'>{disc_txt}</td>"
             f"<td>{f'{r[chr(108)+chr(111)+chr(116)]:,.0f}' if r['lot'] else '—'}</td>"
             f"<td>{f'{r[chr(102)+chr(114)+chr(111)+chr(110)+chr(116)+chr(97)+chr(103)+chr(101)]:,.0f}' if r['frontage'] else '—'}</td>"
             f"<td>{r['zoning'] or '—'}</td>"
@@ -485,10 +557,10 @@ def main():
     head = ("<tr><th>地址<span class='arrow'></span></th>"
             "<th>社区<span class='arrow'></span></th>"
             "<th>挂牌<span class='arrow'></span></th>"
-            "<th>社区均价<br><span class='stat-note'>同段地型房</span>"
+            "<th>BCA对照<br><span class='stat-note'>Ask/总·地</span>"
             "<span class='arrow'></span></th>"
             "<th>合理地价<span class='arrow'></span></th>"
-            "<th>地价差<span class='arrow'></span></th>"
+            "<th>市场折价<span class='arrow'></span></th>"
             "<th>地块<span class='arrow'></span></th>"
             "<th>面宽<span class='arrow'></span></th>"
             "<th>zoning<span class='arrow'></span></th>"
@@ -548,12 +620,14 @@ Ask 折价、合法可建方案(V3s verified 几何)、个性化新房估售、
 <div id="mapview"><div id="map"></div></div>
 <div id="listview">
 <div class="sub">对象:224 套 ACTIVE HOUSE(真实 Ask,2026-10-20)。
-「社区均价」=同社区×同面积段土地主导旧房(age≥50·BCA土地≥95%)
-归一化成交中位——为买入参照,非建议出价。「合理地价」=逐房源
-可比匹配(MICRO_500M→COMM_LOTBAND→…→SIDE)。方案格:建面/估售/
-匹配单价层级/1y ROI/20%目标上限;不适用=法规不合,缺comps=
-合法但无可售证据。绿底行=最优 ROI≥10%。<b>表头点击排序;
-第二行筛选</b>(数值表达式 &gt;30 / &lt;0.8 / 20-30 可用)。
+「BCA对照」=Ask/BCA总估值(上)·Ask/BCA土地估值(下),悬停见
+BCA 总值/土地值/评估年——政府估值口径,与「合理地价」独立。
+「合理地价」=逐房源土地型旧房可比匹配(MICRO_500M→COMM_LOTBAND
+→…→SIDE)市场估值。「市场折价」=(合理地价−Ask)/合理地价:
+低于估值=正,高于估值=负,为买入性价比主指标。方案格:建面/
+估售/匹配单价层级/1y ROI/20%目标上限;不适用=法规不合,
+缺comps=合法但无可售证据。绿底行=最优 ROI≥10%。<b>表头点击
+排序;第二行筛选</b>(数值表达式 &gt;30 / &lt;0.8 / 20-30 可用)。
 当前显示 <b id="viscount">{len(rows)}</b> 行。</div>
 {hood_table}
 <table id="proptable"><thead>{head}</thead>
