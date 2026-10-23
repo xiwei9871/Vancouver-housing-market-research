@@ -329,6 +329,7 @@ def main():
                 has[s] = True
                 rois.append((float(rr["roi_development_1y"]), s))
                 cells[s] = {
+                    "assumptive": sc.get("status") == "ASSUMPTIVE_ZONING",
                     "build": float(sc["build_sqft"]),
                     "units": sc["units"],
                     "sale": float(rr["est_sale_today"]),
@@ -464,6 +465,9 @@ def main():
         return (
             f"<td>建面{c['build']:,.0f}sf"
             f"{'·' + c['units'] + '户' if c['units'] != '1' else ''}"
+            f"<span style='color:#b45309'>⚠法规假设</span>"
+            if c.get("assumptive") else ""
+        ) + (
             f"<br>估售{base.money(c['sale'])}"
             f"<br><span class='stat-note'>@"
             f"{f'${c[chr(112)+chr(115)+chr(102)]:,.0f}/sf' if c['psf'] else '—'}"

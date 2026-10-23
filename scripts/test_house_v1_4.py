@@ -144,10 +144,16 @@ def main():
 
     # T8 product separation: duplex/mpx rows only from verified scenarios;
     # strata-proxy flagged
+    # priced rows allowed only for VERIFIED or ASSUMPTIVE_ZONING
+    # scenarios (assumptive = hypothetical, not legal confirmation)
     check("t8_only_verified_priced",
           all(next(s for s in scen if s["listing"] == r["listing"]
-                   and s["scenario"] == r["scenario"])["verified"] == "True"
+                   and s["scenario"] == r["scenario"])["status"]
+              in ("VERIFIED", "ASSUMPTIVE_ZONING")
               for r in sale))
+    check("t8_assumptive_verified_col_false",
+          all(s["verified"] == "False"
+              for s in scen if s["status"] == "ASSUMPTIVE_ZONING"))
     check("t8_proxy_marked",
           all(r["psf_factor_kind"] in ("PROXY", "PROXY_UNITPX")
               for r in sale

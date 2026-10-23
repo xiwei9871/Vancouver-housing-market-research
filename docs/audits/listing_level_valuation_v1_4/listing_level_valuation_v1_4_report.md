@@ -58,14 +58,32 @@ HIGH_CONFIDENCE。guard 修正前后差异见
 
 | 房源 | 前层级 | 前$/sf | 前估值 | 后层级 | 后$/sf | 后估值 |
 |---|---|---|---|---|---|---|
-| 3151 HEATHER STREET | COMM_ANY | $445.8/sf | $936,259 | NEARBY_COMM_1.5KM_ADJ | $682.7/sf | $1,433,706 |
+| 3466 E 2ND AVENUE | MICRO_500M | $142.8/sf | $876,679 | COMM_LOTBAND | $293.9/sf | $1,803,740 |
+| 3281 E 2ND AVENUE | COMM_ADJ_BAND | $157.7/sf | $788,414 | COMM_LOTBAND | $327.6/sf | $1,637,942 |
+| 3939 BOUNDARY ROAD | MICRO_500M | $146.2/sf | $912,440 | COMM_LOTBAND | $288.8/sf | $1,802,838 |
+| 817 W 64TH AVENUE | COMM_ANY | $179.1/sf | $644,094 | COMM_LOTBAND | $429.0/sf | $1,542,962 |
+| 1534 W 71ST AVENUE | COMM_ANY | $179.1/sf | $709,233 | COMM_LOTBAND | $429.0/sf | $1,698,674 |
+| 3151 HEATHER STREET | COMM_ANY | $439.7/sf | $923,314 | NEARBY_COMM_1.5KM_ADJ | $682.7/sf | $1,433,706 |
+| 1861 E KENT AVENUE NORTH | MICRO_500M | $84.8/sf | $557,594 | COMM_LOTBAND | $275.3/sf | $1,810,668 |
+
+**V1.4.3→V1.4.4 全量对照**(dims 纠正+细分 band+面积约束的合并
+效应):224 套中 119 套合理地价变化>5%或匹配层级变动;
+逐套 before/after 见 `land_v143_to_v144_diff.csv`(旧值用
+无 dims 池+V1.4.3 原始 band+无面积约束复现)。
 
 **P1 zoning 核验**:production verified 标志对空 zoning、C-*/CD/
 DEOD 也给出 VERIFIED——共 13 套 ['2284 E 45TH AVENUE', '2316 NANAIMO STREET', '2474 E 24TH AVENUE', '266 E 49TH AVENUE', '2733 E 28TH AVENUE', '3025 E 45TH AVENUE', '3135-3137 HEATHER STREET', '3151 HEATHER STREET', '4011 KAMLOOPS STREET', '4265 SLOCAN STREET', '522 E CORDOVA STREET', '5771 SHERBROOKE STREET', '912 E 57TH AVENUE']。
 修正:residential zoning 门(R*/F*),不通过者状态
 `ASSUMPTIVE_ZONING` + flag `ZONING_UNVERIFIED_ASSUMED_RESI`;
-假设测算保留,但不再显示已核实合法,ROI 行带 zoning_caveat。
-V3s 生产代码零修改。
+假设测算保留,但 `verified` 输出列写 False(`verified_raw`
+保留原始标志仅供溯源),不再显示已核实合法,ROI 行带
+zoning_caveat。V3s 生产代码零修改。
+
+**冻结输入与报错**:BCA 尺寸证据以脱敏冻结文件
+`lot_dims_frozen_input.csv`(pid+sale_date+lot+frontage+depth,
+无地址)随仓库提交;加载顺序 冻结文件→raw enriched-spatial
+json(存在则重建冻结文件)→ 两者都缺时 RuntimeError 报错,
+不再静默回退未核实 GIS 面积。
 
 **P2 MULTIPLEX 售价**:228 条 MULTIPLEX_UNIT 代理成交单位价有、
 floor area 全缺(fa=''),原被整体过滤导致 105 条 MPX 全 BLOCKED。

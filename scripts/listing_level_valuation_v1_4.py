@@ -57,6 +57,9 @@ LOT_BANDS = ((2500, 3000), (3000, 4000), (4000, 5000), (5000, 6000),
 # like-for-like evidence inside a size window around the target lot.
 # Prevents 10k-35k sf assembly parcels from repricing a standard lot.
 LOT_RATIO_OK = (0.6, 1.67)
+# pre-fix banding kept only to reproduce V1.4.3 values for the diff
+LOT_BANDS_LEGACY = ((2500, 3000), (3000, 4000), (4000, 5000),
+                    (5000, 6000), (6000, math.inf))
 MARKET_SCEN = (-0.20, -0.10, 0.0, 0.10, 0.20)
 
 # Listing feed hood labels -> archive community names. Assigned by
@@ -128,8 +131,8 @@ def hav_km(a_lat, a_lng, b_lat, b_lng):
     return 2 * R * math.asin(math.sqrt(h))
 
 
-def lot_band(lot):
-    for i, (lo, hi) in enumerate(LOT_BANDS):
+def lot_band(lot, bands=LOT_BANDS):
+    for i, (lo, hi) in enumerate(bands):
         if lo <= lot < hi:
             return i
     return None
@@ -192,31 +195,57 @@ def tax_share(tax_pid, sale_year):
 # ========================================================= Module A pools
 LOT_DIMS_PATH = ROOT / ("data/research/raw/location/"
                         "bca-arcgis-sales-2026-09-06-enriched-spatial.json")
+LOT_DIMS_FROZEN = DOCS / "lot_dims_frozen_input.csv"
 
 
 def load_lot_dims():
     """pid+sale_date -> BCA lot area from property-information
     dimensions (frontage x depth). This is the *legal* lot evidence;
     the raw ArcGIS parcel polygon (SHAPE_Area) is a different field
-    that can cover shared/ravine area and inflate lot ~2.3x."""
-    idx = {}
-    if not LOT_DIMS_PATH.exists():
-        return idx
-    d = json.load(open(LOT_DIMS_PATH))
-    rows = d if isinstance(d, list) else next(
-        (d[k] for k in ("sales", "results", "records", "features")
-         if k in d), [])
-    for r in rows:
-        if r.get("lot_area_source") != "BCA_PROPERTY_INFORMATION_DIMENSIONS":
-            continue
-        pid = (r.get("pid") or "").strip()
-        dt = (r.get("sale_date") or "")[:10]
-        if pid and dt and num(r.get("lot_area_sqft")):
-            idx[(pid, dt)] = {
+    that can cover shared/ravine area and inflate lot ~2.3x.
+
+    Resolution order (V1.4.4 closure): committed frozen input first;
+    otherwise regenerate it from the raw enriched-spatial json when
+    that local file exists. If neither is present this is a hard
+    error — silently falling back to unverified GIS parcel areas
+    would revert the entire land-valuation fix."""
+    if LOT_DIMS_FROZEN.exists():
+        return {(r["pid"].strip(), r["sale_date"][:10]): {
                 "lot": num(r["lot_area_sqft"]),
-                "frontage": num(r.get("frontage_ft")),
-                "depth": num(r.get("depth_ft"))}
-    return idx
+                "frontage": num(r["frontage_ft"]),
+                "depth": num(r["depth_ft"])}
+                for r in csv.DictReader(open(LOT_DIMS_FROZEN))}
+    if LOT_DIMS_PATH.exists():
+        idx = {}
+        d = json.load(open(LOT_DIMS_PATH))
+        rows = d if isinstance(d, list) else next(
+            (d[k] for k in ("sales", "results", "records", "features")
+             if k in d), [])
+        for r in rows:
+            if (r.get("lot_area_source")
+                    != "BCA_PROPERTY_INFORMATION_DIMENSIONS"):
+                continue
+            pid = (r.get("pid") or "").strip()
+            dt = (r.get("sale_date") or "")[:10]
+            if pid and dt and num(r.get("lot_area_sqft")):
+                idx[(pid, dt)] = {
+                    "lot": num(r["lot_area_sqft"]),
+                    "frontage": num(r.get("frontage_ft")),
+                    "depth": num(r.get("depth_ft"))}
+        # persist the desensitized frozen input (keys + dims only,
+        # no addresses) so future runs never need the raw json
+        wcsv(LOT_DIMS_FROZEN, [
+            {"pid": pid, "sale_date": dt, "lot_area_sqft": v["lot"],
+             "frontage_ft": v["frontage"] or "",
+             "depth_ft": v["depth"] or ""}
+            for (pid, dt), v in sorted(idx.items())],
+            fields=["pid", "sale_date", "lot_area_sqft",
+                    "frontage_ft", "depth_ft"])
+        return idx
+    raise RuntimeError(
+        "lot dims input missing: expected committed frozen input at "
+        f"{LOT_DIMS_FROZEN} or raw source at {LOT_DIMS_PATH}; "
+        "refusing to fall back to unverified GIS parcel areas")
 
 
 def build_land_pool(house_rows, arch, yb_map, tax, dims_idx=None):
@@ -318,14 +347,15 @@ def build_newbuild_pools(house_rows, proxy_rows, arch):
 
 
 # ====================================================== matching engines
-def match_land(t, pool, comm_psf, nearby_fix=True, lot_compat=True):
+def match_land(t, pool, comm_psf, nearby_fix=True, lot_compat=True,
+               bands=LOT_BANDS):
     """Waterfall; returns dict with level, comps, weighted psf stats.
     NEARBY_COMM adjustment converts a comp's land $/sf from its source
     community level to the target community level by multiplying with
     target_p50/source_p50 (V1.4.2 fix: previously inverted).
     V1.4.4: lot_compat gates comps to 0.6-1.67x target lot —
     set False only to reproduce the pre-fix behaviour for diff audits."""
-    tband = lot_band(t["lot_sqft"])
+    tband = lot_band(t["lot_sqft"], bands)
     cand_levels = []
 
     def same_comm(r):
@@ -340,16 +370,16 @@ def match_land(t, pool, comm_psf, nearby_fix=True, lot_compat=True):
             return False
         return LOT_RATIO_OK[0] <= r["lot"] / t["lot_sqft"] <= LOT_RATIO_OK[1]
 
-    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband
+    L = [r for r in pool if same_comm(r) and lot_band(r["lot"], bands) == tband
          and lot_ok(r)
          and (d := hav_km(t["lat"], t["lng"], r["lat"], r["lng"])) is not None
          and d <= 0.5]
     cand_levels.append(("MICRO_500M", L, 1.0))
-    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband
+    L = [r for r in pool if same_comm(r) and lot_band(r["lot"], bands) == tband
          and lot_ok(r)]
     cand_levels.append(("COMM_LOTBAND", L, 1.0))
     adj = {tband - 1, tband + 1} if tband is not None else set()
-    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) in adj
+    L = [r for r in pool if same_comm(r) and lot_band(r["lot"], bands) in adj
          and lot_ok(r)]
     cand_levels.append(("COMM_ADJ_BAND", L, 1.0))
     L = [r for r in pool if same_comm(r) and lot_ok(r)]
@@ -571,6 +601,15 @@ def main():
     dims_idx = load_lot_dims()
     land_pool, aux_pool, drops = build_land_pool(house_rows, arch,
                                                yb_map, tax, dims_idx)
+    # V1.4.3 reproduction for the full before/after table: same pool
+    # WITHOUT the dims correction, matched with the legacy bands and
+    # no lot-compat guard (V1.4.2 alias fix and NEARBY direction were
+    # already in place at V1.4.3, so they stay on)
+    pre_pool, _, _ = build_land_pool(house_rows, arch, yb_map, tax,
+                                     dims_idx={})
+    comm_psf_pre = {c: pct([r["land_psf"] for r in pre_pool
+                            if r["community"] == c and r["land_psf"]], 50)
+                    for c in {r["community"] for r in pre_pool}}
     wcsv(DOCS / "land_pool_lot_audit.csv", [
         {"tx": r["tx"], "address": r.get("address"),
          "community": r["community"], "date": r["date"],
@@ -664,10 +703,33 @@ def main():
     newbuild_diff = []
     lot_fix_diff = []
     prob_comp = []
+    v143_diff = []
     for t in tlist:
         # ---- land valuation
         m = match_land(t, land_pool, comm_psf)
-        # V1.4.4 diff audit: same matching without the lot-compat guard
+        # V1.4.4 diff audits: (a) full V1.4.3 -> V1.4.4 effect on the
+        # corrected+dims pool vs legacy pool/bands/no guard;
+        # (b) isolated effect of the lot-compat guard on today's pool
+        m_pre43 = match_land(t, pre_pool, comm_psf_pre,
+                             lot_compat=False, bands=LOT_BANDS_LEGACY)
+        fair43 = (m_pre43["p50"] or 0) * t["lot_sqft"] \
+            if m_pre43["p50"] else None
+        fair44 = (m["p50"] or 0) * t["lot_sqft"] if m["p50"] else None
+        v143_diff.append({
+            "listing": t["listing"], "hood_comm": t["hood_comm"],
+            "lot_sqft": t["lot_sqft"],
+            "level_v143": m_pre43["level"], "level_v144": m["level"],
+            "psf_v143": round(m_pre43["p50"], 1)
+            if m_pre43["p50"] else "",
+            "psf_v144": round(m["p50"], 1) if m["p50"] else "",
+            "fair_v143": round(fair43) if fair43 else "",
+            "fair_v144": round(fair44) if fair44 else "",
+            "delta_cad": round(fair44 - fair43)
+            if fair43 and fair44 else "",
+            "changed": "" if (fair43 and fair44 and
+                              abs(fair44 / fair43 - 1) <= 0.05
+                              and m_pre43["level"] == m["level"])
+            else "CHANGED"})
         m_pre = match_land(t, land_pool, comm_psf, lot_compat=False)
         if m_pre["p50"] and m["p50"] and (
                 m_pre["level"] != m["level"]
@@ -804,7 +866,13 @@ def main():
                 "zoning": t["zoning"], "fsr": s["fsr"],
                 "build_sqft": s["build_sqft"],
                 "net_saleable": s["net_saleable"], "units": s["units"],
-                "eligible": s["eligible"], "verified": s["verified"],
+                "eligible": s["eligible"],
+                # effective legality: verified AND residential zoning.
+                # verified_raw keeps the production flag verbatim —
+                # downstream must not read it as legal confirmation
+                "verified": "True" if (s["verified"] and resi)
+                else "False",
+                "verified_raw": "True" if s["verified"] else "False",
                 "status": status,
                 "zone_flags": ";".join(zflags)})
             if not s["verified"]:
@@ -936,6 +1004,13 @@ def main():
                  "psf_before", "psf_after",
                  "est_sale_before", "est_sale_after",
                  "roi_1y_before", "roi_1y_after"])
+    wcsv(DOCS / "land_v143_to_v144_diff.csv",
+         sorted(v143_diff, key=lambda r: -(abs(r["delta_cad"])
+                if isinstance(r["delta_cad"], (int, float)) else 0)),
+         fields=["listing", "hood_comm", "lot_sqft",
+                 "level_v143", "level_v144",
+                 "psf_v143", "psf_v144",
+                 "fair_v143", "fair_v144", "delta_cad", "changed"])
     wcsv(DOCS / "land_lot_compat_fix_diff.csv", lot_fix_diff,
          fields=["listing", "hood_comm", "lot_sqft",
                  "level_before", "level_after",
@@ -1056,15 +1131,21 @@ def main():
     mpx_priced = sum(1 for r in sale_rows
                      if r["scenario"] == "MULTIPLEX"
                      and r["sale_value_today"])
+    n_changed143 = sum(1 for r in v143_diff if r["changed"] == "CHANGED")
     prob_rows = []
     for addr in ("3466 E 2ND AVENUE", "3281 E 2ND AVENUE",
-                 "3151 HEATHER STREET", "1861 E KENT AVENUE NORTH"):
-        d = next((r for r in lot_fix_diff if r["listing"] == addr), None)
+                 "3939 BOUNDARY ROAD", "817 W 64TH AVENUE",
+                 "1534 W 71ST AVENUE", "3151 HEATHER STREET",
+                 "1861 E KENT AVENUE NORTH"):
+        d = next((r for r in v143_diff if r["listing"] == addr), None)
         if d:
+            p43 = f"${d['psf_v143']}/sf" if d["psf_v143"] != "" else "—"
+            p44 = f"${d['psf_v144']}/sf" if d["psf_v144"] != "" else "—"
+            f43 = f"${d['fair_v143']:,}" if d["fair_v143"] != "" else "—"
+            f44 = f"${d['fair_v144']:,}" if d["fair_v144"] != "" else "—"
             prob_rows.append(
-                f"| {addr} | {d['level_before']} | ${d['psf_before']}/sf "
-                f"| ${d['fair_before']:,} | {d['level_after']} | "
-                f"${d['psf_after']}/sf | ${d['fair_after']:,} |")
+                f"| {addr} | {d['level_v143']} | {p43} | {f43} | "
+                f"{d['level_v144']} | {p44} | {f44} |")
     prob_tbl = ("\n".join(prob_rows) if prob_rows else "| — | | | | | | |")
 
     rep = f"""# Listing-Level Valuation V1.4 — 报告
@@ -1129,12 +1210,24 @@ HIGH_CONFIDENCE。guard 修正前后差异见
 |---|---|---|---|---|---|---|
 {prob_tbl}
 
+**V1.4.3→V1.4.4 全量对照**(dims 纠正+细分 band+面积约束的合并
+效应):224 套中 {n_changed143} 套合理地价变化>5%或匹配层级变动;
+逐套 before/after 见 `land_v143_to_v144_diff.csv`(旧值用
+无 dims 池+V1.4.3 原始 band+无面积约束复现)。
+
 **P1 zoning 核验**:production verified 标志对空 zoning、C-*/CD/
 DEOD 也给出 VERIFIED——共 {len(za_list)} 套 {za_list}。
 修正:residential zoning 门(R*/F*),不通过者状态
 `ASSUMPTIVE_ZONING` + flag `ZONING_UNVERIFIED_ASSUMED_RESI`;
-假设测算保留,但不再显示已核实合法,ROI 行带 zoning_caveat。
-V3s 生产代码零修改。
+假设测算保留,但 `verified` 输出列写 False(`verified_raw`
+保留原始标志仅供溯源),不再显示已核实合法,ROI 行带
+zoning_caveat。V3s 生产代码零修改。
+
+**冻结输入与报错**:BCA 尺寸证据以脱敏冻结文件
+`lot_dims_frozen_input.csv`(pid+sale_date+lot+frontage+depth,
+无地址)随仓库提交;加载顺序 冻结文件→raw enriched-spatial
+json(存在则重建冻结文件)→ 两者都缺时 RuntimeError 报错,
+不再静默回退未核实 GIS 面积。
 
 **P2 MULTIPLEX 售价**:228 条 MULTIPLEX_UNIT 代理成交单位价有、
 floor area 全缺(fa=''),原被整体过滤导致 105 条 MPX 全 BLOCKED。
