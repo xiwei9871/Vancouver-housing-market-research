@@ -1,7 +1,6 @@
 {
- "version": "v1.2.2",
- "run": "2026-10-23T10:39:50.750644",
- "parent_commit": "5a6ebbd3b00ae96872066b10261156b4ab790c87",
+ "version": "v1.2.2+free-integration",
+ "run": "2026-10-23T11:57:06.413108",
  "input_sha256": {
   "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
   "tax2026": "e1c290b660752e3daa45a3684fdb9291e4c6afff6f1b2499fbeaed1c71228be8",
@@ -9,74 +8,40 @@
   "comps": "e6c5c447463f356cb1b9020a7faf43abe4384405b11baf1c9fd4563fea0387b7",
   "v3s": "8ed4af1d6b7c8ecea40fc75b952cebd678776855cc6b680115b6e7eba23b074e",
   "patch": "fe58e78987eb7d492406f8c42f43a60bf851466a34f7e33cef7d5c32691647d5",
-  "arcgis_all": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531"
- },
- "inputs": {
-  "permits": "data/research/raw/official/issued-permits-ldh-2017.csv",
-  "tax2026": "data/research/raw/official/property-tax-2026-yb2018plus.csv",
-  "tax2023": "data/research/raw/official/property-tax-2023-yb2018plus.csv",
-  "comps": "data/research/normalized/standard-residential-comps-v2.csv",
-  "v3s": "data/research/normalized/valuation-v3s-shadow-2026-10-22.json",
-  "patch": "data/research/normalized/house_anchor_patch_v3s.json",
-  "arcgis_all": "data/research/raw/location/bca-arcgis-sales-2025-present-all.json"
+  "arcgis_all": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531",
+  "bca_yb_backfill": "7c086418b138b4311dc69a3142a1a03e9f5f75ff51909c61b4828f9a54ffd708"
  },
  "counts": {
-  "linkage_recheck": {
-   "rows": 1531,
-   "conf_v122": {
-    "NONE": 1179,
-    "LOW": 331,
-    "MED": 6,
-    "HIGH": 15
-   },
-   "identity": {
-    "NONE": 1179,
-    "PERMIT_ADDR_ONLY": 250,
-    "UNIT_PID_ONLY": 80,
-    "PARCEL_ADDR": 7,
-    "UNIT_STRATA": 15
-   },
-   "cross_entity": {
-    "none": 1516,
-    "strata_plan_in_project": 15
-   },
-   "old_v121_HIGH": 94,
-   "v122_HIGH": 15,
-   "HIGH_kept": 15,
-   "HIGH_downgraded": 79,
-   "review_queue": 0
+  "identity": {
+   "IDENTITY_PID_CONFIRMED": 4,
+   "IDENTITY_SINGLE_CANDIDATE": 805,
+   "OUT_OF_SCOPE_MUNICIPALITY": 20
   },
-  "mpx_counts": {
-   "mpx_projects_total": 340,
-   "projects_with_any_sale": 74,
-   "pre_permit_transactions": 74,
-   "pre_permit_projects": 73,
-   "pre_permit_old_building_tx": 19,
-   "pre_permit_unresolved_tx": 55,
-   "post_permit_tx": 1,
-   "confirmed_teardown_tx": 0
+  "cat": {
+   "BCA_BLANK": 7,
+   "CONFIRMED_OLD": 786,
+   "TEMPORAL_CONFLICT": 24,
+   "NEW_CANDIDATE": 12
   },
-  "specials": {
-   "2609 DUNDAS": "NOT_MPX_SALE",
-   "1909 CHARLES": "OLD_MULTI_RES_NOT_NEWBUILD",
-   "3122 MARINE DR": "VACANT_LAND_NOT_BUILDING"
+  "candidates": {
+   "total": 12,
+   "eligible_reviewed": 7,
+   "excluded": {
+    "EXCLUDE_STRATA_UNIT": 3,
+    "EXCLUDE_MUNICIPALITY": 2
+   }
   },
-  "dual": {
-   "source_verification": {
-    "SOURCE_VERIFIED": 2285,
-    "SOURCE_TRACEABLE": 944,
-    "UNVERIFIED": 2392
-   },
-   "comparability": {
-    "NOT_ELIGIBLE": 5015,
-    "DIRECT_COMPARABLE": 576,
-    "ADJUSTED_COMPARABLE": 30
-   },
-   "first_or_resale": {
-    "resale": 360,
-    "first_sale": 216
-   },
-   "custom_estate_suspect": 252
+  "mpx_offline": {
+   "NO_MATCH_IN_CURRENT_DATA": 101,
+   "MATCHED_NO_SALE": 239
+  },
+  "fa_quality": {
+   "product": "HOUSE_829scope",
+   "with_floor_area": 821,
+   "with_second_floor": 406,
+   "with_basement": 773,
+   "unit_prefixed": 5,
+   "note": "bca first+second floor=地上层面积;basement单列;均待身份验证后才入估值"
   }
  }
 }
