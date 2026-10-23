@@ -1,0 +1,47 @@
+{
+ "version": "v2_1",
+ "run": "2026-10-23T17:04:21.711244",
+ "baseline": "29653ce",
+ "cutoff_2026": "2026-07-08",
+ "cost_psf": 250.0,
+ "input_sha256": {
+  "archive": "fd88a5aff1ed7c254e2f6a78464484725618b55754dd1295d43b66aba297b780",
+  "census": "12071005289f63af9c4e7ea7717d7b8011cf754fed5c5202d9e4a4d8728a1442",
+  "nb217": "ca9e0daf2e3e3b7a7d2a54ce5531407a2a3f8746b7de0a0b91f5542f521a127e",
+  "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
+  "tax2023": "71c4bf04e36b767428f87c5eb24b19a999f3b20484614cf22b1359b1b21d4c4f",
+  "tax2024": "0746fc8cc0c2653a9cd0819770d3e4ce63af4240dc3e5c95e5033a8f1cffe351",
+  "tax2025": "b55c3e42effc7ec9adb4ff1a2b34163442b7e039ceac66cd9f97308e572f5d20",
+  "tax2026": "c93042f05fbcee3aab32b38d6cb8386c1e901e8be3c08230c8dc447a89d68df3"
+ },
+ "counts": {
+  "house": 5386,
+  "jump": 10878,
+  "rev_sold": 4370,
+  "rev_nosale": 7763,
+  "confirmed": 128,
+  "probable": 122,
+  "verified": 118,
+  "pricing": 111,
+  "suspect_rows": 1235,
+  "presale_rows_v2口径": 951,
+  "uniq_tx": 589,
+  "uniq_pid": 581,
+  "uniq_proj": 581,
+  "lineage_edges": 255,
+  "gate": {
+   "ALL": 5386,
+   "NOT_DETECTED": 4396,
+   "EV_CONSTRUCTION": 957,
+   "EV_AGE": 291,
+   "EV_COMPLETION": 128,
+   "SALE_SALE_SOURCE_CONFIRMED": 4967,
+   "DETECTED": 740,
+   "LIKELY_NEW_AT_SALE": 132,
+   "PRICING_COMPARABLE": 111,
+   "SALE_SALE_SINGLE_SOURCE": 416,
+   "SALE_SALE_CONFLICT": 3,
+   "VERIFIED_NEW_AT_SALE": 7
+  }
+ }
+}
