@@ -341,7 +341,7 @@ def match_newbuild(t, scen, pools):
             ("500M", [c for c in pool
                       if (d := hav_km(t["lat"], t["lng"], c["lat"], c["lng"]))
                       is not None and d <= 0.5]),
-            ("COMM", [c for c in pool if c["community"] == t["hood"]]),
+            ("COMM", [c for c in pool if c["community"] == t["hood_comm"]]),
             ("SIDE", [c for c in pool if c["side"] == t["side_key"]])):
         cands = [c for c in cands if c["psf"] and 200 < c["psf"] < 6000]
         if len(cands) < 3:
@@ -360,7 +360,7 @@ def match_newbuild(t, scen, pools):
                 "p25": wmedian(pairs, 25), "p50": wmedian(pairs, 50),
                 "p75": wmedian(pairs, 75),
                 "factor_kind": cands[0]["factor_kind"]}
-    thin = [c for c in pool if c["community"] == t["hood"] and c["psf"]]
+    thin = [c for c in pool if c["community"] == t["hood_comm"] and c["psf"]]
     if thin:
         pairs = [(c["psf"] * size_adj(unit_area, c["fa"], k), 1.0)
                  for c in thin]
@@ -488,6 +488,14 @@ def main():
     comm_psf = {c: pct([r["land_psf"] for r in land_pool
                         if r["community"] == c and r["land_psf"]], 50)
                 for c in {r["community"] for r in land_pool}}
+    # community comp centroids — per-listing alias position check
+    comm_cent = {}
+    for c in {r["community"] for r in land_pool}:
+        pts = [(r["lat"], r["lng"]) for r in land_pool
+               if r["community"] == c and r["lat"] and r["lng"]]
+        if pts:
+            comm_cent[c] = (statistics.mean(p[0] for p in pts),
+                            statistics.mean(p[1] for p in pts))
 
     # ---- per-listing ----------------------------------------------------
     tlist = []
@@ -522,6 +530,7 @@ def main():
     land_rows, scen_rows, sale_rows, roi_rows, bid_rows = [], [], [], [], []
     market_rows = []
     nearby_diff = []
+    newbuild_diff = []
     for t in tlist:
         # ---- land valuation
         m = match_land(t, land_pool, comm_psf)
@@ -546,6 +555,16 @@ def main():
         extra = ("DATA_GAP" if not t["bca_land"] or not t["zoning"]
                  else "")
         conf = confidence(m["level"], m["n"], extra)
+        # alias position check: aliased community centroid vs listing
+        if t["hood_comm"] != t["hood"] and t["hood_comm"] in comm_cent:
+            dkm = hav_km(t["lat"], t["lng"], *comm_cent[t["hood_comm"]])
+            t["alias_check"] = ("ALIAS_OK" if dkm is not None
+                                and dkm <= 2.0
+                                else f"ALIAS_REVIEW_{dkm:.1f}km")
+        elif t["hood_comm"] != t["hood"]:
+            t["alias_check"] = "ALIAS_NO_COMM_CENTROID"
+        else:
+            t["alias_check"] = "NAME_MATCH"
         fair = (m["p50"] or 0) * t["lot_sqft"] if m["p50"] else None
         bca_impr_share = (1 - t["bca_land"] / t["bca"]) \
             if t["bca"] and t["bca_land"] else None
@@ -563,6 +582,7 @@ def main():
             "ask_per_lot_sqft": round(t["asking"] / t["lot_sqft"], 1)
             if t["lot_sqft"] else "",
             "land_comp_level": m["level"], "land_comp_n": m["n"],
+            "hood_alias_check": t["alias_check"],
             "land_comp_ids": m["ids"], "land_weighted_psf":
             round(m["p50"], 1) if m["p50"] else "",
             "land_psf_p25": round(m["p25"], 1) if m["p25"] else "",
@@ -601,6 +621,37 @@ def main():
             if not s["verified"]:
                 continue
             nb = match_newbuild(t, s, nb_pools)
+            # V1.4.3 diff: what the un-aliased match would have produced
+            nb_old = match_newbuild(
+                dict(t, hood_comm=t["hood"]), s, nb_pools)
+            if (nb_old["level"] != nb["level"]
+                    or (nb_old["p50"] or 0) != (nb["p50"] or 0)):
+                est_o = (nb_old["p50"] or 0) * s["net_saleable"] \
+                    if nb_old["p50"] else None
+                est_n = (nb["p50"] or 0) * s["net_saleable"] \
+                    if nb["p50"] else None
+                newbuild_diff.append({
+                    "listing": t["listing"], "scenario": s["name"],
+                    "hood": t["hood"], "hood_comm": t["hood_comm"],
+                    "alias_check": t["alias_check"],
+                    "comp_level_before": nb_old["level"],
+                    "comp_level_after": nb["level"],
+                    "comp_n_before": nb_old["n"],
+                    "comp_n_after": nb["n"],
+                    "psf_before": round(nb_old["p50"], 1)
+                    if nb_old["p50"] else "",
+                    "psf_after": round(nb["p50"], 1)
+                    if nb["p50"] else "",
+                    "est_sale_before": round(est_o) if est_o else "",
+                    "est_sale_after": round(est_n) if est_n else "",
+                    "roi_1y_before":
+                    round(100 * cost_model(t["asking"], s, est_o,
+                                           BASE_YEARS, "EXCL")["roi"], 1)
+                    if est_o else "",
+                    "roi_1y_after":
+                    round(100 * cost_model(t["asking"], s, est_n,
+                                           BASE_YEARS, "EXCL")["roi"], 1)
+                    if est_n else ""})
             est = nb["p50"] * s["net_saleable"] if nb["p50"] else None
             sale_conf = confidence(nb["level"], nb["n"], extra)
             sale_rows.append({
@@ -682,6 +733,13 @@ def main():
     wcsv(DOCS / "active_house_listing_roi.csv", roi_rows)
     wcsv(DOCS / "active_house_max_bid_and_negotiation.csv", bid_rows)
     wcsv(DOCS / "active_house_market_scenarios.csv", market_rows)
+    wcsv(DOCS / "newbuild_alias_fix_diff.csv", newbuild_diff,
+         fields=["listing", "scenario", "hood", "hood_comm",
+                 "alias_check", "comp_level_before", "comp_level_after",
+                 "comp_n_before", "comp_n_after",
+                 "psf_before", "psf_after",
+                 "est_sale_before", "est_sale_after",
+                 "roi_1y_before", "roi_1y_after"])
     wcsv(DOCS / "land_nearby_adj_fix_diff.csv", nearby_diff,
          fields=["listing", "hood", "level_before", "level_after",
                  "comp_n_before", "comp_n_after",

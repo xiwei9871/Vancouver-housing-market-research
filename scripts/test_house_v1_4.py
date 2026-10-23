@@ -213,6 +213,24 @@ def main():
     # hood alias applied: no row should match an unaliased hood's comps
     check("v142_hood_alias_recorded",
           all("hood_comm" in r and r["hood_comm"] for r in land))
+
+    # V1.4.3: newbuild matching uses the same canonical community id
+    nbd = list(csv.DictReader(
+        open(DOCS / "newbuild_alias_fix_diff.csv")))
+    check("v143_newbuild_diff_table",
+          len(nbd) > 0 and
+          all(r["comp_level_after"] in ("COMM", "MICRO_500M", "500M",
+                                        "COMM:THIN")
+              or r["comp_level_after"].startswith("COMM")
+              for r in nbd))
+    check("v143_comm_now_matches",
+          sum(1 for r in nbd if r["comp_level_after"] == "COMM") >=
+          len(nbd) - 1)
+    check("v143_alias_geo_checked",
+          all(r["alias_check"].startswith("ALIAS_OK") for r in nbd) and
+          all(r["hood_alias_check"] in ("NAME_MATCH",) or
+              r["hood_alias_check"].startswith("ALIAS_OK")
+              for r in land))
     check("report", (DOCS / "listing_level_valuation_v1_4_report.md").exists())
     check("methodology", (DOCS / "valuation_methodology.md").exists())
     check("manifest", (DOCS / "manifest.json").exists())
