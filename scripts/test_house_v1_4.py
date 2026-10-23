@@ -281,6 +281,15 @@ def main():
           html.count("⚠法规假设") == assumptive_priced,
           f"html={html.count('⚠法规假设')} csv={assumptive_priced}")
     check("html_no_mb20_label", "上限" not in html)
+    # sort/filter binding: each row carries a fixed data-k and the
+    # JS resolves META by that key, never by sorted DOM position
+    ks = re.findall(r"data-k='(\d+)'", html)
+    check("html_rows_bound_fixed_key",
+          len(ks) == 224 and len(set(ks)) == 224 and
+          set(ks) == {str(i) for i in range(224)})
+    check("html_filters_use_fixed_key",
+          "const k = r.dataset.k, meta = META[k]" in html and
+          "META[idx]" not in html)
 
     # input manifest: every pipeline input hashed + classified
     iman = list(csv.DictReader(open(DOCS / "input_manifest_v1_4.csv")))

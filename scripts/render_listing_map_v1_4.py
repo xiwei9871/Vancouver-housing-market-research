@@ -181,7 +181,10 @@ function xbarOk(meta) {
 function applyFilters() {
     const cells = table.querySelectorAll('tr.filters > *');
     let vis = 0; const visKeys = new Set();
-    dataRows.forEach((r, idx) => {
+    dataRows.forEach((r) => {
+        // fixed identity: data-k was bound at render time and never
+        // changes when sortBy() reorders the DOM rows
+        const k = r.dataset.k, meta = META[k];
         let ok = true;
         cells.forEach((c, i) => {
             const el = c.querySelector('input,select');
@@ -190,17 +193,16 @@ function applyFilters() {
                 const sel = el.value, t = cellVal(r, i);
                 if (c.closest('tr').children[i] &&
                     el.dataset.kind === 'roi')
-                    ok = ok && roiBandMatch(
-                        META[idx].roi, sel);
+                    ok = ok && roiBandMatch(meta.roi, sel);
                 else
                     ok = ok && matchExpr(t, sel);
             } else {
                 ok = ok && matchExpr(cellVal(r, i), el.value);
             }
         });
-        ok = ok && xbarOk(META[idx]);
+        ok = ok && xbarOk(meta);
         r.style.display = ok ? '' : 'none';
-        if (ok) { vis++; visKeys.add(String(idx)); }
+        if (ok) { vis++; visKeys.add(k); }
     });
     document.getElementById('viscount').textContent = vis;
     window.__visKeys = visKeys;
@@ -498,7 +500,7 @@ def main():
         else:
             bca_td = "<td class='muted'>—</td>"
         body.append(
-            f"<tr{cls}><td>{addr}<br><span class='stat-note'>"
+            f"<tr{cls} data-k='{r['rank'] - 1}'><td>{addr}<br><span class='stat-note'>"
             f"{r['band'] or ''}</span></td>"
             f"<td>{r['comm']}</td>"
             f"<td>{base.money(r['asking'])}</td>"
