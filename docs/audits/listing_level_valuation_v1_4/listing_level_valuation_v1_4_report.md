@@ -83,7 +83,12 @@ zoning_caveat。V3s 生产代码零修改。
 `lot_dims_frozen_input.csv`(pid+sale_date+lot+frontage+depth,
 无地址)随仓库提交;加载顺序 冻结文件→raw enriched-spatial
 json(存在则重建冻结文件)→ 两者都缺时 RuntimeError 报错,
-不再静默回退未核实 GIS 面积。
+不再静默回退未核实 GIS 面积。**复现边界**:干净 clone 只能
+读到冻结尺寸与审计产物,无法重跑完整流水线——HPI 归一化、
+销售档案、税表、挂牌快照为本地受控输入,逐项状态与 SHA256
+见 `input_manifest_v1_4.csv`(COMMITTED/REGENERABLE/
+LOCAL_CONTROLLED 三类)。pid+sale_date 可经公开记录反查物业,
+属脱敏而非匿名。
 
 **P2 MULTIPLEX 售价**:228 条 MULTIPLEX_UNIT 代理成交单位价有、
 floor area 全缺(fa=''),原被整体过滤导致 105 条 MPX 全 BLOCKED。

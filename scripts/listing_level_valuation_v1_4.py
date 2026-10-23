@@ -1011,6 +1011,63 @@ def main():
                  "level_v143", "level_v144",
                  "psf_v143", "psf_v144",
                  "fair_v143", "fair_v144", "delta_cad", "changed"])
+    # ---- input manifest (V1.4.4 closure): every pipeline input with
+    # sha256 + reproducibility status. A clean clone cannot rerun the
+    # full pipeline — only the committed frozen dims and audit CSVs
+    # travel with git; normalized inputs regenerate from local raw
+    # data; raw/official data stays under local controlled storage.
+    import hashlib
+
+    def sha256(p):
+        h = hashlib.sha256()
+        with open(p, "rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()
+
+    INPUTS = [
+        ("lot_dims_frozen_input", LOT_DIMS_FROZEN, "COMMITTED",
+         "BCA dims evidence keys; regenerable by this script when the "
+         "raw enriched-spatial json is present locally",
+         "pid+sale_date keys can be re-identified to a property via "
+         "public records — desensitized but not anonymous"),
+        ("listing_snapshot", LISTING_JSON, "LOCAL_CONTROLLED",
+         "V3s production output (reports/watchlist, gitignored); "
+         "regenerate via production V3s buildable-scenarios run",
+         "contains active asking prices and addresses"),
+        ("hpi_normalized_per_row",
+         V12 / "house_price_normalized_per_row.csv",
+         "REGENERABLE", "scripts/house_hpi_normalization_v1_2.py "
+         "(needs local raw archive + GVR HPI series)", ""),
+        ("attached_proxy_per_row",
+         V12 / "attached_proxy_scenarios_per_row.csv",
+         "REGENERABLE", "scripts/house_hpi_normalization_v1_2.py", ""),
+        ("sales_archive",
+         NORM / "sales_archive_v1_0_3/sales_archive.csv",
+         "REGENERABLE", "sales archive build (v1.0.3) from local raw "
+         "ArcGIS/MLS extracts", ""),
+        ("age_recovery_per_row",
+         NORM / "housing_age_recovery_v2_4/age_recovery_per_row.csv",
+         "REGENERABLE", "housing_age_recovery_v2_4 build from local "
+         "BCA/tax sources", ""),
+        ("enriched_spatial_raw", LOT_DIMS_PATH, "LOCAL_CONTROLLED",
+         "raw enriched ArcGIS+BCA extract (gitignored); optional once "
+         "the frozen dims file is committed",
+         "full raw extract — do not commit"),
+    ] + [("property_tax", ROOT / f"data/research/raw/official/"
+                             f"property-tax-{y}-full.csv",
+          "LOCAL_CONTROLLED", "City of Vancouver property-tax open "
+          "data export", "") for y in range(2023, 2027)]
+    wcsv(DOCS / "input_manifest_v1_4.csv",
+         [{"input": name, "path": str(p.relative_to(ROOT)),
+           "availability": av,
+           "present": "True" if p.exists() else "False",
+           "sha256": sha256(p) if p.exists() else "",
+           "regen_or_source": src, "sensitivity_note": note}
+          for name, p, av, src, note in INPUTS],
+         fields=["input", "path", "availability", "present", "sha256",
+                 "regen_or_source", "sensitivity_note"])
+
     wcsv(DOCS / "land_lot_compat_fix_diff.csv", lot_fix_diff,
          fields=["listing", "hood_comm", "lot_sqft",
                  "level_before", "level_after",
@@ -1227,7 +1284,12 @@ zoning_caveat。V3s 生产代码零修改。
 `lot_dims_frozen_input.csv`(pid+sale_date+lot+frontage+depth,
 无地址)随仓库提交;加载顺序 冻结文件→raw enriched-spatial
 json(存在则重建冻结文件)→ 两者都缺时 RuntimeError 报错,
-不再静默回退未核实 GIS 面积。
+不再静默回退未核实 GIS 面积。**复现边界**:干净 clone 只能
+读到冻结尺寸与审计产物,无法重跑完整流水线——HPI 归一化、
+销售档案、税表、挂牌快照为本地受控输入,逐项状态与 SHA256
+见 `input_manifest_v1_4.csv`(COMMITTED/REGENERABLE/
+LOCAL_CONTROLLED 三类)。pid+sale_date 可经公开记录反查物业,
+属脱敏而非匿名。
 
 **P2 MULTIPLEX 售价**:228 条 MULTIPLEX_UNIT 代理成交单位价有、
 floor area 全缺(fa=''),原被整体过滤导致 105 条 MPX 全 BLOCKED。

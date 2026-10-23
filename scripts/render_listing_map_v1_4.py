@@ -81,7 +81,7 @@ function drawPoints() {
             + ' · 地价 ' + fmtM(p.fair) + ' (' + fmtP(p.disc)
             + ')</div><div>' + p.scen + ' 估售 ' + fmtM(p.sale)
             + '</div><div class="pp-roi">ROI1y ' + fmtP(p.roi)
-            + ' · 20%上限 ' + fmtM(p.mb20) + '</div>');
+            + '</div>');
         bounds.push([p.lat, p.lng]);
     }
     document.getElementById('mapcount').textContent =
@@ -408,8 +408,7 @@ def main():
                            "comm_avg": r["comm_avg"], "disc": r["disc"],
                            "roi": r["roi"], "scen": r["best"] or "—",
                            "quad": r["quad"], "zoning": r["zoning"],
-                           "sale": r["sale"], "rank": r["rank"],
-                           "mb20": num_or_none(r["mb20"])})
+                           "sale": r["sale"], "rank": r["rank"]})
 
     # ---- community stats table (社区均价) ----------------------------
     listed_by_comm = defaultdict(list)
@@ -459,22 +458,16 @@ def main():
             return "<td class='muted'>不适用</td>"
         if "blocked" in c:
             return "<td class='muted'>缺comps</td>"
-        mb = c["mb20"]
-        mb_txt = money_m(num_or_none(mb)) if mb not in ("", None) \
-            else ("UNATTAINABLE" if mb == "UNATTAINABLE" else "—")
         return (
             f"<td>建面{c['build']:,.0f}sf"
             f"{'·' + c['units'] + '户' if c['units'] != '1' else ''}"
-            f"<span style='color:#b45309'>⚠法规假设</span>"
-            if c.get("assumptive") else ""
-        ) + (
+            f"{'<span style=\'color:#b45309\'> ⚠法规假设</span>' if c.get('assumptive') else ''}"
             f"<br>估售{base.money(c['sale'])}"
             f"<br><span class='stat-note'>@"
             f"{f'${c[chr(112)+chr(115)+chr(102)]:,.0f}/sf' if c['psf'] else '—'}"
             f"·{c['level']}·n{c['n']}</span>"
             f"<br><span class='{'roi-pos' if c['roi'] >= 10 else 'roi-neg'}'>"
-            f"ROI1y {c['roi']:.1f}%</span>"
-            f"<span class='stat-note'> 20%上限 {mb_txt}</span></td>")
+            f"ROI1y {c['roi']:.1f}%</span></td>")
 
     body = []
     for r in rows:
@@ -629,7 +622,7 @@ BCA 总值/土地值/评估年——政府估值口径,与「合理地价」独�
 「合理地价」=逐房源土地型旧房可比匹配(MICRO_500M→COMM_LOTBAND
 →…→SIDE)市场估值。「市场折价」=(合理地价−Ask)/合理地价:
 低于估值=正,高于估值=负,为买入性价比主指标。方案格:建面/
-估售/匹配单价层级/1y ROI/20%目标上限;不适用=法规不合,
+估售/匹配单价层级/1y ROI;不适用=法规不合,
 缺comps=合法但无可售证据。绿底行=最优 ROI≥10%。<b>表头点击
 排序;第二行筛选</b>(数值表达式 &gt;30 / &lt;0.8 / 20-30 可用)。
 当前显示 <b id="viscount">{len(rows)}</b> 行。</div>

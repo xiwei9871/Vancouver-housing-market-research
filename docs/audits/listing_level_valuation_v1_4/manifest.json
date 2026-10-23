@@ -12,6 +12,7 @@
     "active_house_max_bid_and_negotiation.csv",
     "active_house_newbuild_sale_estimate.csv",
     "input_inventory.md",
+    "input_manifest_v1_4.csv",
     "land_buy_value_ranking.csv",
     "land_comparable_method_audit.csv",
     "land_dominant_comp_coverage.csv",

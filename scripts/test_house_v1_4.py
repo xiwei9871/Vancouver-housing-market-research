@@ -265,6 +265,34 @@ def main():
     check("methodology", (DOCS / "valuation_methodology.md").exists())
     check("manifest", (DOCS / "manifest.json").exists())
 
+    # render regression: every visible scenario cell must open <td>
+    # and carry build area + ROI; only the ⚠ marker is conditional
+    html = (DOCS / "listing_map.html").read_text()
+    check("html_no_orphan_br_estsale", "</td><br>估售" not in html
+          and "<tr><br>估售" not in html)
+    check("html_every_cell_has_build",
+          html.count("<td>建面") == html.count("<br>估售"))
+    assumptive_priced = sum(
+        1 for r in scen if r["status"] == "ASSUMPTIVE_ZONING"
+        and any(s["listing"] == r["listing"]
+                and s["scenario"] == r["scenario"]
+                and s["sale_value_today"] for s in sale))
+    check("html_assumptive_marked",
+          html.count("⚠法规假设") == assumptive_priced,
+          f"html={html.count('⚠法规假设')} csv={assumptive_priced}")
+    check("html_no_mb20_label", "上限" not in html)
+
+    # input manifest: every pipeline input hashed + classified
+    iman = list(csv.DictReader(open(DOCS / "input_manifest_v1_4.csv")))
+    check("input_manifest_coverage",
+          len(iman) >= 11 and
+          all(r["availability"] in ("COMMITTED", "LOCAL_CONTROLLED",
+                                    "REGENERABLE") for r in iman) and
+          all((r["present"] == "True" and r["sha256"]) or
+              r["present"] == "False" for r in iman) and
+          next(r for r in iman if r["input"] == "lot_dims_frozen_input")
+          ["availability"] == "COMMITTED")
+
     fails = [n for n, ok, _ in results if not ok]
     print(f"\n{len(results) - len(fails)} PASS / {len(fails)} FAIL")
     if fails:
