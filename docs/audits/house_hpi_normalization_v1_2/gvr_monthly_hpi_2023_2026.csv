@@ -1,0 +1,406 @@
+month,geography,property_type,price_index,benchmark_price,quality,source_report_month,derived_from,alternate_estimates,source_url,publication_version
+2023-01,Greater Vancouver,Apartment,329.2,720700,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver East,Apartment,387.6,676800,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver West,Apartment,307.6,814800,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Greater Vancouver,Single Family Detached,335.4,1801300,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver East,Single Family Detached,372.5,1664900,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver West,Single Family Detached,315.2,3020600,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Greater Vancouver,Townhouse,351.5,1020400,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver East,Townhouse,334.9,1022800,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-01,Vancouver West,Townhouse,308.6,1380200,DIRECT,2023-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2023.pdf,GVR Stats Package 2023-01
+2023-02,Greater Vancouver,Apartment,334.5,732200,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver East,Apartment,391.5,683600,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver West,Apartment,311.2,824400,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Greater Vancouver,Single Family Detached,337.6,1813100,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver East,Single Family Detached,375.3,1677300,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver West,Single Family Detached,323.8,3103100,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Greater Vancouver,Townhouse,357.7,1038500,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver East,Townhouse,344.6,1052500,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-02,Vancouver West,Townhouse,301.4,1347800,DIRECT,2023-02,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Feb-2023.pdf,GVR Stats Package 2023-02
+2023-03,Greater Vancouver,Apartment,336.9,737400,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver East,Apartment,394.3,688400,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver West,Apartment,312.3,827400,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Greater Vancouver,Single Family Detached,346.6,1861800,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver East,Single Family Detached,383.3,1713000,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver West,Single Family Detached,335.8,3218500,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Greater Vancouver,Townhouse,363.9,1056400,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver East,Townhouse,353.5,1079600,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-03,Vancouver West,Townhouse,311.1,1391300,DIRECT,2023-03,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Mar-2023.pdf,GVR Stats Package 2023-03
+2023-04,Greater Vancouver,Apartment,343.7,752300,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver East,Apartment,401.5,701100,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver West,Apartment,320.1,848000,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Greater Vancouver,Single Family Detached,356.7,1915800,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver East,Single Family Detached,393.2,1757200,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver West,Single Family Detached,345.7,3313200,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Greater Vancouver,Townhouse,371.5,1078400,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver East,Townhouse,363.7,1110700,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-04,Vancouver West,Townhouse,331.4,1481900,DIRECT,2023-04,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Apr-2023.pdf,GVR Stats Package 2023-04
+2023-05,Greater Vancouver,Apartment,350.6,760800,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver East,Apartment,407.7,707400,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver West,Apartment,324.4,849800,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Greater Vancouver,Single Family Detached,363.3,1953600,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver East,Single Family Detached,405.4,1822700,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver West,Single Family Detached,346.9,3338800,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Greater Vancouver,Townhouse,376.2,1083000,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver East,Townhouse,365.8,1109100,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-05,Vancouver West,Townhouse,331.6,1457500,DIRECT,2023-05,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-May-2023.pdf,GVR Stats Package 2023-05
+2023-06,Greater Vancouver,Apartment,353.5,767000,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver East,Apartment,411.3,713600,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver West,Apartment,326.7,856000,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Greater Vancouver,Single Family Detached,370.3,1991300,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver East,Single Family Detached,418.1,1879700,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver West,Single Family Detached,355.2,3418700,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Greater Vancouver,Townhouse,381.7,1098900,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver East,Townhouse,365.7,1108900,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-06,Vancouver West,Townhouse,340.5,1497000,DIRECT,2023-06,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jun-2023.pdf,GVR Stats Package 2023-06
+2023-07,Greater Vancouver,Apartment,355.6,771600,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver East,Apartment,413.7,717700,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver West,Apartment,330.6,866300,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Greater Vancouver,Single Family Detached,374.3,2012900,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver East,Single Family Detached,422.0,1897200,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver West,Single Family Detached,359.3,3458000,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Greater Vancouver,Townhouse,383.7,1104600,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver East,Townhouse,371.5,1126300,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-07,Vancouver West,Townhouse,340.4,1496600,DIRECT,2023-07,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jul-2023.pdf,GVR Stats Package 2023-07
+2023-08,Greater Vancouver,Apartment,354.8,770000,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver East,Apartment,417.2,723900,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver West,Apartment,323.3,847000,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Greater Vancouver,Single Family Detached,375.3,2018500,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver East,Single Family Detached,425.6,1913500,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver West,Single Family Detached,365.7,3519100,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Greater Vancouver,Townhouse,383.4,1103900,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver East,Townhouse,374.5,1135400,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-08,Vancouver West,Townhouse,340.8,1498300,DIRECT,2023-08,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Aug-2023.pdf,GVR Stats Package 2023-08
+2023-09,Greater Vancouver,Apartment,354.1,768500,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver East,Apartment,414.5,719100,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver West,Apartment,324.4,849800,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Greater Vancouver,Single Family Detached,375.1,2017100,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver East,Single Family Detached,422.2,1898100,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver West,Single Family Detached,369.2,3553600,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Greater Vancouver,Townhouse,381.5,1098400,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver East,Townhouse,376.1,1140400,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-09,Vancouver West,Townhouse,331.6,1457900,DIRECT,2023-09,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Sept-2023.pdf,GVR Stats Package 2023-09
+2023-10,Greater Vancouver,Apartment,354.9,770200,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver East,Apartment,412.3,715400,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver West,Apartment,325.1,851800,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Greater Vancouver,Single Family Detached,372.1,2001400,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver East,Single Family Detached,417.7,1878200,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver West,Single Family Detached,357.1,3436500,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Greater Vancouver,Townhouse,382.3,1100500,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver East,Townhouse,368.9,1118500,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-10,Vancouver West,Townhouse,336.9,1481000,DIRECT,2023-10,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Oct-2023.pdf,GVR Stats Package 2023-10
+2023-11,Greater Vancouver,Apartment,351.5,762700,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver East,Apartment,406.6,705400,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver West,Apartment,321.7,842800,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Greater Vancouver,Single Family Detached,368.7,1982600,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver East,Single Family Detached,415.5,1868000,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver West,Single Family Detached,360.4,3468300,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Greater Vancouver,Townhouse,379.5,1092600,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver East,Townhouse,366.0,1109800,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-11,Vancouver West,Townhouse,332.3,1460600,DIRECT,2023-11,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Nov-2023.pdf,GVR Stats Package 2023-11
+2023-12,Greater Vancouver,Apartment,346.2,751300,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver East,Apartment,399.4,693000,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver West,Apartment,311.6,816300,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Greater Vancouver,Single Family Detached,365.3,1964400,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver East,Single Family Detached,413.1,1857100,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver West,Single Family Detached,360.1,3465300,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Greater Vancouver,Townhouse,372.6,1072700,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver East,Townhouse,353.6,1072200,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2023-12,Vancouver West,Townhouse,324.1,1424700,DIRECT,2023-12,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Dec-2023.pdf,GVR Stats Package 2023-12
+2024-01,Greater Vancouver,Apartment,346.5,751900,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver East,Apartment,398.8,692000,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver West,Apartment,316.8,830100,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Greater Vancouver,Single Family Detached,361.2,1942400,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver East,Single Family Detached,409.4,1840700,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver West,Single Family Detached,343.0,3301000,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Greater Vancouver,Townhouse,370.5,1066700,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver East,Townhouse,348.8,1057700,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-01,Vancouver West,Townhouse,329.0,1446500,DIRECT,2024-01,,,https://members.rebgv.org/news/REBGV-Stats-Pkg-Jan-2024.pdf,GVR Stats Package 2024-01
+2024-02,Greater Vancouver,Apartment,355.2,770700,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver East,Apartment,408.9,709500,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver West,Apartment,326.1,854500,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Greater Vancouver,Single Family Detached,366.8,1972400,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver East,Single Family Detached,407.4,1831800,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver West,Single Family Detached,356.9,3434700,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Greater Vancouver,Townhouse,380.2,1094700,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver East,Townhouse,365.5,1108100,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-02,Vancouver West,Townhouse,347.2,1526500,DIRECT,2024-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2024.pdf,GVR Stats Package 2024-02
+2024-03,Greater Vancouver,Apartment,358.3,777500,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver East,Apartment,411.8,714400,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver West,Apartment,327.0,856700,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Greater Vancouver,Single Family Detached,373.4,2007900,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver East,Single Family Detached,412.0,1852200,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver West,Single Family Detached,358.7,3452200,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Greater Vancouver,Townhouse,386.5,1112800,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver East,Townhouse,378.9,1148700,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-03,Vancouver West,Townhouse,337.5,1483800,DIRECT,2024-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2024.pdf,GVR Stats Package 2024-03
+2024-04,Greater Vancouver,Apartment,357.8,776500,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver East,Apartment,413.1,716700,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver West,Apartment,326.7,855900,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Greater Vancouver,Single Family Detached,379.3,2040000,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver East,Single Family Detached,416.6,1873100,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver West,Single Family Detached,366.6,3527900,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Greater Vancouver,Townhouse,391.5,1127200,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver East,Townhouse,379.1,1149400,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-04,Vancouver West,Townhouse,347.1,1525800,DIRECT,2024-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2024.pdf,GVR Stats Package 2024-04
+2024-05,Greater Vancouver,Apartment,359.2,776200,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver East,Apartment,417.4,719200,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver West,Apartment,326.4,844300,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Greater Vancouver,Single Family Detached,383.9,2062600,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver East,Single Family Detached,419.1,1879000,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver West,Single Family Detached,369.8,3548900,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Greater Vancouver,Townhouse,400.1,1145500,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver East,Townhouse,374.1,1134500,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-05,Vancouver West,Townhouse,352.0,1492200,DIRECT,2024-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2024.pdf,GVR Stats Package 2024-05
+2024-06,Greater Vancouver,Apartment,357.9,773400,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver East,Apartment,412.8,711300,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver West,Apartment,328.7,850300,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Greater Vancouver,Single Family Detached,383.6,2061000,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver East,Single Family Detached,422.2,1892600,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver West,Single Family Detached,371.0,3560700,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Greater Vancouver,Townhouse,397.5,1138100,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver East,Townhouse,378.4,1147600,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-06,Vancouver West,Townhouse,351.9,1491700,DIRECT,2024-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2024.pdf,GVR Stats Package 2024-06
+2024-07,Greater Vancouver,Apartment,355.5,768200,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver East,Apartment,407.8,702700,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver West,Apartment,328.3,849400,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Greater Vancouver,Single Family Detached,381.4,2049000,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver East,Single Family Detached,416.7,1867900,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver West,Single Family Detached,365.7,3509900,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Greater Vancouver,Townhouse,392.8,1124700,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver East,Townhouse,377.6,1145300,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-07,Vancouver West,Townhouse,340.8,1444700,DIRECT,2024-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2024.pdf,GVR Stats Package 2024-07
+2024-08,Greater Vancouver,Apartment,355.5,768200,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver East,Apartment,409.1,704800,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver West,Apartment,329.9,853400,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Greater Vancouver,Single Family Detached,381.2,2048400,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver East,Single Family Detached,417.1,1869800,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver West,Single Family Detached,360.4,3458500,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Greater Vancouver,Townhouse,391.0,1119300,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver East,Townhouse,380.3,1153600,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-08,Vancouver West,Townhouse,343.6,1456700,DIRECT,2024-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Aug-2024.pdf,GVR Stats Package 2024-08
+2024-09,Greater Vancouver,Apartment,352.6,762000,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver East,Apartment,411.2,708500,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver West,Apartment,324.2,838800,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Greater Vancouver,Single Family Detached,376.4,2022200,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver East,Single Family Detached,412.4,1848700,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver West,Single Family Detached,361.8,3471900,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Greater Vancouver,Townhouse,383.9,1099200,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver East,Townhouse,361.4,1096100,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-09,Vancouver West,Townhouse,334.1,1416300,DIRECT,2024-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Sept-2024.pdf,GVR Stats Package 2024-09
+2024-10,Greater Vancouver,Apartment,350.4,757200,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver East,Apartment,397.9,685500,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver West,Apartment,320.8,829900,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Greater Vancouver,Single Family Detached,372.8,2002900,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver East,Single Family Detached,422.0,1891900,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver West,Single Family Detached,351.1,3369100,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Greater Vancouver,Townhouse,387.3,1108800,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver East,Townhouse,381.3,1156400,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-10,Vancouver West,Townhouse,343.6,1456500,DIRECT,2024-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Oct-2024.pdf,GVR Stats Package 2024-10
+2024-11,Greater Vancouver,Apartment,348.4,752800,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver East,Apartment,401.9,692500,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver West,Apartment,319.3,825900,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Greater Vancouver,Single Family Detached,371.7,1997400,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver East,Single Family Detached,415.5,1862700,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver West,Single Family Detached,352.7,3384400,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Greater Vancouver,Townhouse,390.4,1117600,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver East,Townhouse,368.7,1118200,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-11,Vancouver West,Townhouse,358.5,1519600,DIRECT,2024-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Nov-2024.pdf,GVR Stats Package 2024-11
+2024-12,Greater Vancouver,Apartment,347.0,749900,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver East,Apartment,400.6,690200,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver West,Apartment,316.7,819400,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Greater Vancouver,Single Family Detached,371.7,1997000,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver East,Single Family Detached,413.9,1855700,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver West,Single Family Detached,351.7,3374900,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Greater Vancouver,Townhouse,389.3,1114600,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver East,Townhouse,378.2,1147000,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2024-12,Vancouver West,Townhouse,360.3,1527200,DIRECT,2024-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Dec-2024.pdf,GVR Stats Package 2024-12
+2025-01,Greater Vancouver,Apartment,346.31,748374,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):346.31; 2025-04(3m):346.08; 2025-07(6m):346.18; 2026-01(12m):348.46,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver East,Apartment,404.03,696173,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):404.03; 2025-04(3m):403.96; 2025-07(6m):404.21; 2026-01(12m):404.25,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver West,Apartment,313.22,810425,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):313.22; 2025-04(3m):313.1; 2025-07(6m):313.24; 2026-01(12m):315.99,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Greater Vancouver,Single Family Detached,374.21,2010417,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):374.21; 2025-04(3m):374.06; 2025-07(6m):374.24; 2026-01(12m):372.6,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver East,Single Family Detached,411.39,1844158,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):411.39; 2025-04(3m):411.04; 2025-07(6m):411.41; 2026-01(12m):411.86,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver West,Single Family Detached,357.68,3433102,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):357.68; 2025-04(3m):357.82; 2025-07(6m):357.62; 2026-01(12m):354.56,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Greater Vancouver,Townhouse,386.17,1105572,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):386.17; 2025-04(3m):386.16; 2025-07(6m):386.22; 2026-01(12m):386.47,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver East,Townhouse,376.18,1140945,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):376.18; 2025-04(3m):376.14; 2025-07(6m):376.12; 2026-01(12m):376.98,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-01,Vancouver West,Townhouse,348.37,1476756,DERIVED_FROM_CHANGE,2025-02,2025-02 1-month change,2025-02(1m):348.37; 2025-04(3m):348.65; 2025-07(6m):348.33; 2026-01(12m):350.21,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Greater Vancouver,Apartment,351.5,759600,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver East,Apartment,401.2,691300,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver West,Apartment,324.5,839600,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Greater Vancouver,Single Family Detached,377.2,2026500,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver East,Single Family Detached,415.5,1862600,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver West,Single Family Detached,360.9,3464000,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Greater Vancouver,Townhouse,388.1,1111100,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver East,Townhouse,382.2,1159200,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-02,Vancouver West,Townhouse,352.2,1493000,DIRECT,2025-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Feb-2025.pdf,GVR Stats Package 2025-02
+2025-03,Greater Vancouver,Apartment,355.1,767300,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver East,Apartment,407.9,702800,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver West,Apartment,328.3,849400,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Greater Vancouver,Single Family Detached,378.6,2034400,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver East,Single Family Detached,413.7,1854600,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver West,Single Family Detached,359.7,3451900,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Greater Vancouver,Townhouse,388.8,1113100,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver East,Townhouse,382.3,1159400,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-03,Vancouver West,Townhouse,348.9,1478800,DIRECT,2025-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Mar-2025.pdf,GVR Stats Package 2025-03
+2025-04,Greater Vancouver,Apartment,353.0,762800,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver East,Apartment,408.4,703600,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver West,Apartment,327.5,847200,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Greater Vancouver,Single Family Detached,376.3,2021800,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver East,Single Family Detached,413.1,1852000,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver West,Single Family Detached,357.1,3427100,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Greater Vancouver,Townhouse,385.0,1102300,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver East,Townhouse,372.0,1128400,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-04,Vancouver West,Townhouse,336.1,1424700,DIRECT,2025-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-Apr-2025.pdf,GVR Stats Package 2025-04
+2025-05,Greater Vancouver,Apartment,350.4,757300,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver East,Apartment,403.9,696000,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver West,Apartment,324.3,839000,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Greater Vancouver,Single Family Detached,371.7,1997400,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver East,Single Family Detached,407.9,1828600,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver West,Single Family Detached,350.4,3363100,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Greater Vancouver,Townhouse,386.6,1106800,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver East,Townhouse,369.6,1120900,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-05,Vancouver West,Townhouse,334.7,1419000,DIRECT,2025-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2025.pdf,GVR Stats Package 2025-05
+2025-06,Greater Vancouver,Apartment,346.3,748400,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver East,Apartment,398.4,686500,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver West,Apartment,318.7,824500,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Greater Vancouver,Single Family Detached,371.2,1994500,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver East,Single Family Detached,408.6,1831800,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver West,Single Family Detached,354.2,3399000,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Greater Vancouver,Townhouse,385.6,1103900,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver East,Townhouse,364.1,1104400,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-06,Vancouver West,Townhouse,337.9,1432300,DIRECT,2025-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2025.pdf,GVR Stats Package 2025-06
+2025-07,Greater Vancouver,Apartment,344.1,743700,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver East,Apartment,394.1,679000,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver West,Apartment,317.0,820200,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Greater Vancouver,Single Family Detached,367.5,1974400,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver East,Single Family Detached,400.3,1794500,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver West,Single Family Detached,345.1,3311800,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Greater Vancouver,Townhouse,383.9,1099200,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver East,Townhouse,368.6,1117900,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-07,Vancouver West,Townhouse,334.4,1417400,DIRECT,2025-07,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-July-2025.pdf,GVR Stats Package 2025-07
+2025-08,Greater Vancouver,Apartment,339.8,734400,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver East,Apartment,394.1,679000,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver West,Apartment,311.1,804800,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Greater Vancouver,Single Family Detached,363.0,1950300,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver East,Single Family Detached,398.2,1785000,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver West,Single Family Detached,340.2,3264900,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Greater Vancouver,Townhouse,377.1,1079600,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver East,Townhouse,355.3,1077700,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-08,Vancouver West,Townhouse,329.1,1395000,DIRECT,2025-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2025.pdf,GVR Stats Package 2025-08
+2025-09,Greater Vancouver,Apartment,337.3,728800,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver East,Apartment,390.8,673300,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver West,Apartment,310.9,804200,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Greater Vancouver,Single Family Detached,359.8,1933100,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver East,Single Family Detached,391.9,1756800,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver West,Single Family Detached,336.8,3232600,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Greater Vancouver,Townhouse,373.7,1069800,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver East,Townhouse,345.7,1048600,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-09,Vancouver West,Townhouse,324.1,1373700,DIRECT,2025-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2025.pdf,GVR Stats Package 2025-09
+2025-10,Greater Vancouver,Apartment,332.7,718900,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver East,Apartment,378.1,651500,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver West,Apartment,303.6,785500,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Greater Vancouver,Single Family Detached,356.7,1916400,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver East,Single Family Detached,390.2,1749100,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver West,Single Family Detached,338.3,3246200,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Greater Vancouver,Townhouse,372.6,1066700,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver East,Townhouse,347.5,1053900,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-10,Vancouver West,Townhouse,325.3,1378900,DIRECT,2025-10,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-October-2025.pdf,GVR Stats Package 2025-10
+2025-11,Greater Vancouver,Apartment,332.4,714300,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver East,Apartment,379.2,653400,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver West,Apartment,302.2,776600,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Greater Vancouver,Single Family Detached,354.7,1900600,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver East,Single Family Detached,387.5,1738000,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver West,Single Family Detached,334.1,3172700,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Greater Vancouver,Townhouse,373.4,1065600,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver East,Townhouse,356.9,1066000,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-11,Vancouver West,Townhouse,324.7,1366600,DIRECT,2025-11,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-November-2025.pdf,GVR Stats Package 2025-11
+2025-12,Greater Vancouver,Apartment,330.4,710000,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver East,Apartment,377.3,650100,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver West,Apartment,304.4,782200,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Greater Vancouver,Single Family Detached,350.8,1879800,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver East,Single Family Detached,383.2,1718800,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver West,Single Family Detached,330.4,3137400,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Greater Vancouver,Townhouse,370.2,1056600,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver East,Townhouse,346.5,1035100,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2025-12,Vancouver West,Townhouse,335.8,1413200,DIRECT,2025-12,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-December-2025.pdf,GVR Stats Package 2025-12
+2026-01,Greater Vancouver,Apartment,327.9,704600,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver East,Apartment,370.7,638700,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver West,Apartment,302.4,777200,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Greater Vancouver,Single Family Detached,345.4,1850800,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver East,Single Family Detached,378.5,1697600,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver West,Single Family Detached,311.3,2956400,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Greater Vancouver,Townhouse,365.6,1043400,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver East,Townhouse,347.2,1037100,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-01,Vancouver West,Townhouse,332.0,1397300,DIRECT,2026-01,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-January-2026.pdf,GVR Stats Package 2026-01
+2026-02,Greater Vancouver,Apartment,329.5,708200,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver East,Apartment,379.4,653700,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver West,Apartment,307.0,789000,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Greater Vancouver,Single Family Detached,342.6,1835900,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver East,Single Family Detached,377.0,1691000,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver West,Single Family Detached,308.7,2931700,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Greater Vancouver,Townhouse,366.5,1046100,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver East,Townhouse,348.3,1040400,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-02,Vancouver West,Townhouse,338.3,1424100,DIRECT,2026-02,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-February-2026.pdf,GVR Stats Package 2026-02
+2026-03,Greater Vancouver,Apartment,328.9,706700,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver East,Apartment,388.7,669700,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver West,Apartment,303.2,779100,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Greater Vancouver,Single Family Detached,346.2,1854800,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver East,Single Family Detached,379.0,1699600,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver West,Single Family Detached,308.0,2925000,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Greater Vancouver,Townhouse,366.9,1047100,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver East,Townhouse,349.5,1044000,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-03,Vancouver West,Townhouse,331.9,1396800,DIRECT,2026-03,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-March-2026.pdf,GVR Stats Package 2026-03
+2026-04,Greater Vancouver,Apartment,327.1,703000,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver East,Apartment,385.8,664800,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver West,Apartment,307.5,790300,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Greater Vancouver,Single Family Detached,343.5,1840700,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver East,Single Family Detached,374.8,1681000,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver West,Single Family Detached,313.7,2979500,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Greater Vancouver,Townhouse,365.6,1043400,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver East,Townhouse,343.6,1026200,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-04,Vancouver West,Townhouse,318.5,1340400,DIRECT,2026-04,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-April-2026.pdf,GVR Stats Package 2026-04
+2026-05,Greater Vancouver,Apartment,324.7,697800,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver East,Apartment,371.9,640800,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver West,Apartment,304.8,783300,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Greater Vancouver,Single Family Detached,344.9,1847900,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver East,Single Family Detached,369.0,1654900,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver West,Single Family Detached,318.5,3025000,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Greater Vancouver,Townhouse,367.3,1048200,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver East,Townhouse,357.3,1067400,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-05,Vancouver West,Townhouse,316.4,1331700,DIRECT,2026-05,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-May-2026.pdf,GVR Stats Package 2026-05
+2026-06,Greater Vancouver,Apartment,323.5,695200,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver East,Apartment,369.9,637300,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver West,Apartment,303.2,779200,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Greater Vancouver,Single Family Detached,344.0,1842900,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver East,Single Family Detached,370.0,1659400,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver West,Single Family Detached,320.3,3042100,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Greater Vancouver,Townhouse,366.6,1046200,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver East,Townhouse,353.2,1054900,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-06,Vancouver West,Townhouse,321.1,1351600,DIRECT,2026-06,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-June-2026-1.pdf,GVR Stats Package 2026-06
+2026-07,Greater Vancouver,Apartment,320.1,688000,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver East,Apartment,364.8,628600,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver West,Apartment,299.1,768700,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Greater Vancouver,Single Family Detached,340.2,1822900,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver East,Single Family Detached,366.1,1642100,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver West,Single Family Detached,317.1,3011300,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Greater Vancouver,Townhouse,361.0,1030400,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver East,Townhouse,337.8,1009100,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-07,Vancouver West,Townhouse,313.9,1321100,DIRECT,2026-07,,,https://www.realestatenorthshore.com/media/uploads/GVR-Stats-Package-July-2026.pdf,GVR Stats Package 2026-07
+2026-08,Greater Vancouver,Apartment,319.3,686200,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver East,Apartment,364.8,628600,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver West,Apartment,301.5,774900,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Greater Vancouver,Single Family Detached,335.8,1799400,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver East,Single Family Detached,361.5,1621400,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver West,Single Family Detached,308.8,2932700,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Greater Vancouver,Townhouse,360.5,1028800,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver East,Townhouse,329.9,985400,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-08,Vancouver West,Townhouse,317.2,1334900,DIRECT,2026-08,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-August-2026.pdf,GVR Stats Package 2026-08
+2026-09,Greater Vancouver,Apartment,317.6,682500,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver East,Apartment,368.4,634800,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver West,Apartment,296.4,761800,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Greater Vancouver,Single Family Detached,333.1,1784700,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver East,Single Family Detached,363.5,1630500,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver West,Single Family Detached,307.1,2916100,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Greater Vancouver,Townhouse,356.2,1016700,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver East,Townhouse,328.2,980400,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09
+2026-09,Vancouver West,Townhouse,308.5,1298500,DIRECT,2026-09,,,https://members.gvrealtors.ca/news/GVR-Stats-Package-September-2026.pdf,GVR Stats Package 2026-09

@@ -1,0 +1,40 @@
+{
+  "audit": "house_hpi_normalization_v1_2",
+  "baseline_commit": "a5b9767c0ff0c5fa4ee148787e1c0eb8c94081a9",
+  "generated_utc": "2026-10-23T12:12:08Z",
+  "inputs": {
+    "pool": "data/research/normalized/house_regional_pricing_v1_1/house_price_pool_per_row.csv",
+    "archive": "data/research/normalized/sales_archive_v1_0_3/sales_archive.csv",
+    "hpi": "docs/audits/house_hpi_normalization_v1_2/gvr_monthly_hpi_2023_2026.csv",
+    "cmhc_raw": "data/research/raw/cmhc/cmhc_1101_vancouver_single_semi.csv"
+  },
+  "counts": {
+    "pool_rows": 5386,
+    "normalized_rows": 5386,
+    "missing_hpi": 0,
+    "main_pool": 3734,
+    "revision_sensitive_rows": 157,
+    "border_rows": 119
+  },
+  "targets": [
+    "2026-07",
+    "2026-09"
+  ],
+  "v3s_modified": false,
+  "deliverables": [
+    "cmhc_market_crosscheck.md",
+    "gvr_monthly_hpi_2023_2026.csv",
+    "historical_price_normalization_factors.csv",
+    "house_hpi_normalization_v1_2_report.md",
+    "house_newbuild_normalized_by_community.csv",
+    "house_old_new_gap_normalized.csv",
+    "house_old_normalized_by_community.csv",
+    "house_price_nominal_vs_2026.csv",
+    "house_rebuild_2000sqft_2026_benchmark.csv",
+    "hpi_product_geography_mapping.csv",
+    "hpi_revision_crosscheck.csv",
+    "manifest.json",
+    "normalization_convergence_check.csv",
+    "official_sales_coverage_comparison.csv"
+  ]
+}
