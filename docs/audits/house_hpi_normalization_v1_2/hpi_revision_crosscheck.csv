@@ -1,0 +1,1432 @@
+product,area,report_month,lag_months,target_month,published_idx_at_target,implied_idx_from_change,drift_idx_points,drift_pct
+Single Family Detached,Greater Vancouver,2023-02,1,2023-01,335.4,335.253,-0.147,-0.044
+Single Family Detached,Vancouver East,2023-02,1,2023-01,372.5,372.321,-0.179,-0.048
+Single Family Detached,Vancouver West,2023-02,1,2023-01,315.2,315.287,0.087,0.028
+Townhouse,Greater Vancouver,2023-02,1,2023-01,351.5,351.375,-0.125,-0.035
+Townhouse,Vancouver East,2023-02,1,2023-01,334.9,334.888,-0.012,-0.004
+Townhouse,Vancouver West,2023-02,1,2023-01,308.6,308.495,-0.105,-0.034
+Apartment,Greater Vancouver,2023-02,1,2023-01,329.2,329.232,0.032,0.01
+Apartment,Vancouver East,2023-02,1,2023-01,387.6,387.624,0.024,0.006
+Apartment,Vancouver West,2023-02,1,2023-01,307.6,307.51,-0.09,-0.029
+Single Family Detached,Greater Vancouver,2023-03,1,2023-02,337.6,337.488,-0.112,-0.033
+Single Family Detached,Vancouver East,2023-03,1,2023-02,375.3,375.416,0.116,0.031
+Single Family Detached,Vancouver West,2023-03,1,2023-02,323.8,323.819,0.019,0.006
+Townhouse,Greater Vancouver,2023-03,1,2023-02,357.7,357.817,0.117,0.033
+Townhouse,Vancouver East,2023-03,1,2023-02,344.6,344.542,-0.058,-0.017
+Townhouse,Vancouver West,2023-03,1,2023-02,301.4,301.453,0.053,0.018
+Apartment,Greater Vancouver,2023-03,1,2023-02,334.5,334.558,0.058,0.017
+Apartment,Vancouver East,2023-03,1,2023-02,391.5,391.559,0.059,0.015
+Apartment,Vancouver West,2023-03,1,2023-02,311.2,311.056,-0.144,-0.046
+Single Family Detached,Greater Vancouver,2023-04,1,2023-03,346.6,346.647,0.047,0.014
+Single Family Detached,Greater Vancouver,2023-04,3,2023-01,335.4,335.244,-0.156,-0.046
+Single Family Detached,Vancouver East,2023-04,1,2023-03,383.3,383.236,-0.064,-0.017
+Single Family Detached,Vancouver East,2023-04,3,2023-01,372.5,372.348,-0.152,-0.041
+Single Family Detached,Vancouver West,2023-04,1,2023-03,335.8,335.957,0.157,0.047
+Single Family Detached,Vancouver West,2023-04,3,2023-01,315.2,315.132,-0.068,-0.022
+Townhouse,Greater Vancouver,2023-04,1,2023-03,363.9,363.859,-0.041,-0.011
+Townhouse,Greater Vancouver,2023-04,3,2023-01,351.5,351.466,-0.034,-0.01
+Townhouse,Vancouver East,2023-04,1,2023-03,353.5,353.45,-0.05,-0.014
+Townhouse,Vancouver East,2023-04,3,2023-01,334.9,334.899,-0.001,-0.0
+Townhouse,Vancouver West,2023-04,1,2023-03,311.1,311.174,0.074,0.024
+Townhouse,Vancouver West,2023-04,3,2023-01,308.6,308.566,-0.034,-0.011
+Apartment,Greater Vancouver,2023-04,1,2023-03,336.9,336.961,0.061,0.018
+Apartment,Greater Vancouver,2023-04,3,2023-01,329.2,329.215,0.015,0.004
+Apartment,Vancouver East,2023-04,1,2023-03,394.3,394.401,0.101,0.026
+Apartment,Vancouver East,2023-04,3,2023-01,387.6,387.548,-0.052,-0.013
+Apartment,Vancouver West,2023-04,1,2023-03,312.3,312.293,-0.007,-0.002
+Apartment,Vancouver West,2023-04,3,2023-01,307.6,307.493,-0.107,-0.035
+Single Family Detached,Greater Vancouver,2023-05,1,2023-04,356.7,356.876,0.176,0.049
+Single Family Detached,Greater Vancouver,2023-05,3,2023-02,337.6,342.09,4.49,1.33
+Single Family Detached,Vancouver East,2023-05,1,2023-04,393.2,395.512,2.312,0.588
+Single Family Detached,Vancouver East,2023-05,3,2023-02,375.3,376.766,1.466,0.391
+Single Family Detached,Vancouver West,2023-05,1,2023-04,345.7,345.174,-0.526,-0.152
+Single Family Detached,Vancouver West,2023-05,3,2023-02,323.8,339.101,15.301,4.725
+Townhouse,Greater Vancouver,2023-05,1,2023-04,371.5,375.449,3.949,1.063
+Townhouse,Greater Vancouver,2023-05,3,2023-02,357.7,364.888,7.188,2.01
+Townhouse,Vancouver East,2023-05,1,2023-04,363.7,365.8,2.1,0.577
+Townhouse,Vancouver East,2023-05,3,2023-02,344.6,348.049,3.449,1.001
+Townhouse,Vancouver West,2023-05,1,2023-04,331.4,341.856,10.456,3.155
+Townhouse,Vancouver West,2023-05,3,2023-02,301.4,316.412,15.012,4.981
+Apartment,Greater Vancouver,2023-05,1,2023-04,343.7,346.785,3.085,0.898
+Apartment,Greater Vancouver,2023-05,3,2023-02,334.5,336.468,1.968,0.588
+Apartment,Vancouver East,2023-05,1,2023-04,401.5,400.098,-1.402,-0.349
+Apartment,Vancouver East,2023-05,3,2023-02,391.5,390.892,-0.608,-0.155
+Apartment,Vancouver West,2023-05,1,2023-04,320.1,320.553,0.453,0.142
+Apartment,Vancouver West,2023-05,3,2023-02,311.2,309.542,-1.658,-0.533
+Single Family Detached,Greater Vancouver,2023-06,1,2023-05,363.3,363.395,0.095,0.026
+Single Family Detached,Greater Vancouver,2023-06,3,2023-03,346.6,347.7,1.1,0.317
+Single Family Detached,Vancouver East,2023-06,1,2023-05,405.4,405.529,0.129,0.032
+Single Family Detached,Vancouver East,2023-06,3,2023-03,383.3,380.783,-2.517,-0.657
+Single Family Detached,Vancouver West,2023-06,1,2023-05,346.9,346.875,-0.025,-0.007
+Single Family Detached,Vancouver West,2023-06,3,2023-03,335.8,339.904,4.104,1.222
+Townhouse,Greater Vancouver,2023-06,1,2023-05,376.2,376.059,-0.141,-0.037
+Townhouse,Greater Vancouver,2023-06,3,2023-03,363.9,368.081,4.181,1.149
+Townhouse,Vancouver East,2023-06,1,2023-05,365.8,365.7,-0.1,-0.027
+Townhouse,Vancouver East,2023-06,3,2023-03,353.5,359.941,6.441,1.822
+Townhouse,Vancouver West,2023-06,1,2023-05,331.6,331.548,-0.052,-0.016
+Townhouse,Vancouver West,2023-06,3,2023-03,311.1,323.977,12.877,4.139
+Apartment,Greater Vancouver,2023-06,1,2023-05,350.6,350.694,0.094,0.027
+Apartment,Greater Vancouver,2023-06,3,2023-03,336.9,338.926,2.026,0.601
+Apartment,Vancouver East,2023-06,1,2023-05,407.7,407.631,-0.069,-0.017
+Apartment,Vancouver East,2023-06,3,2023-03,394.3,395.861,1.561,0.396
+Apartment,Vancouver West,2023-06,1,2023-05,324.4,324.429,0.029,0.009
+Apartment,Vancouver West,2023-06,3,2023-03,312.3,312.632,0.332,0.106
+Single Family Detached,Greater Vancouver,2023-07,1,2023-06,370.3,370.227,-0.073,-0.02
+Single Family Detached,Greater Vancouver,2023-07,3,2023-04,356.7,356.816,0.116,0.033
+Single Family Detached,Greater Vancouver,2023-07,6,2023-01,335.4,336.601,1.201,0.358
+Single Family Detached,Vancouver East,2023-07,1,2023-06,418.1,418.236,0.136,0.032
+Single Family Detached,Vancouver East,2023-07,3,2023-04,393.2,395.872,2.672,0.68
+Single Family Detached,Vancouver East,2023-07,6,2023-01,372.5,371.152,-1.348,-0.362
+Single Family Detached,Vancouver West,2023-07,1,2023-06,355.2,355.04,-0.16,-0.045
+Single Family Detached,Vancouver West,2023-07,3,2023-04,345.7,345.149,-0.551,-0.159
+Single Family Detached,Vancouver West,2023-07,6,2023-01,315.2,326.636,11.436,3.628
+Townhouse,Greater Vancouver,2023-07,1,2023-06,381.7,381.791,0.091,0.024
+Townhouse,Greater Vancouver,2023-07,3,2023-04,371.5,375.44,3.94,1.061
+Townhouse,Greater Vancouver,2023-07,6,2023-01,351.5,355.278,3.778,1.075
+Townhouse,Vancouver East,2023-07,1,2023-06,365.7,365.65,-0.05,-0.014
+Townhouse,Vancouver East,2023-07,3,2023-04,363.7,365.65,1.95,0.536
+Townhouse,Vancouver East,2023-07,6,2023-01,334.9,336.199,1.299,0.388
+Townhouse,Vancouver West,2023-07,1,2023-06,340.5,340.4,-0.1,-0.029
+Townhouse,Vancouver West,2023-07,3,2023-04,331.4,342.111,10.711,3.232
+Townhouse,Vancouver West,2023-07,6,2023-01,308.6,301.773,-6.827,-2.212
+Apartment,Greater Vancouver,2023-07,1,2023-06,353.5,353.479,-0.021,-0.006
+Apartment,Greater Vancouver,2023-07,3,2023-04,343.7,346.927,3.227,0.939
+Apartment,Greater Vancouver,2023-07,6,2023-01,329.2,332.026,2.826,0.858
+Apartment,Vancouver East,2023-07,1,2023-06,411.3,411.233,-0.067,-0.016
+Apartment,Vancouver East,2023-07,3,2023-04,401.5,400.097,-1.403,-0.35
+Apartment,Vancouver East,2023-07,6,2023-01,387.6,386.997,-0.603,-0.156
+Apartment,Vancouver West,2023-07,1,2023-06,326.7,326.68,-0.02,-0.006
+Apartment,Vancouver West,2023-07,3,2023-04,320.1,320.349,0.249,0.078
+Apartment,Vancouver West,2023-07,6,2023-01,307.6,306.111,-1.489,-0.484
+Single Family Detached,Greater Vancouver,2023-08,1,2023-07,374.3,374.177,-0.123,-0.033
+Single Family Detached,Greater Vancouver,2023-08,3,2023-05,363.3,363.311,0.011,0.003
+Single Family Detached,Greater Vancouver,2023-08,6,2023-02,337.6,342.115,4.515,1.337
+Single Family Detached,Vancouver East,2023-08,1,2023-07,422.0,421.804,-0.196,-0.047
+Single Family Detached,Vancouver East,2023-08,3,2023-05,405.4,405.333,-0.067,-0.016
+Single Family Detached,Vancouver East,2023-08,6,2023-02,375.3,376.637,1.337,0.356
+Single Family Detached,Vancouver West,2023-08,1,2023-07,359.3,359.234,-0.066,-0.018
+Single Family Detached,Vancouver West,2023-08,3,2023-05,346.9,346.964,0.064,0.018
+Single Family Detached,Vancouver West,2023-08,6,2023-02,323.8,339.239,15.439,4.768
+Townhouse,Greater Vancouver,2023-08,1,2023-07,383.7,383.784,0.084,0.022
+Townhouse,Greater Vancouver,2023-08,3,2023-05,376.2,376.251,0.051,0.014
+Townhouse,Greater Vancouver,2023-08,6,2023-02,357.7,365.143,7.443,2.081
+Townhouse,Vancouver East,2023-08,1,2023-07,371.5,371.528,0.028,0.007
+Townhouse,Vancouver East,2023-08,3,2023-05,365.8,365.723,-0.077,-0.021
+Townhouse,Vancouver East,2023-08,6,2023-02,344.6,348.048,3.448,1.001
+Townhouse,Vancouver West,2023-08,1,2023-07,340.4,340.46,0.06,0.017
+Townhouse,Vancouver West,2023-08,3,2023-05,331.6,331.518,-0.082,-0.025
+Townhouse,Vancouver West,2023-08,6,2023-02,301.4,316.435,15.035,4.988
+Apartment,Greater Vancouver,2023-08,1,2023-07,355.6,355.511,-0.089,-0.025
+Apartment,Greater Vancouver,2023-08,3,2023-05,350.6,350.593,-0.007,-0.002
+Apartment,Greater Vancouver,2023-08,6,2023-02,334.5,336.622,2.122,0.634
+Apartment,Vancouver East,2023-08,1,2023-07,413.7,413.889,0.189,0.046
+Apartment,Vancouver East,2023-08,3,2023-05,407.7,407.82,0.12,0.029
+Apartment,Vancouver East,2023-08,6,2023-02,391.5,390.637,-0.863,-0.221
+Apartment,Vancouver West,2023-08,1,2023-07,330.6,330.573,-0.027,-0.008
+Apartment,Vancouver West,2023-08,3,2023-05,324.4,324.273,-0.127,-0.039
+Apartment,Vancouver West,2023-08,6,2023-02,311.2,309.674,-1.526,-0.49
+Single Family Detached,Greater Vancouver,2023-09,1,2023-08,375.3,375.475,0.175,0.047
+Single Family Detached,Greater Vancouver,2023-09,3,2023-06,370.3,370.286,-0.014,-0.004
+Single Family Detached,Greater Vancouver,2023-09,6,2023-03,346.6,347.637,1.037,0.299
+Single Family Detached,Vancouver East,2023-09,1,2023-08,425.6,425.605,0.005,0.001
+Single Family Detached,Vancouver East,2023-09,3,2023-06,418.1,418.02,-0.08,-0.019
+Single Family Detached,Vancouver East,2023-09,6,2023-03,383.3,380.703,-2.597,-0.677
+Single Family Detached,Vancouver West,2023-09,1,2023-08,365.7,365.545,-0.155,-0.043
+Single Family Detached,Vancouver West,2023-09,3,2023-06,355.2,355.342,0.142,0.04
+Single Family Detached,Vancouver West,2023-09,6,2023-03,335.8,339.963,4.163,1.24
+Townhouse,Greater Vancouver,2023-09,1,2023-08,383.4,383.417,0.017,0.004
+Townhouse,Greater Vancouver,2023-09,3,2023-06,381.7,381.882,0.182,0.048
+Townhouse,Greater Vancouver,2023-09,6,2023-03,363.9,368.243,4.343,1.194
+Townhouse,Vancouver East,2023-09,1,2023-08,374.5,374.602,0.102,0.027
+Townhouse,Vancouver East,2023-09,3,2023-06,365.7,365.856,0.156,0.043
+Townhouse,Vancouver East,2023-09,6,2023-03,353.5,359.904,6.404,1.812
+Townhouse,Vancouver West,2023-09,1,2023-08,340.8,340.802,0.002,0.0
+Townhouse,Vancouver West,2023-09,3,2023-06,340.5,340.452,-0.048,-0.014
+Townhouse,Vancouver West,2023-09,6,2023-03,311.1,323.828,12.728,4.091
+Apartment,Greater Vancouver,2023-09,1,2023-08,354.8,354.81,0.01,0.003
+Apartment,Greater Vancouver,2023-09,3,2023-06,353.5,353.393,-0.107,-0.03
+Apartment,Greater Vancouver,2023-09,6,2023-03,336.9,338.852,1.952,0.579
+Apartment,Vancouver East,2023-09,1,2023-08,417.2,417.002,-0.198,-0.047
+Apartment,Vancouver East,2023-09,3,2023-06,411.3,411.21,-0.09,-0.022
+Apartment,Vancouver East,2023-09,6,2023-03,394.3,395.893,1.593,0.404
+Apartment,Vancouver West,2023-09,1,2023-08,323.3,323.43,0.13,0.04
+Apartment,Vancouver West,2023-09,3,2023-06,326.7,326.687,-0.013,-0.004
+Apartment,Vancouver West,2023-09,6,2023-03,312.3,312.825,0.525,0.168
+Single Family Detached,Greater Vancouver,2023-10,1,2023-09,375.1,375.101,0.001,0.0
+Single Family Detached,Greater Vancouver,2023-10,3,2023-07,374.3,374.346,0.046,0.012
+Single Family Detached,Greater Vancouver,2023-10,6,2023-04,356.7,356.759,0.059,0.017
+Single Family Detached,Vancouver East,2023-10,1,2023-09,422.2,422.346,0.146,0.035
+Single Family Detached,Vancouver East,2023-10,3,2023-07,422.0,421.919,-0.081,-0.019
+Single Family Detached,Vancouver East,2023-10,6,2023-04,393.2,395.549,2.349,0.597
+Single Family Detached,Vancouver West,2023-10,1,2023-09,369.2,369.286,0.086,0.023
+Single Family Detached,Vancouver West,2023-10,3,2023-07,359.3,359.256,-0.044,-0.012
+Single Family Detached,Vancouver West,2023-10,6,2023-04,345.7,345.358,-0.342,-0.099
+Townhouse,Greater Vancouver,2023-10,1,2023-09,381.5,381.537,0.037,0.01
+Townhouse,Greater Vancouver,2023-10,3,2023-07,383.7,383.835,0.135,0.035
+Townhouse,Greater Vancouver,2023-10,6,2023-04,371.5,375.54,4.04,1.088
+Townhouse,Vancouver East,2023-10,1,2023-09,376.1,376.045,-0.055,-0.015
+Townhouse,Vancouver East,2023-10,3,2023-07,371.5,371.501,0.001,0.0
+Townhouse,Vancouver East,2023-10,6,2023-04,363.7,365.972,2.272,0.625
+Townhouse,Vancouver West,2023-10,1,2023-09,331.6,331.594,-0.006,-0.002
+Townhouse,Vancouver West,2023-10,3,2023-07,340.4,340.303,-0.097,-0.028
+Townhouse,Vancouver West,2023-10,6,2023-04,331.4,342.03,10.63,3.208
+Apartment,Greater Vancouver,2023-10,1,2023-09,354.1,354.192,0.092,0.026
+Apartment,Greater Vancouver,2023-10,3,2023-07,355.6,355.611,0.011,0.003
+Apartment,Greater Vancouver,2023-10,6,2023-04,343.7,346.921,3.221,0.937
+Apartment,Vancouver East,2023-10,1,2023-09,414.5,414.372,-0.128,-0.031
+Apartment,Vancouver East,2023-10,3,2023-07,413.7,413.541,-0.159,-0.039
+Apartment,Vancouver East,2023-10,6,2023-04,401.5,400.291,-1.209,-0.301
+Apartment,Vancouver West,2023-10,1,2023-09,324.4,324.451,0.051,0.016
+Apartment,Vancouver West,2023-10,3,2023-07,330.6,330.722,0.122,0.037
+Apartment,Vancouver West,2023-10,6,2023-04,320.1,320.611,0.511,0.16
+Single Family Detached,Greater Vancouver,2023-11,1,2023-10,372.1,372.048,-0.052,-0.014
+Single Family Detached,Greater Vancouver,2023-11,3,2023-08,375.3,375.458,0.158,0.042
+Single Family Detached,Greater Vancouver,2023-11,6,2023-05,363.3,363.251,-0.049,-0.013
+Single Family Detached,Vancouver East,2023-11,1,2023-10,417.7,417.588,-0.112,-0.027
+Single Family Detached,Vancouver East,2023-11,3,2023-08,425.6,425.717,0.117,0.028
+Single Family Detached,Vancouver East,2023-11,6,2023-05,405.4,405.366,-0.034,-0.008
+Single Family Detached,Vancouver West,2023-11,1,2023-10,357.1,357.185,0.085,0.024
+Single Family Detached,Vancouver West,2023-11,3,2023-08,365.7,365.517,-0.183,-0.05
+Single Family Detached,Vancouver West,2023-11,6,2023-05,346.9,346.872,-0.028,-0.008
+Townhouse,Greater Vancouver,2023-11,1,2023-10,382.3,382.175,-0.125,-0.033
+Townhouse,Greater Vancouver,2023-11,3,2023-08,383.4,383.333,-0.067,-0.017
+Townhouse,Greater Vancouver,2023-11,6,2023-05,376.2,376.115,-0.085,-0.023
+Townhouse,Vancouver East,2023-11,1,2023-10,368.9,368.952,0.052,0.014
+Townhouse,Vancouver East,2023-11,3,2023-08,374.5,374.616,0.116,0.031
+Townhouse,Vancouver East,2023-11,6,2023-05,365.8,365.634,-0.166,-0.045
+Townhouse,Vancouver West,2023-11,1,2023-10,336.9,337.018,0.118,0.035
+Townhouse,Vancouver West,2023-11,3,2023-08,340.8,340.821,0.021,0.006
+Townhouse,Vancouver West,2023-11,6,2023-05,331.6,331.637,0.037,0.011
+Apartment,Greater Vancouver,2023-11,1,2023-10,354.9,355.051,0.151,0.042
+Apartment,Greater Vancouver,2023-11,3,2023-08,354.8,354.692,-0.108,-0.03
+Apartment,Greater Vancouver,2023-11,6,2023-05,350.6,350.449,-0.151,-0.043
+Apartment,Vancouver East,2023-11,1,2023-10,412.3,412.373,0.073,0.018
+Apartment,Vancouver East,2023-11,3,2023-08,417.2,417.026,-0.174,-0.042
+Apartment,Vancouver East,2023-11,6,2023-05,407.7,407.823,0.123,0.03
+Apartment,Vancouver West,2023-11,1,2023-10,325.1,324.949,-0.151,-0.046
+Apartment,Vancouver West,2023-11,3,2023-08,323.3,323.317,0.017,0.005
+Apartment,Vancouver West,2023-11,6,2023-05,324.4,324.294,-0.106,-0.033
+Single Family Detached,Greater Vancouver,2023-12,1,2023-11,368.7,368.618,-0.082,-0.022
+Single Family Detached,Greater Vancouver,2023-12,3,2023-09,375.1,375.051,-0.049,-0.013
+Single Family Detached,Greater Vancouver,2023-12,6,2023-06,370.3,370.487,0.187,0.05
+Single Family Detached,Vancouver East,2023-12,1,2023-11,415.5,415.594,0.094,0.023
+Single Family Detached,Vancouver East,2023-12,3,2023-09,422.2,422.393,0.193,0.046
+Single Family Detached,Vancouver East,2023-12,6,2023-06,418.1,418.117,0.017,0.004
+Single Family Detached,Vancouver West,2023-12,1,2023-11,360.4,360.46,0.06,0.017
+Single Family Detached,Vancouver West,2023-12,3,2023-09,369.2,369.333,0.133,0.036
+Single Family Detached,Vancouver West,2023-12,6,2023-06,355.2,355.128,-0.072,-0.02
+Townhouse,Greater Vancouver,2023-12,1,2023-11,379.5,379.43,-0.07,-0.019
+Townhouse,Greater Vancouver,2023-12,3,2023-09,381.5,381.372,-0.128,-0.034
+Townhouse,Greater Vancouver,2023-12,6,2023-06,381.7,381.762,0.062,0.016
+Townhouse,Vancouver East,2023-12,1,2023-11,366.0,366.046,0.046,0.012
+Townhouse,Vancouver East,2023-12,3,2023-09,376.1,376.17,0.07,0.019
+Townhouse,Vancouver East,2023-12,6,2023-06,365.7,365.667,-0.033,-0.009
+Townhouse,Vancouver West,2023-12,1,2023-11,332.3,332.41,0.11,0.033
+Townhouse,Vancouver West,2023-12,3,2023-09,331.6,331.73,0.13,0.039
+Townhouse,Vancouver West,2023-12,6,2023-06,340.5,340.441,-0.059,-0.017
+Apartment,Greater Vancouver,2023-12,1,2023-11,351.5,351.472,-0.028,-0.008
+Apartment,Greater Vancouver,2023-12,3,2023-09,354.1,353.988,-0.112,-0.032
+Apartment,Greater Vancouver,2023-12,6,2023-06,353.5,353.626,0.126,0.036
+Apartment,Vancouver East,2023-12,1,2023-11,406.6,406.721,0.121,0.03
+Apartment,Vancouver East,2023-12,3,2023-09,414.5,414.315,-0.185,-0.045
+Apartment,Vancouver East,2023-12,6,2023-06,411.3,411.329,0.029,0.007
+Apartment,Vancouver West,2023-12,1,2023-11,321.7,321.569,-0.131,-0.041
+Apartment,Vancouver West,2023-12,3,2023-09,324.4,324.246,-0.154,-0.048
+Apartment,Vancouver West,2023-12,6,2023-06,326.7,326.625,-0.075,-0.023
+Single Family Detached,Greater Vancouver,2024-01,1,2023-12,365.3,365.217,-0.083,-0.023
+Single Family Detached,Greater Vancouver,2024-01,3,2023-10,372.1,371.988,-0.112,-0.03
+Single Family Detached,Greater Vancouver,2024-01,6,2023-07,374.3,374.301,0.001,0.0
+Single Family Detached,Greater Vancouver,2024-01,12,2023-01,335.4,336.626,1.226,0.366
+Single Family Detached,Vancouver East,2024-01,1,2023-12,413.1,413.118,0.018,0.004
+Single Family Detached,Vancouver East,2024-01,3,2023-10,417.7,417.755,0.055,0.013
+Single Family Detached,Vancouver East,2024-01,6,2023-07,422.0,422.062,0.062,0.015
+Single Family Detached,Vancouver East,2024-01,12,2023-01,372.5,371.17,-1.33,-0.357
+Single Family Detached,Vancouver West,2024-01,1,2023-12,360.1,359.916,-0.184,-0.051
+Single Family Detached,Vancouver West,2024-01,3,2023-10,357.1,356.92,-0.18,-0.05
+Single Family Detached,Vancouver West,2024-01,6,2023-07,359.3,359.162,-0.138,-0.038
+Single Family Detached,Vancouver West,2024-01,12,2023-01,315.2,326.356,11.156,3.539
+Townhouse,Greater Vancouver,2024-01,1,2023-12,372.6,372.736,0.136,0.037
+Townhouse,Greater Vancouver,2024-01,3,2023-10,382.3,382.353,0.053,0.014
+Townhouse,Greater Vancouver,2024-01,6,2023-07,383.7,383.54,-0.16,-0.042
+Townhouse,Greater Vancouver,2024-01,12,2023-01,351.5,355.225,3.725,1.06
+Townhouse,Vancouver East,2024-01,1,2023-12,353.6,353.753,0.153,0.043
+Townhouse,Vancouver East,2024-01,3,2023-10,368.9,368.71,-0.19,-0.051
+Townhouse,Vancouver East,2024-01,6,2023-07,371.5,371.459,-0.041,-0.011
+Townhouse,Vancouver East,2024-01,12,2023-01,334.9,336.031,1.131,0.338
+Townhouse,Vancouver West,2024-01,1,2023-12,324.1,324.138,0.038,0.012
+Townhouse,Vancouver West,2024-01,3,2023-10,336.9,336.745,-0.155,-0.046
+Townhouse,Vancouver West,2024-01,6,2023-07,340.4,340.228,-0.172,-0.051
+Townhouse,Vancouver West,2024-01,12,2023-01,308.6,301.835,-6.765,-2.192
+Apartment,Greater Vancouver,2024-01,1,2023-12,346.2,346.154,-0.046,-0.013
+Apartment,Greater Vancouver,2024-01,3,2023-10,354.9,355.02,0.12,0.034
+Apartment,Greater Vancouver,2024-01,6,2023-07,355.6,355.749,0.149,0.042
+Apartment,Greater Vancouver,2024-01,12,2023-01,329.2,331.897,2.697,0.819
+Apartment,Vancouver East,2024-01,1,2023-12,399.4,399.599,0.199,0.05
+Apartment,Vancouver East,2024-01,3,2023-10,412.3,412.41,0.11,0.027
+Apartment,Vancouver East,2024-01,6,2023-07,413.7,413.693,-0.007,-0.002
+Apartment,Vancouver East,2024-01,12,2023-01,387.6,387.184,-0.416,-0.107
+Apartment,Vancouver West,2024-01,1,2023-12,311.6,311.504,-0.096,-0.031
+Apartment,Vancouver West,2024-01,3,2023-10,325.1,325.257,0.157,0.048
+Apartment,Vancouver West,2024-01,6,2023-07,330.6,330.689,0.089,0.027
+Apartment,Vancouver West,2024-01,12,2023-01,307.6,306.087,-1.513,-0.492
+Single Family Detached,Greater Vancouver,2024-02,1,2024-01,361.2,361.024,-0.176,-0.049
+Single Family Detached,Greater Vancouver,2024-02,3,2023-11,368.7,368.643,-0.057,-0.015
+Single Family Detached,Greater Vancouver,2024-02,6,2023-08,375.3,375.435,0.135,0.036
+Single Family Detached,Greater Vancouver,2024-02,12,2023-02,337.6,341.845,4.245,1.257
+Single Family Detached,Vancouver East,2024-02,1,2024-01,409.4,409.447,0.047,0.012
+Single Family Detached,Vancouver East,2024-02,3,2023-11,415.5,415.291,-0.209,-0.05
+Single Family Detached,Vancouver East,2024-02,6,2023-08,425.6,425.705,0.105,0.025
+Single Family Detached,Vancouver East,2024-02,12,2023-02,375.3,376.873,1.573,0.419
+Single Family Detached,Vancouver West,2024-02,1,2024-01,343.0,342.843,-0.157,-0.046
+Single Family Detached,Vancouver West,2024-02,3,2023-11,360.4,360.505,0.105,0.029
+Single Family Detached,Vancouver West,2024-02,6,2023-08,365.7,365.676,-0.024,-0.006
+Single Family Detached,Vancouver West,2024-02,12,2023-02,323.8,339.259,15.459,4.774
+Townhouse,Greater Vancouver,2024-02,1,2024-01,370.5,370.565,0.065,0.018
+Townhouse,Greater Vancouver,2024-02,3,2023-11,379.5,379.441,-0.059,-0.016
+Townhouse,Greater Vancouver,2024-02,6,2023-08,383.4,383.266,-0.134,-0.035
+Townhouse,Greater Vancouver,2024-02,12,2023-02,357.7,364.875,7.175,2.006
+Townhouse,Vancouver East,2024-02,1,2024-01,348.8,348.76,-0.04,-0.012
+Townhouse,Vancouver East,2024-02,3,2023-11,366.0,365.866,-0.134,-0.037
+Townhouse,Vancouver East,2024-02,6,2023-08,374.5,374.488,-0.012,-0.003
+Townhouse,Vancouver East,2024-02,12,2023-02,344.6,348.095,3.495,1.014
+Townhouse,Vancouver West,2024-02,1,2024-01,329.0,329.1,0.1,0.03
+Townhouse,Vancouver West,2024-02,3,2023-11,332.3,332.249,-0.051,-0.015
+Townhouse,Vancouver West,2024-02,6,2023-08,340.8,340.726,-0.074,-0.022
+Townhouse,Vancouver West,2024-02,12,2023-02,301.4,316.5,15.1,5.01
+Apartment,Greater Vancouver,2024-02,1,2024-01,346.5,346.537,0.037,0.011
+Apartment,Greater Vancouver,2024-02,3,2023-11,351.5,351.335,-0.165,-0.047
+Apartment,Greater Vancouver,2024-02,6,2023-08,354.8,354.845,0.045,0.013
+Apartment,Greater Vancouver,2024-02,12,2023-02,334.5,336.364,1.864,0.557
+Apartment,Vancouver East,2024-02,1,2024-01,398.8,398.927,0.127,0.032
+Apartment,Vancouver East,2024-02,3,2023-11,406.6,406.461,-0.139,-0.034
+Apartment,Vancouver East,2024-02,6,2023-08,417.2,417.245,0.045,0.011
+Apartment,Vancouver East,2024-02,12,2023-02,391.5,390.918,-0.582,-0.149
+Apartment,Vancouver West,2024-02,1,2024-01,316.8,316.91,0.11,0.035
+Apartment,Vancouver West,2024-02,3,2023-11,321.7,321.598,-0.102,-0.032
+Apartment,Vancouver West,2024-02,6,2023-08,323.3,323.191,-0.109,-0.034
+Apartment,Vancouver West,2024-02,12,2023-02,311.2,309.687,-1.513,-0.486
+Single Family Detached,Greater Vancouver,2024-03,1,2024-02,366.8,366.798,-0.002,-0.001
+Single Family Detached,Greater Vancouver,2024-03,3,2023-12,365.3,365.362,0.062,0.017
+Single Family Detached,Greater Vancouver,2024-03,6,2023-09,375.1,375.276,0.176,0.047
+Single Family Detached,Greater Vancouver,2024-03,12,2023-03,346.6,347.672,1.072,0.309
+Single Family Detached,Vancouver East,2024-03,1,2024-02,407.4,407.517,0.117,0.029
+Single Family Detached,Vancouver East,2024-03,3,2023-12,413.1,413.24,0.14,0.034
+Single Family Detached,Vancouver East,2024-03,6,2023-09,422.2,422.131,-0.069,-0.016
+Single Family Detached,Vancouver East,2024-03,12,2023-03,383.3,380.776,-2.524,-0.658
+Single Family Detached,Vancouver West,2024-03,1,2024-02,356.9,356.915,0.015,0.004
+Single Family Detached,Vancouver West,2024-03,3,2023-12,360.1,360.141,0.041,0.011
+Single Family Detached,Vancouver West,2024-03,6,2023-09,369.2,369.033,-0.167,-0.045
+Single Family Detached,Vancouver West,2024-03,12,2023-03,335.8,340.0,4.2,1.251
+Townhouse,Greater Vancouver,2024-03,1,2024-02,380.2,380.039,-0.161,-0.042
+Townhouse,Greater Vancouver,2024-03,3,2023-12,372.6,372.71,0.11,0.029
+Townhouse,Greater Vancouver,2024-03,6,2023-09,381.5,381.54,0.04,0.01
+Townhouse,Greater Vancouver,2024-03,12,2023-03,363.9,368.095,4.195,1.153
+Townhouse,Vancouver East,2024-03,1,2024-02,365.5,365.381,-0.119,-0.033
+Townhouse,Vancouver East,2024-03,3,2023-12,353.6,353.451,-0.149,-0.042
+Townhouse,Vancouver East,2024-03,6,2023-09,376.1,376.266,0.166,0.044
+Townhouse,Vancouver East,2024-03,12,2023-03,353.5,359.829,6.329,1.79
+Townhouse,Vancouver West,2024-03,1,2024-02,347.2,347.222,0.022,0.006
+Townhouse,Vancouver West,2024-03,3,2023-12,324.1,324.207,0.107,0.033
+Townhouse,Vancouver West,2024-03,6,2023-09,331.6,331.532,-0.068,-0.02
+Townhouse,Vancouver West,2024-03,12,2023-03,311.1,323.896,12.796,4.113
+Apartment,Greater Vancouver,2024-03,1,2024-02,355.2,355.104,-0.096,-0.027
+Apartment,Greater Vancouver,2024-03,3,2023-12,346.2,346.184,-0.016,-0.005
+Apartment,Greater Vancouver,2024-03,6,2023-09,354.1,354.051,-0.049,-0.014
+Apartment,Greater Vancouver,2024-03,12,2023-03,336.9,338.978,2.078,0.617
+Apartment,Vancouver East,2024-03,1,2024-02,408.9,408.937,0.037,0.009
+Apartment,Vancouver East,2024-03,3,2023-12,399.4,399.418,0.018,0.005
+Apartment,Vancouver East,2024-03,6,2023-09,414.5,414.703,0.203,0.049
+Apartment,Vancouver East,2024-03,12,2023-03,394.3,395.962,1.662,0.421
+Apartment,Vancouver West,2024-03,1,2024-02,326.1,326.022,-0.078,-0.024
+Apartment,Vancouver West,2024-03,3,2023-12,311.6,311.725,0.125,0.04
+Apartment,Vancouver West,2024-03,6,2023-09,324.4,324.405,0.005,0.001
+Apartment,Vancouver West,2024-03,12,2023-03,312.3,312.62,0.32,0.102
+Single Family Detached,Greater Vancouver,2024-04,1,2024-03,373.4,373.327,-0.073,-0.02
+Single Family Detached,Greater Vancouver,2024-04,3,2024-01,361.2,361.238,0.038,0.011
+Single Family Detached,Greater Vancouver,2024-04,6,2023-10,372.1,372.228,0.128,0.034
+Single Family Detached,Greater Vancouver,2024-04,12,2023-04,356.7,356.82,0.12,0.034
+Single Family Detached,Vancouver East,2024-04,1,2024-03,412.0,412.067,0.067,0.016
+Single Family Detached,Vancouver East,2024-04,3,2024-01,409.4,409.234,-0.166,-0.041
+Single Family Detached,Vancouver East,2024-04,6,2023-10,417.7,417.854,0.154,0.037
+Single Family Detached,Vancouver East,2024-04,12,2023-04,393.2,395.632,2.432,0.618
+Single Family Detached,Vancouver West,2024-04,1,2024-03,358.7,358.708,0.008,0.002
+Single Family Detached,Vancouver West,2024-04,3,2024-01,343.0,342.937,-0.063,-0.018
+Single Family Detached,Vancouver West,2024-04,6,2023-10,357.1,356.962,-0.138,-0.039
+Single Family Detached,Vancouver West,2024-04,12,2023-04,345.7,345.198,-0.502,-0.145
+Townhouse,Greater Vancouver,2024-04,1,2024-03,386.5,386.476,-0.024,-0.006
+Townhouse,Greater Vancouver,2024-04,3,2024-01,370.5,370.388,-0.112,-0.03
+Townhouse,Greater Vancouver,2024-04,6,2023-10,382.3,382.324,0.024,0.006
+Townhouse,Greater Vancouver,2024-04,12,2023-04,371.5,375.36,3.86,1.039
+Townhouse,Vancouver East,2024-04,1,2024-03,378.9,378.721,-0.179,-0.047
+Townhouse,Vancouver East,2024-04,3,2024-01,348.8,348.758,-0.042,-0.012
+Townhouse,Vancouver East,2024-04,6,2023-10,368.9,368.774,-0.126,-0.034
+Townhouse,Vancouver East,2024-04,12,2023-04,363.7,365.927,2.227,0.612
+Townhouse,Vancouver West,2024-04,1,2024-03,337.5,337.646,0.146,0.043
+Townhouse,Vancouver West,2024-04,3,2024-01,329.0,329.005,0.005,0.001
+Townhouse,Vancouver West,2024-04,6,2023-10,336.9,336.99,0.09,0.027
+Townhouse,Vancouver West,2024-04,12,2023-04,331.4,341.97,10.57,3.19
+Apartment,Greater Vancouver,2024-04,1,2024-03,358.3,358.158,-0.142,-0.04
+Apartment,Greater Vancouver,2024-04,3,2024-01,346.5,346.37,-0.13,-0.038
+Apartment,Greater Vancouver,2024-04,6,2023-10,354.9,354.96,0.06,0.017
+Apartment,Greater Vancouver,2024-04,12,2023-04,343.7,346.705,3.005,0.874
+Apartment,Vancouver East,2024-04,1,2024-03,411.8,411.864,0.064,0.016
+Apartment,Vancouver East,2024-04,3,2024-01,398.8,398.745,-0.055,-0.014
+Apartment,Vancouver East,2024-04,6,2023-10,412.3,412.275,-0.025,-0.006
+Apartment,Vancouver East,2024-04,12,2023-04,401.5,400.291,-1.209,-0.301
+Apartment,Vancouver West,2024-04,1,2024-03,327.0,327.027,0.027,0.008
+Apartment,Vancouver West,2024-04,3,2024-01,316.8,316.877,0.077,0.024
+Apartment,Vancouver West,2024-04,6,2023-10,325.1,325.075,-0.025,-0.008
+Apartment,Vancouver West,2024-04,12,2023-04,320.1,320.608,0.508,0.159
+Single Family Detached,Greater Vancouver,2024-05,1,2024-04,379.3,378.973,-0.327,-0.086
+Single Family Detached,Greater Vancouver,2024-05,3,2024-02,366.8,366.667,-0.133,-0.036
+Single Family Detached,Greater Vancouver,2024-05,6,2023-11,368.7,368.073,-0.627,-0.17
+Single Family Detached,Greater Vancouver,2024-05,12,2023-05,363.3,362.512,-0.788,-0.217
+Single Family Detached,Vancouver East,2024-05,1,2024-04,416.6,414.95,-1.65,-0.396
+Single Family Detached,Vancouver East,2024-05,3,2024-02,407.4,408.878,1.478,0.363
+Single Family Detached,Vancouver East,2024-05,6,2023-11,415.5,415.362,-0.138,-0.033
+Single Family Detached,Vancouver East,2024-05,12,2023-05,405.4,405.319,-0.081,-0.02
+Single Family Detached,Vancouver West,2024-05,1,2024-04,366.6,366.139,-0.461,-0.126
+Single Family Detached,Vancouver West,2024-05,3,2024-02,356.9,354.215,-2.685,-0.752
+Single Family Detached,Vancouver West,2024-05,6,2023-11,360.4,361.486,1.086,0.301
+Single Family Detached,Vancouver West,2024-05,12,2023-05,346.9,348.539,1.639,0.473
+Townhouse,Greater Vancouver,2024-05,1,2024-04,391.5,396.531,5.031,1.285
+Townhouse,Greater Vancouver,2024-05,3,2024-02,380.2,384.342,4.142,1.089
+Townhouse,Greater Vancouver,2024-05,6,2023-11,379.5,383.605,4.105,1.082
+Townhouse,Greater Vancouver,2024-05,12,2023-05,376.2,380.323,4.123,1.096
+Townhouse,Vancouver East,2024-05,1,2024-04,379.1,377.117,-1.983,-0.523
+Townhouse,Vancouver East,2024-05,3,2024-02,365.5,366.047,0.547,0.15
+Townhouse,Vancouver East,2024-05,6,2023-11,366.0,364.976,-1.024,-0.28
+Townhouse,Vancouver East,2024-05,12,2023-05,365.8,366.047,0.247,0.068
+Townhouse,Vancouver West,2024-05,1,2024-04,347.1,351.648,4.548,1.31
+Townhouse,Vancouver West,2024-05,3,2024-02,347.2,335.238,-11.962,-3.445
+Townhouse,Vancouver West,2024-05,6,2023-11,332.3,335.878,3.578,1.077
+Townhouse,Vancouver West,2024-05,12,2023-05,331.6,335.238,3.638,1.097
+Apartment,Greater Vancouver,2024-05,1,2024-04,357.8,360.281,2.481,0.693
+Apartment,Greater Vancouver,2024-05,3,2024-02,355.2,355.644,0.444,0.125
+Apartment,Greater Vancouver,2024-05,6,2023-11,351.5,352.502,1.002,0.285
+Apartment,Greater Vancouver,2024-05,12,2023-05,350.6,351.468,0.868,0.247
+Apartment,Vancouver East,2024-05,1,2024-04,413.1,416.983,3.883,0.94
+Apartment,Vancouver East,2024-05,3,2024-02,408.9,410.827,1.927,0.471
+Apartment,Vancouver East,2024-05,6,2023-11,406.6,405.637,-0.963,-0.237
+Apartment,Vancouver East,2024-05,12,2023-05,407.7,406.823,-0.877,-0.215
+Apartment,Vancouver West,2024-05,1,2024-04,326.7,329.364,2.664,0.816
+Apartment,Vancouver West,2024-05,3,2024-02,326.1,324.453,-1.647,-0.505
+Apartment,Vancouver West,2024-05,6,2023-11,321.7,323.168,1.468,0.456
+Apartment,Vancouver West,2024-05,12,2023-05,324.4,325.749,1.349,0.416
+Single Family Detached,Greater Vancouver,2024-06,1,2024-05,383.9,383.984,0.084,0.022
+Single Family Detached,Greater Vancouver,2024-06,3,2024-03,373.4,375.71,2.31,0.619
+Single Family Detached,Greater Vancouver,2024-06,6,2023-12,365.3,364.639,-0.661,-0.181
+Single Family Detached,Greater Vancouver,2024-06,12,2023-06,370.3,369.557,-0.743,-0.201
+Single Family Detached,Vancouver East,2024-06,1,2024-05,419.1,419.265,0.165,0.039
+Single Family Detached,Vancouver East,2024-06,3,2024-03,412.0,413.922,1.922,0.466
+Single Family Detached,Vancouver East,2024-06,6,2023-12,413.1,412.708,-0.392,-0.095
+Single Family Detached,Vancouver East,2024-06,12,2023-06,418.1,417.606,-0.494,-0.118
+Single Family Detached,Vancouver West,2024-06,1,2024-05,369.8,369.89,0.09,0.024
+Single Family Detached,Vancouver West,2024-06,3,2024-03,358.7,359.148,0.448,0.125
+Single Family Detached,Vancouver West,2024-06,6,2023-12,360.1,360.544,0.444,0.123
+Single Family Detached,Vancouver West,2024-06,12,2023-06,355.2,356.388,1.188,0.334
+Townhouse,Greater Vancouver,2024-06,1,2024-05,400.1,399.899,-0.201,-0.05
+Townhouse,Greater Vancouver,2024-06,3,2024-03,386.5,392.012,5.512,1.426
+Townhouse,Greater Vancouver,2024-06,6,2023-12,372.6,376.42,3.82,1.025
+Townhouse,Greater Vancouver,2024-06,12,2023-06,381.7,385.922,4.222,1.106
+Townhouse,Vancouver East,2024-06,1,2024-05,374.1,374.283,0.183,0.049
+Townhouse,Vancouver East,2024-06,3,2024-03,378.9,374.653,-4.247,-1.121
+Townhouse,Vancouver East,2024-06,6,2023-12,353.6,352.656,-0.944,-0.267
+Townhouse,Vancouver East,2024-06,12,2023-06,365.7,365.251,-0.449,-0.123
+Townhouse,Vancouver West,2024-06,1,2024-05,352.0,351.9,-0.1,-0.028
+Townhouse,Vancouver West,2024-06,3,2024-03,337.5,347.041,9.541,2.827
+Townhouse,Vancouver West,2024-06,6,2023-12,324.1,327.349,3.249,1.002
+Townhouse,Vancouver West,2024-06,12,2023-06,340.5,343.988,3.488,1.024
+Apartment,Greater Vancouver,2024-06,1,2024-05,359.2,359.337,0.137,0.038
+Apartment,Greater Vancouver,2024-06,3,2024-03,358.3,358.258,-0.042,-0.012
+Apartment,Greater Vancouver,2024-06,6,2023-12,346.2,347.139,0.939,0.271
+Apartment,Greater Vancouver,2024-06,12,2023-06,353.5,354.356,0.856,0.242
+Apartment,Vancouver East,2024-06,1,2024-05,417.4,417.391,-0.009,-0.002
+Apartment,Vancouver East,2024-06,3,2024-03,411.8,413.213,1.413,0.343
+Apartment,Vancouver East,2024-06,6,2023-12,399.4,398.841,-0.559,-0.14
+Apartment,Vancouver East,2024-06,12,2023-06,411.3,410.338,-0.962,-0.234
+Apartment,Vancouver West,2024-06,1,2024-05,326.4,326.415,0.015,0.005
+Apartment,Vancouver West,2024-06,3,2024-03,327.0,325.446,-1.554,-0.475
+Apartment,Vancouver West,2024-06,6,2023-12,311.6,313.645,2.045,0.656
+Apartment,Vancouver West,2024-06,12,2023-06,326.7,328.7,2.0,0.612
+Single Family Detached,Greater Vancouver,2024-07,1,2024-06,383.6,383.702,0.102,0.027
+Single Family Detached,Greater Vancouver,2024-07,3,2024-04,379.3,378.749,-0.551,-0.145
+Single Family Detached,Greater Vancouver,2024-07,6,2024-01,361.2,361.86,0.66,0.183
+Single Family Detached,Greater Vancouver,2024-07,12,2023-07,374.3,373.555,-0.745,-0.199
+Single Family Detached,Vancouver East,2024-07,1,2024-06,422.2,422.188,-0.012,-0.003
+Single Family Detached,Vancouver East,2024-07,3,2024-04,416.6,415.04,-1.56,-0.374
+Single Family Detached,Vancouver East,2024-07,6,2024-01,409.4,408.129,-1.271,-0.31
+Single Family Detached,Vancouver East,2024-07,12,2023-07,422.0,421.761,-0.239,-0.057
+Single Family Detached,Vancouver West,2024-07,1,2024-06,371.0,370.892,-0.108,-0.029
+Single Family Detached,Vancouver West,2024-07,3,2024-04,366.6,366.066,-0.534,-0.146
+Single Family Detached,Vancouver West,2024-07,6,2024-01,343.0,350.287,7.287,2.125
+Single Family Detached,Vancouver West,2024-07,12,2023-07,359.3,359.941,0.641,0.178
+Townhouse,Greater Vancouver,2024-07,1,2024-06,397.5,397.571,0.071,0.018
+Townhouse,Greater Vancouver,2024-07,3,2024-04,391.5,396.367,4.867,1.243
+Townhouse,Greater Vancouver,2024-07,6,2024-01,370.5,375.885,5.385,1.453
+Townhouse,Greater Vancouver,2024-07,12,2023-07,383.7,387.759,4.059,1.058
+Townhouse,Vancouver East,2024-07,1,2024-06,378.4,378.357,-0.043,-0.011
+Townhouse,Vancouver East,2024-07,3,2024-04,379.1,377.223,-1.877,-0.495
+Townhouse,Vancouver East,2024-07,6,2024-01,348.8,349.954,1.154,0.331
+Townhouse,Vancouver East,2024-07,12,2023-07,371.5,371.288,-0.212,-0.057
+Townhouse,Vancouver West,2024-07,1,2024-06,351.9,352.066,0.166,0.047
+Townhouse,Vancouver West,2024-07,3,2024-04,347.1,351.703,4.603,1.326
+Townhouse,Vancouver West,2024-07,6,2024-01,329.0,326.75,-2.25,-0.684
+Townhouse,Vancouver West,2024-07,12,2023-07,340.4,344.242,3.842,1.129
+Apartment,Greater Vancouver,2024-07,1,2024-06,357.9,358.006,0.106,0.03
+Apartment,Greater Vancouver,2024-07,3,2024-04,357.8,360.182,2.382,0.666
+Apartment,Greater Vancouver,2024-07,6,2024-01,346.5,352.329,5.829,1.682
+Apartment,Greater Vancouver,2024-07,12,2023-07,355.6,356.57,0.97,0.273
+Apartment,Vancouver East,2024-07,1,2024-06,412.8,412.753,-0.047,-0.011
+Apartment,Vancouver East,2024-07,3,2024-04,413.1,416.973,3.873,0.938
+Apartment,Vancouver East,2024-07,6,2024-01,398.8,402.964,4.164,1.044
+Apartment,Vancouver East,2024-07,12,2023-07,413.7,413.171,-0.529,-0.128
+Apartment,Vancouver West,2024-07,1,2024-06,328.7,328.629,-0.071,-0.022
+Apartment,Vancouver West,2024-07,3,2024-04,326.7,329.618,2.918,0.893
+Apartment,Vancouver West,2024-07,6,2024-01,316.8,326.342,9.542,3.012
+Apartment,Vancouver West,2024-07,12,2023-07,330.6,332.287,1.687,0.51
+Single Family Detached,Greater Vancouver,2024-08,1,2024-07,381.4,381.582,0.182,0.048
+Single Family Detached,Greater Vancouver,2024-08,3,2024-05,383.9,383.887,-0.013,-0.003
+Single Family Detached,Greater Vancouver,2024-08,6,2024-02,366.8,366.891,0.091,0.025
+Single Family Detached,Greater Vancouver,2024-08,12,2023-08,375.3,374.828,-0.472,-0.126
+Single Family Detached,Vancouver East,2024-08,1,2024-07,416.7,416.683,-0.017,-0.004
+Single Family Detached,Vancouver East,2024-08,3,2024-05,419.1,419.196,0.096,0.023
+Single Family Detached,Vancouver East,2024-08,6,2024-02,407.4,408.922,1.522,0.373
+Single Family Detached,Vancouver East,2024-08,12,2023-08,425.6,425.612,0.012,0.003
+Single Family Detached,Vancouver West,2024-08,1,2024-07,365.7,365.517,-0.183,-0.05
+Single Family Detached,Vancouver West,2024-08,3,2024-05,369.8,369.641,-0.159,-0.043
+Single Family Detached,Vancouver West,2024-08,6,2024-02,356.9,354.028,-2.872,-0.805
+Single Family Detached,Vancouver West,2024-08,12,2023-08,365.7,367.006,1.306,0.357
+Townhouse,Greater Vancouver,2024-08,1,2024-07,392.8,392.965,0.165,0.042
+Townhouse,Greater Vancouver,2024-08,3,2024-05,400.1,400.205,0.105,0.026
+Townhouse,Greater Vancouver,2024-08,6,2024-02,380.2,384.464,4.264,1.122
+Townhouse,Greater Vancouver,2024-08,12,2023-08,383.4,387.512,4.112,1.073
+Townhouse,Vancouver East,2024-08,1,2024-07,377.6,377.656,0.056,0.015
+Townhouse,Vancouver East,2024-08,3,2024-05,374.1,373.943,-0.157,-0.042
+Townhouse,Vancouver East,2024-08,6,2024-02,365.5,366.025,0.525,0.144
+Townhouse,Vancouver East,2024-08,12,2023-08,374.5,373.576,-0.924,-0.247
+Townhouse,Vancouver West,2024-08,1,2024-07,340.8,340.873,0.073,0.021
+Townhouse,Vancouver West,2024-08,3,2024-05,352.0,352.049,0.049,0.014
+Townhouse,Vancouver West,2024-08,6,2024-02,347.2,335.22,-11.98,-3.451
+Townhouse,Vancouver West,2024-08,12,2023-08,340.8,344.98,4.18,1.227
+Apartment,Greater Vancouver,2024-08,1,2024-07,355.5,355.5,0.0,0.0
+Apartment,Greater Vancouver,2024-08,3,2024-05,359.2,359.091,-0.109,-0.03
+Apartment,Greater Vancouver,2024-08,6,2024-02,355.2,355.856,0.656,0.185
+Apartment,Greater Vancouver,2024-08,12,2023-08,354.8,355.856,1.056,0.298
+Apartment,Vancouver East,2024-08,1,2024-07,407.8,407.876,0.076,0.019
+Apartment,Vancouver East,2024-08,3,2024-05,417.4,417.449,0.049,0.012
+Apartment,Vancouver East,2024-08,6,2024-02,408.9,410.743,1.843,0.451
+Apartment,Vancouver East,2024-08,12,2023-08,417.2,416.599,-0.601,-0.144
+Apartment,Vancouver West,2024-08,1,2024-07,328.3,328.259,-0.041,-0.013
+Apartment,Vancouver West,2024-08,3,2024-05,326.4,326.311,-0.089,-0.027
+Apartment,Vancouver West,2024-08,6,2024-02,326.1,324.385,-1.715,-0.526
+Apartment,Vancouver West,2024-08,12,2023-08,323.3,325.345,2.045,0.633
+Single Family Detached,Greater Vancouver,2024-09,1,2024-08,381.2,381.358,0.158,0.041
+Single Family Detached,Greater Vancouver,2024-09,3,2024-06,383.6,383.69,0.09,0.023
+Single Family Detached,Greater Vancouver,2024-09,6,2024-03,373.4,375.649,2.249,0.602
+Single Family Detached,Greater Vancouver,2024-09,12,2023-09,375.1,374.527,-0.573,-0.153
+Single Family Detached,Vancouver East,2024-09,1,2024-08,417.1,416.987,-0.113,-0.027
+Single Family Detached,Vancouver East,2024-09,3,2024-06,422.2,422.108,-0.092,-0.022
+Single Family Detached,Vancouver East,2024-09,6,2024-03,412.0,414.056,2.056,0.499
+Single Family Detached,Vancouver East,2024-09,12,2023-09,422.2,422.108,-0.092,-0.022
+Single Family Detached,Vancouver West,2024-09,1,2024-08,360.4,360.359,-0.041,-0.011
+Single Family Detached,Vancouver West,2024-09,3,2024-06,371.0,371.077,0.077,0.021
+Single Family Detached,Vancouver West,2024-09,6,2024-03,358.7,359.285,0.585,0.163
+Single Family Detached,Vancouver West,2024-09,12,2023-09,369.2,370.317,1.117,0.303
+Townhouse,Greater Vancouver,2024-09,1,2024-08,391.0,390.937,-0.063,-0.016
+Townhouse,Greater Vancouver,2024-09,3,2024-06,397.5,397.412,-0.088,-0.022
+Townhouse,Greater Vancouver,2024-09,6,2024-03,386.5,391.735,5.235,1.354
+Townhouse,Greater Vancouver,2024-09,12,2023-09,381.5,385.829,4.329,1.135
+Townhouse,Vancouver East,2024-09,1,2024-08,380.3,380.421,0.121,0.032
+Townhouse,Vancouver East,2024-09,3,2024-06,378.4,378.429,0.029,0.008
+Townhouse,Vancouver East,2024-09,6,2024-03,378.9,374.896,-4.004,-1.057
+Townhouse,Vancouver East,2024-09,12,2023-09,376.1,375.676,-0.424,-0.113
+Townhouse,Vancouver West,2024-09,1,2024-08,343.6,343.724,0.124,0.036
+Townhouse,Vancouver West,2024-09,3,2024-06,351.9,352.055,0.155,0.044
+Townhouse,Vancouver West,2024-09,6,2024-03,337.5,347.297,9.797,2.903
+Townhouse,Vancouver West,2024-09,12,2023-09,331.6,335.779,4.179,1.26
+Apartment,Greater Vancouver,2024-09,1,2024-08,355.5,355.444,-0.056,-0.016
+Apartment,Greater Vancouver,2024-09,3,2024-06,357.9,357.97,0.07,0.019
+Apartment,Greater Vancouver,2024-09,6,2024-03,358.3,358.333,0.033,0.009
+Apartment,Greater Vancouver,2024-09,12,2023-09,354.1,355.444,1.344,0.379
+Apartment,Vancouver East,2024-09,1,2024-08,409.1,409.154,0.054,0.013
+Apartment,Vancouver East,2024-09,3,2024-06,412.8,412.851,0.051,0.012
+Apartment,Vancouver East,2024-09,6,2024-03,411.8,413.266,1.466,0.356
+Apartment,Vancouver East,2024-09,12,2023-09,414.5,414.099,-0.401,-0.097
+Apartment,Vancouver West,2024-09,1,2024-08,329.9,329.807,-0.093,-0.028
+Apartment,Vancouver West,2024-09,3,2024-06,328.7,328.803,0.103,0.031
+Apartment,Vancouver West,2024-09,6,2024-03,327.0,325.502,-1.498,-0.458
+Apartment,Vancouver West,2024-09,12,2023-09,324.4,326.157,1.757,0.542
+Single Family Detached,Greater Vancouver,2024-10,1,2024-09,376.4,376.566,0.166,0.044
+Single Family Detached,Greater Vancouver,2024-10,3,2024-07,381.4,381.576,0.176,0.046
+Single Family Detached,Greater Vancouver,2024-10,6,2024-04,379.3,378.862,-0.438,-0.116
+Single Family Detached,Greater Vancouver,2024-10,12,2023-10,372.1,371.685,-0.415,-0.112
+Single Family Detached,Vancouver East,2024-10,1,2024-09,412.4,412.512,0.112,0.027
+Single Family Detached,Vancouver East,2024-10,3,2024-07,416.7,416.584,-0.116,-0.028
+Single Family Detached,Vancouver East,2024-10,6,2024-04,416.6,414.946,-1.654,-0.397
+Single Family Detached,Vancouver East,2024-10,12,2023-10,417.7,417.409,-0.291,-0.07
+Single Family Detached,Vancouver West,2024-10,1,2024-09,361.8,361.959,0.159,0.044
+Single Family Detached,Vancouver West,2024-10,3,2024-07,365.7,365.729,0.029,0.008
+Single Family Detached,Vancouver West,2024-10,6,2024-04,366.6,366.111,-0.489,-0.134
+Single Family Detached,Vancouver West,2024-10,12,2023-10,357.1,357.9,0.8,0.224
+Townhouse,Greater Vancouver,2024-10,1,2024-09,383.9,383.845,-0.055,-0.014
+Townhouse,Greater Vancouver,2024-10,3,2024-07,392.8,392.799,-0.001,-0.0
+Townhouse,Greater Vancouver,2024-10,6,2024-04,391.5,396.418,4.918,1.256
+Townhouse,Greater Vancouver,2024-10,12,2023-10,382.3,385.757,3.457,0.904
+Townhouse,Vancouver East,2024-10,1,2024-09,361.4,361.422,0.022,0.006
+Townhouse,Vancouver East,2024-10,3,2024-07,377.6,377.525,-0.075,-0.02
+Townhouse,Vancouver East,2024-10,6,2024-04,379.1,377.151,-1.949,-0.514
+Townhouse,Vancouver East,2024-10,12,2023-10,368.9,368.05,-0.85,-0.23
+Townhouse,Vancouver West,2024-10,1,2024-09,334.1,334.241,0.141,0.042
+Townhouse,Vancouver West,2024-10,3,2024-07,340.8,340.873,0.073,0.021
+Townhouse,Vancouver West,2024-10,6,2024-04,347.1,351.689,4.589,1.322
+Townhouse,Vancouver West,2024-10,12,2023-10,336.9,338.856,1.956,0.581
+Apartment,Greater Vancouver,2024-10,1,2024-09,352.6,352.515,-0.085,-0.024
+Apartment,Greater Vancouver,2024-10,3,2024-07,355.5,355.375,-0.125,-0.035
+Apartment,Greater Vancouver,2024-10,6,2024-04,357.8,360.123,2.323,0.649
+Apartment,Greater Vancouver,2024-10,12,2023-10,354.9,356.098,1.198,0.337
+Apartment,Vancouver East,2024-10,1,2024-09,411.2,411.054,-0.146,-0.036
+Apartment,Vancouver East,2024-10,3,2024-07,407.8,407.684,-0.116,-0.028
+Apartment,Vancouver East,2024-10,6,2024-04,413.1,417.086,3.986,0.965
+Apartment,Vancouver East,2024-10,12,2023-10,412.3,411.905,-0.395,-0.096
+Apartment,Vancouver West,2024-10,1,2024-09,324.2,324.04,-0.16,-0.049
+Apartment,Vancouver West,2024-10,3,2024-07,328.3,328.352,0.052,0.016
+Apartment,Vancouver West,2024-10,6,2024-04,326.7,329.363,2.663,0.815
+Apartment,Vancouver West,2024-10,12,2023-10,325.1,326.68,1.58,0.486
+Single Family Detached,Greater Vancouver,2024-11,1,2024-10,372.8,372.818,0.018,0.005
+Single Family Detached,Greater Vancouver,2024-11,3,2024-08,381.2,381.231,0.031,0.008
+Single Family Detached,Greater Vancouver,2024-11,6,2024-05,383.9,383.988,0.088,0.023
+Single Family Detached,Greater Vancouver,2024-11,12,2023-11,368.7,368.02,-0.68,-0.184
+Single Family Detached,Vancouver East,2024-11,1,2024-10,422.0,421.827,-0.173,-0.041
+Single Family Detached,Vancouver East,2024-11,3,2024-08,417.1,417.169,0.069,0.016
+Single Family Detached,Vancouver East,2024-11,6,2024-05,419.1,419.273,0.173,0.041
+Single Family Detached,Vancouver East,2024-11,12,2023-11,415.5,415.085,-0.415,-0.1
+Single Family Detached,Vancouver West,2024-11,1,2024-10,351.1,350.945,-0.155,-0.044
+Single Family Detached,Vancouver West,2024-11,3,2024-08,360.4,360.266,-0.134,-0.037
+Single Family Detached,Vancouver West,2024-11,6,2024-05,369.8,369.706,-0.094,-0.025
+Single Family Detached,Vancouver West,2024-11,12,2023-11,360.4,361.373,0.973,0.27
+Townhouse,Greater Vancouver,2024-11,1,2024-10,387.3,387.302,0.002,0.0
+Townhouse,Greater Vancouver,2024-11,3,2024-08,391.0,391.182,0.182,0.047
+Townhouse,Greater Vancouver,2024-11,6,2024-05,400.1,400.0,-0.1,-0.025
+Townhouse,Greater Vancouver,2024-11,12,2023-11,379.5,383.497,3.997,1.053
+Townhouse,Vancouver East,2024-11,1,2024-10,381.3,381.282,-0.018,-0.005
+Townhouse,Vancouver East,2024-11,3,2024-08,380.3,380.495,0.195,0.051
+Townhouse,Vancouver East,2024-11,6,2024-05,374.1,373.935,-0.165,-0.044
+Townhouse,Vancouver East,2024-11,12,2023-11,366.0,365.05,-0.95,-0.26
+Townhouse,Vancouver West,2024-11,1,2024-10,343.6,343.72,0.12,0.035
+Townhouse,Vancouver West,2024-11,3,2024-08,343.6,343.72,0.12,0.035
+Townhouse,Vancouver West,2024-11,6,2024-05,352.0,352.161,0.161,0.046
+Townhouse,Vancouver West,2024-11,12,2023-11,332.3,335.989,3.689,1.11
+Apartment,Greater Vancouver,2024-11,1,2024-10,350.4,350.503,0.103,0.029
+Apartment,Greater Vancouver,2024-11,3,2024-08,355.5,355.51,0.01,0.003
+Apartment,Greater Vancouver,2024-11,6,2024-05,359.2,359.175,-0.025,-0.007
+Apartment,Greater Vancouver,2024-11,12,2023-11,351.5,352.632,1.132,0.322
+Apartment,Vancouver East,2024-11,1,2024-10,397.9,397.921,0.021,0.005
+Apartment,Vancouver East,2024-11,3,2024-08,409.1,409.267,0.167,0.041
+Apartment,Vancouver East,2024-11,6,2024-05,417.4,417.342,-0.058,-0.014
+Apartment,Vancouver East,2024-11,12,2023-11,406.6,405.55,-1.05,-0.258
+Apartment,Vancouver West,2024-11,1,2024-10,320.8,320.905,0.105,0.033
+Apartment,Vancouver West,2024-11,3,2024-08,329.9,329.855,-0.045,-0.014
+Apartment,Vancouver West,2024-11,6,2024-05,326.4,326.483,0.083,0.025
+Apartment,Vancouver West,2024-11,12,2023-11,321.7,323.178,1.478,0.459
+Single Family Detached,Greater Vancouver,2024-12,1,2024-11,371.7,371.7,0.0,0.0
+Single Family Detached,Greater Vancouver,2024-12,3,2024-09,376.4,376.215,-0.185,-0.049
+Single Family Detached,Greater Vancouver,2024-12,6,2024-06,383.6,383.591,-0.009,-0.002
+Single Family Detached,Greater Vancouver,2024-12,12,2023-12,365.3,364.412,-0.888,-0.243
+Single Family Detached,Vancouver East,2024-12,1,2024-11,415.5,415.562,0.062,0.015
+Single Family Detached,Vancouver East,2024-12,3,2024-09,412.4,412.251,-0.149,-0.036
+Single Family Detached,Vancouver East,2024-12,6,2024-06,422.2,422.347,0.147,0.035
+Single Family Detached,Vancouver East,2024-12,12,2023-12,413.1,412.662,-0.438,-0.106
+Single Family Detached,Vancouver West,2024-12,1,2024-11,352.7,352.758,0.058,0.017
+Single Family Detached,Vancouver West,2024-12,3,2024-09,361.8,361.831,0.031,0.009
+Single Family Detached,Vancouver West,2024-12,6,2024-06,371.0,370.992,-0.008,-0.002
+Single Family Detached,Vancouver West,2024-12,12,2023-12,360.1,360.718,0.618,0.172
+Townhouse,Greater Vancouver,2024-12,1,2024-11,390.4,390.471,0.071,0.018
+Townhouse,Greater Vancouver,2024-12,3,2024-09,383.9,383.925,0.025,0.007
+Townhouse,Greater Vancouver,2024-12,6,2024-06,397.5,397.651,0.151,0.038
+Townhouse,Greater Vancouver,2024-12,12,2023-12,372.6,376.499,3.899,1.046
+Townhouse,Vancouver East,2024-12,1,2024-11,368.7,368.616,-0.084,-0.023
+Townhouse,Vancouver East,2024-12,3,2024-09,361.4,361.568,0.168,0.046
+Townhouse,Vancouver East,2024-12,6,2024-06,378.4,378.579,0.179,0.047
+Townhouse,Vancouver East,2024-12,12,2023-12,353.6,352.799,-0.801,-0.227
+Townhouse,Vancouver West,2024-12,1,2024-11,358.5,358.507,0.007,0.002
+Townhouse,Vancouver West,2024-12,3,2024-09,334.1,334.23,0.13,0.039
+Townhouse,Vancouver West,2024-12,6,2024-06,351.9,351.855,-0.045,-0.013
+Townhouse,Vancouver West,2024-12,12,2023-12,324.1,327.545,3.445,1.063
+Apartment,Greater Vancouver,2024-12,1,2024-11,348.4,348.394,-0.006,-0.002
+Apartment,Greater Vancouver,2024-12,3,2024-09,352.6,352.642,0.042,0.012
+Apartment,Greater Vancouver,2024-12,6,2024-06,357.9,357.732,-0.168,-0.047
+Apartment,Greater Vancouver,2024-12,12,2023-12,346.2,347.347,1.147,0.331
+Apartment,Vancouver East,2024-12,1,2024-11,401.9,401.805,-0.095,-0.024
+Apartment,Vancouver East,2024-12,3,2024-09,411.2,411.294,0.094,0.023
+Apartment,Vancouver East,2024-12,6,2024-06,412.8,412.99,0.19,0.046
+Apartment,Vancouver East,2024-12,12,2023-12,399.4,398.607,-0.793,-0.199
+Apartment,Vancouver West,2024-12,1,2024-11,319.3,319.254,-0.046,-0.014
+Apartment,Vancouver West,2024-12,3,2024-09,324.2,324.156,-0.044,-0.014
+Apartment,Vancouver West,2024-12,6,2024-06,328.7,328.868,0.168,0.051
+Apartment,Vancouver West,2024-12,12,2023-12,311.6,313.564,1.964,0.63
+Single Family Detached,Greater Vancouver,2025-02,3,2024-11,371.7,371.626,-0.074,-0.02
+Single Family Detached,Greater Vancouver,2025-02,6,2024-08,381.2,381.01,-0.19,-0.05
+Single Family Detached,Greater Vancouver,2025-02,12,2024-02,366.8,366.926,0.126,0.034
+Single Family Detached,Vancouver East,2025-02,3,2024-11,415.5,415.5,0.0,0.0
+Single Family Detached,Vancouver East,2025-02,6,2024-08,417.1,417.169,0.069,0.016
+Single Family Detached,Vancouver East,2025-02,12,2024-02,407.4,408.957,1.557,0.382
+Single Family Detached,Vancouver West,2025-02,3,2024-11,352.7,352.786,0.086,0.024
+Single Family Detached,Vancouver West,2025-02,6,2024-08,360.4,360.539,0.139,0.039
+Single Family Detached,Vancouver West,2025-02,12,2024-02,356.9,354.171,-2.729,-0.765
+Townhouse,Greater Vancouver,2025-02,3,2024-11,390.4,390.443,0.043,0.011
+Townhouse,Greater Vancouver,2025-02,6,2024-08,391.0,390.836,-0.164,-0.042
+Townhouse,Greater Vancouver,2025-02,12,2024-02,380.2,384.257,4.057,1.067
+Townhouse,Vancouver East,2025-02,3,2024-11,368.7,368.563,-0.137,-0.037
+Townhouse,Vancouver East,2025-02,6,2024-08,380.3,380.299,-0.001,-0.0
+Townhouse,Vancouver East,2025-02,12,2024-02,365.5,365.742,0.242,0.066
+Townhouse,Vancouver West,2025-02,3,2024-11,358.5,358.656,0.156,0.043
+Townhouse,Vancouver West,2025-02,6,2024-08,343.6,343.61,0.01,0.003
+Townhouse,Vancouver West,2025-02,12,2024-02,347.2,335.109,-12.091,-3.482
+Apartment,Greater Vancouver,2025-02,3,2024-11,348.4,348.365,-0.035,-0.01
+Apartment,Greater Vancouver,2025-02,6,2024-08,355.5,355.41,-0.09,-0.025
+Apartment,Greater Vancouver,2025-02,12,2024-02,355.2,355.769,0.569,0.16
+Apartment,Vancouver East,2025-02,3,2024-11,401.9,402.004,0.104,0.026
+Apartment,Vancouver East,2025-02,6,2024-08,409.1,408.97,-0.13,-0.032
+Apartment,Vancouver East,2025-02,12,2024-02,408.9,410.645,1.745,0.427
+Apartment,Vancouver West,2025-02,3,2024-11,319.3,319.39,0.09,0.028
+Apartment,Vancouver West,2025-02,6,2024-08,329.9,329.776,-0.124,-0.037
+Apartment,Vancouver West,2025-02,12,2024-02,326.1,324.5,-1.6,-0.491
+Single Family Detached,Greater Vancouver,2025-03,1,2025-02,377.2,377.092,-0.108,-0.029
+Single Family Detached,Greater Vancouver,2025-03,3,2024-12,371.7,371.541,-0.159,-0.043
+Single Family Detached,Greater Vancouver,2025-03,6,2024-09,376.4,376.342,-0.058,-0.015
+Single Family Detached,Greater Vancouver,2025-03,12,2024-03,373.4,375.595,2.195,0.588
+Single Family Detached,Vancouver East,2025-03,1,2025-02,415.5,415.361,-0.139,-0.033
+Single Family Detached,Vancouver East,2025-03,3,2024-12,413.9,413.7,-0.2,-0.048
+Single Family Detached,Vancouver East,2025-03,6,2024-09,412.4,412.463,0.063,0.015
+Single Family Detached,Vancouver East,2025-03,12,2024-03,412.0,413.7,1.7,0.413
+Single Family Detached,Vancouver West,2025-03,1,2025-02,360.9,360.782,-0.118,-0.033
+Single Family Detached,Vancouver West,2025-03,3,2024-12,351.7,351.613,-0.087,-0.025
+Single Family Detached,Vancouver West,2025-03,6,2024-09,361.8,361.871,0.071,0.02
+Single Family Detached,Vancouver West,2025-03,12,2024-03,358.7,359.341,0.641,0.179
+Townhouse,Greater Vancouver,2025-03,1,2025-02,388.1,388.024,-0.076,-0.02
+Townhouse,Greater Vancouver,2025-03,3,2024-12,389.3,389.189,-0.111,-0.028
+Townhouse,Greater Vancouver,2025-03,6,2024-09,383.9,383.81,-0.09,-0.023
+Townhouse,Greater Vancouver,2025-03,12,2024-03,386.5,391.935,5.435,1.406
+Townhouse,Vancouver East,2025-03,1,2025-02,382.2,382.3,0.1,0.026
+Townhouse,Vancouver East,2025-03,3,2024-12,378.2,378.14,-0.06,-0.016
+Townhouse,Vancouver East,2025-03,6,2024-09,361.4,361.342,-0.058,-0.016
+Townhouse,Vancouver East,2025-03,12,2024-03,378.9,374.804,-4.096,-1.081
+Townhouse,Vancouver West,2025-03,1,2025-02,352.2,352.069,-0.131,-0.037
+Townhouse,Vancouver West,2025-03,3,2024-12,360.3,360.434,0.134,0.037
+Townhouse,Vancouver West,2025-03,6,2024-09,334.1,334.195,0.095,0.029
+Townhouse,Vancouver West,2025-03,12,2024-03,337.5,347.164,9.664,2.863
+Apartment,Greater Vancouver,2025-03,1,2025-02,351.5,351.584,0.084,0.024
+Apartment,Greater Vancouver,2025-03,3,2024-12,347.0,347.116,0.116,0.034
+Apartment,Greater Vancouver,2025-03,6,2024-09,352.6,352.632,0.032,0.009
+Apartment,Greater Vancouver,2025-03,12,2024-03,358.3,358.325,0.025,0.007
+Apartment,Vancouver East,2025-03,1,2025-02,401.2,401.082,-0.118,-0.03
+Apartment,Vancouver East,2025-03,3,2024-12,400.6,400.688,0.088,0.022
+Apartment,Vancouver East,2025-03,6,2024-09,411.2,411.19,-0.01,-0.003
+Apartment,Vancouver East,2025-03,12,2024-03,411.8,413.273,1.473,0.358
+Apartment,Vancouver West,2025-03,1,2025-02,324.5,324.407,-0.093,-0.029
+Apartment,Vancouver West,2025-03,3,2024-12,316.7,316.586,-0.114,-0.036
+Apartment,Vancouver West,2025-03,6,2024-09,324.2,324.087,-0.113,-0.035
+Apartment,Vancouver West,2025-03,12,2024-03,327.0,325.372,-1.628,-0.498
+Single Family Detached,Greater Vancouver,2025-04,1,2025-03,378.6,378.571,-0.029,-0.008
+Single Family Detached,Greater Vancouver,2025-04,6,2024-10,372.8,372.944,0.144,0.038
+Single Family Detached,Greater Vancouver,2025-04,12,2024-04,379.3,378.953,-0.347,-0.092
+Single Family Detached,Vancouver East,2025-04,1,2025-03,413.7,413.514,-0.186,-0.045
+Single Family Detached,Vancouver East,2025-04,6,2024-10,422.0,421.961,-0.039,-0.009
+Single Family Detached,Vancouver East,2025-04,12,2024-04,416.6,415.176,-1.424,-0.342
+Single Family Detached,Vancouver West,2025-04,1,2025-03,359.7,359.617,-0.083,-0.023
+Single Family Detached,Vancouver West,2025-04,6,2024-10,351.1,351.131,0.031,0.009
+Single Family Detached,Vancouver West,2025-04,12,2024-04,366.6,366.256,-0.344,-0.094
+Townhouse,Greater Vancouver,2025-04,1,2025-03,388.8,388.889,0.089,0.023
+Townhouse,Greater Vancouver,2025-04,6,2024-10,387.3,387.324,0.024,0.006
+Townhouse,Greater Vancouver,2025-04,12,2024-04,391.5,396.498,4.998,1.277
+Townhouse,Vancouver East,2025-04,1,2025-03,382.3,382.323,0.023,0.006
+Townhouse,Vancouver East,2025-04,6,2024-10,381.3,381.148,-0.152,-0.04
+Townhouse,Vancouver East,2025-04,12,2024-04,379.1,377.282,-1.818,-0.48
+Townhouse,Vancouver West,2025-04,1,2025-03,348.9,349.013,0.113,0.033
+Townhouse,Vancouver West,2025-04,6,2024-10,343.6,343.661,0.061,0.018
+Townhouse,Vancouver West,2025-04,12,2024-04,347.1,351.569,4.469,1.288
+Apartment,Greater Vancouver,2025-04,1,2025-03,355.1,355.131,0.031,0.009
+Apartment,Greater Vancouver,2025-04,6,2024-10,350.4,350.546,0.146,0.042
+Apartment,Greater Vancouver,2025-04,12,2024-04,357.8,360.204,2.404,0.672
+Apartment,Vancouver East,2025-04,1,2025-03,407.9,407.992,0.092,0.023
+Apartment,Vancouver East,2025-04,6,2024-10,397.9,398.051,0.151,0.038
+Apartment,Vancouver East,2025-04,12,2024-04,413.1,417.16,4.06,0.983
+Apartment,Vancouver West,2025-04,1,2025-03,328.3,328.156,-0.144,-0.044
+Apartment,Vancouver West,2025-04,6,2024-10,320.8,320.764,-0.036,-0.011
+Apartment,Vancouver West,2025-04,12,2024-04,326.7,329.477,2.777,0.85
+Single Family Detached,Greater Vancouver,2025-05,1,2025-04,376.3,376.215,-0.085,-0.023
+Single Family Detached,Greater Vancouver,2025-05,3,2025-02,377.2,377.36,0.16,0.043
+Single Family Detached,Greater Vancouver,2025-05,6,2024-11,371.7,371.7,0.0,0.0
+Single Family Detached,Greater Vancouver,2025-05,12,2024-05,383.9,383.988,0.088,0.023
+Single Family Detached,Vancouver East,2025-05,1,2025-04,413.1,413.273,0.173,0.042
+Single Family Detached,Vancouver East,2025-05,3,2025-02,415.5,415.377,-0.123,-0.03
+Single Family Detached,Vancouver East,2025-05,6,2024-11,415.5,415.377,-0.123,-0.03
+Single Family Detached,Vancouver East,2025-05,12,2024-05,419.1,419.219,0.119,0.028
+Single Family Detached,Vancouver West,2025-05,1,2025-04,357.1,357.187,0.087,0.024
+Single Family Detached,Vancouver West,2025-05,3,2025-02,360.9,360.865,-0.035,-0.01
+Single Family Detached,Vancouver West,2025-05,6,2024-11,352.7,352.87,0.17,0.048
+Single Family Detached,Vancouver West,2025-05,12,2024-05,369.8,369.62,-0.18,-0.049
+Townhouse,Greater Vancouver,2025-05,1,2025-04,385.0,385.06,0.06,0.016
+Townhouse,Greater Vancouver,2025-05,3,2025-02,388.1,388.153,0.053,0.014
+Townhouse,Greater Vancouver,2025-05,6,2024-11,390.4,390.505,0.105,0.027
+Townhouse,Greater Vancouver,2025-05,12,2024-05,400.1,400.207,0.107,0.027
+Townhouse,Vancouver East,2025-05,1,2025-04,372.0,371.831,-0.169,-0.045
+Townhouse,Vancouver East,2025-05,3,2025-02,382.2,382.213,0.013,0.003
+Townhouse,Vancouver East,2025-05,6,2024-11,368.7,368.862,0.162,0.044
+Townhouse,Vancouver East,2025-05,12,2024-05,374.1,374.089,-0.011,-0.003
+Townhouse,Vancouver West,2025-05,1,2025-04,336.1,336.044,-0.056,-0.017
+Townhouse,Vancouver West,2025-05,3,2025-02,352.2,352.316,0.116,0.033
+Townhouse,Vancouver West,2025-05,6,2024-11,358.5,358.351,-0.149,-0.042
+Townhouse,Vancouver West,2025-05,12,2024-05,352.0,351.945,-0.055,-0.016
+Apartment,Greater Vancouver,2025-05,1,2025-04,353.0,352.87,-0.13,-0.037
+Apartment,Greater Vancouver,2025-05,3,2025-02,351.5,351.454,-0.046,-0.013
+Apartment,Greater Vancouver,2025-05,6,2024-11,348.4,348.31,-0.09,-0.026
+Apartment,Greater Vancouver,2025-05,12,2024-05,359.2,359.016,-0.184,-0.051
+Apartment,Vancouver East,2025-05,1,2025-04,408.4,408.392,-0.008,-0.002
+Apartment,Vancouver East,2025-05,3,2025-02,401.2,401.092,-0.108,-0.027
+Apartment,Vancouver East,2025-05,6,2024-11,401.9,401.891,-0.009,-0.002
+Apartment,Vancouver East,2025-05,12,2024-05,417.4,417.252,-0.148,-0.035
+Apartment,Vancouver West,2025-05,1,2025-04,327.5,327.576,0.076,0.023
+Apartment,Vancouver West,2025-05,3,2025-02,324.5,324.625,0.125,0.038
+Apartment,Vancouver West,2025-05,6,2024-11,319.3,319.193,-0.107,-0.034
+Apartment,Vancouver West,2025-05,12,2024-05,326.4,326.258,-0.142,-0.044
+Single Family Detached,Greater Vancouver,2025-06,1,2025-05,371.7,371.572,-0.128,-0.035
+Single Family Detached,Greater Vancouver,2025-06,3,2025-03,378.6,378.776,0.176,0.046
+Single Family Detached,Greater Vancouver,2025-06,6,2024-12,371.7,371.572,-0.128,-0.035
+Single Family Detached,Greater Vancouver,2025-06,12,2024-06,383.6,383.471,-0.129,-0.034
+Single Family Detached,Vancouver East,2025-06,1,2025-05,407.9,407.784,-0.116,-0.028
+Single Family Detached,Vancouver East,2025-06,3,2025-03,413.7,413.563,-0.137,-0.033
+Single Family Detached,Vancouver East,2025-06,6,2024-12,413.9,413.982,0.082,0.02
+Single Family Detached,Vancouver East,2025-06,12,2024-06,422.2,422.107,-0.093,-0.022
+Single Family Detached,Vancouver West,2025-06,1,2025-05,350.4,350.346,-0.054,-0.015
+Single Family Detached,Vancouver West,2025-06,3,2025-03,359.7,359.594,-0.106,-0.029
+Single Family Detached,Vancouver West,2025-06,6,2024-12,351.7,351.738,0.038,0.011
+Single Family Detached,Vancouver West,2025-06,12,2024-06,371.0,370.89,-0.11,-0.03
+Townhouse,Greater Vancouver,2025-06,1,2025-05,386.6,386.76,0.16,0.041
+Townhouse,Greater Vancouver,2025-06,3,2025-03,388.8,388.71,-0.09,-0.023
+Townhouse,Greater Vancouver,2025-06,6,2024-12,389.3,389.495,0.195,0.05
+Townhouse,Greater Vancouver,2025-06,12,2024-06,397.5,397.526,0.026,0.006
+Townhouse,Vancouver East,2025-06,1,2025-05,369.6,369.645,0.045,0.012
+Townhouse,Vancouver East,2025-06,3,2025-03,382.3,382.458,0.158,0.041
+Townhouse,Vancouver East,2025-06,6,2024-12,378.2,378.089,-0.111,-0.029
+Townhouse,Vancouver East,2025-06,12,2024-06,378.4,378.482,0.082,0.022
+Townhouse,Vancouver West,2025-06,1,2025-05,334.7,334.554,-0.146,-0.043
+Townhouse,Vancouver West,2025-06,3,2025-03,348.9,349.07,0.17,0.049
+Townhouse,Vancouver West,2025-06,6,2024-12,360.3,360.235,-0.065,-0.018
+Townhouse,Vancouver West,2025-06,12,2024-06,351.9,351.979,0.079,0.022
+Apartment,Greater Vancouver,2025-06,1,2025-05,350.4,350.506,0.106,0.03
+Apartment,Greater Vancouver,2025-06,3,2025-03,355.1,355.179,0.079,0.022
+Apartment,Greater Vancouver,2025-06,6,2024-12,347.0,346.994,-0.006,-0.002
+Apartment,Greater Vancouver,2025-06,12,2024-06,357.9,357.748,-0.152,-0.042
+Apartment,Vancouver East,2025-06,1,2025-05,403.9,404.057,0.157,0.039
+Apartment,Vancouver East,2025-06,3,2025-03,407.9,407.779,-0.121,-0.03
+Apartment,Vancouver East,2025-06,6,2024-12,400.6,400.402,-0.198,-0.049
+Apartment,Vancouver East,2025-06,12,2024-06,412.8,412.85,0.05,0.012
+Apartment,Vancouver West,2025-06,1,2025-05,324.3,324.212,-0.088,-0.027
+Apartment,Vancouver West,2025-06,3,2025-03,328.3,328.218,-0.082,-0.025
+Apartment,Vancouver West,2025-06,6,2024-12,316.7,316.799,0.099,0.031
+Apartment,Vancouver West,2025-06,12,2024-06,328.7,328.557,-0.143,-0.044
+Single Family Detached,Greater Vancouver,2025-07,1,2025-06,371.2,371.212,0.012,0.003
+Single Family Detached,Greater Vancouver,2025-07,3,2025-04,376.3,376.151,-0.149,-0.039
+Single Family Detached,Greater Vancouver,2025-07,12,2024-07,381.4,381.224,-0.176,-0.046
+Single Family Detached,Vancouver East,2025-07,1,2025-06,408.6,408.469,-0.131,-0.032
+Single Family Detached,Vancouver East,2025-07,3,2025-04,413.1,413.106,0.006,0.002
+Single Family Detached,Vancouver East,2025-07,12,2024-07,416.7,416.545,-0.155,-0.037
+Single Family Detached,Vancouver West,2025-07,1,2025-06,354.2,354.312,0.112,0.032
+Single Family Detached,Vancouver West,2025-07,3,2025-04,357.1,357.246,0.146,0.041
+Single Family Detached,Vancouver West,2025-07,12,2024-07,365.7,365.572,-0.128,-0.035
+Townhouse,Greater Vancouver,2025-07,1,2025-06,385.6,385.442,-0.158,-0.041
+Townhouse,Greater Vancouver,2025-07,3,2025-04,385.0,385.055,0.055,0.014
+Townhouse,Greater Vancouver,2025-07,12,2024-07,392.8,392.938,0.138,0.035
+Townhouse,Vancouver East,2025-07,1,2025-06,364.1,364.229,0.129,0.035
+Townhouse,Vancouver East,2025-07,3,2025-04,372.0,371.948,-0.052,-0.014
+Townhouse,Vancouver East,2025-07,12,2024-07,377.6,377.664,0.064,0.017
+Townhouse,Vancouver West,2025-07,1,2025-06,337.9,337.778,-0.122,-0.036
+Townhouse,Vancouver West,2025-07,3,2025-04,336.1,336.08,-0.02,-0.006
+Townhouse,Vancouver West,2025-07,12,2024-07,340.8,340.877,0.077,0.022
+Apartment,Greater Vancouver,2025-07,1,2025-06,346.3,346.177,-0.123,-0.036
+Apartment,Greater Vancouver,2025-07,3,2025-04,353.0,352.923,-0.077,-0.022
+Apartment,Greater Vancouver,2025-07,12,2024-07,355.5,355.475,-0.025,-0.007
+Apartment,Vancouver East,2025-07,1,2025-06,398.4,398.483,0.083,0.021
+Apartment,Vancouver East,2025-07,3,2025-04,408.4,408.394,-0.006,-0.002
+Apartment,Vancouver East,2025-07,12,2024-07,407.8,407.971,0.171,0.042
+Apartment,Vancouver West,2025-07,1,2025-06,318.7,318.593,-0.107,-0.034
+Apartment,Vancouver West,2025-07,3,2025-04,327.5,327.479,-0.021,-0.006
+Apartment,Vancouver West,2025-07,12,2024-07,328.3,328.157,-0.143,-0.043
+Single Family Detached,Greater Vancouver,2025-08,1,2025-07,367.5,367.409,-0.091,-0.025
+Single Family Detached,Greater Vancouver,2025-08,3,2025-05,371.7,371.546,-0.154,-0.042
+Single Family Detached,Greater Vancouver,2025-08,6,2025-02,377.2,377.339,0.139,0.037
+Single Family Detached,Greater Vancouver,2025-08,12,2024-08,381.2,381.303,0.103,0.027
+Single Family Detached,Vancouver East,2025-08,1,2025-07,400.3,400.201,-0.099,-0.025
+Single Family Detached,Vancouver East,2025-08,3,2025-05,407.9,407.992,0.092,0.023
+Single Family Detached,Vancouver East,2025-08,6,2025-02,415.5,415.658,0.158,0.038
+Single Family Detached,Vancouver East,2025-08,12,2024-08,417.1,416.963,-0.137,-0.033
+Single Family Detached,Vancouver West,2025-08,1,2025-07,345.1,345.03,-0.07,-0.02
+Single Family Detached,Vancouver West,2025-08,3,2025-05,350.4,350.36,-0.04,-0.011
+Single Family Detached,Vancouver West,2025-08,6,2025-02,360.9,360.764,-0.136,-0.038
+Single Family Detached,Vancouver West,2025-08,12,2024-08,360.4,360.381,-0.019,-0.005
+Townhouse,Greater Vancouver,2025-08,1,2025-07,383.9,384.012,0.112,0.029
+Townhouse,Greater Vancouver,2025-08,3,2025-05,386.6,386.769,0.169,0.044
+Townhouse,Greater Vancouver,2025-08,6,2025-02,388.1,387.963,-0.137,-0.035
+Townhouse,Greater Vancouver,2025-08,12,2024-08,391.0,391.183,0.183,0.047
+Townhouse,Vancouver East,2025-08,1,2025-07,368.6,368.568,-0.032,-0.009
+Townhouse,Vancouver East,2025-08,3,2025-05,369.6,369.719,0.119,0.032
+Townhouse,Vancouver East,2025-08,6,2025-02,382.2,382.043,-0.157,-0.041
+Townhouse,Vancouver East,2025-08,12,2024-08,380.3,380.407,0.107,0.028
+Townhouse,Vancouver West,2025-08,1,2025-07,334.4,334.451,0.051,0.015
+Townhouse,Vancouver West,2025-08,3,2025-05,334.7,334.791,0.091,0.027
+Townhouse,Vancouver West,2025-08,6,2025-02,352.2,352.355,0.155,0.044
+Townhouse,Vancouver West,2025-08,12,2024-08,343.6,343.528,-0.072,-0.021
+Apartment,Greater Vancouver,2025-08,1,2025-07,344.1,343.927,-0.173,-0.05
+Apartment,Greater Vancouver,2025-08,3,2025-05,350.4,350.309,-0.091,-0.026
+Apartment,Greater Vancouver,2025-08,6,2025-02,351.5,351.396,-0.104,-0.03
+Apartment,Greater Vancouver,2025-08,12,2024-08,355.5,355.439,-0.061,-0.017
+Apartment,Vancouver East,2025-08,1,2025-07,394.1,394.1,0.0,0.0
+Apartment,Vancouver East,2025-08,3,2025-05,403.9,403.791,-0.109,-0.027
+Apartment,Vancouver East,2025-08,6,2025-02,401.2,401.324,0.124,0.031
+Apartment,Vancouver East,2025-08,12,2024-08,409.1,409.242,0.142,0.035
+Apartment,Vancouver West,2025-08,1,2025-07,317.0,317.125,0.125,0.04
+Apartment,Vancouver West,2025-08,3,2025-05,324.3,324.4,0.1,0.031
+Apartment,Vancouver West,2025-08,6,2025-02,324.5,324.4,-0.1,-0.031
+Apartment,Vancouver West,2025-08,12,2024-08,329.9,329.905,0.005,0.001
+Single Family Detached,Greater Vancouver,2025-09,1,2025-08,363.0,363.068,0.068,0.019
+Single Family Detached,Greater Vancouver,2025-09,3,2025-06,371.2,371.311,0.111,0.03
+Single Family Detached,Greater Vancouver,2025-09,6,2025-03,378.6,378.737,0.137,0.036
+Single Family Detached,Greater Vancouver,2025-09,12,2024-09,376.4,376.36,-0.04,-0.011
+Single Family Detached,Vancouver East,2025-09,1,2025-08,398.2,398.272,0.072,0.018
+Single Family Detached,Vancouver East,2025-09,3,2025-06,408.6,408.655,0.055,0.013
+Single Family Detached,Vancouver East,2025-09,6,2025-03,413.7,413.833,0.133,0.032
+Single Family Detached,Vancouver East,2025-09,12,2024-09,412.4,412.526,0.126,0.031
+Single Family Detached,Vancouver West,2025-09,1,2025-08,340.2,340.202,0.002,0.001
+Single Family Detached,Vancouver West,2025-09,3,2025-06,354.2,354.154,-0.046,-0.013
+Single Family Detached,Vancouver West,2025-09,6,2025-03,359.7,359.829,0.129,0.036
+Single Family Detached,Vancouver West,2025-09,12,2024-09,361.8,361.762,-0.038,-0.011
+Townhouse,Greater Vancouver,2025-09,1,2025-08,377.1,377.094,-0.006,-0.002
+Townhouse,Greater Vancouver,2025-09,3,2025-06,385.6,385.655,0.055,0.014
+Townhouse,Greater Vancouver,2025-09,6,2025-03,388.8,388.866,0.066,0.017
+Townhouse,Greater Vancouver,2025-09,12,2024-09,383.9,384.07,0.17,0.044
+Townhouse,Vancouver East,2025-09,1,2025-08,355.3,355.293,-0.007,-0.002
+Townhouse,Vancouver East,2025-09,3,2025-06,364.1,364.278,0.178,0.049
+Townhouse,Vancouver East,2025-09,6,2025-03,382.3,382.412,0.112,0.029
+Townhouse,Vancouver East,2025-09,12,2024-09,361.4,361.233,-0.167,-0.046
+Townhouse,Vancouver West,2025-09,1,2025-08,329.1,329.036,-0.064,-0.02
+Townhouse,Vancouver West,2025-09,3,2025-06,337.9,337.956,0.056,0.017
+Townhouse,Vancouver West,2025-09,6,2025-03,348.9,348.87,-0.03,-0.009
+Townhouse,Vancouver West,2025-09,12,2024-09,334.1,334.124,0.024,0.007
+Apartment,Greater Vancouver,2025-09,1,2025-08,339.8,339.678,-0.122,-0.036
+Apartment,Greater Vancouver,2025-09,3,2025-06,346.3,346.304,0.004,0.001
+Apartment,Greater Vancouver,2025-09,6,2025-03,355.1,355.053,-0.047,-0.013
+Apartment,Greater Vancouver,2025-09,12,2024-09,352.6,352.456,-0.144,-0.041
+Apartment,Vancouver East,2025-09,1,2025-08,394.1,393.952,-0.148,-0.038
+Apartment,Vancouver East,2025-09,3,2025-06,398.4,398.369,-0.031,-0.008
+Apartment,Vancouver East,2025-09,6,2025-03,407.9,407.933,0.033,0.008
+Apartment,Vancouver East,2025-09,12,2024-09,411.2,411.368,0.168,0.041
+Apartment,Vancouver West,2025-09,1,2025-08,311.1,311.211,0.111,0.036
+Apartment,Vancouver West,2025-09,3,2025-06,318.7,318.545,-0.155,-0.049
+Apartment,Vancouver West,2025-09,6,2025-03,328.3,328.3,-0.0,-0.0
+Apartment,Vancouver West,2025-09,12,2024-09,324.2,324.192,-0.008,-0.003
+Single Family Detached,Greater Vancouver,2025-10,1,2025-09,359.8,359.939,0.139,0.039
+Single Family Detached,Greater Vancouver,2025-10,3,2025-07,367.5,367.353,-0.147,-0.04
+Single Family Detached,Greater Vancouver,2025-10,6,2025-04,376.3,376.266,-0.034,-0.009
+Single Family Detached,Greater Vancouver,2025-10,12,2024-10,372.8,372.727,-0.073,-0.02
+Single Family Detached,Vancouver East,2025-10,1,2025-09,391.9,391.767,-0.133,-0.034
+Single Family Detached,Vancouver East,2025-10,3,2025-07,400.3,400.205,-0.095,-0.024
+Single Family Detached,Vancouver East,2025-10,6,2025-04,413.1,412.91,-0.19,-0.046
+Single Family Detached,Vancouver East,2025-10,12,2024-10,422.0,421.838,-0.162,-0.038
+Single Family Detached,Vancouver West,2025-10,1,2025-09,336.8,336.952,0.152,0.045
+Single Family Detached,Vancouver West,2025-10,3,2025-07,345.1,345.204,0.104,0.03
+Single Family Detached,Vancouver West,2025-10,6,2025-04,357.1,357.233,0.133,0.037
+Single Family Detached,Vancouver West,2025-10,12,2024-10,351.1,350.934,-0.166,-0.047
+Townhouse,Greater Vancouver,2025-10,1,2025-09,373.7,373.721,0.021,0.006
+Townhouse,Greater Vancouver,2025-10,3,2025-07,383.9,383.728,-0.172,-0.045
+Townhouse,Greater Vancouver,2025-10,6,2025-04,385.0,384.917,-0.083,-0.021
+Townhouse,Greater Vancouver,2025-10,12,2024-10,387.3,387.318,0.018,0.005
+Townhouse,Vancouver East,2025-10,1,2025-09,345.7,345.771,0.071,0.021
+Townhouse,Vancouver East,2025-10,3,2025-07,368.6,368.505,-0.095,-0.026
+Townhouse,Vancouver East,2025-10,6,2025-04,372.0,372.056,0.056,0.015
+Townhouse,Vancouver East,2025-10,12,2024-10,381.3,381.449,0.149,0.039
+Townhouse,Vancouver West,2025-10,1,2025-09,324.1,324.004,-0.096,-0.03
+Townhouse,Vancouver West,2025-10,3,2025-07,334.4,334.327,-0.073,-0.022
+Townhouse,Vancouver West,2025-10,6,2025-04,336.1,336.054,-0.046,-0.014
+Townhouse,Vancouver West,2025-10,12,2024-10,343.6,343.506,-0.094,-0.027
+Apartment,Greater Vancouver,2025-10,1,2025-09,337.3,337.424,0.124,0.037
+Apartment,Greater Vancouver,2025-10,3,2025-07,344.1,344.054,-0.046,-0.013
+Apartment,Greater Vancouver,2025-10,6,2025-04,353.0,353.185,0.185,0.052
+Apartment,Greater Vancouver,2025-10,12,2024-10,350.4,350.58,0.18,0.051
+Apartment,Vancouver East,2025-10,1,2025-09,390.8,390.599,-0.201,-0.051
+Apartment,Vancouver East,2025-10,3,2025-07,394.1,394.265,0.165,0.042
+Apartment,Vancouver East,2025-10,6,2025-04,408.4,408.315,-0.085,-0.021
+Apartment,Vancouver East,2025-10,12,2024-10,397.9,398.0,0.1,0.025
+Apartment,Vancouver West,2025-10,1,2025-09,310.9,310.747,-0.153,-0.049
+Apartment,Vancouver West,2025-10,3,2025-07,317.0,316.91,-0.09,-0.028
+Apartment,Vancouver West,2025-10,6,2025-04,327.5,327.508,0.008,0.002
+Apartment,Vancouver West,2025-10,12,2024-10,320.8,320.93,0.13,0.041
+Single Family Detached,Greater Vancouver,2025-11,1,2025-10,356.7,356.124,-0.576,-0.161
+Single Family Detached,Greater Vancouver,2025-11,3,2025-08,363.0,361.939,-1.061,-0.292
+Single Family Detached,Greater Vancouver,2025-11,6,2025-05,371.7,370.251,-1.449,-0.39
+Single Family Detached,Greater Vancouver,2025-11,12,2024-11,371.7,370.637,-1.063,-0.286
+Single Family Detached,Vancouver East,2025-11,1,2025-10,390.2,391.414,1.214,0.311
+Single Family Detached,Vancouver East,2025-11,3,2025-08,398.2,399.073,0.873,0.219
+Single Family Detached,Vancouver East,2025-11,6,2025-05,407.9,408.755,0.855,0.21
+Single Family Detached,Vancouver East,2025-11,12,2024-11,415.5,416.219,0.719,0.173
+Single Family Detached,Vancouver West,2025-11,1,2025-10,338.3,335.442,-2.858,-0.845
+Single Family Detached,Vancouver West,2025-11,3,2025-08,340.2,338.501,-1.699,-0.5
+Single Family Detached,Vancouver West,2025-11,6,2025-05,350.4,348.021,-2.379,-0.679
+Single Family Detached,Vancouver West,2025-11,12,2024-11,352.7,349.843,-2.857,-0.81
+Townhouse,Greater Vancouver,2025-11,1,2025-10,372.6,373.027,0.427,0.115
+Townhouse,Greater Vancouver,2025-11,3,2025-08,377.1,377.172,0.072,0.019
+Townhouse,Greater Vancouver,2025-11,6,2025-05,386.6,386.943,0.343,0.089
+Townhouse,Greater Vancouver,2025-11,12,2024-11,390.4,390.586,0.186,0.048
+Townhouse,Vancouver East,2025-11,1,2025-10,347.5,351.972,4.472,1.287
+Townhouse,Vancouver East,2025-11,3,2025-08,355.3,356.543,1.243,0.35
+Townhouse,Vancouver East,2025-11,6,2025-05,369.6,370.998,1.398,0.378
+Townhouse,Vancouver East,2025-11,12,2024-11,368.7,370.613,1.913,0.519
+Townhouse,Vancouver West,2025-11,1,2025-10,325.3,323.729,-1.571,-0.483
+Townhouse,Vancouver West,2025-11,3,2025-08,329.1,329.645,0.545,0.166
+Townhouse,Vancouver West,2025-11,6,2025-05,334.7,335.088,0.388,0.116
+Townhouse,Vancouver West,2025-11,12,2024-11,358.5,360.377,1.877,0.524
+Apartment,Greater Vancouver,2025-11,1,2025-10,332.7,333.066,0.366,0.11
+Apartment,Greater Vancouver,2025-11,3,2025-08,339.8,341.624,1.824,0.537
+Apartment,Greater Vancouver,2025-11,6,2025-05,350.4,352.492,2.092,0.597
+Apartment,Greater Vancouver,2025-11,12,2024-11,348.4,350.633,2.233,0.641
+Apartment,Vancouver East,2025-11,1,2025-10,378.1,383.418,5.318,1.406
+Apartment,Vancouver East,2025-11,3,2025-08,394.1,394.179,0.079,0.02
+Apartment,Vancouver East,2025-11,6,2025-05,403.9,403.834,-0.066,-0.016
+Apartment,Vancouver East,2025-11,12,2024-11,401.9,402.121,0.221,0.055
+Apartment,Vancouver West,2025-11,1,2025-10,303.6,304.024,0.424,0.14
+Apartment,Vancouver West,2025-11,3,2025-08,311.1,313.485,2.385,0.767
+Apartment,Vancouver West,2025-11,6,2025-05,324.3,327.056,2.756,0.85
+Apartment,Vancouver West,2025-11,12,2024-11,319.3,322.175,2.875,0.9
+Single Family Detached,Greater Vancouver,2025-12,1,2025-11,354.7,354.702,0.002,0.0
+Single Family Detached,Greater Vancouver,2025-12,3,2025-09,359.8,359.426,-0.374,-0.104
+Single Family Detached,Greater Vancouver,2025-12,6,2025-06,371.2,370.042,-1.158,-0.312
+Single Family Detached,Greater Vancouver,2025-12,12,2024-12,371.7,370.433,-1.267,-0.341
+Single Family Detached,Vancouver East,2025-12,1,2025-11,387.5,387.462,-0.038,-0.01
+Single Family Detached,Vancouver East,2025-12,3,2025-09,391.9,393.834,1.934,0.493
+Single Family Detached,Vancouver East,2025-12,6,2025-06,408.6,408.965,0.365,0.089
+Single Family Detached,Vancouver East,2025-12,12,2024-12,413.9,414.719,0.819,0.198
+Single Family Detached,Vancouver West,2025-12,1,2025-11,334.1,334.075,-0.025,-0.008
+Single Family Detached,Vancouver West,2025-12,3,2025-09,336.8,336.456,-0.344,-0.102
+Single Family Detached,Vancouver West,2025-12,6,2025-06,354.2,352.615,-1.585,-0.448
+Single Family Detached,Vancouver West,2025-12,12,2024-12,351.7,349.26,-2.44,-0.694
+Townhouse,Greater Vancouver,2025-12,1,2025-11,373.4,373.562,0.162,0.043
+Townhouse,Greater Vancouver,2025-12,3,2025-09,373.7,373.562,-0.138,-0.037
+Townhouse,Greater Vancouver,2025-12,6,2025-06,385.6,385.625,0.025,0.006
+Townhouse,Greater Vancouver,2025-12,12,2024-12,389.3,389.684,0.384,0.099
+Townhouse,Vancouver East,2025-12,1,2025-11,356.9,356.849,-0.051,-0.014
+Townhouse,Vancouver East,2025-12,3,2025-09,345.7,356.481,10.781,3.119
+Townhouse,Vancouver East,2025-12,6,2025-06,364.1,365.892,1.792,0.492
+Townhouse,Vancouver East,2025-12,12,2024-12,378.2,379.518,1.318,0.349
+Townhouse,Vancouver West,2025-12,1,2025-11,324.7,324.758,0.058,0.018
+Townhouse,Vancouver West,2025-12,3,2025-09,324.1,326.336,2.236,0.69
+Townhouse,Vancouver West,2025-12,6,2025-06,337.9,339.192,1.292,0.382
+Townhouse,Vancouver West,2025-12,12,2024-12,360.3,362.635,2.335,0.648
+Apartment,Greater Vancouver,2025-12,1,2025-11,332.4,332.394,-0.006,-0.002
+Apartment,Greater Vancouver,2025-12,3,2025-09,337.3,338.525,1.225,0.363
+Apartment,Greater Vancouver,2025-12,6,2025-06,346.3,348.156,1.856,0.536
+Apartment,Greater Vancouver,2025-12,12,2024-12,347.0,348.891,1.891,0.545
+Apartment,Vancouver East,2025-12,1,2025-11,379.2,379.196,-0.004,-0.001
+Apartment,Vancouver East,2025-12,3,2025-09,390.8,388.568,-2.232,-0.571
+Apartment,Vancouver East,2025-12,6,2025-06,398.4,398.416,0.016,0.004
+Apartment,Vancouver East,2025-12,12,2024-12,400.6,400.956,0.356,0.089
+Apartment,Vancouver West,2025-12,1,2025-11,302.2,302.284,0.084,0.028
+Apartment,Vancouver West,2025-12,3,2025-09,310.9,312.847,1.947,0.626
+Apartment,Vancouver West,2025-12,6,2025-06,318.7,321.097,2.397,0.752
+Apartment,Vancouver West,2025-12,12,2024-12,316.7,319.412,2.712,0.856
+Single Family Detached,Greater Vancouver,2026-01,1,2025-12,350.8,350.66,-0.14,-0.04
+Single Family Detached,Greater Vancouver,2026-01,3,2025-10,356.7,356.45,-0.25,-0.07
+Single Family Detached,Greater Vancouver,2026-01,6,2025-07,367.5,365.89,-1.61,-0.438
+Single Family Detached,Greater Vancouver,2026-01,36,2023-01,335.4,335.015,-0.385,-0.115
+Single Family Detached,Vancouver East,2026-01,1,2025-12,383.2,383.097,-0.103,-0.027
+Single Family Detached,Vancouver East,2026-01,3,2025-10,390.2,391.417,1.217,0.312
+Single Family Detached,Vancouver East,2026-01,6,2025-07,400.3,400.953,0.653,0.163
+Single Family Detached,Vancouver East,2026-01,36,2023-01,372.5,371.078,-1.422,-0.382
+Single Family Detached,Vancouver West,2026-01,1,2025-12,330.4,330.467,0.067,0.02
+Single Family Detached,Vancouver West,2026-01,3,2025-10,338.3,335.453,-2.847,-0.842
+Single Family Detached,Vancouver West,2026-01,6,2025-07,345.1,342.464,-2.636,-0.764
+Single Family Detached,Vancouver West,2026-01,36,2023-01,315.2,324.948,9.748,3.093
+Townhouse,Greater Vancouver,2026-01,1,2025-12,370.2,370.04,-0.16,-0.043
+Townhouse,Greater Vancouver,2026-01,3,2025-10,372.6,373.061,0.461,0.124
+Townhouse,Greater Vancouver,2026-01,6,2025-07,383.9,384.034,0.134,0.035
+Townhouse,Greater Vancouver,2026-01,36,2023-01,351.5,359.136,7.636,2.172
+Townhouse,Vancouver East,2026-01,1,2025-12,346.5,346.507,0.007,0.002
+Townhouse,Vancouver East,2026-01,3,2025-10,347.5,352.13,4.63,1.332
+Townhouse,Vancouver East,2026-01,6,2025-07,368.6,370.149,1.549,0.42
+Townhouse,Vancouver East,2026-01,36,2023-01,334.9,337.415,2.515,0.751
+Townhouse,Vancouver West,2026-01,1,2025-12,335.8,335.693,-0.107,-0.032
+Townhouse,Vancouver West,2026-01,3,2025-10,325.3,323.902,-1.398,-0.43
+Townhouse,Vancouver West,2026-01,6,2025-07,334.4,335.693,1.293,0.387
+Townhouse,Vancouver West,2026-01,36,2023-01,308.6,305.428,-3.172,-1.028
+Apartment,Greater Vancouver,2026-01,1,2025-12,330.4,330.544,0.144,0.044
+Apartment,Greater Vancouver,2026-01,3,2025-10,332.7,333.232,0.532,0.16
+Apartment,Greater Vancouver,2026-01,6,2025-07,344.1,346.251,2.151,0.625
+Apartment,Greater Vancouver,2026-01,36,2023-01,329.2,334.251,5.051,1.534
+Apartment,Vancouver East,2026-01,1,2025-12,377.3,377.111,-0.189,-0.05
+Apartment,Vancouver East,2026-01,3,2025-10,378.1,383.747,5.647,1.494
+Apartment,Vancouver East,2026-01,6,2025-07,394.1,394.362,0.262,0.066
+Apartment,Vancouver East,2026-01,36,2023-01,387.6,386.146,-1.454,-0.375
+Apartment,Vancouver West,2026-01,1,2025-12,304.4,304.532,0.132,0.043
+Apartment,Vancouver West,2026-01,3,2025-10,303.6,303.92,0.32,0.105
+Apartment,Vancouver West,2026-01,6,2025-07,317.0,319.662,2.662,0.84
+Apartment,Vancouver West,2026-01,36,2023-01,307.6,309.836,2.236,0.727
+Single Family Detached,Greater Vancouver,2026-02,1,2026-01,345.4,345.363,-0.037,-0.011
+Single Family Detached,Greater Vancouver,2026-02,3,2025-11,354.7,354.658,-0.042,-0.012
+Single Family Detached,Greater Vancouver,2026-02,6,2025-08,363.0,361.774,-1.226,-0.338
+Single Family Detached,Greater Vancouver,2026-02,12,2025-02,377.2,375.658,-1.542,-0.409
+Single Family Detached,Greater Vancouver,2026-02,36,2023-02,337.6,340.557,2.957,0.876
+Single Family Detached,Vancouver East,2026-02,1,2026-01,378.5,378.514,0.014,0.004
+Single Family Detached,Vancouver East,2026-02,3,2025-11,387.5,387.461,-0.039,-0.01
+Single Family Detached,Vancouver East,2026-02,6,2025-08,398.2,398.942,0.742,0.186
+Single Family Detached,Vancouver East,2026-02,12,2025-02,415.5,416.115,0.615,0.148
+Single Family Detached,Vancouver East,2026-02,36,2023-02,375.3,376.623,1.323,0.353
+Single Family Detached,Vancouver West,2026-02,1,2026-01,311.3,311.19,-0.11,-0.035
+Single Family Detached,Vancouver West,2026-02,3,2025-11,334.1,334.091,-0.009,-0.003
+Single Family Detached,Vancouver West,2026-02,6,2025-08,340.2,338.487,-1.713,-0.504
+Single Family Detached,Vancouver West,2026-02,12,2025-02,360.9,357.706,-3.194,-0.885
+Single Family Detached,Vancouver West,2026-02,36,2023-02,323.8,337.377,13.577,4.193
+Townhouse,Greater Vancouver,2026-02,1,2026-01,365.6,365.768,0.168,0.046
+Townhouse,Greater Vancouver,2026-02,3,2025-11,373.4,373.218,-0.182,-0.049
+Townhouse,Greater Vancouver,2026-02,6,2025-08,377.1,377.446,0.346,0.092
+Townhouse,Greater Vancouver,2026-02,12,2025-02,388.1,388.242,0.142,0.036
+Townhouse,Greater Vancouver,2026-02,36,2023-02,357.7,369.084,11.384,3.182
+Townhouse,Vancouver East,2026-02,1,2026-01,347.2,347.258,0.058,0.017
+Townhouse,Vancouver East,2026-02,3,2025-11,356.9,356.865,-0.035,-0.01
+Townhouse,Vancouver East,2026-02,6,2025-08,355.3,356.499,1.199,0.338
+Townhouse,Vancouver East,2026-02,12,2025-02,382.2,384.013,1.813,0.474
+Townhouse,Vancouver East,2026-02,36,2023-02,344.6,349.348,4.748,1.378
+Townhouse,Vancouver West,2026-02,1,2026-01,332.0,331.992,-0.008,-0.002
+Townhouse,Vancouver West,2026-02,3,2025-11,324.7,324.664,-0.036,-0.011
+Townhouse,Vancouver West,2026-02,6,2025-08,329.1,329.727,0.627,0.191
+Townhouse,Vancouver West,2026-02,12,2025-02,352.2,353.132,0.932,0.264
+Townhouse,Vancouver West,2026-02,36,2023-02,301.4,319.452,18.052,5.989
+Apartment,Greater Vancouver,2026-02,1,2026-01,327.9,327.861,-0.039,-0.012
+Apartment,Greater Vancouver,2026-02,3,2025-11,332.4,332.492,0.092,0.028
+Apartment,Greater Vancouver,2026-02,6,2025-08,339.8,341.805,2.005,0.59
+Apartment,Greater Vancouver,2026-02,12,2025-02,351.5,353.541,2.041,0.581
+Apartment,Greater Vancouver,2026-02,36,2023-02,334.5,338.992,4.492,1.343
+Apartment,Vancouver East,2026-02,1,2026-01,370.7,370.87,0.17,0.046
+Apartment,Vancouver East,2026-02,3,2025-11,379.2,379.021,-0.179,-0.047
+Apartment,Vancouver East,2026-02,6,2025-08,394.1,394.387,0.287,0.073
+Apartment,Vancouver East,2026-02,12,2025-02,401.2,401.481,0.281,0.07
+Apartment,Vancouver East,2026-02,36,2023-02,391.5,389.928,-1.572,-0.402
+Apartment,Vancouver West,2026-02,1,2026-01,302.4,302.463,0.063,0.021
+Apartment,Vancouver West,2026-02,3,2025-11,302.2,302.165,-0.035,-0.011
+Apartment,Vancouver West,2026-02,6,2025-08,311.1,313.265,2.165,0.696
+Apartment,Vancouver West,2026-02,12,2025-02,324.5,326.944,2.444,0.753
+Apartment,Vancouver West,2026-02,36,2023-02,311.2,313.265,2.065,0.664
+Single Family Detached,Greater Vancouver,2026-03,1,2026-02,342.6,342.433,-0.167,-0.049
+Single Family Detached,Greater Vancouver,2026-03,3,2025-12,350.8,350.76,-0.04,-0.011
+Single Family Detached,Greater Vancouver,2026-03,6,2025-09,359.8,359.502,-0.298,-0.083
+Single Family Detached,Greater Vancouver,2026-03,12,2025-03,378.6,377.124,-1.476,-0.39
+Single Family Detached,Greater Vancouver,2026-03,36,2023-03,346.6,346.2,-0.4,-0.115
+Single Family Detached,Vancouver East,2026-03,1,2026-02,377.0,377.114,0.114,0.03
+Single Family Detached,Vancouver East,2026-03,3,2025-12,383.2,383.215,0.015,0.004
+Single Family Detached,Vancouver East,2026-03,6,2025-09,391.9,393.971,2.071,0.528
+Single Family Detached,Vancouver East,2026-03,12,2025-03,413.7,414.208,0.508,0.123
+Single Family Detached,Vancouver East,2026-03,36,2023-03,383.3,380.14,-3.16,-0.824
+Single Family Detached,Vancouver West,2026-03,1,2026-02,308.7,308.617,-0.083,-0.027
+Single Family Detached,Vancouver West,2026-03,3,2025-12,330.4,330.472,0.072,0.022
+Single Family Detached,Vancouver West,2026-03,6,2025-09,336.8,336.612,-0.188,-0.056
+Single Family Detached,Vancouver West,2026-03,12,2025-03,359.7,357.309,-2.391,-0.665
+Single Family Detached,Vancouver West,2026-03,36,2023-03,335.8,338.834,3.034,0.903
+Townhouse,Greater Vancouver,2026-03,1,2026-02,366.5,366.533,0.033,0.009
+Townhouse,Greater Vancouver,2026-03,3,2025-12,370.2,370.232,0.032,0.009
+Townhouse,Greater Vancouver,2026-03,6,2025-09,373.7,373.625,-0.075,-0.02
+Townhouse,Greater Vancouver,2026-03,12,2025-03,388.8,389.077,0.277,0.071
+Townhouse,Greater Vancouver,2026-03,36,2023-03,363.9,372.487,8.587,2.36
+Townhouse,Vancouver East,2026-03,1,2026-02,348.3,348.455,0.155,0.044
+Townhouse,Vancouver East,2026-03,3,2025-12,346.5,346.383,-0.117,-0.034
+Townhouse,Vancouver East,2026-03,6,2025-09,345.7,356.633,10.933,3.162
+Townhouse,Vancouver East,2026-03,12,2025-03,382.3,384.488,2.188,0.572
+Townhouse,Vancouver East,2026-03,36,2023-03,353.5,361.427,7.927,2.242
+Townhouse,Vancouver West,2026-03,1,2026-02,338.3,338.328,0.028,0.008
+Townhouse,Vancouver West,2026-03,3,2025-12,335.8,335.931,0.131,0.039
+Townhouse,Vancouver West,2026-03,6,2025-09,324.1,326.352,2.252,0.695
+Townhouse,Vancouver West,2026-03,12,2025-03,348.9,350.105,1.205,0.346
+Townhouse,Vancouver West,2026-03,36,2023-03,311.1,328.614,17.514,5.63
+Apartment,Greater Vancouver,2026-03,1,2026-02,329.5,329.559,0.059,0.018
+Apartment,Greater Vancouver,2026-03,3,2025-12,330.4,330.553,0.153,0.046
+Apartment,Greater Vancouver,2026-03,6,2025-09,337.3,338.723,1.423,0.422
+Apartment,Greater Vancouver,2026-03,12,2025-03,355.1,356.725,1.625,0.457
+Apartment,Greater Vancouver,2026-03,36,2023-03,336.9,341.537,4.637,1.376
+Apartment,Vancouver East,2026-03,1,2026-02,379.4,379.22,-0.18,-0.048
+Apartment,Vancouver East,2026-03,3,2025-12,377.3,377.379,0.079,0.021
+Apartment,Vancouver East,2026-03,6,2025-09,390.8,388.7,-2.1,-0.537
+Apartment,Vancouver East,2026-03,12,2025-03,407.9,408.298,0.398,0.098
+Apartment,Vancouver East,2026-03,36,2023-03,394.3,395.02,0.72,0.183
+Apartment,Vancouver West,2026-03,1,2026-02,307.0,306.883,-0.117,-0.038
+Apartment,Vancouver West,2026-03,3,2025-12,304.4,304.418,0.018,0.006
+Apartment,Vancouver West,2026-03,6,2025-09,310.9,312.9,2.0,0.643
+Apartment,Vancouver West,2026-03,12,2025-03,328.3,330.643,2.343,0.714
+Apartment,Vancouver West,2026-03,36,2023-03,312.3,316.823,4.523,1.448
+Single Family Detached,Greater Vancouver,2026-04,1,2026-03,346.2,346.27,0.07,0.02
+Single Family Detached,Greater Vancouver,2026-04,3,2026-01,345.4,345.573,0.173,0.05
+Single Family Detached,Greater Vancouver,2026-04,6,2025-10,356.7,356.328,-0.372,-0.104
+Single Family Detached,Greater Vancouver,2026-04,12,2025-04,376.3,375.0,-1.3,-0.345
+Single Family Detached,Greater Vancouver,2026-04,36,2023-04,356.7,354.855,-1.845,-0.517
+Single Family Detached,Vancouver East,2026-04,1,2026-03,379.0,378.969,-0.031,-0.008
+Single Family Detached,Vancouver East,2026-04,3,2026-01,378.5,378.586,0.086,0.023
+Single Family Detached,Vancouver East,2026-04,6,2025-10,390.2,391.641,1.441,0.369
+Single Family Detached,Vancouver East,2026-04,12,2025-04,413.1,414.144,1.044,0.253
+Single Family Detached,Vancouver East,2026-04,36,2023-04,393.2,395.776,2.576,0.655
+Single Family Detached,Vancouver West,2026-04,1,2026-03,308.0,307.851,-0.149,-0.048
+Single Family Detached,Vancouver West,2026-04,3,2026-01,311.3,311.21,-0.09,-0.029
+Single Family Detached,Vancouver West,2026-04,6,2025-10,338.3,335.508,-2.792,-0.825
+Single Family Detached,Vancouver West,2026-04,12,2025-04,357.1,354.864,-2.236,-0.626
+Single Family Detached,Vancouver West,2026-04,36,2023-04,345.7,343.217,-2.483,-0.718
+Townhouse,Greater Vancouver,2026-04,1,2026-03,366.9,367.068,0.168,0.046
+Townhouse,Greater Vancouver,2026-04,3,2026-01,365.6,365.6,0.0,0.0
+Townhouse,Greater Vancouver,2026-04,6,2025-10,372.6,373.061,0.461,0.124
+Townhouse,Greater Vancouver,2026-04,12,2025-04,385.0,385.248,0.248,0.064
+Townhouse,Greater Vancouver,2026-04,36,2023-04,371.5,379.647,8.147,2.193
+Townhouse,Vancouver East,2026-04,1,2026-03,349.5,349.542,0.042,0.012
+Townhouse,Vancouver East,2026-04,3,2026-01,347.2,347.071,-0.129,-0.037
+Townhouse,Vancouver East,2026-04,6,2025-10,347.5,352.049,4.549,1.309
+Townhouse,Vancouver East,2026-04,12,2025-04,372.0,373.478,1.478,0.397
+Townhouse,Vancouver East,2026-04,36,2023-04,363.7,367.487,3.787,1.041
+Townhouse,Vancouver West,2026-04,1,2026-03,331.9,331.771,-0.129,-0.039
+Townhouse,Vancouver West,2026-04,3,2026-01,332.0,332.117,0.117,0.035
+Townhouse,Vancouver West,2026-04,6,2025-10,325.3,323.679,-1.621,-0.498
+Townhouse,Vancouver West,2026-04,12,2025-04,336.1,336.681,0.581,0.173
+Townhouse,Vancouver West,2026-04,36,2023-04,331.4,346.196,14.796,4.465
+Apartment,Greater Vancouver,2026-04,1,2026-03,328.9,328.744,-0.156,-0.048
+Apartment,Greater Vancouver,2026-04,3,2026-01,327.9,327.756,-0.144,-0.044
+Apartment,Greater Vancouver,2026-04,6,2025-10,332.7,333.096,0.396,0.119
+Apartment,Greater Vancouver,2026-04,12,2025-04,353.0,355.157,2.157,0.611
+Apartment,Greater Vancouver,2026-04,36,2023-04,343.7,349.466,5.766,1.678
+Apartment,Vancouver East,2026-04,1,2026-03,388.7,388.52,-0.18,-0.046
+Apartment,Vancouver East,2026-04,3,2026-01,370.7,370.605,-0.095,-0.026
+Apartment,Vancouver East,2026-04,6,2025-10,378.1,383.499,5.399,1.428
+Apartment,Vancouver East,2026-04,12,2025-04,408.4,408.686,0.286,0.07
+Apartment,Vancouver East,2026-04,36,2023-04,401.5,399.379,-2.121,-0.528
+Apartment,Vancouver West,2026-04,1,2026-03,303.2,303.254,0.054,0.018
+Apartment,Vancouver West,2026-04,3,2026-01,302.4,302.36,-0.04,-0.013
+Apartment,Vancouver West,2026-04,6,2025-10,303.6,303.854,0.254,0.084
+Apartment,Vancouver West,2026-04,12,2025-04,327.5,329.936,2.436,0.744
+Apartment,Vancouver West,2026-04,36,2023-04,320.1,324.367,4.267,1.333
+Single Family Detached,Greater Vancouver,2026-05,1,2026-04,343.5,343.526,0.026,0.008
+Single Family Detached,Greater Vancouver,2026-05,3,2026-02,342.6,342.502,-0.098,-0.028
+Single Family Detached,Greater Vancouver,2026-05,6,2025-11,354.7,354.835,0.135,0.038
+Single Family Detached,Greater Vancouver,2026-05,12,2025-05,371.7,370.462,-1.238,-0.333
+Single Family Detached,Greater Vancouver,2026-05,36,2023-05,363.3,361.53,-1.77,-0.487
+Single Family Detached,Vancouver East,2026-05,1,2026-04,374.8,374.619,-0.181,-0.048
+Single Family Detached,Vancouver East,2026-05,3,2026-02,377.0,376.915,-0.085,-0.022
+Single Family Detached,Vancouver East,2026-05,6,2025-11,387.5,387.605,0.105,0.027
+Single Family Detached,Vancouver East,2026-05,12,2025-05,407.9,408.638,0.738,0.181
+Single Family Detached,Vancouver East,2026-05,36,2023-05,405.4,405.049,-0.351,-0.086
+Single Family Detached,Vancouver West,2026-05,1,2026-04,313.7,313.793,0.093,0.03
+Single Family Detached,Vancouver West,2026-05,3,2026-02,308.7,308.624,-0.076,-0.025
+Single Family Detached,Vancouver West,2026-05,6,2025-11,334.1,334.208,0.108,0.032
+Single Family Detached,Vancouver West,2026-05,12,2025-05,350.4,348.087,-2.313,-0.66
+Single Family Detached,Vancouver West,2026-05,36,2023-05,346.9,345.445,-1.455,-0.42
+Townhouse,Greater Vancouver,2026-05,1,2026-04,365.6,365.473,-0.127,-0.035
+Townhouse,Greater Vancouver,2026-05,3,2026-02,366.5,366.567,0.067,0.018
+Townhouse,Greater Vancouver,2026-05,6,2025-11,373.4,373.272,-0.128,-0.034
+Townhouse,Greater Vancouver,2026-05,12,2025-05,386.6,387.039,0.439,0.114
+Townhouse,Greater Vancouver,2026-05,36,2023-05,376.2,380.622,4.422,1.175
+Townhouse,Vancouver East,2026-05,1,2026-04,343.6,343.558,-0.042,-0.012
+Townhouse,Vancouver East,2026-05,3,2026-02,348.3,348.246,-0.054,-0.016
+Townhouse,Vancouver East,2026-05,6,2025-11,356.9,356.943,0.043,0.012
+Townhouse,Vancouver East,2026-05,12,2025-05,369.6,371.028,1.428,0.386
+Townhouse,Vancouver East,2026-05,36,2023-05,365.8,367.215,1.415,0.387
+Townhouse,Vancouver West,2026-05,1,2026-04,318.5,318.63,0.13,0.041
+Townhouse,Vancouver West,2026-05,3,2026-02,338.3,338.396,0.096,0.028
+Townhouse,Vancouver West,2026-05,6,2025-11,324.7,324.846,0.146,0.045
+Townhouse,Vancouver West,2026-05,12,2025-05,334.7,335.169,0.469,0.14
+Townhouse,Vancouver West,2026-05,36,2023-05,331.6,335.525,3.925,1.184
+Apartment,Greater Vancouver,2026-05,1,2026-04,327.1,326.989,-0.111,-0.034
+Apartment,Greater Vancouver,2026-05,3,2026-02,329.5,329.645,0.145,0.044
+Apartment,Greater Vancouver,2026-05,6,2025-11,332.4,332.344,-0.056,-0.017
+Apartment,Greater Vancouver,2026-05,12,2025-05,350.4,352.552,2.152,0.614
+Apartment,Greater Vancouver,2026-05,36,2023-05,350.6,353.319,2.719,0.775
+Apartment,Vancouver East,2026-05,1,2026-04,385.8,385.788,-0.012,-0.003
+Apartment,Vancouver East,2026-05,3,2026-02,379.4,379.49,0.09,0.024
+Apartment,Vancouver East,2026-05,6,2025-11,379.2,379.103,-0.097,-0.026
+Apartment,Vancouver East,2026-05,12,2025-05,403.9,403.8,-0.1,-0.025
+Apartment,Vancouver East,2026-05,36,2023-05,407.7,407.338,-0.362,-0.089
+Apartment,Vancouver West,2026-05,1,2026-04,307.5,307.568,0.068,0.022
+Apartment,Vancouver West,2026-05,3,2026-02,307.0,306.949,-0.051,-0.017
+Apartment,Vancouver West,2026-05,6,2025-11,302.2,302.081,-0.119,-0.039
+Apartment,Vancouver West,2026-05,12,2025-05,324.3,327.039,2.739,0.844
+Apartment,Vancouver West,2026-05,36,2023-05,324.4,328.095,3.695,1.139
+Single Family Detached,Greater Vancouver,2026-06,1,2026-05,344.9,345.035,0.135,0.039
+Single Family Detached,Greater Vancouver,2026-06,3,2026-03,346.2,346.076,-0.124,-0.036
+Single Family Detached,Greater Vancouver,2026-06,6,2025-12,350.8,350.663,-0.137,-0.039
+Single Family Detached,Greater Vancouver,2026-06,12,2025-06,371.2,370.291,-0.909,-0.245
+Single Family Detached,Greater Vancouver,2026-06,36,2023-06,370.3,368.703,-1.597,-0.431
+Single Family Detached,Vancouver East,2026-06,1,2026-05,369.0,368.893,-0.107,-0.029
+Single Family Detached,Vancouver East,2026-06,3,2026-03,379.0,379.098,0.098,0.026
+Single Family Detached,Vancouver East,2026-06,6,2025-12,383.2,383.023,-0.177,-0.046
+Single Family Detached,Vancouver East,2026-06,12,2025-06,408.6,409.292,0.692,0.169
+Single Family Detached,Vancouver East,2026-06,36,2023-06,418.1,418.079,-0.021,-0.005
+Single Family Detached,Vancouver West,2026-06,1,2026-05,318.5,318.39,-0.11,-0.035
+Single Family Detached,Vancouver West,2026-06,3,2026-03,308.0,307.981,-0.019,-0.006
+Single Family Detached,Vancouver West,2026-06,6,2025-12,330.4,330.547,0.147,0.044
+Single Family Detached,Vancouver West,2026-06,12,2025-06,354.2,352.753,-1.447,-0.408
+Single Family Detached,Vancouver West,2026-06,36,2023-06,355.2,353.142,-2.058,-0.579
+Townhouse,Greater Vancouver,2026-06,1,2026-05,367.3,367.335,0.035,0.009
+Townhouse,Greater Vancouver,2026-06,3,2026-03,366.9,366.967,0.067,0.018
+Townhouse,Greater Vancouver,2026-06,6,2025-12,370.2,370.303,0.103,0.028
+Townhouse,Greater Vancouver,2026-06,12,2025-06,385.6,385.895,0.295,0.076
+Townhouse,Greater Vancouver,2026-06,36,2023-06,381.7,385.895,4.195,1.099
+Townhouse,Vancouver East,2026-06,1,2026-05,357.3,357.128,-0.172,-0.048
+Townhouse,Vancouver East,2026-06,3,2026-03,349.5,349.357,-0.143,-0.041
+Townhouse,Vancouver East,2026-06,6,2025-12,346.5,346.614,0.114,0.033
+Townhouse,Vancouver East,2026-06,12,2025-06,364.1,366.01,1.91,0.525
+Townhouse,Vancouver East,2026-06,36,2023-06,365.7,366.771,1.071,0.293
+Townhouse,Vancouver West,2026-06,1,2026-05,316.4,316.355,-0.045,-0.014
+Townhouse,Vancouver West,2026-06,3,2026-03,331.9,332.058,0.158,0.048
+Townhouse,Vancouver West,2026-06,6,2025-12,335.8,335.879,0.079,0.023
+Townhouse,Vancouver West,2026-06,12,2025-06,337.9,339.429,1.529,0.453
+Townhouse,Vancouver West,2026-06,36,2023-06,340.5,344.528,4.028,1.183
+Apartment,Greater Vancouver,2026-06,1,2026-05,324.7,324.799,0.099,0.031
+Apartment,Greater Vancouver,2026-06,3,2026-03,328.9,328.76,-0.14,-0.043
+Apartment,Greater Vancouver,2026-06,6,2025-12,330.4,330.439,0.039,0.012
+Apartment,Greater Vancouver,2026-06,12,2025-06,346.3,348.224,1.924,0.556
+Apartment,Greater Vancouver,2026-06,36,2023-06,353.5,356.278,2.778,0.786
+Apartment,Vancouver East,2026-06,1,2026-05,371.9,371.759,-0.141,-0.038
+Apartment,Vancouver East,2026-06,3,2026-03,388.7,388.55,-0.15,-0.038
+Apartment,Vancouver East,2026-06,6,2025-12,377.3,377.449,0.149,0.039
+Apartment,Vancouver East,2026-06,12,2025-06,398.4,398.599,0.199,0.05
+Apartment,Vancouver East,2026-06,36,2023-06,411.3,410.544,-0.756,-0.184
+Apartment,Vancouver West,2026-06,1,2026-05,304.8,304.724,-0.076,-0.025
+Apartment,Vancouver West,2026-06,3,2026-03,303.2,303.2,0.0,0.0
+Apartment,Vancouver West,2026-06,6,2025-12,304.4,304.418,0.018,0.006
+Apartment,Vancouver West,2026-06,12,2025-06,318.7,321.186,2.486,0.78
+Apartment,Vancouver West,2026-06,36,2023-06,326.7,331.004,4.304,1.318
+Single Family Detached,Greater Vancouver,2026-07,1,2026-06,344.0,343.984,-0.016,-0.005
+Single Family Detached,Greater Vancouver,2026-07,3,2026-04,343.5,343.636,0.136,0.04
+Single Family Detached,Greater Vancouver,2026-07,6,2026-01,345.4,345.381,-0.019,-0.006
+Single Family Detached,Greater Vancouver,2026-07,12,2025-07,367.5,365.806,-1.694,-0.461
+Single Family Detached,Greater Vancouver,2026-07,36,2023-07,374.3,372.618,-1.682,-0.449
+Single Family Detached,Vancouver East,2026-07,1,2026-06,370.0,370.172,0.172,0.046
+Single Family Detached,Vancouver East,2026-07,3,2026-04,374.8,374.719,-0.081,-0.022
+Single Family Detached,Vancouver East,2026-07,6,2026-01,378.5,378.594,0.094,0.025
+Single Family Detached,Vancouver East,2026-07,12,2025-07,400.3,400.986,0.686,0.171
+Single Family Detached,Vancouver East,2026-07,36,2023-07,422.0,422.261,0.261,0.062
+Single Family Detached,Vancouver West,2026-07,1,2026-06,320.3,320.303,0.003,0.001
+Single Family Detached,Vancouver West,2026-07,3,2026-04,313.7,313.65,-0.05,-0.016
+Single Family Detached,Vancouver West,2026-07,6,2026-01,311.3,311.187,-0.113,-0.036
+Single Family Detached,Vancouver West,2026-07,12,2025-07,345.1,342.441,-2.659,-0.771
+Single Family Detached,Vancouver West,2026-07,36,2023-07,359.3,357.095,-2.205,-0.614
+Townhouse,Greater Vancouver,2026-07,1,2026-06,366.6,366.497,-0.103,-0.028
+Townhouse,Greater Vancouver,2026-07,3,2026-04,365.6,365.755,0.155,0.042
+Townhouse,Greater Vancouver,2026-07,6,2026-01,365.6,365.755,0.155,0.042
+Townhouse,Greater Vancouver,2026-07,12,2025-07,383.9,384.043,0.143,0.037
+Townhouse,Greater Vancouver,2026-07,36,2023-07,383.7,387.755,4.055,1.057
+Townhouse,Vancouver East,2026-07,1,2026-06,353.2,353.347,0.147,0.042
+Townhouse,Vancouver East,2026-07,3,2026-04,343.6,343.642,0.042,0.012
+Townhouse,Vancouver East,2026-07,6,2026-01,347.2,347.174,-0.026,-0.008
+Townhouse,Vancouver East,2026-07,12,2025-07,368.6,369.989,1.389,0.377
+Townhouse,Vancouver East,2026-07,36,2023-07,371.5,372.848,1.348,0.363
+Townhouse,Vancouver West,2026-07,1,2026-06,321.1,320.961,-0.139,-0.043
+Townhouse,Vancouver West,2026-07,3,2026-04,318.5,318.357,-0.143,-0.045
+Townhouse,Vancouver West,2026-07,6,2026-01,332.0,332.169,0.169,0.051
+Townhouse,Vancouver West,2026-07,12,2025-07,334.4,335.722,1.322,0.395
+Townhouse,Vancouver West,2026-07,36,2023-07,340.4,344.566,4.166,1.224
+Apartment,Greater Vancouver,2026-07,1,2026-06,323.5,323.66,0.16,0.05
+Apartment,Greater Vancouver,2026-07,3,2026-04,327.1,326.966,-0.134,-0.041
+Apartment,Greater Vancouver,2026-07,6,2026-01,327.9,327.971,0.071,0.022
+Apartment,Greater Vancouver,2026-07,12,2025-07,344.1,346.054,1.954,0.568
+Apartment,Greater Vancouver,2026-07,36,2023-07,355.6,358.455,2.855,0.803
+Apartment,Vancouver East,2026-07,1,2026-06,369.9,369.98,0.08,0.022
+Apartment,Vancouver East,2026-07,3,2026-04,385.8,385.624,-0.176,-0.046
+Apartment,Vancouver East,2026-07,6,2026-01,370.7,370.732,0.032,0.009
+Apartment,Vancouver East,2026-07,12,2025-07,394.1,394.378,0.278,0.071
+Apartment,Vancouver East,2026-07,36,2023-07,413.7,413.605,-0.095,-0.023
+Apartment,Vancouver West,2026-07,1,2026-06,303.2,303.347,0.147,0.048
+Apartment,Vancouver West,2026-07,3,2026-04,307.5,307.4,-0.1,-0.033
+Apartment,Vancouver West,2026-07,6,2026-01,302.4,302.427,0.027,0.009
+Apartment,Vancouver West,2026-07,12,2025-07,317.0,319.551,2.551,0.805
+Apartment,Vancouver West,2026-07,36,2023-07,330.6,334.564,3.964,1.199
+Single Family Detached,Greater Vancouver,2026-08,1,2026-07,340.2,340.223,0.023,0.007
+Single Family Detached,Greater Vancouver,2026-08,3,2026-05,344.9,344.764,-0.136,-0.039
+Single Family Detached,Greater Vancouver,2026-08,6,2026-02,342.6,342.653,0.053,0.015
+Single Family Detached,Greater Vancouver,2026-08,12,2025-08,363.0,361.853,-1.147,-0.316
+Single Family Detached,Greater Vancouver,2026-08,36,2023-08,375.3,373.526,-1.774,-0.473
+Single Family Detached,Vancouver East,2026-08,1,2026-07,366.1,366.261,0.161,0.044
+Single Family Detached,Vancouver East,2026-08,3,2026-05,369.0,368.878,-0.122,-0.033
+Single Family Detached,Vancouver East,2026-08,6,2026-02,377.0,376.955,-0.045,-0.012
+Single Family Detached,Vancouver East,2026-08,12,2025-08,398.2,399.007,0.807,0.203
+Single Family Detached,Vancouver East,2026-08,36,2023-08,425.6,425.795,0.195,0.046
+Single Family Detached,Vancouver West,2026-08,1,2026-07,317.1,317.043,-0.057,-0.018
+Single Family Detached,Vancouver West,2026-08,3,2026-05,318.5,318.351,-0.149,-0.047
+Single Family Detached,Vancouver West,2026-08,6,2026-02,308.7,308.8,0.1,0.032
+Single Family Detached,Vancouver West,2026-08,12,2025-08,340.2,338.226,-1.974,-0.58
+Single Family Detached,Vancouver West,2026-08,36,2023-08,365.7,364.581,-1.119,-0.306
+Townhouse,Greater Vancouver,2026-08,1,2026-07,361.0,360.861,-0.139,-0.039
+Townhouse,Greater Vancouver,2026-08,3,2026-05,367.3,367.482,0.182,0.05
+Townhouse,Greater Vancouver,2026-08,6,2026-02,366.5,366.362,-0.138,-0.038
+Townhouse,Greater Vancouver,2026-08,12,2025-08,377.1,377.487,0.387,0.103
+Townhouse,Greater Vancouver,2026-08,36,2023-08,383.4,387.634,4.234,1.104
+Townhouse,Vancouver East,2026-08,1,2026-07,337.8,337.666,-0.134,-0.04
+Townhouse,Vancouver East,2026-08,3,2026-05,357.3,357.421,0.121,0.034
+Townhouse,Vancouver East,2026-08,6,2026-02,348.3,348.363,0.063,0.018
+Townhouse,Vancouver East,2026-08,12,2025-08,355.3,356.649,1.349,0.38
+Townhouse,Vancouver East,2026-08,36,2023-08,374.5,375.74,1.24,0.331
+Townhouse,Vancouver West,2026-08,1,2026-07,313.9,313.749,-0.151,-0.048
+Townhouse,Vancouver West,2026-08,3,2026-05,316.4,316.251,-0.149,-0.047
+Townhouse,Vancouver West,2026-08,6,2026-02,338.3,338.166,-0.134,-0.04
+Townhouse,Vancouver West,2026-08,12,2025-08,329.1,329.73,0.63,0.191
+Townhouse,Vancouver West,2026-08,36,2023-08,340.8,345.534,4.734,1.389
+Apartment,Greater Vancouver,2026-08,1,2026-07,320.1,319.94,-0.16,-0.05
+Apartment,Greater Vancouver,2026-08,3,2026-05,324.7,324.822,0.122,0.038
+Apartment,Greater Vancouver,2026-08,6,2026-02,329.5,329.515,0.015,0.005
+Apartment,Greater Vancouver,2026-08,12,2025-08,339.8,341.863,2.063,0.607
+Apartment,Greater Vancouver,2026-08,36,2023-08,354.8,357.559,2.759,0.778
+Apartment,Vancouver East,2026-08,1,2026-07,364.8,364.8,0.0,0.0
+Apartment,Vancouver East,2026-08,3,2026-05,371.9,371.865,-0.035,-0.009
+Apartment,Vancouver East,2026-08,6,2026-02,379.4,379.21,-0.19,-0.05
+Apartment,Vancouver East,2026-08,12,2025-08,394.1,394.378,0.278,0.071
+Apartment,Vancouver East,2026-08,36,2023-08,417.2,416.914,-0.286,-0.068
+Apartment,Vancouver West,2026-08,1,2026-07,299.1,299.107,0.007,0.002
+Apartment,Vancouver West,2026-08,3,2026-05,304.8,304.853,0.053,0.018
+Apartment,Vancouver West,2026-08,6,2026-02,307.0,307.026,0.026,0.009
+Apartment,Vancouver West,2026-08,12,2025-08,311.1,313.41,2.31,0.742
+Apartment,Vancouver West,2026-08,36,2023-08,323.3,327.717,4.417,1.366
+Single Family Detached,Greater Vancouver,2026-09,1,2026-08,335.8,335.786,-0.014,-0.004
+Single Family Detached,Greater Vancouver,2026-09,3,2026-06,344.0,344.112,0.112,0.032
+Single Family Detached,Greater Vancouver,2026-09,6,2026-03,346.2,346.258,0.058,0.017
+Single Family Detached,Greater Vancouver,2026-09,12,2025-09,359.8,359.331,-0.469,-0.13
+Single Family Detached,Greater Vancouver,2026-09,36,2023-09,375.1,373.43,-1.67,-0.445
+Single Family Detached,Vancouver East,2026-09,1,2026-08,361.5,361.332,-0.168,-0.046
+Single Family Detached,Vancouver East,2026-09,3,2026-06,370.0,370.163,0.163,0.044
+Single Family Detached,Vancouver East,2026-09,6,2026-03,379.0,379.041,0.041,0.011
+Single Family Detached,Vancouver East,2026-09,12,2025-09,391.9,393.824,1.924,0.491
+Single Family Detached,Vancouver East,2026-09,36,2023-09,422.2,422.184,-0.016,-0.004
+Single Family Detached,Vancouver West,2026-09,1,2026-08,308.8,308.954,0.154,0.05
+Single Family Detached,Vancouver West,2026-09,3,2026-06,320.3,320.229,-0.071,-0.022
+Single Family Detached,Vancouver West,2026-09,6,2026-03,308.0,308.024,0.024,0.008
+Single Family Detached,Vancouver West,2026-09,12,2025-09,336.8,336.364,-0.436,-0.13
+Single Family Detached,Vancouver West,2026-09,36,2023-09,369.2,367.344,-1.856,-0.503
+Townhouse,Greater Vancouver,2026-09,1,2026-08,360.5,360.526,0.026,0.007
+Townhouse,Greater Vancouver,2026-09,3,2026-06,366.6,366.461,-0.139,-0.038
+Townhouse,Greater Vancouver,2026-09,6,2026-03,366.9,366.838,-0.062,-0.017
+Townhouse,Greater Vancouver,2026-09,12,2025-09,373.7,373.767,0.067,0.018
+Townhouse,Greater Vancouver,2026-09,36,2023-09,381.5,385.915,4.415,1.157
+Townhouse,Vancouver East,2026-09,1,2026-08,329.9,329.849,-0.051,-0.015
+Townhouse,Vancouver East,2026-09,3,2026-06,353.2,353.283,0.083,0.024
+Townhouse,Vancouver East,2026-09,6,2026-03,349.5,349.521,0.021,0.006
+Townhouse,Vancouver East,2026-09,12,2025-09,345.7,356.352,10.652,3.081
+Townhouse,Vancouver East,2026-09,36,2023-09,376.1,377.675,1.575,0.419
+Townhouse,Vancouver West,2026-09,1,2026-08,317.2,317.061,-0.139,-0.044
+Townhouse,Vancouver West,2026-09,3,2026-06,321.1,321.02,-0.08,-0.025
+Townhouse,Vancouver West,2026-09,6,2026-03,331.9,332.078,0.178,0.053
+Townhouse,Vancouver West,2026-09,12,2025-09,324.1,326.455,2.355,0.727
+Townhouse,Vancouver West,2026-09,36,2023-09,331.6,336.79,5.19,1.565
+Apartment,Greater Vancouver,2026-09,1,2026-08,319.3,319.196,-0.104,-0.033
+Apartment,Greater Vancouver,2026-09,3,2026-06,323.5,323.422,-0.078,-0.024
+Apartment,Greater Vancouver,2026-09,6,2026-03,328.9,328.778,-0.122,-0.037
+Apartment,Greater Vancouver,2026-09,12,2025-09,337.3,338.593,1.293,0.383
+Apartment,Greater Vancouver,2026-09,36,2023-09,354.1,357.255,3.155,0.891
+Apartment,Vancouver East,2026-09,1,2026-08,364.8,364.752,-0.048,-0.013
+Apartment,Vancouver East,2026-09,3,2026-06,369.9,369.88,-0.02,-0.006
+Apartment,Vancouver East,2026-09,6,2026-03,388.7,388.608,-0.092,-0.024
+Apartment,Vancouver East,2026-09,12,2025-09,390.8,388.608,-2.192,-0.561
+Apartment,Vancouver East,2026-09,36,2023-09,414.5,414.398,-0.102,-0.025
+Apartment,Vancouver West,2026-09,1,2026-08,301.5,301.526,0.026,0.009
+Apartment,Vancouver West,2026-09,3,2026-06,303.2,303.067,-0.133,-0.044
+Apartment,Vancouver West,2026-09,6,2026-03,303.2,303.067,-0.133,-0.044
+Apartment,Vancouver West,2026-09,12,2025-09,310.9,312.658,1.758,0.566
+Apartment,Vancouver West,2026-09,36,2023-09,324.4,328.603,4.203,1.296

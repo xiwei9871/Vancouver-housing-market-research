@@ -1,0 +1,7 @@
+product,hpi_property_type,factor_kind,geography_rule,proxy_scenarios,proxy_error_note,note
+HOUSE,Single Family Detached,OFFICIAL,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",n/a,,"GVR Detached HPI,直接对应,无代理"
+TOWNHOUSE,Townhouse,OFFICIAL,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",n/a,,GVR Townhouse HPI(官方口径不含 duplex)
+CONDO,Apartment,OFFICIAL,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",n/a,,GVR Apartment HPI
+DUPLEX_HALF,PROXY:Townhouse,PROXY,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",neutral=Townhouse|weak=Single Family Detached|strong=Apartment,"Townhouse HPI 官方明确不含 duplex;代理情景用于敏感性,不得标称官方","无官方独立 Duplex HPI;中性=Townhouse,偏弱=Detached,偏强=Apartment 三情景"
+DUPLEX_WHOLE,PROXY:Single Family Detached,PROXY,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",neutral=Single Family Detached|weak=Townhouse|strong=Apartment,"Townhouse HPI 官方明确不含 duplex;代理情景用于敏感性,不得标称官方","整栋双拼按土地/独立屋价值逻辑,中性=Detached,备选=Townhouse"
+MULTIPLEX_UNIT,PROXY:Townhouse,PROXY,"逐笔 lng vs Main St 子午线 (-123.1005):>east,<west",neutral=Townhouse|weak=Single Family Detached|strong=Apartment,"Townhouse HPI 官方明确不含 duplex;代理情景用于敏感性,不得标称官方","无官方独立 HPI;中性=Townhouse,偏弱=Detached,偏强=Apartment"

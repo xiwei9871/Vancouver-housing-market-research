@@ -1,0 +1,4 @@
+year,gvr_vancouver_east_detached,gvr_vancouver_west_detached,gvr_east_west_detached_total,archive_house_total,diff_archive_minus_gvr,diff_pct,gvr_source,note
+2023,901,818,1719,1620,-99,-5.8,"REBGV-Stats-Pkg-Dec-2023.pdf + GVR-Stats-Package-Dec-2024.pdf (Jan-Dec 2023 YTD, revised)","口径差:BCA 产权登记成交 vs MLS 挂牌成交;登记日vs合同日;产品归类差。外部规模一致性检查,不等于捕获率/漏采率。"
+2024,882,793,1675,1647,-28,-1.7,GVR-Stats-Package-Dec-2024.pdf + GVR-Stats-Package-December-2025.pdf (Jan-Dec 2024 YTD),"口径差:BCA 产权登记成交 vs MLS 挂牌成交;登记日vs合同日;产品归类差。外部规模一致性检查,不等于捕获率/漏采率。"
+2025,765,645,1410,1495,85,6.0,GVR-Stats-Package-December-2025.pdf (Jan-Dec 2025 YTD),"口径差:BCA 产权登记成交 vs MLS 挂牌成交;登记日vs合同日;产品归类差。外部规模一致性检查,不等于捕获率/漏采率。"
