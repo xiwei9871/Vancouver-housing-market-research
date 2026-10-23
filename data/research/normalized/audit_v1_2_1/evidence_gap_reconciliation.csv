@@ -1,0 +1,4 @@
+product,sales_confirmed,projects_confirmed,verified_comparable,partial,unverified,fresh,gap
+HOUSE,217,216,187,2437,2347,2026-06-29,yb_no_source×829+MLS首销渠道
+DUPLEX,389,386,389,233,0,2026-07-03,半户fa交叉验证+MLS渠道
+MPX,0,0,0,2,0,,单元成交源缺失(MLS/GVR)

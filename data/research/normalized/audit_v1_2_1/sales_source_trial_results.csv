@@ -1,0 +1,9 @@
+source,channel,access,trial,fields_available,coverage,cost,verdict,next_step
+REALTOR.ca api2,public listing API,public(反爬频控),PropertySearch_Post 可达(本仓库现用),active listing/asking/mls/地址,仅在售挂牌无sold历史,free,TESTED_OK_FOR_LISTINGS_ONLY,无sold端点;不解决成交补全
+GVR/REBGV MLS SOLD,member/board data,licensed,未试采(需授权),sold price/date/fa/strata/beds,全产品全成交,subscription+agreement,BLOCKED_NEEDS_LICENSE,与持牌经纪签数据协议;首选解MPX单元成交
+BC Assessment arcgis viewer,public parcel API,public(已用),已采8,317+4,993记录,sale_date/sale_price/desc/pid/lot GIS,近年sales快照但属性字段不全,free,IN_USE,补year_built需逐folio detail(授权频控)
+BCA Data Advice,batch product,paid,未购,folio级yb/fa/units/strata/sales,全市folio,$$$/mo,BLOCKED_PAID,询价;可解829 yb_no_source+MPX单元
+LTSA direct/myLTSA,registry,paid per query,未购,title transfer price/date/PID/strata plan,法定成交全量,per-record fee,BLOCKED_PAID,抽样核验高价方案即可(不必全量)
+CoV opendata catalog,official datasets,public,已查目录,'sale'查询仅返回farmers-markets;occupancy仅non-market-housing,无成交/无occupancy数据集,free,NO_SALES_DATASET,不可行;供给端已用尽
+开发商/营销公开成交,project sites,public,未批量,unit price/floor plan/sold status,碎片、逐项目,free-ish,MANUAL_CANDIDATE,对341个MPX项目逐案收集(人力密集)
+LTSA strata plan (myLTSA),registry,paid,未购,plan号/unit entitlement/parent parcel,strata结构,per-doc,BLOCKED_PAID,用于permit→parcel→unit链补强
