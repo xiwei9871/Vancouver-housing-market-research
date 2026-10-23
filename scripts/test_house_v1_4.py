@@ -109,19 +109,19 @@ def main():
                  for r in land if r["land_weighted_psf"] != "")
     check("t5_land_psf_sanity", ok_psf)
 
-    # T6 market base == today: market factor 0 row has roi equal to base
+    # T6 market base == today: market factor 0 row has roi equal to the
+    # unified 1y development ROI; no 3y/5y variants exist
     m0 = [r for r in market if r["future_market_factor"] == "0.0"
-          and r["gst_scenario"] == "EXCL" and r["horizon_y"] == "3"]
-    b3 = {r["listing"] + r["scenario"]: r["roi_base_3y_pct"]
+          and r["gst_scenario"] == "EXCL"]
+    b3 = {r["listing"] + r["scenario"]: r["roi_development_1y"]
           for r in roi if r["gst_scenario"] == "EXCL"}
     check("t6_zero_factor_matches_base",
           all(abs(float(r["roi_pct"]) -
                   float(b3[r["listing"] + r["scenario"]])) < 0.05
               for r in m0))
-    check("t6_future_sale_equals_today",
-          all(float(r["future_sale_estimate"]) ==
-              float(r["roi_pct"]) * 0 or
-              abs(float(r["future_sale_estimate"])) > 0 for r in m0))
+    check("t6_no_horizon_column",
+          "horizon_y" not in market[0] and
+          "roi_base_3y_pct" not in roi[0] and "roi_base_5y_pct" not in roi[0])
     # future sale at 0% factor equals estimated_sale_today
     est = {r["listing"] + r["scenario"]: float(r["est_sale_today"])
            for r in roi if r["gst_scenario"] == "EXCL"}
@@ -181,6 +181,16 @@ def main():
 
     # extra: rankings cover all valued listings; report exists
     check("rank_rows", len(rank1) == len(land) and len(rank2) > 0)
+    # V1.4.1: ranking must be per (listing, scenario) and its max_bid
+    # must match the bid table for the same key (was 119/198 mismatch)
+    bm = {(r["listing"], r["scenario"]): r for r in bid}
+    check("v141_scenario_matched_maxbid",
+          all(bm.get((r["listing"], r["scenario"]), {})
+              .get("max_bid_roi_20") == r["max_bid_roi_20"]
+              for r in rank2))
+    check("v141_all_scenarios_in_ranking",
+          len(rank2) == len([r for r in roi
+                             if r["gst_scenario"] == "EXCL"]))
     check("report", (DOCS / "listing_level_valuation_v1_4_report.md").exists())
     check("methodology", (DOCS / "valuation_methodology.md").exists())
     check("manifest", (DOCS / "manifest.json").exists())

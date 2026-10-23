@@ -6,8 +6,8 @@ Layers
   A  land-dominant old-house comp pool  (age>=50 & BCA land share>=0.95)
   B  per-listing buildable scenarios    (V3s verified geometry reused)
   C  per-listing new-build sale estimate (matched 2026-09-normalized comps)
-  D  ROI at actual Ask + 3y/5y base (0% future) + market stress +
-     max-bid solve + negotiation headroom
+  D  ROI at actual Ask, unified 1-yr development financing window
+     (0% future market) + market stress + max-bid solve + negotiation
   E  two independent rankings (LAND BUY VALUE / REBUILD ROI)
 
 Data: all local frozen inputs — see input_inventory.md.
@@ -36,7 +36,7 @@ LISTING_JSON = ROOT / "reports/watchlist/rebuild-value-2026-10-20.json"
 HPI_ASOF = "2026-09"
 LISTING_SNAPSHOT = "2026-10-20"
 MODEL_VERSION = "listing_level_valuation_v1_4"
-COST_VERSION = "v3s-2026-10(ptt+fin2yr-basis)"
+COST_VERSION = "v3s-2026-10(ptt+fin-1yr-dev-window)"
 
 # ------------------------------------------------ V3s cost model (frozen)
 BUILD_COST = {"HOUSE": 350, "DUPLEX": 400, "MULTIPLEX": 450}
@@ -45,7 +45,10 @@ SELLING_PCT = 0.04
 GST_PCT = 0.05
 FIN_LAND_PCT_YR = 0.05            # land mortgage ~5%/yr
 FIN_BUILD_PCT_YR = 0.35 * 0.035 + 0.65 * 0.10   # 0.07725 blended/yr
-BASE_YEARS = 2                    # V3s default 2-yr window
+BASE_YEARS = 1                    # unified 1-yr development financing
+                                  # window (V1.4.1 correction: sale
+                                  # timing is separated from the dev
+                                  # ROI — no 3y/5y ROI variants)
 MPX_PRODUCT_FACTOR = 0.85         # V3s stacked-product discount
 
 LOT_BANDS = ((2500, 3000), (3000, 4000), (4000, 5000), (5000, 6000),
@@ -575,41 +578,37 @@ def main():
             for gm in ("EXCL", "INCL"):
                 simple_inv = t["asking"] + (
                     s["build_sqft"] * (BUILD_COST[s["name"]] + PERMIT_PSQFT))
-                c2 = cost_model(t["asking"], s, est, BASE_YEARS, gm)
-                c3 = cost_model(t["asking"], s, est, 3, gm)
-                c5 = cost_model(t["asking"], s, est, 5, gm)
+                c1 = cost_model(t["asking"], s, est, BASE_YEARS, gm)
                 roi_rows.append({
                     "listing": t["listing"], "scenario": s["name"],
                     "gst_scenario": gm, "asking": t["asking"],
                     "est_sale_today": round(est),
                     "investment_simple": round(simple_inv),
-                    "roi_simple_pct":
+                    "roi_simple":
                     round(100 * (est - simple_inv) / simple_inv, 1),
-                    "total_cost_full_2y": round(c2["total"]),
-                    "roi_full_2y_pct": round(100 * c2["roi"], 1),
-                    "roi_base_3y_pct": round(100 * c3["roi"], 1),
-                    "roi_base_5y_pct": round(100 * c5["roi"], 1),
+                    "total_cost_dev_1y": round(c1["total"]),
+                    "profit_development_1y": round(c1["profit"]),
+                    "roi_development_1y": round(100 * c1["roi"], 1),
                     "land_conf": conf, "sale_conf": sale_conf,
                     "market_value_today": round(est),
                     "future_market_factor_base": 0.0})
-                for yrs in (3, 5):
-                    for mk in MARKET_SCEN:
-                        cm = cost_model(t["asking"], s, est, yrs, gm, mk)
-                        market_rows.append({
-                            "listing": t["listing"], "scenario": s["name"],
-                            "gst_scenario": gm, "horizon_y": yrs,
-                            "future_market_factor": mk,
-                            "future_sale_estimate": round(est * (1 + mk)),
-                            "roi_pct": round(100 * cm["roi"], 1)})
+                for mk in MARKET_SCEN:
+                    cm = cost_model(t["asking"], s, est, BASE_YEARS, gm, mk)
+                    market_rows.append({
+                        "listing": t["listing"], "scenario": s["name"],
+                        "gst_scenario": gm,
+                        "future_market_factor": mk,
+                        "future_sale_estimate": round(est * (1 + mk)),
+                        "roi_pct": round(100 * cm["roi"], 1)})
 
-            # ---- max bid + negotiation (3y base, EXCL)
+            # ---- max bid + negotiation (1y dev base, EXCL)
             row = {"listing": t["listing"], "scenario": s["name"],
                    "asking": t["asking"], "est_sale_today": round(est),
                    "fair_land_value_today": round(fair) if fair else "",
                    "ask_minus_fair_land":
                    round(t["asking"] - fair) if fair else ""}
             for tg in ROI_TARGETS:
-                mb = max_bid(s, est, tg, 3)
+                mb = max_bid(s, est, tg, BASE_YEARS)
                 key = int(tg * 100)
                 row[f"max_bid_roi_{key}"] = (round(mb) if isinstance(
                     mb, float) else mb or "")
@@ -625,7 +624,7 @@ def main():
                                                   if caps else "")
             for cut in OFFER_CUTS:
                 offer = t["asking"] * cut
-                rc = cost_model(offer, s, est, 3, "EXCL")["roi"]
+                rc = cost_model(offer, s, est, BASE_YEARS, "EXCL")["roi"]
                 row[f"roi_at_ask_x{int(cut*100)}"] = round(100 * rc, 1)
             bid_rows.append(row)
 
@@ -652,43 +651,41 @@ def main():
          "confidence": r["confidence"], "utility_flag": r["utility_flag"]}
         for r in land_rank])
 
-    # rebuild ranking: best verified scenario per listing by roi_base_3y
-    best = {}
+    # rebuild ranking: one row per (listing, scenario) — no confidence
+    # hard filter; users judge evidence themselves. Keys always carry
+    # the scenario so max_bid is never cross-matched (V1.4.1 fix).
+    bmap = {(r["listing"], r["scenario"]): r for r in bid_rows}
+    lmap = {r["listing"]: r for r in land_rows}
+    rank2 = []
     for r in roi_rows:
         if r["gst_scenario"] != "EXCL":
             continue
         k = r["listing"]
-        if k not in best or r["roi_base_3y_pct"] > best[k]["roi_base_3y_pct"]:
-            best[k] = r
-    bmap = {r["listing"]: r for r in bid_rows}
-    lmap = {r["listing"]: r for r in land_rows}
-    rank2 = []
-    for k, r in best.items():
-        b = bmap.get(k, {})
+        b = bmap.get((k, r["scenario"]), {})
         lm = lmap.get(k, {})
         d20 = b.get("discount_required_from_ask_20_pct")
         land_ok = (lm.get("discount_to_land_market_pct") != "" and
                    lm["discount_to_land_market_pct"] > 0)
-        roi_ok = r["roi_base_3y_pct"] >= 10
-        conf_ok = "LOW" not in (r["land_conf"] + r["sale_conf"]) and \
-            "BLOCKED" not in (r["land_conf"] + r["sale_conf"])
+        roi_ok = r["roi_development_1y"] >= 10
         quad = ("BOTH" if land_ok and roi_ok else
                 "LAND_VALUE_ONLY" if land_ok else
                 "ROI_ONLY" if roi_ok else "NEITHER")
         rank2.append({
             "listing": k, "scenario": r["scenario"],
             "asking": r["asking"], "est_sale_today": r["est_sale_today"],
-            "roi_base_3y_pct": r["roi_base_3y_pct"],
-            "roi_base_5y_pct": r["roi_base_5y_pct"],
-            "roi_simple_pct": r["roi_simple_pct"],
+            "roi_development_1y": r["roi_development_1y"],
+            "profit_development_1y": r["profit_development_1y"],
+            "roi_simple": r["roi_simple"],
+            "max_bid_roi_10": b.get("max_bid_roi_10"),
             "max_bid_roi_20": b.get("max_bid_roi_20"),
+            "max_bid_roi_30": b.get("max_bid_roi_30"),
             "discount_required_20_pct": d20,
+            "suggested_cap_roi_20": b.get("suggested_cap_roi_20"),
             "land_discount_pct": lm.get("discount_to_land_market_pct"),
             "quadrant": quad,
-            "all_gates": "PASS" if (land_ok and roi_ok and conf_ok)
-            else "FAIL",
+            "all_gates": "PASS" if (land_ok and roi_ok) else "FAIL",
             "conf": f"{r['land_conf']}/{r['sale_conf']}"})
-    rank2.sort(key=lambda r: -r["roi_base_3y_pct"])
+    rank2.sort(key=lambda r: -r["roi_development_1y"])
     for i, r in enumerate(rank2, 1):
         r["rank"] = i
     wcsv(DOCS / "rebuild_roi_ranking.csv", rank2)
@@ -717,9 +714,8 @@ def main():
     q3 = {}
     for t_ in ROI_TARGETS:
         key = int(t_ * 100)
-        q3[key] = {y: len({r["listing"] for r in base
-                           if r[f"roi_base_{y}y_pct"] >= t_ * 100 - 0.05})
-                   for y in (3, 5)}
+        q3[key] = len({r["listing"] for r in base
+                       if r["roi_development_1y"] >= t_ * 100 - 0.05})
     q4 = {int(c * 100): len({r["listing"] for r in bid_rows
                              if isinstance(r["roi_at_ask_x"
                                            + str(int(c * 100))],
@@ -727,7 +723,7 @@ def main():
                              r["roi_at_ask_x" + str(int(c * 100))] >= 10})
           for c in OFFER_CUTS}
     q5 = [r for r in rank2 if r["all_gates"] == "PASS"]
-    q6 = [r for r in rank2 if r["roi_base_3y_pct"] >= 10
+    q6 = [r for r in rank2 if r["roi_development_1y"] >= 10
           and "LOW" in r["conf"]]
 
     rep = f"""# Listing-Level Valuation V1.4 — 报告
@@ -744,19 +740,19 @@ def main():
 
 {len(q1)} / {len(tlist)} 套 Ask < fair_land_value;≥5%: {buck[5]},≥10%: {buck[10]},≥15%: {buck[15]},≥20%: {buck[20]}。
 
-## Q3 基准 ROI 达标房源数(0% 未来涨跌,EXCL)
+## Q3 基准 ROI 达标房源数(1年开发期,0% 未来涨跌,EXCL)
 
-| 目标 | 3y | 5y |
-|---|---|---|
-| ≥10% | {q3[10][3]} | {q3[10][5]} |
-| ≥20% | {q3[20][3]} | {q3[20][5]} |
-| ≥30% | {q3[30][3]} | {q3[30][5]} |
+| 目标 | 达标房源数 |
+|---|---|
+| ≥10% | {q3[10]} |
+| ≥20% | {q3[20]} |
+| ≥30% | {q3[30]} |
 
-## Q4 砍价后达标(≥10% ROI,3y)
+## Q4 砍价后达标(≥10% 开发 ROI)
 
 砍5%: {q4[95]} 套;砍10%: {q4[90]} 套;砍15%: {q4[85]} 套。
 
-## Q5 全门通过(土地合理 + verified 方案 + ROI≥10% + 证据够)
+## Q5 全门通过(土地合理 + verified 方案 + ROI≥10%;置信度展示不过滤)
 
 {len(q5)} 套: {", ".join(r["listing"] for r in q5[:15])}
 
@@ -770,9 +766,11 @@ def main():
   水位 MICRO_500M→COMM_LOTBAND→COMM_ADJ_BAND→COMM_ANY→NEARBY_ADJ→SIDE。
 - est_sale = 匹配新房 comps 加权 P50 $/sf × net_saleable;DUPLEX/MPX
   comps 为代理指数归一化(PROXY 标),MPX ×{MPX_PRODUCT_FACTOR} 产品折价。
-- ROI 层级:simple=ASK+hard;full=V3s 全成本(含 PTT/融资/销售/GST);
-  3y/5y 仅融资年限变化(0% 未来价);市场 ±10/20% 为压力测试。
-- max_bid 以 3y/EXCL 为基准求满足目标 ROI 的最高出价;
+- ROI 层级:roi_simple=ASK+建安;roi_development_1y=V3s 全成本
+  (含 PTT/办证/1年融资/销售/GST),统一 1 年开发融资窗口;
+  未来出售时间与 ROI 分离——市场 ±10/20% 仅为独立价格压力情景,
+  不再有 3y/5y ROI;开发前长期持有成本独立记录,不叠加。
+- max_bid 以 1y 开发期/EXCL 为基准求满足目标 ROI 的最高出价;
   土地白送仍不达标 = UNATTAINABLE。
 - utility_flag=EXISTING_HOUSE_UTILITY(改善占比>10%)提示房源含
   居住价值,土地估值与房价需分开看。
@@ -798,8 +796,9 @@ NEARBY_COMM_1.5KM_ADJ(社区 P50 比值调整)→SIDE_FALLBACK(低置信)。
 comp_ids 保留前 12 个可比 tx,可追溯。
 
 ## 成本(V3s frozen)
-hard=建面×(350/400/450+40permit);fin=offer×5%/yr×Y+
-hard×7.725%/yr×Y;selling=售价×4%;GST 5%;PTT=BC 阶梯;
+hard=建面×(350/400/450+40permit);fin=offer×5%×1年+
+hard×7.725%×1年(统一1年开发融资窗口;出售时间与ROI分离,
+开发前长期持有成本独立记录不叠加);selling=售价×4%;GST 5%;PTT=BC阶梯;
 total=offer+ptt+hard+fin+selling+gst;roi=(revenue-total)/total。
 
 ## 置信

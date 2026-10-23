@@ -2,7 +2,7 @@
   "version": "listing_level_valuation_v1_4",
   "hpi_asof": "2026-09",
   "listing_snapshot": "2026-10-20",
-  "cost_version": "v3s-2026-10(ptt+fin2yr-basis)",
+  "cost_version": "v3s-2026-10(ptt+fin-1yr-dev-window)",
   "active_listings": 224,
   "deliverables": [
     "active_house_buildable_scenarios.csv",

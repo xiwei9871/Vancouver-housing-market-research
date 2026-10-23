@@ -17,8 +17,9 @@ NEARBY_COMM_1.5KM_ADJ(社区 P50 比值调整)→SIDE_FALLBACK(低置信)。
 comp_ids 保留前 12 个可比 tx,可追溯。
 
 ## 成本(V3s frozen)
-hard=建面×(350/400/450+40permit);fin=offer×5%/yr×Y+
-hard×7.725%/yr×Y;selling=售价×4%;GST 5%;PTT=BC 阶梯;
+hard=建面×(350/400/450+40permit);fin=offer×5%×1年+
+hard×7.725%×1年(统一1年开发融资窗口;出售时间与ROI分离,
+开发前长期持有成本独立记录不叠加);selling=售价×4%;GST 5%;PTT=BC阶梯;
 total=offer+ptt+hard+fin+selling+gst;roi=(revenue-total)/total。
 
 ## 置信
