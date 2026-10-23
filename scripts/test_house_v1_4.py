@@ -149,7 +149,8 @@ def main():
                    and s["scenario"] == r["scenario"])["verified"] == "True"
               for r in sale))
     check("t8_proxy_marked",
-          all(r["psf_factor_kind"] == "PROXY" for r in sale
+          all(r["psf_factor_kind"] in ("PROXY", "PROXY_UNITPX")
+              for r in sale
               if r["scenario"] in ("DUPLEX", "MULTIPLEX")
               and r["sale_value_today"] != ""))
 
@@ -224,8 +225,31 @@ def main():
               or r["comp_level_after"].startswith("COMM")
               for r in nbd))
     check("v143_comm_now_matches",
-          sum(1 for r in nbd if r["comp_level_after"] == "COMM") >=
+          sum(1 for r in nbd
+              if r["comp_level_after"] in ("COMM", "COMM_UNITPX")) >=
           len(nbd) - 1)
+    # V1.4.4 additions
+    lotd = list(csv.DictReader(
+        open(DOCS / "land_lot_compat_fix_diff.csv")))
+    check("v144_lot_compat_diff_table", len(lotd) > 0 and
+          all(float(r["lot_sqft"]) for r in lotd))
+    # 3466 E 2ND: big-parcel comps must no longer reprice the lot
+    l3466 = next(r for r in land
+                 if r["listing"] == "3466 E 2ND AVENUE")
+    check("v144_e2nd_repriced",
+          float(l3466["fair_land_value_today"]) > 900_000,
+          l3466["fair_land_value_today"])
+    # non-residential/blank zoning: computed but not VERIFIED-legal
+    check("v144_zoning_assumptive",
+          all(r["status"] != "VERIFIED" for r in scen
+              if (r["zoning"] or "") == "" or
+              not r["zoning"].upper().startswith(("R", "F"))))
+    # MULTIPLEX unit-price fallback: priced, labelled, low confidence
+    mpx_sale = [r for r in sale if r["scenario"] == "MULTIPLEX"
+                and r["sale_value_today"]]
+    check("v144_mpx_unitpx_priced", len(mpx_sale) > 80 and
+          all("_UNITPX" in r["comp_level"] and
+              "FA_MISSING" in r["confidence"] for r in mpx_sale))
     check("v143_alias_geo_checked",
           all(r["alias_check"].startswith("ALIAS_OK") for r in nbd) and
           all(r["hood_alias_check"] in ("NAME_MATCH",) or

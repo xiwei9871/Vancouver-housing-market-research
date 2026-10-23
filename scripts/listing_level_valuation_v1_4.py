@@ -52,7 +52,11 @@ BASE_YEARS = 1                    # unified 1-yr development financing
 MPX_PRODUCT_FACTOR = 0.85         # V3s stacked-product discount
 
 LOT_BANDS = ((2500, 3000), (3000, 4000), (4000, 5000), (5000, 6000),
-             (6000, math.inf))
+             (6000, 8000), (8000, 12000), (12000, math.inf))
+# Land $/sf falls steeply with lot size — a comp lot is only usable as
+# like-for-like evidence inside a size window around the target lot.
+# Prevents 10k-35k sf assembly parcels from repricing a standard lot.
+LOT_RATIO_OK = (0.6, 1.67)
 MARKET_SCEN = (-0.20, -0.10, 0.0, 0.10, 0.20)
 
 # Listing feed hood labels -> archive community names. Assigned by
@@ -72,6 +76,14 @@ HOOD_COMM_ALIAS = {
 }
 ROI_TARGETS = (0.10, 0.20, 0.30)
 OFFER_CUTS = (0.95, 0.90, 0.85)
+
+
+def zoning_residential(z):
+    """V1.4.4 audit gate: only R*/F* districts are residential.
+    C-*, CD, DEOD and blank zoning cannot support a verified-legal
+    residential scenario — the estimate may stay as an assumption,
+    but the row must not read VERIFIED."""
+    return bool(z) and z.strip().upper().startswith(("R", "F"))
 
 
 def num(v):
@@ -127,7 +139,8 @@ def band_label(i):
     if i is None:
         return "?"
     lo, hi = LOT_BANDS[i]
-    return f"{int(lo)}-{'6000+' if math.isinf(hi) else int(hi)}"
+    return (f"{int(lo)}+" if math.isinf(hi)
+            else f"{int(lo)}-{int(hi)}")
 
 
 def wcsv(path, rows, fields=None):
@@ -177,7 +190,41 @@ def tax_share(tax_pid, sale_year):
 
 
 # ========================================================= Module A pools
-def build_land_pool(house_rows, arch, yb_map, tax):
+LOT_DIMS_PATH = ROOT / ("data/research/raw/location/"
+                        "bca-arcgis-sales-2026-09-06-enriched-spatial.json")
+
+
+def load_lot_dims():
+    """pid+sale_date -> BCA lot area from property-information
+    dimensions (frontage x depth). This is the *legal* lot evidence;
+    the raw ArcGIS parcel polygon (SHAPE_Area) is a different field
+    that can cover shared/ravine area and inflate lot ~2.3x."""
+    idx = {}
+    if not LOT_DIMS_PATH.exists():
+        return idx
+    d = json.load(open(LOT_DIMS_PATH))
+    rows = d if isinstance(d, list) else next(
+        (d[k] for k in ("sales", "results", "records", "features")
+         if k in d), [])
+    for r in rows:
+        if r.get("lot_area_source") != "BCA_PROPERTY_INFORMATION_DIMENSIONS":
+            continue
+        pid = (r.get("pid") or "").strip()
+        dt = (r.get("sale_date") or "")[:10]
+        if pid and dt and num(r.get("lot_area_sqft")):
+            idx[(pid, dt)] = {
+                "lot": num(r["lot_area_sqft"]),
+                "frontage": num(r.get("frontage_ft")),
+                "depth": num(r.get("depth_ft"))}
+    return idx
+
+
+def build_land_pool(house_rows, arch, yb_map, tax, dims_idx=None):
+    """dims_idx (V1.4.4): pid+date -> BCA lot dimensions. When present,
+    the legal/dimensions lot overrides the raw ArcGIS parcel polygon —
+    big GIS parcels (shared/ravine area) otherwise poison the $/sf
+    evidence for standard lots."""
+    dims_idx = dims_idx or {}
     pool, aux, drops = [], [], {"no_yb": 0, "no_tax": 0, "strata": 0,
                               "no_lot": 0, "age_lt50": 0}
     for r in house_rows:
@@ -192,20 +239,35 @@ def build_land_pool(house_rows, arch, yb_map, tax):
         if r["strata"] == "True":
             drops["strata"] += 1
             continue
-        lot = num(r["lot"])
+        a = arch.get(r["tx"], {})
+        lot_gis = num(r["lot"])
+        lot, lot_src, lot_flag = lot_gis, "ARCHIVE_GIS_PARCEL", ""
+        dims = dims_idx.get(((a.get("pid") or "").strip(),
+                             (r["date"] or "")[:10]))
+        if dims:
+            lot_src = "BCA_DIMS"
+            if lot_gis and dims["lot"] / lot_gis < 0.67:
+                lot_flag = "LOT_CORRECTED_2X"
+            elif lot_gis and abs(dims["lot"] / lot_gis - 1) > 0.05:
+                lot_flag = "LOT_CORRECTED"
+            lot = dims["lot"]
+        elif lot_gis and lot_gis >= 6000:
+            lot_flag = "LOT_GIS_UNVERIFIED_BIG"
         if not lot or lot < 1500:
             drops["no_lot"] += 1
             continue
-        a = arch.get(r["tx"], {})
         share, asmt = tax_share(tax.get((a.get("pid") or "").strip(), {}),
                                 int(r["year"]))
         if share is None:
             drops["no_tax"] += 1
             continue
         rec = {"tx": r["tx"], "community": r["community"], "side": r["side"],
-               "date": r["date"], "year": int(r["year"]),
-               "yb_tier": r["tier"],
-               "lot": lot, "lat": num(a.get("lat")), "lng": num(a.get("lng")),
+               "address": a.get("address"), "date": r["date"],
+               "year": int(r["year"]),
+               "yb_tier": r["tier"], "pid": (a.get("pid") or "").strip(),
+               "lot": lot, "lot_gis": lot_gis, "lot_src": lot_src,
+               "lot_flag": lot_flag,
+               "lat": num(a.get("lat")), "lng": num(a.get("lng")),
                "zoning": r["zoning"], "age_at_sale": age,
                "land_share": round(share, 4), "asmt_year_used": asmt,
                "price_2026_09": num(r["price_2026_09"]),
@@ -234,48 +296,69 @@ def build_newbuild_pools(house_rows, proxy_rows, arch):
     for r in proxy_rows:
         fa = num(r["fa"])
         px = num(r["price_2026_09_neutral"])
-        if not fa or not px:
+        # MULTIPLEX_UNIT strata rows carry a unit price but no floor
+        # area in the feed — keep them for a per-unit-price fallback,
+        # which is labelled separately from $/sf evidence
+        if not px or (not fa and r["product"] != "MULTIPLEX_UNIT"):
             continue
         la, ln = geo(r)
         rec = {"tx": r["tx"], "community": r["community"],
                "side": r["side"], "lat": la, "lng": ln, "fa": fa,
-               "psf": px / fa, "factor_kind": "PROXY",
+               "psf": px / fa if fa else None,
+               "unit_price": px, "factor_kind": "PROXY",
                "proxy_note": r.get("proxy_note", "")}
         (dup if r["product"] == "DUPLEX_HALF" else mpx
          if r["product"] == "MULTIPLEX_UNIT" else []).append(rec)
     for r in mpx:
-        r["psf"] *= MPX_PRODUCT_FACTOR   # V3s stacked-product discount
+        # V3s stacked-product discount, on whichever basis exists
+        if r["psf"]:
+            r["psf"] *= MPX_PRODUCT_FACTOR
+        r["unit_price"] *= MPX_PRODUCT_FACTOR
     return {"HOUSE": hb, "DUPLEX": dup, "MULTIPLEX": mpx}
 
 
 # ====================================================== matching engines
-def match_land(t, pool, comm_psf, nearby_fix=True):
+def match_land(t, pool, comm_psf, nearby_fix=True, lot_compat=True):
     """Waterfall; returns dict with level, comps, weighted psf stats.
     NEARBY_COMM adjustment converts a comp's land $/sf from its source
     community level to the target community level by multiplying with
-    target_p50/source_p50 (V1.4.2 fix: previously inverted)."""
+    target_p50/source_p50 (V1.4.2 fix: previously inverted).
+    V1.4.4: lot_compat gates comps to 0.6-1.67x target lot —
+    set False only to reproduce the pre-fix behaviour for diff audits."""
     tband = lot_band(t["lot_sqft"])
     cand_levels = []
 
     def same_comm(r):
         return r["community"] == t["hood_comm"]
 
+    def lot_ok(r):
+        # like-for-like lot size — without this guard, 10k+ sf parcels
+        # reprice a standard lot at their (much lower) marginal $/sf
+        if not lot_compat:
+            return True
+        if not t["lot_sqft"] or not r["lot"]:
+            return False
+        return LOT_RATIO_OK[0] <= r["lot"] / t["lot_sqft"] <= LOT_RATIO_OK[1]
+
     L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband
+         and lot_ok(r)
          and (d := hav_km(t["lat"], t["lng"], r["lat"], r["lng"])) is not None
          and d <= 0.5]
     cand_levels.append(("MICRO_500M", L, 1.0))
-    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband]
+    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband
+         and lot_ok(r)]
     cand_levels.append(("COMM_LOTBAND", L, 1.0))
     adj = {tband - 1, tband + 1} if tband is not None else set()
-    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) in adj]
+    L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) in adj
+         and lot_ok(r)]
     cand_levels.append(("COMM_ADJ_BAND", L, 1.0))
-    L = [r for r in pool if same_comm(r)]
+    L = [r for r in pool if same_comm(r) and lot_ok(r)]
     cand_levels.append(("COMM_ANY", L, 1.0))
     # nearby communities within 1.5km, adjusted by community-p50 ratio
     near = []
     for r in pool:
         d = hav_km(t["lat"], t["lng"], r["lat"], r["lng"])
-        if d is not None and d <= 1.5 and not same_comm(r):
+        if d is not None and d <= 1.5 and not same_comm(r) and lot_ok(r):
             cf = None
             tc, cc = comm_psf.get(r["community"]), comm_psf.get(t["hood_comm"])
             if tc and cc:
@@ -303,10 +386,14 @@ def match_land(t, pool, comm_psf, nearby_fix=True):
                 pairs.append((c.get("psf_adj", c["land_psf"]), dw * lw))
             return {"level": level, "n": len(cands),
                     "ids": ";".join(c["tx"] for c in cands[:12]),
+                    "n_unverified_big": sum(
+                        1 for c in cands
+                        if c.get("lot_flag") == "LOT_GIS_UNVERIFIED_BIG"),
                     "p25": wmedian(pairs, 25), "p50": wmedian(pairs, 50),
                     "p75": wmedian(pairs, 75),
-                    "factors": ("comm_adj" if level.startswith("NEARBY")
-                                else "dist+lot_weight")}
+                    "factors": ("comm_adj+lot_compat"
+                                if level.startswith("NEARBY")
+                                else "dist+lot_weight+lot_compat")}
     # best available even if thin
     for level, cands, _ in cand_levels:
         cands = [c for c in cands if c["land_psf"]]
@@ -314,10 +401,13 @@ def match_land(t, pool, comm_psf, nearby_fix=True):
             pairs = [(c["land_psf"], 1.0) for c in cands]
             return {"level": level + ":THIN", "n": len(cands),
                     "ids": ";".join(c["tx"] for c in cands[:12]),
+                    "n_unverified_big": sum(
+                        1 for c in cands
+                        if c.get("lot_flag") == "LOT_GIS_UNVERIFIED_BIG"),
                     "p25": wmedian(pairs, 25), "p50": wmedian(pairs, 50),
                     "p75": wmedian(pairs, 75), "factors": "thin_unweighted"}
-    return {"level": "BLOCKED", "n": 0, "ids": "", "p25": None,
-            "p50": None, "p75": None, "factors": "no_comps"}
+    return {"level": "BLOCKED", "n": 0, "ids": "", "n_unverified_big": 0,
+            "p50": None, "p75": None, "p25": None, "factors": "no_comps"}
 
 
 SIZE_K = {"HOUSE": -0.55, "DUPLEX": -0.15, "MULTIPLEX": -0.15}
@@ -369,6 +459,32 @@ def match_newbuild(t, scen, pools):
                 "p25": wmedian(pairs, 25), "p50": wmedian(pairs, 50),
                 "p75": wmedian(pairs, 75),
                 "factor_kind": thin[0]["factor_kind"]}
+    # MULTIPLEX fallback: strata unit sales have no floor area in the
+    # feed, so no $/sf is possible. Price per unit is the only honest
+    # evidence — estimate = units x adjusted unit comp price. Always
+    # flagged PROXY_UNITPX + FA_MISSING so it cannot be mistaken for
+    # measured new-build $/sf evidence.
+    if name == "MULTIPLEX":
+        ups = [c for c in pool if c.get("unit_price")]
+        for ulvl, uc in (
+                ("500M_UNITPX", [c for c in ups
+                                 if (d := hav_km(t["lat"], t["lng"],
+                                                 c["lat"], c["lng"]))
+                                 is not None and d <= 0.5]),
+                ("COMM_UNITPX", [c for c in ups
+                                 if c["community"] == t["hood_comm"]]),
+                ("SIDE_UNITPX", [c for c in ups
+                                 if c["side"] == t["side_key"]])):
+            if len(uc) < 3:
+                continue
+            pairs = [(c["unit_price"], 1.0) for c in uc]
+            return {"level": ulvl, "n": len(uc),
+                    "ids": ";".join(c["tx"] for c in uc[:12]),
+                    "p25": wmedian(pairs, 25),
+                    "p50": wmedian(pairs, 50),
+                    "p75": wmedian(pairs, 75),
+                    "factor_kind": "PROXY_UNITPX",
+                    "unit_price_mode": True}
     return {"level": "BLOCKED", "n": 0, "ids": "", "p25": None,
             "p50": None, "p75": None, "factor_kind": "?"}
 
@@ -432,7 +548,7 @@ def max_bid(scen, sale, target, years=3, gst_mode="EXCL"):
 def confidence(level, n, extra=""):
     if level == "BLOCKED" or n == 0:
         return "BLOCKED"
-    if "THIN" in level or n < 3 or "SIDE" in level or extra == "DATA_GAP":
+    if "THIN" in level or n < 3 or "SIDE" in level or extra:
         return "LOW_CONFIDENCE"
     if "MICRO" in level or "COMM" in level:
         return "MEDIUM_CONFIDENCE" if n < 8 else "HIGH_CONFIDENCE"
@@ -452,8 +568,23 @@ def main():
     yb_map = load_resolved_yb()
     tax = load_tax()
 
+    dims_idx = load_lot_dims()
     land_pool, aux_pool, drops = build_land_pool(house_rows, arch,
-                                               yb_map, tax)
+                                               yb_map, tax, dims_idx)
+    wcsv(DOCS / "land_pool_lot_audit.csv", [
+        {"tx": r["tx"], "address": r.get("address"),
+         "community": r["community"], "date": r["date"],
+         "lot_used": round(r["lot"]), "lot_gis": round(r["lot_gis"])
+         if r["lot_gis"] else "", "lot_src": r["lot_src"],
+         "lot_flag": r["lot_flag"],
+         "land_psf_used": round(r["land_psf"], 1)
+         if r["land_psf"] else "",
+         "price_2026_09": round(r["price_2026_09"])
+         if r["price_2026_09"] else ""}
+        for r in land_pool],
+        fields=["tx", "address", "community", "date", "lot_used",
+                "lot_gis", "lot_src", "lot_flag", "land_psf_used",
+                "price_2026_09"])
     nb_pools = build_newbuild_pools(house_rows, proxy_rows, arch)
 
     # ---- A deliverables -------------------------------------------------
@@ -531,9 +662,44 @@ def main():
     market_rows = []
     nearby_diff = []
     newbuild_diff = []
+    lot_fix_diff = []
+    prob_comp = []
     for t in tlist:
         # ---- land valuation
         m = match_land(t, land_pool, comm_psf)
+        # V1.4.4 diff audit: same matching without the lot-compat guard
+        m_pre = match_land(t, land_pool, comm_psf, lot_compat=False)
+        if m_pre["p50"] and m["p50"] and (
+                m_pre["level"] != m["level"]
+                or abs(m["p50"] / m_pre["p50"] - 1) > 0.05):
+            lot_fix_diff.append({
+                "listing": t["listing"], "hood_comm": t["hood_comm"],
+                "lot_sqft": t["lot_sqft"],
+                "level_before": m_pre["level"], "level_after": m["level"],
+                "psf_before": round(m_pre["p50"], 1),
+                "psf_after": round(m["p50"], 1),
+                "fair_before": round(m_pre["p50"] * t["lot_sqft"]),
+                "fair_after": round(m["p50"] * t["lot_sqft"]),
+                "delta_cad": round((m["p50"] - m_pre["p50"])
+                                 * t["lot_sqft"]),
+                "ids_before": m_pre["ids"], "ids_after": m["ids"]})
+        # per-comp audit for the flagged large-lot mismatches
+        if m_pre["p50"] and m["p50"] and \
+                m_pre["p50"] * t["lot_sqft"] < 0.65 * (
+                        m["p50"] * t["lot_sqft"]):
+            ids_pre = set(m_pre["ids"].split(";")) - {""}
+            for c in land_pool:
+                if c["tx"] in ids_pre or c["tx"] in set(
+                        m["ids"].split(";")):
+                    prob_comp.append({
+                        "listing": t["listing"],
+                        "lot_sqft": t["lot_sqft"],
+                        "tx": c["tx"], "community": c["community"],
+                        "comp_lot": round(c["lot"]),
+                        "lot_ratio": round(c["lot"] / t["lot_sqft"], 2),
+                        "sale_2026_09": round(c["price_2026_09"] or 0),
+                        "land_psf": round(c["land_psf"], 1),
+                        "kept": c["tx"] in set(m["ids"].split(";"))})
         # V1.4.2 diff audit: listings that USED the NEARBY fallback under
         # the pre-fix pipeline (no hood alias + inverted ratio)
         t_old = dict(t, hood_comm=t["hood"])
@@ -552,9 +718,22 @@ def main():
                 "delta_cad": round((m["p50"] - m_old["p50"])
                                    * t["lot_sqft"]),
                 "fix": "hood alias + target/source ratio corrected"})
-        extra = ("DATA_GAP" if not t["bca_land"] or not t["zoning"]
-                 else "")
+        # non-residential or unknown zoning: the comp pool is
+        # residential-zoned sales only — evidence class mismatch,
+        # keep the estimate but degrade confidence and flag it
+        extra = ";".join(x for x in (
+            "DATA_GAP" if not t["bca_land"] or not t["zoning"] else "",
+            "" if zoning_residential(t["zoning"]) else "NONRESI_ZONING",
+            "UNVERIFIED_BIG_COMPS"
+            if m["n"] and m.get("n_unverified_big", 0) / m["n"] >= 0.5
+            else "")
+            if x)
         conf = confidence(m["level"], m["n"], extra)
+        # bimodal evidence (e.g. escarpment parcels mixed with normal
+        # lots) must not present as high confidence
+        if (m["p25"] and m["p75"] and m["p75"] / m["p25"] > 1.4
+                and conf == "HIGH_CONFIDENCE"):
+            conf = "MEDIUM_CONFIDENCE(HIGH_DISPERSION)"
         # alias position check: aliased community centroid vs listing
         if t["hood_comm"] != t["hood"] and t["hood_comm"] in comm_cent:
             dkm = hav_km(t["lat"], t["lng"], *comm_cent[t["hood_comm"]])
@@ -583,7 +762,9 @@ def main():
             if t["lot_sqft"] else "",
             "land_comp_level": m["level"], "land_comp_n": m["n"],
             "hood_alias_check": t["alias_check"],
-            "land_comp_ids": m["ids"], "land_weighted_psf":
+            "land_comp_ids": m["ids"],
+            "n_unverified_big": m.get("n_unverified_big", 0),
+            "land_weighted_psf":
             round(m["p50"], 1) if m["p50"] else "",
             "land_psf_p25": round(m["p25"], 1) if m["p25"] else "",
             "land_psf_p50": round(m["p50"], 1) if m["p50"] else "",
@@ -607,8 +788,16 @@ def main():
             "model_version": MODEL_VERSION, "cost_version": COST_VERSION})
 
         # ---- scenarios + sale estimates + ROI
+        resi = zoning_residential(t["zoning"])
         for s in t["scenarios"]:
-            status = ("VERIFIED" if s["verified"] else
+            zflags = list(s["zone_flags"] or [])
+            if s["verified"] and not resi:
+                # production verified flag assumed a residential zone;
+                # blank/C-*/CD/DEOD zoning cannot substantiate that —
+                # keep the hypothetical estimate, mark it assumptive
+                zflags.append("ZONING_UNVERIFIED_ASSUMED_RESI")
+            status = ("VERIFIED" if s["verified"] and resi else
+                      "ASSUMPTIVE_ZONING" if s["verified"] else
                       "UNVERIFIED" if s["eligible"] else "INELIGIBLE")
             scen_rows.append({
                 "listing": t["listing"], "scenario": s["name"],
@@ -617,7 +806,7 @@ def main():
                 "net_saleable": s["net_saleable"], "units": s["units"],
                 "eligible": s["eligible"], "verified": s["verified"],
                 "status": status,
-                "zone_flags": ";".join(s["zone_flags"] or [])})
+                "zone_flags": ";".join(zflags)})
             if not s["verified"]:
                 continue
             nb = match_newbuild(t, s, nb_pools)
@@ -652,24 +841,29 @@ def main():
                     round(100 * cost_model(t["asking"], s, est_n,
                                            BASE_YEARS, "EXCL")["roi"], 1)
                     if est_n else ""})
-            est = nb["p50"] * s["net_saleable"] if nb["p50"] else None
-            sale_conf = confidence(nb["level"], nb["n"], extra)
+            upx = bool(nb.get("unit_price_mode"))
+            mult = s["units"] if upx else s["net_saleable"]
+            est = nb["p50"] * mult if nb["p50"] else None
+            sale_conf = ("LOW_CONFIDENCE(PROXY_UNIT_PRICE,FA_MISSING)"
+                         if upx
+                         else confidence(nb["level"], nb["n"], extra))
             sale_rows.append({
                 "listing": t["listing"], "scenario": s["name"],
                 "build_sqft": s["build_sqft"],
                 "net_saleable": s["net_saleable"], "units": s["units"],
                 "comp_level": nb["level"], "comp_n": nb["n"],
-                "comp_ids": nb["ids"], "psf_p25": nb["p25"],
-                "psf_p50": nb["p50"], "psf_p75": nb["p75"],
+                "comp_ids": nb["ids"], "psf_p25": "" if upx else nb["p25"],
+                "psf_p50": "" if upx else nb["p50"],
+                "psf_p75": "" if upx else nb["p75"],
+                "unit_price_p50": nb["p50"] if upx else "",
                 "psf_factor_kind": nb["factor_kind"],
                 "sale_value_today": round(est) if est else "",
-                "sale_low": round(nb["p25"] * s["net_saleable"])
-                if nb["p25"] else "",
-                "sale_high": round(nb["p75"] * s["net_saleable"])
-                if nb["p75"] else "",
+                "sale_low": round(nb["p25"] * mult) if nb["p25"] else "",
+                "sale_high": round(nb["p75"] * mult) if nb["p75"] else "",
                 "confidence": sale_conf,
                 "basis": "2026-09 normalized comps" +
-                (";PROXY_INDEX" if nb["factor_kind"] == "PROXY" else "")})
+                (";UNIT_PRICE_X_UNITS,no FA,proxy" if upx else
+                 ";PROXY_INDEX" if nb["factor_kind"] == "PROXY" else "")})
 
             if not est:
                 continue
@@ -689,6 +883,8 @@ def main():
                     "profit_development_1y": round(c1["profit"]),
                     "roi_development_1y": round(100 * c1["roi"], 1),
                     "land_conf": conf, "sale_conf": sale_conf,
+                    "zoning_caveat": "ASSUMPTIVE_ZONING"
+                    if (s["verified"] and not resi) else "",
                     "market_value_today": round(est),
                     "future_market_factor_base": 0.0})
                 for mk in MARKET_SCEN:
@@ -740,6 +936,16 @@ def main():
                  "psf_before", "psf_after",
                  "est_sale_before", "est_sale_after",
                  "roi_1y_before", "roi_1y_after"])
+    wcsv(DOCS / "land_lot_compat_fix_diff.csv", lot_fix_diff,
+         fields=["listing", "hood_comm", "lot_sqft",
+                 "level_before", "level_after",
+                 "psf_before", "psf_after",
+                 "fair_before", "fair_after", "delta_cad",
+                 "ids_before", "ids_after"])
+    wcsv(DOCS / "problem_listing_comp_audit.csv", prob_comp,
+         fields=["listing", "lot_sqft", "tx", "community",
+                 "comp_lot", "lot_ratio", "sale_2026_09",
+                 "land_psf", "kept"])
     wcsv(DOCS / "land_nearby_adj_fix_diff.csv", nearby_diff,
          fields=["listing", "hood", "level_before", "level_after",
                  "comp_n_before", "comp_n_after",
@@ -768,6 +974,7 @@ def main():
     # the scenario so max_bid is never cross-matched (V1.4.1 fix).
     bmap = {(r["listing"], r["scenario"]): r for r in bid_rows}
     lmap = {r["listing"]: r for r in land_rows}
+    smap = {(r["listing"], r["scenario"]): r for r in scen_rows}
     rank2 = []
     for r in roi_rows:
         if r["gst_scenario"] != "EXCL":
@@ -779,6 +986,9 @@ def main():
         land_ok = (lm.get("discount_to_land_market_pct") != "" and
                    lm["discount_to_land_market_pct"] > 0)
         roi_ok = r["roi_development_1y"] >= 10
+        # V1.4.4: Q5's "verified 方案" gate must exclude assumptive
+        # zoning — hypothetical legality cannot claim VERIFIED
+        stat = smap.get((k, r["scenario"]), {}).get("status")
         quad = ("BOTH" if land_ok and roi_ok else
                 "LAND_VALUE_ONLY" if land_ok else
                 "ROI_ONLY" if roi_ok else "NEITHER")
@@ -795,7 +1005,8 @@ def main():
             "suggested_cap_roi_20": b.get("suggested_cap_roi_20"),
             "land_discount_pct": lm.get("discount_to_land_market_pct"),
             "quadrant": quad,
-            "all_gates": "PASS" if (land_ok and roi_ok) else "FAIL",
+            "all_gates": "PASS" if (land_ok and roi_ok
+                                    and stat == "VERIFIED") else "FAIL",
             "conf": f"{r['land_conf']}/{r['sale_conf']}"})
     rank2.sort(key=lambda r: -r["roi_development_1y"])
     for i, r in enumerate(rank2, 1):
@@ -840,6 +1051,22 @@ def main():
           and "LOW" in r["conf"]]
     q6_list = sorted({r["listing"] for r in q6})
 
+    za_list = sorted({r["listing"] for r in scen_rows
+                      if r["status"] == "ASSUMPTIVE_ZONING"})
+    mpx_priced = sum(1 for r in sale_rows
+                     if r["scenario"] == "MULTIPLEX"
+                     and r["sale_value_today"])
+    prob_rows = []
+    for addr in ("3466 E 2ND AVENUE", "3281 E 2ND AVENUE",
+                 "3151 HEATHER STREET", "1861 E KENT AVENUE NORTH"):
+        d = next((r for r in lot_fix_diff if r["listing"] == addr), None)
+        if d:
+            prob_rows.append(
+                f"| {addr} | {d['level_before']} | ${d['psf_before']}/sf "
+                f"| ${d['fair_before']:,} | {d['level_after']} | "
+                f"${d['psf_after']}/sf | ${d['fair_after']:,} |")
+    prob_tbl = ("\n".join(prob_rows) if prob_rows else "| — | | | | | | |")
+
     rep = f"""# Listing-Level Valuation V1.4 — 报告
 
 基准:HPI {HPI_ASOF};挂牌快照 {LISTING_SNAPSHOT};成本 {COST_VERSION}。
@@ -875,6 +1102,46 @@ n_listings={len(q5_list)} / n_scenarios={len(q5)}:
 
 n_listings={len(q6_list)} / n_scenarios={len(q6)}:
 {", ".join(q6_list[:15])}
+
+## V1.4.4 数据核查与修正(2026-10 复审)
+
+**P0 lot 字段血缘修正(根因)**:主池 lot 原取 ArcGIS parcel
+SHAPE_Area——该字段可含共有通道/坡地/附属地块,实测
+`bca-arcgis-sales-…-enriched-spatial.json` 的
+BCA_PROPERTY_INFORMATION_DIMENSIONS(法定面宽×进深)显示同一
+parcel 面积普遍虚高 ~2.3×(例:1785 CASSIAR GIS 10,000sf vs
+BCA dims 4,254sf)。修正:主池 lot 优先采用 BCA dims(按
+pid+sale_date 连接,覆盖 1269/1979 笔,其中 707 笔纠偏>1.5×
+记 `LOT_CORRECTED_2X`);无 dims 覆盖且 lot≥6000 的记
+`LOT_GIS_UNVERIFIED_BIG`(649 笔),占比过半的匹配结果降级为
+LOW 并标 `UNVERIFIED_BIG_COMPS`。逐笔血缘见
+`land_pool_lot_audit.csv`。修正后主池 ≥6000sf 成交由 1448 笔
+(73.2%)降为 852 笔(43.0%)——原"大地块"多数是面积虚增。
+
+**匹配约束**:LOT_BANDS 细分(6000-8000/8000-12000/12000+),
+MICRO_500M/COMM_LOTBAND/COMM_ADJ_BAND/COMM_ANY/NEARBY 各层统一加
+lot 比 0.6–1.67× 实际面积约束;p75/p25>1.4 的双峰证据不得给
+HIGH_CONFIDENCE。guard 修正前后差异见
+`land_lot_compat_fix_diff.csv`({len(lot_fix_diff)} 套),逐笔 comp
+见 `problem_listing_comp_audit.csv`。
+
+| 房源 | 前层级 | 前$/sf | 前估值 | 后层级 | 后$/sf | 后估值 |
+|---|---|---|---|---|---|---|
+{prob_tbl}
+
+**P1 zoning 核验**:production verified 标志对空 zoning、C-*/CD/
+DEOD 也给出 VERIFIED——共 {len(za_list)} 套 {za_list}。
+修正:residential zoning 门(R*/F*),不通过者状态
+`ASSUMPTIVE_ZONING` + flag `ZONING_UNVERIFIED_ASSUMED_RESI`;
+假设测算保留,但不再显示已核实合法,ROI 行带 zoning_caveat。
+V3s 生产代码零修改。
+
+**P2 MULTIPLEX 售价**:228 条 MULTIPLEX_UNIT 代理成交单位价有、
+floor area 全缺(fa=''),原被整体过滤导致 105 条 MPX 全 BLOCKED。
+修正:MPX 池保留 unit_price;$/sf 匹配失败时回退
+`500M/COMM/SIDE_UNITPX` 单位价×户数,confidence 一律
+`LOW_CONFIDENCE(PROXY_UNIT_PRICE,FA_MISSING)`,与 $/sf 证据分列。
+现 {mpx_priced}/105 条 MPX 有代理估值,无依据的售价仍不制造。
 
 ## 口径
 
