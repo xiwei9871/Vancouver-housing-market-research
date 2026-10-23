@@ -1,0 +1,57 @@
+code,listing,other,severity,detail,status
+C06,715 E 63RD AVENUE,,REVIEW,"DUPLEX V1.4 $1,076/sf@500M vs V1.5 $790/sf (+36%)",OPEN
+C02,1060 E 20TH AVENUE,,REVIEW,"comps 2,088,076 vs BCA-cal 1,500,281 (+39%); comps level COMM_LOTBAND",OPEN
+C02,1062 E 20TH AVENUE,,REVIEW,"comps 2,088,076 vs BCA-cal 1,500,281 (+39%); comps level COMM_LOTBAND",OPEN
+C01,1194 E 18TH AVENUE,,REVIEW,Ask/BCA=0.83; V1.4 comps premium 29.1%; V1.5 BCA-cal disc 10.9%,OPEN
+C02,1194 E 18TH AVENUE,,REVIEW,"comps 1,083,281 vs BCA-cal 1,570,689 (-31%); comps level MICRO_500M",OPEN
+C01,1333 E 41ST AVENUE,,REVIEW,Ask/BCA=0.90; V1.4 comps premium 16.3%; V1.5 BCA-cal disc 0.4%,OPEN
+C07,1333 E 41ST AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,201sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C06,1861 E KENT AVENUE NORTH,,REVIEW,"DUPLEX V1.4 $1,167/sf@COMM vs V1.5 $886/sf (+32%)",OPEN
+C01,3061 PARKER STREET,,REVIEW,Ask/BCA=0.86; V1.4 comps premium 10.2%; V1.5 BCA-cal disc -10.2%,OPEN
+C02,3141 E BROADWAY,,REVIEW,"comps 2,195,902 vs BCA-cal 1,732,185 (+27%); comps level COMM_LOTBAND",OPEN
+C06,3141 E BROADWAY,,REVIEW,"DUPLEX V1.4 $1,126/sf@500M vs V1.5 $809/sf (+39%)",OPEN
+C02,3253 SCHOOL AVENUE,,REVIEW,"comps 1,677,960 vs BCA-cal 1,334,983 (+26%); comps level COMM_LOTBAND",OPEN
+C01,3707 INVERNESS STREET,,REVIEW,Ask/BCA=0.89; V1.4 comps premium 28.5%; V1.5 BCA-cal disc -8.2%,OPEN
+C01,4766 GOTHARD STREET,,REVIEW,Ask/BCA=0.88; V1.4 comps premium 16.7%; V1.5 BCA-cal disc 0.7%,OPEN
+C01,48 E 22ND AVENUE,,REVIEW,Ask/BCA=0.83; V1.4 comps premium 14.4%; V1.5 BCA-cal disc 3.1%,OPEN
+C07,48 E 22ND AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,117sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,4940 KILLARNEY STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,257sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C01,5521 DUNDEE STREET,,REVIEW,Ask/BCA=0.86; V1.4 comps premium 15.5%; V1.5 BCA-cal disc -5.7%,OPEN
+C06,75 N SLOCAN STREET,,REVIEW,"HOUSE V1.4 $690/sf@500M vs V1.5 $1,244/sf (-45%)",OPEN
+C03,77 W 62ND AVENUE,,REVIEW,land premium 13.5% with ROI 32.1% (HOUSE),OPEN
+C06,77 W 62ND AVENUE,,REVIEW,"DUPLEX V1.4 $991/sf@500M vs V1.5 $1,419/sf (-30%)",OPEN
+C02,1577 E 26TH AVENUE,,REVIEW,"comps 1,369,720 vs BCA-cal 1,054,350 (+30%); comps level COMM_LOTBAND",OPEN
+C06,3466 E 2ND AVENUE,,REVIEW,"DUPLEX V1.4 $1,166/sf@COMM vs V1.5 $893/sf (+31%)",OPEN
+C02,1372 E 64TH AVENUE,,REVIEW,"comps 1,700,047 vs BCA-cal 1,384,107 (+23%); comps level COMM_LOTBAND",OPEN
+C03,1372 E 64TH AVENUE,,REVIEW,land premium 15.5% with ROI 20.9% (HOUSE),OPEN
+C07,1588 E 41ST AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,214sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,2216 E 41ST AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,102sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C02,2472 E 41ST AVENUE,,REVIEW,"comps 886,174 vs BCA-cal 1,117,682 (-21%); comps level COMM_ANY",OPEN
+C07,2472 E 41ST AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 2,347sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C03,2561 MCGILL STREET,,REVIEW,land premium 15.7% with ROI 21.7% (HOUSE),OPEN
+C07,266 E 32ND AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 1,922sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,2764 DUNDAS STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 2,928sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,3060 EUCLID AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,267sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C02,3135-3137 HEATHER STREET,,REVIEW,"comps 1,570,206 vs BCA-cal 1,109,836 (+41%); comps level NEARBY_COMM_1.5KM_ADJ",OPEN
+C02,3151 HEATHER STREET,,REVIEW,"comps 1,433,706 vs BCA-cal 1,009,511 (+42%); comps level NEARBY_COMM_1.5KM_ADJ",OPEN
+C02,431 E 18TH AVENUE,,REVIEW,"comps 2,088,849 vs BCA-cal 1,455,737 (+43%); comps level COMM_LOTBAND",OPEN
+C07,473 E 6TH AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,000sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,4820 MOSS STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,267sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,4882 MOSS STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,267sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,4883 BEATRICE STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 2,660sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,5036 SHERBROOKE STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,234sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,5075 PAYNE STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,267sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C02,522 E CORDOVA STREET,,REVIEW,"comps 1,291,225 vs BCA-cal 901,635 (+43%); comps level COMM_LOTBAND",OPEN
+C06,5319 SOMERVILLE STREET,,REVIEW,"DUPLEX V1.4 $1,011/sf@500M vs V1.5 $1,458/sf (-31%)",OPEN
+C07,5743 ST. MARGARETS STREET,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,283sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C07,614 E 19TH AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,020sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C02,648 E 65TH AVENUE,,REVIEW,"comps 1,561,024 vs BCA-cal 1,276,539 (+22%); comps level COMM_LOTBAND",OPEN
+C02,695 E 12TH AVENUE,,REVIEW,"comps 1,897,024 vs BCA-cal 1,357,008 (+40%); comps level COMM_LOTBAND",OPEN
+C07,776 E 63RD AVENUE,,DEFECT,"HOUSE verified=True and variance_required=True (lot 3,063sf); V1.5 state CONDITIONAL, excluded from ranking",OPEN
+C02,880 E 33RD AVENUE,,REVIEW,"comps 2,033,048 vs BCA-cal 1,328,739 (+53%); comps level COMM_LOTBAND",OPEN
+C04,4153 JOHN STREET,301 E 41ST AVENUE,REVIEW,"land 1,820,619 vs 1,320,209; lots 3,704/3,663",OPEN
+C04,4496 ONTARIO STREET,301 E 41ST AVENUE,REVIEW,"land 2,039,548 vs 1,320,209; lots 3,422/3,663",OPEN
+C04,4496 ONTARIO STREET,431 E 18TH AVENUE,REVIEW,"land 2,039,548 vs 1,455,737; lots 3,422/4,023",OPEN
+C04,4496 ONTARIO STREET,5319 SOMERVILLE STREET,REVIEW,"land 2,039,548 vs 1,409,297; lots 3,422/3,300",OPEN
+C04,4496 ONTARIO STREET,614 E 19TH AVENUE,REVIEW,"land 2,039,548 vs 1,502,177; lots 3,422/3,020",OPEN
+C04,4496 ONTARIO STREET,880 E 33RD AVENUE,REVIEW,"land 2,039,548 vs 1,328,739; lots 3,422/4,012",OPEN

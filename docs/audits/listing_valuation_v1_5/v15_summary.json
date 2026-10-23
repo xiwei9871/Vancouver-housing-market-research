@@ -1,0 +1,76 @@
+{
+ "model_version": "listing_valuation_v1_5",
+ "n_listings": 224,
+ "k_fit": {
+  "HOUSE": -0.0884,
+  "DUPLEX": -0.5638
+ },
+ "sale_band": {
+  "HOUSE": {
+   "n": 158,
+   "mdape": 0.0795,
+   "mape": 0.1241,
+   "bias_median_ratio": 0.9923,
+   "p10_ratio": 0.7021,
+   "p90_ratio": 1.1491,
+   "within_10pct": 0.595,
+   "within_20pct": 0.816,
+   "worst_30pct_share": 0.108
+  },
+  "DUPLEX": {
+   "n": 570,
+   "mdape": 0.088,
+   "mape": 0.1188,
+   "bias_median_ratio": 0.9991,
+   "p10_ratio": 0.8317,
+   "p90_ratio": 1.218,
+   "within_10pct": 0.551,
+   "within_20pct": 0.819,
+   "worst_30pct_share": 0.051
+  }
+ },
+ "land_band": {
+  "n": 1964,
+  "mdape": 0.0578,
+  "mape": 0.0902,
+  "bias_median_ratio": 0.9999,
+  "p10_ratio": 0.8829,
+  "p90_ratio": 1.1273,
+  "within_10pct": 0.73,
+  "within_20pct": 0.921,
+  "worst_30pct_share": 0.034
+ },
+ "legal_states": {
+  "HOUSE:VERIFIED": 167,
+  "DUPLEX:VERIFIED": 167,
+  "MULTIPLEX:VERIFIED": 105,
+  "MULTIPLEX:ELIGIBLE": 7,
+  "HOUSE:CONDITIONAL": 31,
+  "DUPLEX:NO_RULE": 13,
+  "MULTIPLEX:NO_RULE": 13,
+  "MULTIPLEX:NOT_ELIGIBLE": 99,
+  "HOUSE:ELIGIBLE": 26,
+  "DUPLEX:ELIGIBLE": 26,
+  "DUPLEX:CONDITIONAL": 18
+ },
+ "contradictions": {
+  "C06": 7,
+  "C02": 15,
+  "C01": 7,
+  "C07": 18,
+  "C03": 3,
+  "C04": 6
+ },
+ "roi_ge": {
+  "10": 121,
+  "20": 59,
+  "30": 16
+ },
+ "roi_p10_ge": {
+  "0": 4,
+  "10": 0,
+  "20": 0
+ },
+ "price_refreshed": 0,
+ "watchlist": "/Users/xiwei/northshore_property_watchdog/data/research/watchlist/property-watchlist.json"
+}
