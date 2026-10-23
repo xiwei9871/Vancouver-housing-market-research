@@ -128,9 +128,29 @@ def civic_key(addr):
 
 def strata_plan_from_legal(legal):
     """'LOT 1 PLAN EPS1234' / 'STRATA LOT 5 DISTRICT LOT 330 PLAN VAS123'
-    → ('EPS1234','1') 等;无→(None,None)"""
+    → ('EPS1234','1') 等;无→(None,None)
+    兼容旧调用;新管线请用 legal_ids()。"""
+    ids = legal_ids(legal)
+    return ids["strata_plan"] or ids["legal_plan"], \
+        ids["strata_lot"] or ids["legal_lot"]
+
+
+def legal_ids(legal):
+    """法定描述 → 分层产权证据(纯函数)。
+    返回 dict:
+      strata_plan/strata_lot  仅当 legal 明示 STRATA LOT —— 单元级证据
+      legal_plan/legal_lot    普通细分 plan+lot —— parcel 级证据
+    关键区分:VAS35 这类细分 plan 覆盖整个街区多个独立地块,
+    没有 STRATA 字样时绝不能当 strata 单元证据,也不能只凭
+    plan(无 lot)认定同地块。"""
     t = (legal or "").upper()
     pm = re.search(r"PLAN\s+([A-Z]{0,4}\d+[A-Z]?)", t)
     plan = pm.group(1) if pm else None
-    lm = re.search(r"(?:STRATA\s+LOT|LOT)\s+([0-9]+[A-Z]?)", t)
-    return plan, (lm.group(1) if lm else None)
+    sm = re.search(r"STRATA\s+LOT\s+([0-9]+[A-Z]?)", t)
+    lm = re.search(r"(?<!STRATA\s)\bLOT\s+([0-9]+[A-Z]?)", t)
+    if sm:
+        return {"strata_plan": plan, "strata_lot": sm.group(1),
+                "legal_plan": None, "legal_lot": None}
+    return {"strata_plan": None, "strata_lot": None,
+            "legal_plan": plan,
+            "legal_lot": lm.group(1) if lm else None}
