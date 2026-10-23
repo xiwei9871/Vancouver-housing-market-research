@@ -15,6 +15,7 @@
     "land_buy_value_ranking.csv",
     "land_comparable_method_audit.csv",
     "land_dominant_comp_coverage.csv",
+    "land_nearby_adj_fix_diff.csv",
     "land_psf_by_community_lot.csv",
     "listing_level_valuation_v1_4_report.md",
     "manifest.json",

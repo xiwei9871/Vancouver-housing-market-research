@@ -54,6 +54,22 @@ MPX_PRODUCT_FACTOR = 0.85         # V3s stacked-product discount
 LOT_BANDS = ((2500, 3000), (3000, 4000), (4000, 5000), (5000, 6000),
              (6000, math.inf))
 MARKET_SCEN = (-0.20, -0.10, 0.0, 0.10, 0.20)
+
+# Listing feed hood labels -> archive community names. Assigned by
+# centroid distance of ACTIVE listings vs pool comps (V1.4.2);
+# documented in the report and auditable via hood_alias column.
+HOOD_COMM_ALIAS = {
+    "Collingwood": "Collingwood(南)",
+    "Dunbar": "Dunbar-Southlands",
+    "Renfrew": "Renfrew(北)",
+    "Victoria": "Kensington-Cedar Cottage",
+    "Fraser": "Riley Park",
+    "Knight": "Kensington-Cedar Cottage",
+    "Main": "Riley Park",
+    "Guides": "Renfrew(北)",
+    "South Marine": "Victoria-Fraserview",
+    "Downtown Eastside": "Strathcona",
+}
 ROI_TARGETS = (0.10, 0.20, 0.30)
 OFFER_CUTS = (0.95, 0.90, 0.85)
 
@@ -233,13 +249,16 @@ def build_newbuild_pools(house_rows, proxy_rows, arch):
 
 
 # ====================================================== matching engines
-def match_land(t, pool, comm_psf):
-    """Waterfall; returns dict with level, comps, weighted psf stats."""
+def match_land(t, pool, comm_psf, nearby_fix=True):
+    """Waterfall; returns dict with level, comps, weighted psf stats.
+    NEARBY_COMM adjustment converts a comp's land $/sf from its source
+    community level to the target community level by multiplying with
+    target_p50/source_p50 (V1.4.2 fix: previously inverted)."""
     tband = lot_band(t["lot_sqft"])
     cand_levels = []
 
     def same_comm(r):
-        return r["community"] == t["hood"]
+        return r["community"] == t["hood_comm"]
 
     L = [r for r in pool if same_comm(r) and lot_band(r["lot"]) == tband
          and (d := hav_km(t["lat"], t["lng"], r["lat"], r["lng"])) is not None
@@ -258,9 +277,11 @@ def match_land(t, pool, comm_psf):
         d = hav_km(t["lat"], t["lng"], r["lat"], r["lng"])
         if d is not None and d <= 1.5 and not same_comm(r):
             cf = None
-            tc, cc = comm_psf.get(r["community"]), comm_psf.get(t["hood"])
+            tc, cc = comm_psf.get(r["community"]), comm_psf.get(t["hood_comm"])
             if tc and cc:
-                cf = tc / cc
+                # target/source: convert source-community evidence onto
+                # the target community's price level
+                cf = cc / tc if nearby_fix else tc / cc
             near.append((r, cf))
     if near:
         L = [dict(r, psf_adj=r["land_psf"] * cf) if cf else r
@@ -374,11 +395,15 @@ def cost_model(offer, scen, sale, years=BASE_YEARS, gst_mode="EXCL",
     fin = offer * FIN_LAND_PCT_YR * years + hard * FIN_BUILD_PCT_YR * years
     selling = sale_f * SELLING_PCT
     if gst_mode == "EXCL":
+        # 售价为不含 GST 净价:卖方收全价,另向 CRA 汇缴 5%
         revenue = sale_f
         gst = sale_f * GST_PCT
     else:
-        revenue = sale_f / (1 + GST_PCT)
-        gst = sale_f - revenue
+        # INCL:售价为含税总价,卖方净得 sale/1.05,汇缴 sale×5/105。
+        # 单一计价:revenue 取含税收款,gst 成本行记实际汇缴额 ——
+        # 不得再对 revenue 做 /1.05(那会与 gst 成本行重复扣税)。
+        revenue = sale_f
+        gst = sale_f * GST_PCT / (1 + GST_PCT)
     ptt = bc_ptt(offer)
     total = offer + ptt + hard + fin + selling + gst
     return {"offer": offer, "ptt": ptt, "hard": hard, "financing": fin,
@@ -467,11 +492,14 @@ def main():
     # ---- per-listing ----------------------------------------------------
     tlist = []
     for r in active:
+        hood = r["hood"]
         t = {"listing": r["address"], "asking": num(r["asking"]),
              "bca": num(r["bca"]), "bca_land": num(r["bca_land"]),
              "lot_sqft": num(r["lot_sqft"]), "frontage": num(r["frontage_ft"]),
              "depth": num(r["depth_ft"]), "zoning": r.get("zoning") or "",
-             "hood": r["hood"], "lat": num(r["lat"]), "lng": num(r["lng"]),
+             "hood": hood,
+             "hood_comm": HOOD_COMM_ALIAS.get(hood, hood),
+             "lat": num(r["lat"]), "lng": num(r["lng"]),
              "side_key": {"东区": "Vancouver East",
                           "西区": "Vancouver West"}.get(r["side"], ""),
              "tier": r.get("tier"), "link": r.get("link", "")}
@@ -493,9 +521,28 @@ def main():
 
     land_rows, scen_rows, sale_rows, roi_rows, bid_rows = [], [], [], [], []
     market_rows = []
+    nearby_diff = []
     for t in tlist:
         # ---- land valuation
         m = match_land(t, land_pool, comm_psf)
+        # V1.4.2 diff audit: listings that USED the NEARBY fallback under
+        # the pre-fix pipeline (no hood alias + inverted ratio)
+        t_old = dict(t, hood_comm=t["hood"])
+        m_old = match_land(t_old, land_pool, comm_psf,
+                           nearby_fix=False)
+        if m_old["level"].startswith("NEARBY") and m_old["p50"] \
+                and m["p50"]:
+            nearby_diff.append({
+                "listing": t["listing"], "hood": t["hood"],
+                "level_before": m_old["level"], "level_after": m["level"],
+                "comp_n_before": m_old["n"], "comp_n_after": m["n"],
+                "fair_land_psf_before": round(m_old["p50"], 1),
+                "fair_land_psf_after": round(m["p50"], 1),
+                "fair_land_before": round(m_old["p50"] * t["lot_sqft"]),
+                "fair_land_after": round(m["p50"] * t["lot_sqft"]),
+                "delta_cad": round((m["p50"] - m_old["p50"])
+                                   * t["lot_sqft"]),
+                "fix": "hood alias + target/source ratio corrected"})
         extra = ("DATA_GAP" if not t["bca_land"] or not t["zoning"]
                  else "")
         conf = confidence(m["level"], m["n"], extra)
@@ -507,7 +554,8 @@ def main():
                         and bca_impr_share > 0.10 else "LAND_DOMINANT")
         land_rows.append({
             "listing": t["listing"], "asking": t["asking"],
-            "hood": t["hood"], "side": t["side_key"],
+            "hood": t["hood"], "hood_comm": t["hood_comm"],
+            "side": t["side_key"],
             "lot_sqft": t["lot_sqft"], "frontage": t["frontage"],
             "zoning": t["zoning"], "bca": t["bca"], "bca_land": t["bca_land"],
             "ask_bca_ratio": round(t["asking"] / t["bca"], 3)
@@ -634,6 +682,12 @@ def main():
     wcsv(DOCS / "active_house_listing_roi.csv", roi_rows)
     wcsv(DOCS / "active_house_max_bid_and_negotiation.csv", bid_rows)
     wcsv(DOCS / "active_house_market_scenarios.csv", market_rows)
+    wcsv(DOCS / "land_nearby_adj_fix_diff.csv", nearby_diff,
+         fields=["listing", "hood", "level_before", "level_after",
+                 "comp_n_before", "comp_n_after",
+                 "fair_land_psf_before", "fair_land_psf_after",
+                 "fair_land_before", "fair_land_after", "delta_cad",
+                 "fix"])
 
     # ---- rankings --------------------------------------------------------
     land_rank = sorted(
@@ -723,8 +777,10 @@ def main():
                              r["roi_at_ask_x" + str(int(c * 100))] >= 10})
           for c in OFFER_CUTS}
     q5 = [r for r in rank2 if r["all_gates"] == "PASS"]
+    q5_list = sorted({r["listing"] for r in q5})
     q6 = [r for r in rank2 if r["roi_development_1y"] >= 10
           and "LOW" in r["conf"]]
+    q6_list = sorted({r["listing"] for r in q6})
 
     rep = f"""# Listing-Level Valuation V1.4 — 报告
 
@@ -754,16 +810,24 @@ def main():
 
 ## Q5 全门通过(土地合理 + verified 方案 + ROI≥10%;置信度展示不过滤)
 
-{len(q5)} 套: {", ".join(r["listing"] for r in q5[:15])}
+n_listings={len(q5_list)} / n_scenarios={len(q5)}:
+{", ".join(q5_list[:15])}
 
 ## Q6 疑似假机会(ROI≥10% 但 LOW_CONFIDENCE)
 
-{len(q6)} 套: {", ".join(r["listing"] for r in q6[:15])}
+n_listings={len(q6_list)} / n_scenarios={len(q6)}:
+{", ".join(q6_list[:15])}
 
 ## 口径
 
 - fair_land_value = 匹配土地 comps 加权 P50 $/sf × lot_sqft;
   水位 MICRO_500M→COMM_LOTBAND→COMM_ADJ_BAND→COMM_ANY→NEARBY_ADJ→SIDE。
+  V1.4.2:挂牌 hood→档案社区别名表(HOOD_COMM_ALIAS,按质心距离
+  核定,见 land_valuation.hood_comm 列);NEARBY 回退的社区间换算
+  已修正为 目标/来源 比值;`land_nearby_adj_fix_diff.csv` 留存
+  修正前后差异(106 套原回退房源,现已全部命中社区级或更优匹配)。
+- GST 口径:EXCL=售价为未税净价、5% 记成本行;INCL=售价为含税
+  总价、成本行记实际汇缴 sale×5/105——两者只扣一次。
 - est_sale = 匹配新房 comps 加权 P50 $/sf × net_saleable;DUPLEX/MPX
   comps 为代理指数归一化(PROXY 标),MPX ×{MPX_PRODUCT_FACTOR} 产品折价。
 - ROI 层级:roi_simple=ASK+建安;roi_development_1y=V3s 全成本

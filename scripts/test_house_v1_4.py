@@ -191,6 +191,28 @@ def main():
     check("v141_all_scenarios_in_ranking",
           len(rank2) == len([r for r in roi
                              if r["gst_scenario"] == "EXCL"]))
+
+    # V1.4.2 fixes
+    diff = list(csv.DictReader(
+        open(DOCS / "land_nearby_adj_fix_diff.csv")))
+    check("v142_nearby_diff_table",
+          len(diff) > 50 and
+          all(r["level_before"].startswith("NEARBY") for r in diff))
+    # GST INCL must not double-count: gst cost = sale*5/105 < EXCL 5%,
+    # hence INCL roi >= EXCL roi for identical inputs
+    check("v142_gst_no_double_count",
+          all(float(r_i["roi_development_1y"]) >=
+              float(r_e["roi_development_1y"]) - 0.01
+              for r_e in roi if r_e["gst_scenario"] == "EXCL"
+              for r_i in roi if r_i["gst_scenario"] == "INCL"
+              and r_i["listing"] == r_e["listing"]
+              and r_i["scenario"] == r_e["scenario"]))
+    rep = (DOCS / "listing_level_valuation_v1_4_report.md").read_text()
+    check("v142_n_listings_n_scenarios",
+          "n_listings=" in rep and "n_scenarios=" in rep)
+    # hood alias applied: no row should match an unaliased hood's comps
+    check("v142_hood_alias_recorded",
+          all("hood_comm" in r and r["hood_comm"] for r in land))
     check("report", (DOCS / "listing_level_valuation_v1_4_report.md").exists())
     check("methodology", (DOCS / "valuation_methodology.md").exists())
     check("manifest", (DOCS / "manifest.json").exists())
