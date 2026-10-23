@@ -1,6 +1,6 @@
 {
  "version": "v2_4",
- "run": "2026-10-23T17:46:35.559394",
+ "run": "2026-10-23T18:40:23.273648",
  "baseline": "a52f911",
  "cutoff": "2026-07-08",
  "counts": {
@@ -27,10 +27,10 @@
   },
   "after_0_3_2025": {
    "HOUSE": 45,
-   "DUPLEX_HALF": 284,
+   "DUPLEX_HALF": 285,
    "DUPLEX_WHOLE": 2,
    "DUPLEX_SCOPE_UNKNOWN": 0,
-   "TOWNHOUSE": 127,
+   "TOWNHOUSE": 128,
    "MULTIPLEX_UNIT": 46,
    "MULTIPLEX_WHOLE": 2,
    "CONDO": 231

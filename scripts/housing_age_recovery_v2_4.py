@@ -88,11 +88,17 @@ def resolve_year_built_at_sale(sale, ev):
            "rebuilt": False, "conflict": "NO_CONFLICT",
            "age_tier": "AGE_UNKNOWN", "band": "UNKNOWN"}
     roll_yb = ev.get("roll_yb")
-    fs = ev.get("plan_fs") or ev.get("pid_fs")
-    # fs=税卷起始年 = 卷面下界:老 plan/pid 同样显 2023,
-    # 无任何区分力 → 不构成证据
-    if fs and fs <= TAX_YEARS[0]:
-        fs = None
+    # plan/pid 首现年独立评估(V1.1 修正:plan 早在
+    # 2023 不排除其后新 pid 的首现证据)
+    fs_cands = [(v, s_) for v, s_ in
+                ((ev.get("plan_fs"), "plan_first_seen"),
+                 (ev.get("pid_fs"), "pid_first_seen"))
+                if v and v > TAX_YEARS[0]]
+    fs = max((v for v, _ in fs_cands), default=None)
+    fs_src = next((s_ for v, s_ in fs_cands if v == fs),
+                  "")
+    if len({v for v, _ in fs_cands}) > 1:
+        out.setdefault("_fs_disagree", True)
     fs_yb = fs - 1 if fs else None
     jy = ev.get("jump_yr")
     jy_yb = jy - 1 if jy else None
@@ -140,9 +146,7 @@ def resolve_year_built_at_sale(sale, ev):
     if out["yb"] is None:
         inf = []
         if fs and fs <= sy:
-            src = "plan_first_seen" if ev.get("plan_fs") \
-                else "pid_first_seen"
-            inf.append((fs_yb, src, fs, "SUPPORTED_AGE"))
+            inf.append((fs_yb, fs_src, fs, "SUPPORTED_AGE"))
         if jy and jy <= sy:
             inf.append((jy_yb, "impv_jump", jy,
                         "INFERRED_AGE"))
@@ -173,22 +177,10 @@ def resolve_year_built_at_sale(sale, ev):
     return out
 
 
-def age_tier_rank(t):
-    return {"STRICT_AGE": 3, "SUPPORTED_AGE": 2,
-            "INFERRED_AGE": 1, "AGE_UNKNOWN": 0}[t]
-
-
-def main():
-    DOCS.mkdir(parents=True, exist_ok=True)
-    OUTD.mkdir(parents=True, exist_ok=True)
-
-    # ---------- 输入 ----------
-    sales = [s for s in csv.DictReader(open(V.IN["archive"]))
-             if s["product"] in PRODUCTS]
-    census = {r["canonical_tx"]: r for r in
-              csv.DictReader(open(V.IN["census"]))}
-
-    # 税卷轨迹 + plan/pid 首现年 + impv
+def load_evidence():
+    """税卷轨迹 + plan/pid 首现年 + impv 跳涨 + 许可地址。
+    返回 (traj, plan_fs, pid_fs, jumpy, permit_addr);
+    供 main() 与下游价格研究复用。"""
     traj = defaultdict(dict)
     plan_fs, pid_fs = {}, {}
     for yr in TAX_YEARS:
@@ -208,14 +200,9 @@ def main():
                         "current_improvement_value")),
                     "plan": pl,
                     "legal": t.get("legal_type")}
-
-    # pid 跳涨年(全产品,非仅 HOUSE)
-    jumpy = {pid: jump_year(
-        {y: v["impv"] for y, v in tr.items()})
-        for pid, tr in traj.items()}
-    jumpy = {p: j for p, j in jumpy.items() if j}
-
-    # 许可按规范地址聚合最早签发年(LDH 覆盖低密)
+    jumpy = {pid: j for pid, tr in traj.items()
+             if (j := jump_year(
+                 {y: v["impv"] for y, v in tr.items()}))}
     permit_addr = {}
     f = open(V.IN["permits"], newline="", encoding="utf-8-sig")
     d = csv.Sniffer().sniff(f.read(4000), delimiters=",;\t")
@@ -227,6 +214,46 @@ def main():
         if iy and ad:
             permit_addr[ad] = min(iy, permit_addr.get(ad, iy))
     f.close()
+    return traj, plan_fs, pid_fs, jumpy, permit_addr
+
+
+def build_evidence(s, traj, plan_fs, pid_fs, jumpy,
+                   permit_addr, census=None):
+    """组装 resolve_year_built_at_sale 的 ev 字典。"""
+    sy = int(s["sale_date"][:4])
+    pid = s["pid"]
+    tr = traj.get(pid, {})
+    roll_yb = max((v["yb"] for v in tr.values()
+                   if v["yb"] and v["yb"] <= sy),
+                  default=None)
+    if roll_yb is None and s["yb"]:
+        nyb = V.iyear(s["yb"])
+        if nyb and nyb <= sy:
+            roll_yb = nyb
+    return {"census_yb": V.iyear(
+                (census or {}).get(
+                    s["canonical_tx"], {}).get(
+                        "year_built_corrected")),
+            "roll_yb": roll_yb,
+            "plan_fs": plan_fs.get(
+                (s["strata_plan"] or "").strip()),
+            "pid_fs": pid_fs.get(pid),
+            "jump_yr": jumpy.get(pid),
+            "permit_yr": permit_addr.get(
+                (s["address"] or "").strip().upper())}
+
+
+def main():
+    DOCS.mkdir(parents=True, exist_ok=True)
+    OUTD.mkdir(parents=True, exist_ok=True)
+
+    # ---------- 输入 ----------
+    sales = [s for s in csv.DictReader(open(V.IN["archive"]))
+             if s["product"] in PRODUCTS]
+    census = {r["canonical_tx"]: r for r in
+              csv.DictReader(open(V.IN["census"]))}
+    traj, plan_fs, pid_fs, jumpy, permit_addr = \
+        load_evidence()
 
     # ---------- 逐笔解析 ----------
     per_row = []
@@ -240,24 +267,9 @@ def main():
         pid = s["pid"]
         kind = s["sale_kind"] if s["sale_kind"] in (
             "FIRST_SALE", "RESALE") else "UNKNOWN"
-        tr = traj.get(pid, {})
-        roll_yb = max((v["yb"] for v in tr.values()
-                       if v["yb"] and v["yb"] <= sy),
-                      default=None)
-        if roll_yb is None and s["yb"]:
-            nyb = V.iyear(s["yb"])
-            if nyb and nyb <= sy:
-                roll_yb = nyb     # native 档案 yb
-        ev = {"census_yb": V.iyear(census.get(
-                  s["canonical_tx"], {}).get(
-                      "year_built_corrected")),
-              "roll_yb": roll_yb,
-              "plan_fs": plan_fs.get(
-                  (s["strata_plan"] or "").strip()),
-              "pid_fs": pid_fs.get(pid),
-              "jump_yr": jumpy.get(pid),
-              "permit_yr": permit_addr.get(
-                  (s["address"] or "").strip().upper())}
+        ev = build_evidence(s, traj, plan_fs, pid_fs, jumpy,
+                            permit_addr, census)
+        roll_yb = ev["roll_yb"]
         r = resolve_year_built_at_sale(s, ev)
         # before(旧口径:仅 archive yb)
         ayb = V.iyear(s["yb"])
