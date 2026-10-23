@@ -1,0 +1,59 @@
+{
+ "version": "sales_archive_v1",
+ "run": "2026-10-23T12:09:22.503760",
+ "input_sha256": {
+  "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
+  "tax2026": "e1c290b660752e3daa45a3684fdb9291e4c6afff6f1b2499fbeaed1c71228be8",
+  "tax2023": "70d3d51288a19886a8e5eae16901bfbaf19cbf44affb64919d96081cb1ddfd29",
+  "comps": "e6c5c447463f356cb1b9020a7faf43abe4384405b11baf1c9fd4563fea0387b7",
+  "v3s": "8ed4af1d6b7c8ecea40fc75b952cebd678776855cc6b680115b6e7eba23b074e",
+  "patch": "fe58e78987eb7d492406f8c42f43a60bf851466a34f7e33cef7d5c32691647d5",
+  "arcgis_all": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531"
+ },
+ "counts": {
+  "entities": 14901,
+  "by_year": {
+   "2025": 8911,
+   "2026": 3022,
+   "2024": 1490,
+   "2023": 1478
+  },
+  "by_product": {
+   "HOUSE": 6763,
+   "TOWNHOUSE": 1539,
+   "DUPLEX_HALF": 1192,
+   "CONDO": 5126,
+   "OTHER_RESIDENTIAL": 154,
+   "DUPLEX_WHOLE": 15,
+   "MULTIPLEX_WHOLE": 3,
+   "MULTIPLEX_UNIT": 2,
+   "UNKNOWN": 107
+  },
+  "by_age": {
+   "AGE_51_PLUS": 1835,
+   "AGE_31_50": 842,
+   "AGE_11_20": 557,
+   "AGE_04_10": 491,
+   "AGE_21_30": 428,
+   "AGE_00_03": 814,
+   "AGE_UNKNOWN": 9868,
+   "AGE_TEMPORAL_CONFLICT": 66
+  },
+  "by_kind": {
+   "RESALE": 3679,
+   "FIRST_SALE": 490,
+   "UNKNOWN": 10649,
+   "PRECONSTRUCTION_OR_LAND": 66,
+   "LAND_OR_VACANT": 17
+  },
+  "waterfall": {
+   "captured": 14901,
+   "price_known": 14901,
+   "age_known": 5033,
+   "fa_known": 5583,
+   "pid_known": 5049,
+   "comparable_ready": 3400,
+   "dup_flagged": 3231
+  }
+ }
+}

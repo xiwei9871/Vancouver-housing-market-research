@@ -1,0 +1,5 @@
+source,type,coverage,rows,fields,limits,last_sale_only
+comps_v2,MLS-derived comps,2023-2026,6580,price/date/addr/product/yb/fa/pid/gst,restricted;已授权持有,no
+bca_arcgis,BCA sales layer,2025-2026,9370,price/date/desc/values/lot/coords/strata/roll,公开地图层;无 yb/fa;sales_refresh 2026-07,rows_per_sale_event(同日同价重复登记存在)
+bca_detail,BCA PropertyInformation,current,829,yb/floors/basement/pid,ToS 限制自动采集;一次性回填已存档,n/a
+tax_2023_2026,CoV property tax,yb2018+ folios,27899,pid/folio/plan/legal_type/zoning/yb/values,官方开放集,n/a

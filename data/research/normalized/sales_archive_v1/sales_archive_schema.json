@@ -1,0 +1,17 @@
+{
+ "entities": {
+  "Transaction": "每行一笔交易;多源合并;sources[] 留痕",
+  "Property": "property_id(pid 或 norm_addr);一址可对应多 pid",
+  "Project": "project_id(permit 组);可含多单元",
+  "Unit": "unit_no + property_id;strata 单元",
+  "SourceEvidence": "sources[] + 各源原始字段",
+  "AttributeHistory": "yb_source/yb_at_sale 时点化"
+ },
+ "rules": [
+  "多笔成交不删(同 pid 不同日期各留)",
+  "拆地/重建/拆产权→状态标记不删除",
+  "yb_at_sale≤成交年优先 tax2023 快照",
+  "yb>成交年 → AGE_TEMPORAL_CONFLICT",
+  "无全市分母 → CAPTURED_ONLY 非市场总量"
+ ]
+}
