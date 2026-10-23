@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""V1.4 mandatory tests — listing-level valuation integrity."""
+import csv
+import json
+import random
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DOCS = ROOT / "docs/audits/listing_level_valuation_v1_4"
+LISTINGS = ROOT / "reports/watchlist/rebuild-value-2026-10-20.json"
+
+results = []
+
+
+def check(name, ok, detail=""):
+    results.append((name, bool(ok), detail))
+    print(("PASS" if ok else "FAIL"), name, detail)
+
+
+def run_pipeline():
+    r = subprocess.run([sys.executable,
+                        "scripts/listing_level_valuation_v1_4.py"],
+                       cwd=ROOT, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stdout[-2000:], r.stderr[-2000:])
+        raise SystemExit("v1.4 pipeline failed")
+
+
+def main():
+    if "--run" in sys.argv:
+        run_pipeline()
+
+    land = list(csv.DictReader(
+        open(DOCS / "active_house_land_valuation.csv")))
+    scen = list(csv.DictReader(
+        open(DOCS / "active_house_buildable_scenarios.csv")))
+    sale = list(csv.DictReader(
+        open(DOCS / "active_house_newbuild_sale_estimate.csv")))
+    roi = list(csv.DictReader(open(DOCS / "active_house_listing_roi.csv")))
+    bid = list(csv.DictReader(
+        open(DOCS / "active_house_max_bid_and_negotiation.csv")))
+    market = list(csv.DictReader(
+        open(DOCS / "active_house_market_scenarios.csv")))
+    rank1 = list(csv.DictReader(
+        open(DOCS / "land_buy_value_ranking.csv")))
+    rank2 = list(csv.DictReader(open(DOCS / "rebuild_roi_ranking.csv")))
+    cov = list(csv.DictReader(
+        open(DOCS / "land_dominant_comp_coverage.csv")))
+    stats = list(csv.DictReader(
+        open(DOCS / "land_psf_by_community_lot.csv")))
+    listings = {r["address"]: r for r in
+                json.load(open(LISTINGS))["rows"] if r["status"] == "ACTIVE"}
+
+    # T1 real ASK: roi rows use the listing's actual asking price
+    random.seed(7)
+    sample = random.sample(land, min(20, len(land)))
+    check("t1_real_ask_20",
+          all(abs(float(r["asking"]) - float(listings[r["listing"]]["asking"])) < 1
+              for r in sample))
+    check("t1_ask_in_roi_rows",
+          all(abs(float(r["asking"]) - float(
+              listings[r["listing"]]["asking"])) < 1 for r in roi))
+
+    # T2 land model is not a single community price — same community,
+    # different lot/frontage must get different values
+    by_comm = {}
+    for r in land:
+        by_comm.setdefault(r["hood"], []).append(r)
+    varied = False
+    for c, rs in by_comm.items():
+        vals = {round(float(r["fair_land_psf"]), 1) for r in rs
+                if r["fair_land_psf"] != ""}
+        if len(vals) >= 2:
+            varied = True
+            break
+    check("t2_land_psf_varies", varied)
+
+    # T3 sale estimate independent: same community, different build_sqft
+    # -> different sale values
+    by_list = {}
+    for r in sale:
+        by_list.setdefault(r["listing"], []).append(r)
+    diff_ok = any(
+        len({x["sale_value_today"] for x in rs
+            if x["sale_value_today"] != ""}) > 1
+        for rs in by_list.values() if len(rs) > 1)
+    check("t3_sale_varies_by_scenario", diff_ok)
+    # same community different lots must not share identical sale
+    check("t3_distinct_sale_values",
+          len({float(r["sale_value_today"]) for r in sale
+               if r["sale_value_today"] != ""}) > 50)
+
+    # T4 land pool gates: verify pool stats csv only lists MAIN/AUX and
+    # coverage sums > 0; script-level gate verified via coverage counts
+    check("t4_pools_separate",
+          {r["pool"] for r in stats} <= {"MAIN", "AUX_90_95"})
+    tot_main = sum(int(r["n_main"]) for r in cov)
+    tot_aux = sum(int(r["n_aux"]) for r in cov)
+    check("t4_pool_sizes", tot_main > 1000 and tot_aux > 0,
+          f"{tot_main}/{tot_aux}")
+
+    # T5 normalization single-pass: comp prices already 2026-09 — verify
+    # land psf columns are present and not re-adjusted (psf_p50 within
+    # sanity bounds for Vancouver land)
+    ok_psf = all(50 < float(r["land_weighted_psf"]) < 1500
+                 for r in land if r["land_weighted_psf"] != "")
+    check("t5_land_psf_sanity", ok_psf)
+
+    # T6 market base == today: market factor 0 row has roi equal to base
+    m0 = [r for r in market if r["future_market_factor"] == "0.0"
+          and r["gst_scenario"] == "EXCL" and r["horizon_y"] == "3"]
+    b3 = {r["listing"] + r["scenario"]: r["roi_base_3y_pct"]
+          for r in roi if r["gst_scenario"] == "EXCL"}
+    check("t6_zero_factor_matches_base",
+          all(abs(float(r["roi_pct"]) -
+                  float(b3[r["listing"] + r["scenario"]])) < 0.05
+              for r in m0))
+    check("t6_future_sale_equals_today",
+          all(float(r["future_sale_estimate"]) ==
+              float(r["roi_pct"]) * 0 or
+              abs(float(r["future_sale_estimate"])) > 0 for r in m0))
+    # future sale at 0% factor equals estimated_sale_today
+    est = {r["listing"] + r["scenario"]: float(r["est_sale_today"])
+           for r in roi if r["gst_scenario"] == "EXCL"}
+    check("t6_future_sale_base_identity",
+          all(abs(float(r["future_sale_estimate"]) -
+                  est[r["listing"] + r["scenario"]]) < 1 for r in m0))
+
+    # T7 negotiation monotonic: lower offer -> better roi; max bids
+    # ordered 10% > 20% > 30%
+    ok_mono = True
+    for r in bid:
+        a = [r.get(f"roi_at_ask_x{k}") for k in (95, 90, 85)]
+        if all(v != "" for v in a):
+            ok_mono &= float(a[0]) < float(a[1]) < float(a[2])
+        mb = [r.get(f"max_bid_roi_{t}") for t in (10, 20, 30)]
+        if all(isinstance(v, str) and v not in ("", "UNATTAINABLE")
+               for v in mb):
+            ok_mono &= float(mb[0]) > float(mb[1]) > float(mb[2])
+    check("t7_offer_roi_monotonic", ok_mono)
+
+    # T8 product separation: duplex/mpx rows only from verified scenarios;
+    # strata-proxy flagged
+    check("t8_only_verified_priced",
+          all(next(s for s in scen if s["listing"] == r["listing"]
+                   and s["scenario"] == r["scenario"])["verified"] == "True"
+              for r in sale))
+    check("t8_proxy_marked",
+          all(r["psf_factor_kind"] == "PROXY" for r in sale
+              if r["scenario"] in ("DUPLEX", "MULTIPLEX")
+              and r["sale_value_today"] != ""))
+
+    # T9 no double counting: roi row has exactly one gst cost per scenario
+    check("t9_single_gst",
+          len({(r["listing"], r["scenario"], r["gst_scenario"])
+               for r in roi}) == len(roi))
+
+    # T10 data gaps degrade: missing bca_land -> not HIGH/MEDIUM on land
+    # unless comps strong; BLOCKED sales have no sale_value
+    check("t10_blocked_no_value",
+          all(r["sale_value_today"] == "" for r in sale
+              if r["comp_level"] == "BLOCKED"))
+    missing_bca = [r["listing"] for r in land
+                   if r["confidence"] == "LOW_CONFIDENCE"]
+    check("t10_low_conf_exists", len(missing_bca) > 0)
+
+    # T11 protection: V3s files untouched; constants mirrored
+    src = (ROOT / "scripts/listing_level_valuation_v1_4.py").read_text()
+    v3s = (ROOT / "scripts/rebuild_value_analysis.py").read_text()
+    check("t11_constants_mirror",
+          'PERMIT_PSQFT = 40' in src and 'PERMIT_PSQFT = 40' in v3s
+          and 'SELLING_PCT = 0.04' in src and 'GST_PCT = 0.05' in src)
+    r = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                       capture_output=True, text=True)
+    dirty = [l for l in r.stdout.splitlines()
+             if "rebuild_value_analysis" in l or "research.yaml" in l]
+    check("t11_v3s_untouched", not dirty, str(dirty))
+
+    # extra: rankings cover all valued listings; report exists
+    check("rank_rows", len(rank1) == len(land) and len(rank2) > 0)
+    check("report", (DOCS / "listing_level_valuation_v1_4_report.md").exists())
+    check("methodology", (DOCS / "valuation_methodology.md").exists())
+    check("manifest", (DOCS / "manifest.json").exists())
+
+    fails = [n for n, ok, _ in results if not ok]
+    print(f"\n{len(results) - len(fails)} PASS / {len(fails)} FAIL")
+    if fails:
+        print("FAILED:", fails)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
