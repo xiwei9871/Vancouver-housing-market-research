@@ -108,20 +108,16 @@ def main():
     # 冻结校准卡要价漂移横幅(防旧卡误导)
     import refresh_stale_cards
     refresh_stale_cards.main()
-    # 要价历史(列表价格变动徽标;按 scan 排序,跨 MLS=重挂单独标注)
+    # 要价事件链(列表徽标:最近事件+累计变化;完整链留详情)
     wl_hist = {}
     try:
+        import price_events
         w = json.loads((ROOT / "data/research/watchlist/"
                         "property-watchlist.json").read_text())
         for e in w["entries"]:
-            sgl = sorted((sg for sg in e.get("sightings", [])
-                          if sg.get("asking")),
-                         key=lambda s: s.get("scan") or "")
-            if len(sgl) < 2 or sgl[0]["asking"] == sgl[-1]["asking"]:
-                continue
-            relisted = sgl[0].get("mls") != sgl[-1].get("mls")
-            wl_hist[e["address"]] = (sgl[0]["asking"], sgl[-1]["asking"],
-                                     sgl[-1].get("scan") or "", relisted)
+            ch = price_events.build_event_chain(e.get("sightings", []))
+            if ch["price_events"]:
+                wl_hist[e["address"]] = ch
     except Exception:
         pass
     gsum = json.loads((ROOT / "reports/price_consistency_audit/"
@@ -310,16 +306,21 @@ def main():
         else:
             extra.append("门检:PASS")
         if addr in wl_hist:
-            f0, f1, fdt, relisted = wl_hist[addr]
-            chg = f1 - f0
-            if relisted:
-                extra.append(
-                    f"重挂{'↓' if chg < 0 else '↑'}{fm(abs(chg))}"
-                    f"({fm(f0)}→{fm(f1)}·{fdt[:10]})")
-            else:
-                extra.append(
-                    f"要价{'↓' if chg < 0 else '↑'}{fm(abs(chg))}"
-                    f"({fm(f0)}→{fm(f1)}·{fdt[:10]})")
+            ch = wl_hist[addr]
+            ev = ch["latest_event"]
+            cum = ch["cumulative"]
+            d = ev["delta"]
+            tag = {"RELISTED": "重挂", "PRICE_DROP": "要价",
+                   "PRICE_INCREASE": "要价",
+                   "UNKNOWN_CHANGE": "变动?"}[ev["type"]]
+            arrow = "↓" if d < 0 else "↑" if d > 0 else "="
+            seg = f"{tag}{arrow}{fm(abs(d))}"
+            if cum != d:
+                seg += (f"·累计{'↓' if cum < 0 else '↑'}"
+                        f"{fm(abs(cum))}")
+            seg += (f"({fm(ch['first_ask'])}→{fm(ch['last_ask'])}"
+                    f"·{ev['date'][:10]})")
+            extra.append(seg)
         addr_note[addr] = om_txt + (" · " + "·".join(extra) if extra else "")
         map_extra[addr] = {
             "sev": site_sev, "flags": "·".join(sorted(all_flags)),

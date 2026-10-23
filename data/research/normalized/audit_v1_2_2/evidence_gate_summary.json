@@ -1,0 +1,59 @@
+{
+ "linkage_recheck": {
+  "rows": 1531,
+  "conf_v122": {
+   "NONE": 1179,
+   "LOW": 331,
+   "MED": 6,
+   "HIGH": 15
+  },
+  "identity": {
+   "NONE": 1179,
+   "PERMIT_ADDR_ONLY": 250,
+   "UNIT_PID_ONLY": 80,
+   "PARCEL_ADDR": 7,
+   "UNIT_STRATA": 15
+  },
+  "cross_entity": {
+   "none": 1516,
+   "strata_plan_in_project": 15
+  },
+  "old_v121_HIGH": 94,
+  "v122_HIGH": 15,
+  "HIGH_kept": 15,
+  "HIGH_downgraded": 79,
+  "review_queue": 0
+ },
+ "mpx_counts": {
+  "mpx_projects_total": 340,
+  "projects_with_any_sale": 74,
+  "pre_permit_transactions": 74,
+  "pre_permit_projects": 73,
+  "pre_permit_old_building_tx": 19,
+  "pre_permit_unresolved_tx": 55,
+  "post_permit_tx": 1,
+  "confirmed_teardown_tx": 0
+ },
+ "specials": {
+  "2609 DUNDAS": "NOT_MPX_SALE",
+  "1909 CHARLES": "OLD_MULTI_RES_NOT_NEWBUILD",
+  "3122 MARINE DR": "VACANT_LAND_NOT_BUILDING"
+ },
+ "dual": {
+  "source_verification": {
+   "SOURCE_VERIFIED": 2285,
+   "SOURCE_TRACEABLE": 944,
+   "UNVERIFIED": 2392
+  },
+  "comparability": {
+   "NOT_ELIGIBLE": 5015,
+   "DIRECT_COMPARABLE": 576,
+   "ADJUSTED_COMPARABLE": 30
+  },
+  "first_or_resale": {
+   "resale": 360,
+   "first_sale": 216
+  },
+  "custom_estate_suspect": 252
+ }
+}

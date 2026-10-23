@@ -1,0 +1,160 @@
+prod,comm,first_or_resale,comparability,n_usable,n_total
+DUPLEX,?,first_sale,DIRECT_COMPARABLE,3,3
+DUPLEX,?,resale,DIRECT_COMPARABLE,1,1
+DUPLEX,?,resale,NOT_ELIGIBLE,0,3
+DUPLEX,Arbutus Ridge,first_sale,DIRECT_COMPARABLE,6,6
+DUPLEX,Arbutus Ridge,first_sale,NOT_ELIGIBLE,0,2
+DUPLEX,Arbutus Ridge,resale,DIRECT_COMPARABLE,2,2
+DUPLEX,Arbutus Ridge,resale,NOT_ELIGIBLE,0,5
+DUPLEX,Collingwood(南),first_sale,DIRECT_COMPARABLE,5,5
+DUPLEX,Collingwood(南),resale,DIRECT_COMPARABLE,9,9
+DUPLEX,Collingwood(南),resale,NOT_ELIGIBLE,0,12
+DUPLEX,Downtown,resale,NOT_ELIGIBLE,0,2
+DUPLEX,Dunbar-Southlands,first_sale,DIRECT_COMPARABLE,16,16
+DUPLEX,Dunbar-Southlands,resale,DIRECT_COMPARABLE,10,10
+DUPLEX,Dunbar-Southlands,resale,NOT_ELIGIBLE,0,1
+DUPLEX,Fairview,first_sale,DIRECT_COMPARABLE,1,1
+DUPLEX,Fairview,resale,NOT_ELIGIBLE,0,6
+DUPLEX,Grandview-Woodland,first_sale,DIRECT_COMPARABLE,17,17
+DUPLEX,Grandview-Woodland,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,Grandview-Woodland,resale,DIRECT_COMPARABLE,28,28
+DUPLEX,Grandview-Woodland,resale,NOT_ELIGIBLE,0,39
+DUPLEX,Hastings-Sunrise,first_sale,DIRECT_COMPARABLE,2,2
+DUPLEX,Hastings-Sunrise,resale,DIRECT_COMPARABLE,3,3
+DUPLEX,Kensington-Cedar Cottage,first_sale,DIRECT_COMPARABLE,21,21
+DUPLEX,Kensington-Cedar Cottage,first_sale,NOT_ELIGIBLE,0,8
+DUPLEX,Kensington-Cedar Cottage,resale,DIRECT_COMPARABLE,27,27
+DUPLEX,Kensington-Cedar Cottage,resale,NOT_ELIGIBLE,0,28
+DUPLEX,Kerrisdale,first_sale,DIRECT_COMPARABLE,3,3
+DUPLEX,Kerrisdale,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,Kerrisdale,resale,DIRECT_COMPARABLE,10,10
+DUPLEX,Killarney,first_sale,DIRECT_COMPARABLE,20,20
+DUPLEX,Killarney,resale,DIRECT_COMPARABLE,6,6
+DUPLEX,Kitsilano,first_sale,DIRECT_COMPARABLE,12,12
+DUPLEX,Kitsilano,first_sale,NOT_ELIGIBLE,0,2
+DUPLEX,Kitsilano,resale,DIRECT_COMPARABLE,15,15
+DUPLEX,Kitsilano,resale,NOT_ELIGIBLE,0,60
+DUPLEX,Marpole,resale,DIRECT_COMPARABLE,1,1
+DUPLEX,Mount Pleasant,first_sale,DIRECT_COMPARABLE,6,6
+DUPLEX,Mount Pleasant,first_sale,NOT_ELIGIBLE,0,2
+DUPLEX,Mount Pleasant,resale,DIRECT_COMPARABLE,11,11
+DUPLEX,Mount Pleasant,resale,NOT_ELIGIBLE,0,26
+DUPLEX,Oakridge,first_sale,DIRECT_COMPARABLE,2,2
+DUPLEX,Oakridge,resale,DIRECT_COMPARABLE,3,3
+DUPLEX,Oakridge,resale,NOT_ELIGIBLE,0,1
+DUPLEX,Renfrew(北),first_sale,DIRECT_COMPARABLE,15,15
+DUPLEX,Renfrew(北),resale,DIRECT_COMPARABLE,29,29
+DUPLEX,Renfrew(北),resale,NOT_ELIGIBLE,0,2
+DUPLEX,Riley Park,first_sale,DIRECT_COMPARABLE,15,15
+DUPLEX,Riley Park,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,Riley Park,resale,DIRECT_COMPARABLE,17,17
+DUPLEX,Riley Park,resale,NOT_ELIGIBLE,0,10
+DUPLEX,South Cambie,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,South Cambie,resale,DIRECT_COMPARABLE,2,2
+DUPLEX,Strathcona,resale,NOT_ELIGIBLE,0,10
+DUPLEX,Sunset,first_sale,DIRECT_COMPARABLE,18,18
+DUPLEX,Sunset,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,Sunset,resale,DIRECT_COMPARABLE,16,16
+DUPLEX,Sunset,resale,NOT_ELIGIBLE,0,8
+DUPLEX,Victoria-Fraserview,first_sale,DIRECT_COMPARABLE,14,14
+DUPLEX,Victoria-Fraserview,resale,DIRECT_COMPARABLE,13,13
+DUPLEX,West Point Grey,first_sale,DIRECT_COMPARABLE,4,4
+DUPLEX,West Point Grey,first_sale,NOT_ELIGIBLE,0,1
+DUPLEX,West Point Grey,resale,DIRECT_COMPARABLE,6,6
+HOUSE,?,resale,DIRECT_COMPARABLE,1,1
+HOUSE,?,resale,NOT_ELIGIBLE,0,39
+HOUSE,?,unknown,ADJUSTED_COMPARABLE,2,2
+HOUSE,?,unknown,NOT_ELIGIBLE,0,48
+HOUSE,Arbutus Ridge,first_sale,DIRECT_COMPARABLE,1,1
+HOUSE,Arbutus Ridge,resale,DIRECT_COMPARABLE,10,10
+HOUSE,Arbutus Ridge,resale,NOT_ELIGIBLE,0,165
+HOUSE,Arbutus Ridge,unknown,NOT_ELIGIBLE,0,48
+HOUSE,Collingwood(南),first_sale,DIRECT_COMPARABLE,1,1
+HOUSE,Collingwood(南),first_sale,NOT_ELIGIBLE,0,1
+HOUSE,Collingwood(南),resale,DIRECT_COMPARABLE,3,3
+HOUSE,Collingwood(南),resale,NOT_ELIGIBLE,0,62
+HOUSE,Collingwood(南),unknown,NOT_ELIGIBLE,0,81
+HOUSE,Dunbar-Southlands,first_sale,ADJUSTED_COMPARABLE,2,2
+HOUSE,Dunbar-Southlands,first_sale,DIRECT_COMPARABLE,3,3
+HOUSE,Dunbar-Southlands,resale,ADJUSTED_COMPARABLE,3,3
+HOUSE,Dunbar-Southlands,resale,DIRECT_COMPARABLE,21,21
+HOUSE,Dunbar-Southlands,resale,NOT_ELIGIBLE,0,311
+HOUSE,Dunbar-Southlands,unknown,NOT_ELIGIBLE,0,155
+HOUSE,Fairview,resale,NOT_ELIGIBLE,0,3
+HOUSE,Fairview,unknown,NOT_ELIGIBLE,0,3
+HOUSE,Grandview-Woodland,first_sale,DIRECT_COMPARABLE,2,2
+HOUSE,Grandview-Woodland,resale,DIRECT_COMPARABLE,11,11
+HOUSE,Grandview-Woodland,resale,NOT_ELIGIBLE,0,104
+HOUSE,Grandview-Woodland,unknown,NOT_ELIGIBLE,0,108
+HOUSE,Hastings-Sunrise,first_sale,DIRECT_COMPARABLE,5,5
+HOUSE,Hastings-Sunrise,resale,ADJUSTED_COMPARABLE,4,4
+HOUSE,Hastings-Sunrise,resale,DIRECT_COMPARABLE,18,18
+HOUSE,Hastings-Sunrise,resale,NOT_ELIGIBLE,0,50
+HOUSE,Hastings-Sunrise,unknown,NOT_ELIGIBLE,0,402
+HOUSE,Kensington-Cedar Cottage,first_sale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Kensington-Cedar Cottage,first_sale,DIRECT_COMPARABLE,5,5
+HOUSE,Kensington-Cedar Cottage,first_sale,NOT_ELIGIBLE,0,1
+HOUSE,Kensington-Cedar Cottage,resale,ADJUSTED_COMPARABLE,5,5
+HOUSE,Kensington-Cedar Cottage,resale,DIRECT_COMPARABLE,10,10
+HOUSE,Kensington-Cedar Cottage,resale,NOT_ELIGIBLE,0,199
+HOUSE,Kensington-Cedar Cottage,unknown,NOT_ELIGIBLE,0,335
+HOUSE,Kerrisdale,first_sale,DIRECT_COMPARABLE,2,2
+HOUSE,Kerrisdale,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Kerrisdale,resale,NOT_ELIGIBLE,0,186
+HOUSE,Kerrisdale,unknown,NOT_ELIGIBLE,0,80
+HOUSE,Killarney,first_sale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Killarney,first_sale,NOT_ELIGIBLE,0,1
+HOUSE,Killarney,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Killarney,resale,NOT_ELIGIBLE,0,76
+HOUSE,Killarney,unknown,NOT_ELIGIBLE,0,88
+HOUSE,Kitsilano,first_sale,DIRECT_COMPARABLE,1,1
+HOUSE,Kitsilano,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Kitsilano,resale,NOT_ELIGIBLE,0,128
+HOUSE,Kitsilano,unknown,NOT_ELIGIBLE,0,101
+HOUSE,Marpole,first_sale,DIRECT_COMPARABLE,3,3
+HOUSE,Marpole,resale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Marpole,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Marpole,resale,NOT_ELIGIBLE,0,50
+HOUSE,Marpole,unknown,NOT_ELIGIBLE,0,138
+HOUSE,Mount Pleasant,first_sale,DIRECT_COMPARABLE,2,2
+HOUSE,Mount Pleasant,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Mount Pleasant,resale,NOT_ELIGIBLE,0,33
+HOUSE,Mount Pleasant,unknown,NOT_ELIGIBLE,0,44
+HOUSE,Oakridge,resale,NOT_ELIGIBLE,0,95
+HOUSE,Oakridge,unknown,NOT_ELIGIBLE,0,24
+HOUSE,Renfrew(北),first_sale,DIRECT_COMPARABLE,3,3
+HOUSE,Renfrew(北),first_sale,NOT_ELIGIBLE,0,1
+HOUSE,Renfrew(北),resale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Renfrew(北),resale,DIRECT_COMPARABLE,9,9
+HOUSE,Renfrew(北),resale,NOT_ELIGIBLE,0,116
+HOUSE,Renfrew(北),unknown,NOT_ELIGIBLE,0,150
+HOUSE,Riley Park,first_sale,DIRECT_COMPARABLE,6,6
+HOUSE,Riley Park,first_sale,NOT_ELIGIBLE,0,1
+HOUSE,Riley Park,resale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Riley Park,resale,DIRECT_COMPARABLE,14,14
+HOUSE,Riley Park,resale,NOT_ELIGIBLE,0,152
+HOUSE,Riley Park,unknown,NOT_ELIGIBLE,0,127
+HOUSE,Shaughnessy,resale,ADJUSTED_COMPARABLE,1,1
+HOUSE,Shaughnessy,resale,DIRECT_COMPARABLE,2,2
+HOUSE,Shaughnessy,resale,NOT_ELIGIBLE,0,120
+HOUSE,Shaughnessy,unknown,NOT_ELIGIBLE,0,7
+HOUSE,South Cambie,resale,DIRECT_COMPARABLE,1,1
+HOUSE,South Cambie,resale,NOT_ELIGIBLE,0,53
+HOUSE,South Cambie,unknown,NOT_ELIGIBLE,0,19
+HOUSE,Strathcona,resale,DIRECT_COMPARABLE,1,1
+HOUSE,Strathcona,resale,NOT_ELIGIBLE,0,16
+HOUSE,Strathcona,unknown,NOT_ELIGIBLE,0,19
+HOUSE,Sunset,first_sale,DIRECT_COMPARABLE,1,1
+HOUSE,Sunset,resale,ADJUSTED_COMPARABLE,5,5
+HOUSE,Sunset,resale,DIRECT_COMPARABLE,4,4
+HOUSE,Sunset,resale,NOT_ELIGIBLE,0,130
+HOUSE,Sunset,unknown,NOT_ELIGIBLE,0,153
+HOUSE,Victoria-Fraserview,first_sale,DIRECT_COMPARABLE,1,1
+HOUSE,Victoria-Fraserview,resale,DIRECT_COMPARABLE,9,9
+HOUSE,Victoria-Fraserview,resale,NOT_ELIGIBLE,0,115
+HOUSE,Victoria-Fraserview,unknown,NOT_ELIGIBLE,0,177
+HOUSE,West Point Grey,first_sale,ADJUSTED_COMPARABLE,1,1
+HOUSE,West Point Grey,resale,ADJUSTED_COMPARABLE,2,2
+HOUSE,West Point Grey,resale,DIRECT_COMPARABLE,17,17
+HOUSE,West Point Grey,resale,NOT_ELIGIBLE,0,183
+HOUSE,West Point Grey,unknown,NOT_ELIGIBLE,0,84
