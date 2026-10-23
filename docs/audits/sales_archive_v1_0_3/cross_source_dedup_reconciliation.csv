@@ -1,0 +1,13 @@
+metric,n
+raw_rows,30798
+parcel_clusters,10734
+unit_clusters,24147
+canonical_sales,24203
+confirmed_merges,6595
+candidate_dups_manual_review,2198
+blocked_unions,129
+cluster_conflicts,0
+multi_source_sales,6544
+arcgis_comps_both,6544
+v1_0_1_multi_source_baseline,4178
+v1_0_1_arcgis_comps_merges_baseline,3

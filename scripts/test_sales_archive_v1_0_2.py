@@ -158,9 +158,13 @@ chk("无yb无pid → UNKNOWN", t == "AGE_UNKNOWN")
 yb, t = AP.resolve_age(2024, "", {}, None, 2001, True)
 chk("原生yb+单元证据无pid → UNIT_CONFIRMED",
     yb == 2001 and t == "AGE_UNIT_CONFIRMED")
-yb, t = AP.resolve_age(2024, "", {}, None, 2001, False)
-chk("原生yb无pid无unit → FOLIO_CONFIRMED",
+yb, t = AP.resolve_age(2024, "", {}, None, 2001, False,
+                       True)
+chk("原生yb+roll关联无pid → FOLIO_CONFIRMED",
     t == "AGE_FOLIO_CONFIRMED")
+yb, t = AP.resolve_age(2024, "", {}, None, 2001)
+chk("V1.0.3收紧:无roll关联原生yb → ADDRESS_INFERRED",
+    t == "AGE_ADDRESS_INFERRED")
 
 # ============ 6. 守恒:synthetic ETL 端到端 ============
 fixture = [

@@ -1,0 +1,12 @@
+stage,n
+raw_rows,30798
+parcel_clusters,10734
+unit_clusters,24147
+canonical_sales,24203
+confirmed_merges,6595
+candidate_dups,2198
+schema_issues,0
+sales_age_strict,4811
+sales_age_inferred,16694
+sales_age_unknown,2698
+sales_pid_known,23571

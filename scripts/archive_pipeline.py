@@ -288,6 +288,9 @@ def classify_product(comp_pc, arc_desc, is_strata, unit_number,
             "vacant_or_zero_improvement"
 
     def _ver_mpx_unit():
+        # V1.0.3 收紧:单元身份(strata+unit+pid)只证单元,
+        # 项目类型必须独立证据 —— 通用 "Strata Apartment"/
+        # "Townhouse" 描述不构成 multiplex 项目证据
         ev = []
         if is_strata is True:
             ev.append("strata")
@@ -295,11 +298,10 @@ def classify_product(comp_pc, arc_desc, is_strata, unit_number,
             ev.append("unit_id")
         if pid:
             ev.append("pid")
-        if any(k in desc for k in MULTI_DESC) or \
-                "townhouse" in desc or "strata" in desc:
+        if any(k in desc for k in MULTI_DESC):
             ev.append("desc_multi")
         ok = is_strata is True and unit_ev and bool(pid) and \
-            ("desc_multi" in ev or "townhouse" in desc)
+            "desc_multi" in ev
         return ok, "|".join(ev)
 
     def _ver_mpx_whole():
@@ -381,6 +383,54 @@ PRODUCTS = ("HOUSE", "DUPLEX_HALF", "DUPLEX_WHOLE",
             "UNKNOWN_STRATA", "OTHER_RESIDENTIAL", "UNKNOWN")
 
 
+def duplex_scope(is_strata, desc, unit_number, strata_lot, pid,
+                 has_strata_neighbor=False, strata_plan=""):
+    """duplex 交易范围证据分级(独立判断,不改成交记录)。
+    strata lot/单元号是强于 is_strata 标志的法律证据:
+    comps 的 is_strata=N 在 duplex 半户上不可靠(EPS plan +
+    半户 pid 才是事实)。返回 (scope, verification, reasons)。
+    """
+    ev = []
+    unit_ev = bool(unit_number) or bool(strata_lot) \
+        or bool(strata_plan)
+    strata_ev = (is_strata is True) or \
+        bool(strata_lot) or bool(strata_plan)
+    desc_duplex = "duplex" in (desc or "").lower()
+    if is_strata is False and (strata_lot or strata_plan):
+        ev.append("flag_conflict:is_strataN_but_strata_lot")
+    if strata_ev and unit_ev:
+        ev += ["strata_or_lot", "unit_id"]
+        if pid:
+            ev.append("pid")
+        if has_strata_neighbor:
+            return "DUPLEX_SPLIT_CANDIDATE", "CANDIDATE", \
+                "|".join(ev) + "|same_parcel_neighbor_sale"
+        return ("DUPLEX_HALF_VERIFIED" if pid
+                else "DUPLEX_HALF"), \
+            "VERIFIED" if pid else "CANDIDATE", "|".join(ev)
+    if is_strata is False and desc_duplex and not strata_ev:
+        ev += ["non_strata", "desc_duplex"]
+        if pid:
+            ev.append("pid")
+            return "DUPLEX_WHOLE_VERIFIED", "VERIFIED", \
+                "|".join(ev)
+        return "DUPLEX_WHOLE", "CANDIDATE", "|".join(ev)
+    return "DUPLEX_SCOPE_UNKNOWN", "CANDIDATE", \
+        "|".join(ev) or "strata_state_unknown_or_no_unit_ev"
+
+
+def mpx_flags(unit_ev, project_ev, sale_ev):
+    """MPX 三独立判断:任一不满足即 CANDIDATE。
+    unit_ev:    strata + (unit_number|strata_lot) + pid
+    project_ev: desc 命中 MULTI_DESC(3-6户 multiplex 项目类型)
+    sale_ev:    多源核实 或 pid+税表回连确认
+    返回 dict 便于核销表逐列审计。"""
+    return {"UNIT_IDENTITY_VERIFIED": bool(unit_ev),
+            "PROJECT_TYPE_VERIFIED": bool(project_ev),
+            "SALE_EVENT_VERIFIED": bool(sale_ev),
+            "MPX_VERIFIED": bool(unit_ev and project_ev and sale_ev)}
+
+
 # ============ 房龄证据分级 ============
 AGE_TIERS = ("AGE_EXACT_PID", "AGE_FOLIO_CONFIRMED",
              "AGE_UNIT_CONFIRMED", "AGE_ADDRESS_INFERRED",
@@ -391,7 +441,7 @@ STRICT_TIERS = ("AGE_EXACT_PID", "AGE_FOLIO_CONFIRMED",
 
 
 def resolve_age(sale_year, record_pid, tax_by_pid, tax_link,
-                native_yb, has_unit_ev=False):
+                native_yb, has_unit_ev=False, has_roll_ev=False):
     """返回 (yb, age_tier)。
     tax_by_pid: pid -> {year: taxrow};tax_link 由管线侧产出
     {status, n, yb, age_tier}。"""
@@ -416,16 +466,20 @@ def resolve_age(sale_year, record_pid, tax_by_pid, tax_link,
         if yb:
             return yb, "AGE_TEMPORAL_CONFLICT" if conf \
                 else "AGE_EXACT_PID"
-    # 2) 记录自带 yb(BCA enriched/comps 评估口径,pid 键控)
+    # 2) 记录自带 yb(BCA enriched/comps 评估口径)
+    #    FOLIO_CONFIRMED 只给有真实 roll/folio 关联的记录
+    #    (bca_evbc_oid / tax folio);无关联仅地址推断,不抬级
     if native_yb and str(native_yb).isdigit():
         yb = int(native_yb)
         if yb > sy:
             return yb, "AGE_TEMPORAL_CONFLICT"
         if record_pid:
             return yb, "AGE_EXACT_PID"
+        if has_roll_ev:
+            return yb, "AGE_FOLIO_CONFIRMED"
         if has_unit_ev:
             return yb, "AGE_UNIT_CONFIRMED"
-        return yb, "AGE_FOLIO_CONFIRMED"
+        return yb, "AGE_ADDRESS_INFERRED"
     # 3) tax_link 回连的 pid:跨年度快照取 yb(命中行当列
     #    可能为空,不能只看单行),证据等级沿用 link 的 tier
     if tax_link and tax_link.get("pid"):
