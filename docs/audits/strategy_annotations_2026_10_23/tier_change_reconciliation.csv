@@ -1,0 +1,7 @@
+address,old_tier,new_tier,reason,annotated_at,source
+2413 COLLINGWOOD STREET,WATCH,KEEP,,2026-10-23,strategy-v2-human-annotations-2026-10-23.json
+3326 SLOCAN STREET,WATCH,PASS,,2026-10-23,strategy-v2-human-annotations-2026-10-23.json
+4940 KILLARNEY STREET,WATCH,KEEP,,2026-10-23,strategy-v2-human-annotations-2026-10-23.json
+2608 E 4TH AVENUE,PASS,WATCH,,2026-10-23,strategy-v2-human-annotations-2026-10-23.json
+3120 TURNER STREET,PASS,WATCH,价格高了意义不大,2026-10-23,strategy-v2-human-annotations-2026-10-23.json
+5033 KILLARNEY STREET,PASS,WATCH,,2026-10-23,strategy-v2-human-annotations-2026-10-23.json

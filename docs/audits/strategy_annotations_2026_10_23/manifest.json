@@ -1,0 +1,33 @@
+{
+  "generated": "2026-10-23",
+  "inputs": {
+    "data/research/annotations/strategy-v2-human-annotations-2026-10-23.json": {
+      "sha256": "a778bf5c92959936ccf9ab0d58bb023aff3bc0018c06abcae7ed0101c75ad337",
+      "bytes": 62786
+    },
+    "data/research/watchlist/property-watchlist.json": {
+      "sha256": "fae1c8f5786ba9b6c7455ffb918065c8066dfd8bd6d5f128a65114be012840af",
+      "bytes": 479079
+    },
+    "scripts/price_events.py": {
+      "sha256": "fc18c75d23f1842956a03153c1d0c3a29ea1f44a0f03da73c94d90cb757adef9",
+      "bytes": 5317
+    },
+    "scripts/apply_human_annotations.py": {
+      "sha256": "0afa2baae6f0edc285db0094832e4df8feef139a02f36a186a2c0fcf9c409c89",
+      "bytes": 5189
+    },
+    "scripts/normalize_price_events.py": {
+      "sha256": "18b0b18071b7ec10b3bc032e2a38dcc05d5abaeab1254c23073031f7ed5e3004",
+      "bytes": 3276
+    },
+    "scripts/test_price_events.py": {
+      "sha256": "b8350792d5a7d88fccdaacf25e7b484509c580027dfe6bcf628bc239f4b5aae9",
+      "bytes": 7442
+    },
+    "scripts/render_v3s_shadow.py": {
+      "sha256": "134d02f7e9018b65754a6bbdc80a500be94e528819c645d1541f1cc6a7dcbff1",
+      "bytes": 27630
+    }
+  }
+}

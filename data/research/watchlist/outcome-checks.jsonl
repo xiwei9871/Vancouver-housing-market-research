@@ -120,3 +120,64 @@
 {"address": "2576 PARKER STREET", "tier": null, "mls": "R3160366", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
 {"address": "4060 SLOCAN STREET", "tier": null, "mls": "R3049061", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
 {"address": "956 E 21ST AVENUE", "tier": null, "mls": "R3147933", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5454 MELBOURNE STREET", "tier": "KEEP", "mls": "R3124925", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "3433 W 12TH AVENUE", "tier": "KEEP", "mls": "R3173283", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "1294 E 33RD AVENUE", "tier": "WATCH", "mls": "R3106352", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2130 WILLIAM STREET", "tier": "WATCH", "mls": "R3109808", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "2275 PANDORA STREET", "tier": "WATCH", "mls": "R3139088", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "3207 VIMY CRESCENT", "tier": "WATCH", "mls": "R3162609", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "339 E 41ST AVENUE", "tier": "WATCH", "mls": "R3157182", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "36 E 60TH AVENUE", "tier": "WATCH", "mls": "R3104915", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "4132 BALKAN STREET", "tier": "WATCH", "mls": "R3148045", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "4225 JOHN STREET", "tier": "WATCH", "mls": "R3170629", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "4343 11TH AVENUE", "tier": "WATCH", "mls": "R3169190", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5009 PAYNE STREET", "tier": "WATCH", "mls": "R3159149", "outcome": {"type": "STILL_LISTED", "asking": 2300000, "status": "active"}}
+{"address": "5569 CULLODEN STREET", "tier": "WATCH", "mls": "R3135470", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5735 EARLES STREET", "tier": "WATCH", "mls": "R3064708", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1205 E 49TH AVENUE", "tier": "SPECIAL", "mls": "R3134550", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2408 SE MARINE DRIVE", "tier": "SPECIAL", "mls": "R3163568", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "3153 PARKER STREET", "tier": "SPECIAL", "mls": "R3135209", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "1127 KEEFER STREET", "tier": "PASS", "mls": "R3146631", "outcome": {"type": "STILL_LISTED", "asking": 998000, "status": "active"}}
+{"address": "1339 E 41ST AVENUE", "tier": "PASS", "mls": "R3060701", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1440 E KING EDWARD AVENUE", "tier": "PASS", "mls": "R3106014", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "16 N KASLO STREET", "tier": "PASS", "mls": "R3106682", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2636 PRINCE ALBERT STREET", "tier": "PASS", "mls": "R3144017", "outcome": {"type": "STILL_LISTED", "asking": 1949000, "status": "active"}}
+{"address": "3163 RUPERT STREET", "tier": "PASS", "mls": "R3109209", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "360 E 24TH AVENUE", "tier": "PASS", "mls": "R3133983", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "3681 ADANAC STREET", "tier": "PASS", "mls": "R3165343", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "505 N PENTICTON STREET", "tier": "PASS", "mls": "R3167501", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "5769 KNIGHT STREET", "tier": "PASS", "mls": "R3118659", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "6085 QUEBEC STREET", "tier": "PASS", "mls": "R3113854", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "87 W 41ST AVENUE", "tier": "PASS", "mls": "R3146522", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1805 E 51ST AVENUE", "tier": null, "mls": "R3136437", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2039 TURNER STREET", "tier": null, "mls": "R3160540", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "2243 W 5TH AVENUE", "tier": null, "mls": "R3062851", "outcome": {"type": "SOLD", "price": null, "date": null, "source": "status"}}
+{"address": "4060 SLOCAN STREET", "tier": null, "mls": "R3049061", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "7429 FRASER STREET", "tier": null, "mls": "R3020055", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "942 NANAIMO STREET", "tier": null, "mls": "R3159012", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "956 E 21ST AVENUE", "tier": null, "mls": "R3147933", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5454 MELBOURNE STREET", "tier": "KEEP", "mls": "R3124925", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1294 E 33RD AVENUE", "tier": "WATCH", "mls": "R3106352", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2275 PANDORA STREET", "tier": "WATCH", "mls": "R3139088", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "339 E 41ST AVENUE", "tier": "WATCH", "mls": "R3157182", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "36 E 60TH AVENUE", "tier": "WATCH", "mls": "R3104915", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "4132 BALKAN STREET", "tier": "WATCH", "mls": "R3148045", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "4343 11TH AVENUE", "tier": "WATCH", "mls": "R3169190", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5009 PAYNE STREET", "tier": "WATCH", "mls": "R3159149", "outcome": {"type": "STILL_LISTED", "asking": 2300000, "status": "active"}}
+{"address": "5569 CULLODEN STREET", "tier": "WATCH", "mls": "R3135470", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5735 EARLES STREET", "tier": "WATCH", "mls": "R3064708", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1205 E 49TH AVENUE", "tier": "SPECIAL", "mls": "R3134550", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2408 SE MARINE DRIVE", "tier": "SPECIAL", "mls": "R3163568", "outcome": {"type": "REMOVED", "http_error": "HTTP 403"}}
+{"address": "1127 KEEFER STREET", "tier": "PASS", "mls": "R3146631", "outcome": {"type": "STILL_LISTED", "asking": 998000, "status": "active"}}
+{"address": "1339 E 41ST AVENUE", "tier": "PASS", "mls": "R3060701", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1440 E KING EDWARD AVENUE", "tier": "PASS", "mls": "R3106014", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "16 N KASLO STREET", "tier": "PASS", "mls": "R3106682", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "2636 PRINCE ALBERT STREET", "tier": "PASS", "mls": "R3144017", "outcome": {"type": "STILL_LISTED", "asking": 1949000, "status": "active"}}
+{"address": "3163 RUPERT STREET", "tier": "PASS", "mls": "R3109209", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "360 E 24TH AVENUE", "tier": "PASS", "mls": "R3133983", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "3681 ADANAC STREET", "tier": "PASS", "mls": "R3165343", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "5769 KNIGHT STREET", "tier": "PASS", "mls": "R3118659", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "6085 QUEBEC STREET", "tier": "PASS", "mls": "R3113854", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "87 W 41ST AVENUE", "tier": "PASS", "mls": "R3146522", "outcome": {"type": "REMOVED", "http_error": "HTTP 404"}}
+{"address": "1805 E 51ST AVENUE", "tier": null, "mls": "R3136437", "outcome": {"type": "UNRESOLVED", "reason": "TargetClosedError: Page.goto: Target page, context or browser has been closed\nCall log:\n  - navigating to \"https://www.realtor.ca/real-estate/29911040/1805-e-51st-avenue-vancouver\", waiting until \"domcontentloaded\"\n"}}
+{"address": "4060 SLOCAN STREET", "tier": null, "mls": "R3049061", "outcome": {"type": "UNRESOLVED", "reason": "TargetClosedError: Page.goto: Target page, context or browser has been closed"}}
