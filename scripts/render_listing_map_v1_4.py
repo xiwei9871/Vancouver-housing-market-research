@@ -293,11 +293,14 @@ def main():
                 return hit
         return None
 
-    # ---- rebuild the exact V1.4.3 MAIN land pool for 社区均价 -------
+    # ---- rebuild the SAME frozen-dims MAIN land pool used by the
+    # per-listing valuation (V1.4.5 P0-2: community stats must use the
+    # corrected lot areas, not the raw GIS parcel areas)
     house_rows = list(csv.DictReader(
         open(v.V12 / "house_price_normalized_per_row.csv")))
     pool, _aux, _ = v.build_land_pool(
-        house_rows, v.load_archive(), v.load_resolved_yb(), v.load_tax())
+        house_rows, v.load_archive(), v.load_resolved_yb(), v.load_tax(),
+        v.load_lot_dims())
     comm_all = defaultdict(list)
     comm_band = defaultdict(list)
     for r in pool:
