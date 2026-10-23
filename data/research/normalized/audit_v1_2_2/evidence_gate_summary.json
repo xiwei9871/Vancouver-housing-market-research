@@ -55,5 +55,18 @@
    "first_sale": 216
   },
   "custom_estate_suspect": 252
+ },
+ "bca_yb_backfill_v122": {
+  "method": "BCA free per-property detail (GetByAddress→PropertyInformation), ~1.7s rate",
+  "target": 829,
+  "resolved": 822,
+  "CONFIRMED_OLD": 786,
+  "NEW_VALID": 12,
+  "TEMPORAL_CONFLICT": 24,
+  "BCA_BLANK": 7,
+  "no_match": 0,
+  "errors": 0,
+  "floor_area_also_filled": 821,
+  "note": "829 identity closed: 786+12+24+7=829. Prior 'no source' was a bulk-layer field gap, not BCA data absence."
  }
 }
