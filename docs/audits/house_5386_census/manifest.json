@@ -1,0 +1,53 @@
+{
+ "version": "house_5386_census_v1",
+ "issue": "github#1",
+ "run": "2026-10-23T15:27:34.166532",
+ "baseline": "sales_archive_v1_0_3@5e51b79+114f579",
+ "input_sha256": {
+  "archive": "fd88a5aff1ed7c254e2f6a78464484725618b55754dd1295d43b66aba297b780",
+  "nb217": "ca9e0daf2e3e3b7a7d2a54ce5531407a2a3f8746b7de0a0b91f5542f521a127e",
+  "tax2023": "71c4bf04e36b767428f87c5eb24b19a999f3b20484614cf22b1359b1b21d4c4f",
+  "tax2024": "0746fc8cc0c2653a9cd0819770d3e4ce63af4240dc3e5c95e5033a8f1cffe351",
+  "tax2025": "b55c3e42effc7ec9adb4ff1a2b34163442b7e039ceac66cd9f97308e572f5d20",
+  "tax2026": "c93042f05fbcee3aab32b38d6cb8386c1e901e8be3c08230c8dc447a89d68df3",
+  "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
+  "bca-sales-24mo-newbuild-enriched.json": "9aa5cbb3e5550c762091d7e7482d0446554235f480310e556ef000bf30fbd1e7",
+  "bca-sales-2023band-newbuild-enriched.json": "571e6a032f8e44af21545f2430b9fc686d1d095c331d8d75efe8e2071176731e",
+  "bca-sales-lastyear-newbuild-enriched.json": "2faba9d4d4f5630c68eb0beef434fa4d048c4a6a5bf99e2f82b5cc73e65d4dc6",
+  "bca-sales-24mo-newbuild-candidates.json": "65c20a4437551aed3d94424a852f348a5727b0924a238e1e5f9aea3d27e111fa",
+  "bca-sales-2023band-newbuild-candidates.json": "3a7f1fc6fcae740e9f0e1325ac525bdb99da5d563818766a7cf6c0638a41c50b",
+  "bca-sales-lastyear-newbuild-candidates.json": "fc5b2d2c583a45ab24d8a85bf867d6892a2689079bfe943511a6c3163517b0dd"
+ },
+ "counts": {
+  "house_total": 5386,
+  "waterfall": {
+   "AGE_51_PLUS": 2797,
+   "AGE_11_20": 435,
+   "AGE_04_10": 327,
+   "AGE_21_30": 436,
+   "AGE_31_50": 927,
+   "CONFIRMED_AGE_00_03": 128,
+   "REVIEW_REBUILD_STALE_YB": 52,
+   "AGE_UNKNOWN": 259,
+   "PROBABLE_AGE_00_03": 1,
+   "LAND_OLD_HOUSE_SALE": 23,
+   "POST_SALE_BUILD": 1
+  },
+  "confirmed_00_03_by_year": {
+   "2023": 41,
+   "2024": 48,
+   "2025": 26,
+   "2026": 13
+  },
+  "probable_00_03_by_year": {
+   "2023": 0,
+   "2024": 0,
+   "2025": 0,
+   "2026": 1
+  },
+  "band_00_03_before": 29,
+  "band_00_03_after": 128,
+  "newbuild_comparable": 111,
+  "exceptions": 77
+ }
+}
