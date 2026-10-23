@@ -1,0 +1,7 @@
+product,hpi_property_type,factor_kind,normalization_status,archive_rows,rows_normalized,note
+HOUSE,Single Family Detached,OFFICIAL,COMPLETE_OFFICIAL,5386,5386,"GVR Detached HPI,直接对应,无代理"
+TOWNHOUSE,Townhouse,OFFICIAL,INDEX_MAPPED_NOT_NORMALIZED,1823,0,GVR Townhouse HPI(官方口径不含 duplex)
+CONDO,Apartment,OFFICIAL,COMPLETE_OFFICIAL,14068,14068,GVR Apartment HPI
+DUPLEX_HALF,PROXY:Townhouse,PROXY,PROXY_SCENARIOS_ONLY,607,607,"无官方独立 Duplex HPI;中性=Townhouse,偏弱=Detached,偏强=Apartment 三情景"
+DUPLEX_WHOLE,PROXY:Single Family Detached,PROXY,PROXY_SCENARIOS_ONLY,1349,1349,"整栋双拼按土地/独立屋价值逻辑,中性=Detached,备选=Townhouse"
+MULTIPLEX_UNIT,PROXY:Townhouse,PROXY,PROXY_SCENARIOS_ONLY,228,228,"无官方独立 HPI;中性=Townhouse,偏弱=Detached,偏强=Apartment"

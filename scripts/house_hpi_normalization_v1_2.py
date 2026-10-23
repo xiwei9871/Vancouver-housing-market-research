@@ -234,6 +234,136 @@ def period(r):
     return "2025_26" if r["year"] in (2025, 2026) else "2023_24"
 
 
+# ---------------- 非 HOUSE 产品 ----------------
+# CONDO → Apartment HPI(官方,逐笔归一化);
+# DUPLEX_*/MULTIPLEX_UNIT → 仅代理情景(非官方);
+# TOWNHOUSE → 指数已映射,本轮不做逐笔归一化。
+OFFICIAL_NORM = {"HOUSE": "Single Family Detached",
+                 "CONDO": "Apartment"}
+PROXY_ONLY = {"DUPLEX_HALF", "DUPLEX_WHOLE", "MULTIPLEX_UNIT"}
+SCEN_NAMES = ("neutral", "weak", "strong")
+
+
+def normalize_nonhouse(arch_rows, idx, revflag):
+    """arch_rows: archive dict rows(非 HOUSE)。
+    返回 condo 逐笔 / proxy 逐笔 / townhouse 未处理计数。"""
+    condo_out, proxy_out = [], []
+    n_th = 0
+    for s in arch_rows:
+        p = s["product"]
+        if p in ("HOUSE", "TOWNHOUSE"):
+            n_th += (p == "TOWNHOUSE")
+            continue
+        if p not in PROXY_ONLY and p != "CONDO":
+            continue
+        lng = num(s.get("lng"))
+        side = ew(lng)
+        ym = (s["sale_date"] or "")[:7]
+        price = num(s["sale_price"])
+        base = {"tx": s["canonical_tx"], "product": p,
+                "community": s["community"] or "?",
+                "side": side,
+                "border_tx": "BORDER_TX"
+                if lng and abs(lng - MAIN_ST_LNG) < BORDER_BAND else "",
+                "date": s["sale_date"], "month": ym,
+                "price": price, "kind": s["sale_kind"] or "UNKNOWN",
+                "fa": num(s["fa"]), "lot": num(s["lot_sqft"]),
+                "is_strata": s["is_strata"]}
+        if p == "CONDO":
+            prod = OFFICIAL_NORM[p]
+            fi = factor(idx, prod, side, ym, "2026-09") if side else None
+            f7 = factor(idx, prod, side, ym, "2026-07") if side else None
+            miss = "" if fi else ("NO_GEO_LNG" if not side
+                                  else "INDEX_MISSING_SALE_MONTH")
+            condo_out.append({**base,
+                              "hpi_product": prod,
+                              "idx_sale": idx.get((ym, prod, side), ""),
+                              "factor_2026_07":
+                                  round(f7, 4) if f7 else "",
+                              "factor_2026_09":
+                                  round(fi, 4) if fi else "",
+                              "factor_kind": "OFFICIAL" if fi else "",
+                              "hpi_missing_reason": miss,
+                              "price_2026_07":
+                                  round(price * f7) if f7 and price else "",
+                              "price_2026_09":
+                                  round(price * fi) if fi and price else "",
+                              "revision_flag": "REVISION_SENSITIVE"
+                              if (prod, side, ym) in revflag else ""})
+        else:
+            scens = PROXY_SCEN[PRODUCT_MAP_D[p]]
+            row = dict(base)
+            row["hpi_product"] = PRODUCT_MAP_D[p]
+            for name, ip in zip(SCEN_NAMES, scens):
+                fi = (factor(idx, ip, side, ym, "2026-09")
+                      if side else None)
+                row[f"scenario_{name}_index"] = ip
+                row[f"factor_{name}"] = round(fi, 4) if fi else ""
+                row[f"price_2026_09_{name}"] = \
+                    round(price * fi) if fi and price else ""
+            row["factor_kind"] = "PROXY"
+            row["proxy_note"] = ("无官方独立 HPI;情景归一化,"
+                                 "不得作官方指数引用")
+            proxy_out.append(row)
+    return condo_out, proxy_out, n_th
+
+
+def spread_pairs(main_pool):
+    """同社区×地块档 旧房(31+)vs 标准新房(0-5 freehold 1800-2200fa)
+    配对价差 —— 土地购入端 vs 重建出售端,不含 ROI 断言。"""
+    LOT_BANDS = ((2500, 4000), (4000, 5000), (5000, 8000))
+    new = [r for r in main_pool if r["band"] in ("0-1", "2-3", "4-5")
+           and r["strata"] != "True"
+           and r["fa"] and 1800 <= r["fa"] <= 2200
+           and r["lot"] and 2500 <= r["lot"] <= 8000]
+    old = [r for r in main_pool if r["band"] in ("31-50", "51+")
+           and r["strata"] != "True"
+           and r["lot"] and 2500 <= r["lot"] <= 8000]
+
+    def lb(lot):
+        for lo, hi in LOT_BANDS:
+            if lo <= lot < hi:
+                return f"{lo}-{hi}"
+        return ""
+
+    out = []
+    for comm in sorted({r["community"] for r in new + old}):
+        for lo, hi in LOT_BANDS:
+            b = f"{lo}-{hi}"
+            rn = [r for r in new if r["community"] == comm and lb(r["lot"]) == b]
+            ro = [r for r in old if r["community"] == comm and lb(r["lot"]) == b]
+            if not rn or not ro:
+                continue
+            n9 = [r["price_2026_09"] for r in rn if r["price_2026_09"] != ""]
+            o9 = [r["price_2026_09"] for r in ro if r["price_2026_09"] != ""]
+            nn = [r["price"] for r in rn]
+            on = [r["price"] for r in ro]
+            ol = [r["price_2026_09"] / r["lot"] for r in ro
+                  if r["price_2026_09"] != "" and r["lot"]]
+            if not n9 or not o9:
+                continue
+            m_new, m_old = pct(n9, 50), pct(o9, 50)
+            out.append({
+                "community": comm, "lot_band": b,
+                "n_new": len(rn), "n_old": len(ro),
+                "new_p50_nominal": pct(nn, 50),
+                "new_p50_2026_09": m_new,
+                "old_p50_nominal": pct(on, 50),
+                "old_p50_2026_09": m_old,
+                "old_psf_lot_2026_09": pct(ol, 50),
+                "spread_nominal": pct(nn, 50) - pct(on, 50),
+                "spread_2026_09": m_new - m_old,
+                "spread_pct_of_new": round(100 * (m_new - m_old) / m_new, 1),
+                "quality": "THIN" if len(rn) < 3 or len(ro) < 3 else "OK",
+                "note": "旧房为土地购入端代理(未扣拆迁成本);"
+                        "新房为重建出售端代理(标准件口径);"
+                        "价差非毛利,不含建造成本/税费/融资"})
+    return out
+
+
+PRODUCT_MAP_D = {p: h for p, h, _, _ in PRODUCT_MAP}
+
+
 def main():
     DOCS.mkdir(parents=True, exist_ok=True)
     OUTD.mkdir(parents=True, exist_ok=True)
@@ -478,6 +608,121 @@ def main():
                 "note": "构成/品质/样本差异仍在;只检查方向性收敛"})
     wcsv(DOCS / "normalization_convergence_check.csv", conv)
 
+    # ---------- 8b) 非 HOUSE 产品:CONDO 官方归一化 + 低密代理情景
+    condo_rows, proxy_rows, n_th = normalize_nonhouse(
+        list(arch.values()), idx, revflag)
+    wcsv(OUTD / "condo_price_normalized_per_row.csv", condo_rows)
+    wcsv(OUTD / "attached_proxy_scenarios_per_row.csv", proxy_rows)
+
+    # CONDO 汇总(docs,聚合口径)
+    cg = defaultdict(list)
+    for r in condo_rows:
+        if r["side"]:
+            cg[(r["side"], (r["date"] or "")[:4] or "?")].append(r)
+    wcsv(DOCS / "condo_normalized_summary.csv", [{
+        "side": s, "year": y, "n": len(rs),
+        "p50_nominal": pct([r["price"] for r in rs], 50),
+        "p50_2026_09": pct([r["price_2026_09"] for r in rs
+                            if r["price_2026_09"] != ""], 50),
+        "n_missing_hpi": sum(1 for r in rs if r["price_2026_09"] == ""),
+        "n_rev_sensitive": sum(1 for r in rs if r["revision_flag"]),
+        "factor_kind": "OFFICIAL",
+        "note": "GVR Apartment HPI 官方指数;成交截点同档案"}
+        for (s, y), rs in sorted(cg.items())])
+
+    # DUPLEX/MULTIPLEX 代理情景汇总(docs)——明确标非官方
+    pg = defaultdict(list)
+    for r in proxy_rows:
+        if r["side"]:
+            pg[(r["product"], r["side"])].append(r)
+    prow = []
+    for (p, s), rs in sorted(pg.items()):
+        rec = {"product": p, "side": s, "n": len(rs),
+               "p50_nominal": pct([r["price"] for r in rs], 50),
+               "factor_kind": "PROXY",
+               "note": "非官方独立 HPI;三情景为敏感性范围,"
+                       "不得引用为官方指数"}
+        for name in SCEN_NAMES:
+            vs = [r[f"price_2026_09_{name}"] for r in rs
+                  if r[f"price_2026_09_{name}"] != ""]
+            rec[f"p50_2026_09_{name}"] = pct(vs, 50) if vs else ""
+            rec[f"index_{name}"] = rs[0][f"scenario_{name}_index"]
+        prow.append(rec)
+    wcsv(DOCS / "duplex_proxy_scenarios.csv", prow)
+
+    # 产品状态表:HOUSE/CONDO 完成 vs 其它仅映射/代理
+    stat_rows = []
+    prod_n = Counter(s["product"] for s in arch.values())
+    for prod, hpi, kind, note in PRODUCT_MAP:
+        if prod == "HOUSE":
+            st = "COMPLETE_OFFICIAL"
+            n_done = sum(1 for r in nrm if r["price_2026_09"] != "")
+        elif prod == "CONDO":
+            st = "COMPLETE_OFFICIAL"
+            n_done = sum(1 for r in condo_rows
+                         if r["price_2026_09"] != "")
+        elif prod == "TOWNHOUSE":
+            st = "INDEX_MAPPED_NOT_NORMALIZED"
+            n_done = 0
+        else:
+            st = "PROXY_SCENARIOS_ONLY"
+            n_done = len([r for r in proxy_rows
+                          if r["product"] == prod])
+        stat_rows.append({
+            "product": prod, "hpi_property_type": hpi,
+            "factor_kind": kind, "normalization_status": st,
+            "archive_rows": prod_n.get(prod, 0),
+            "rows_normalized": n_done, "note": note})
+    wcsv(DOCS / "normalization_status_by_product.csv", stat_rows)
+
+    # ---------- 8c) 新旧配对价差(同社区×地块档)
+    pairs = spread_pairs(main_pool)
+    wcsv(DOCS / "house_rebuild_spread_pairs.csv", pairs)
+
+    # ---------- 8d) HPI 修订敏感性摘要
+    rev_rows = list(csv.DictReader(open(REV_CSV)))
+    drifts = [abs(float(r["drift_pct"])) for r in rev_rows]
+    sens = defaultdict(lambda: {"n": 0, "max": 0.0})
+    for r in rev_rows:
+        k = (r["product"], r["area"], r["target_month"])
+        sens[k]["n"] += 1
+        sens[k]["max"] = max(sens[k]["max"], abs(float(r["drift_pct"])))
+    flagged = {k: v for k, v in sens.items() if v["max"] > 2}
+    with open(DOCS / "hpi_revision_sensitivity.md", "w") as f:
+        f.write(f"""# HPI 历史修订敏感性
+
+**重要口径**:本 HPI 序列由 45 份月度官方报告各自发布的当月指数
+组成 —— 是"当时发布值"(as-published)序列,**不是同一修订版本的
+完整历史序列**。GVR/CREA 的 MLS HPI 模型会周期修订历史值,
+因此不同月报对同一历史月份的隐含指数可能不一致。
+
+## 修订漂移实测(hpi_revision_crosscheck.csv,{len(rev_rows)} 对)
+
+- 中位 |drift| = {sorted(drifts)[len(drifts)//2]:.2f}%
+- P90 |drift| = {sorted(drifts)[int(len(drifts)*0.9)]:.2f}%
+- 最大 |drift| = {max(drifts):.2f}%
+
+## 高敏单元格(|drift|>2%,{len(flagged)} 个)
+
+| product | area | 受影响月 | 观测次数 | 最大漂移% |
+|---|---|---|---|---|
+""")
+        for (p, a, t), v in sorted(flagged.items(),
+                                   key=lambda kv: -kv[1]["max"]):
+            f.write(f"| {p} | {a} | {t} | {v['n']} | {v['max']:.2f} |\n")
+        f.write("""
+## 含义与处理
+
+- 绝大多数单元格跨版本一致性极好(<1%),HPI 作为时间归一化
+  工具可信;
+- 少数月份(主要为 2023-02 前后 Vancouver West
+  Detached/Townhouse)存在 ~5% 版本修订:早期报告的隐含值
+  与后期直接发布值分歧。归一化该月成交时,因子对版本选择
+  敏感 ±5%,已在逐笔与聚合输出标 `REVISION_SENSITIVE`。
+- 若要完全统一版本,需向 GVR/CREA 购买同一修订版的官方
+  完整 HPI 历史 —— 本轮公开渠道不可得,已如实记录。
+""")
+
     # ---------- 9) CMHC crosscheck ----------
     cmhc = []
     if CMHC_CSV.exists():
@@ -695,7 +940,7 @@ V1.1 名义 2023-24 vs 2025-26 的 0-5 新房 P50 比值 0.855
 ## 9. 敏感性
 
 A. 时间调整合理性:见 §5,方向性收敛达成;残差为构成效应。
-B. 指数代理:仅 DUPLEX_*/MULTIPLEX_UNIT 需要代理(双情景+
+B. 指数代理:仅 DUPLEX_*/MULTIPLEX_UNIT 需要代理(三情景+
    代理误差说明);HOUSE 用官方 Detached HPI 无代理。
    归一化本批 0 笔 PROXY / 0 笔 INDEX_MISSING。
 C. 外部新房验证:`cmhc_market_crosscheck.md` —— CMHC CMA
@@ -703,7 +948,40 @@ C. 外部新房验证:`cmhc_market_crosscheck.md` —— CMHC CMA
    归一化 $2.47M(东)/$3.80M(西)处于其 P40–P80 上沿,
    量级一致。CMHC 2023→2025H1 对该段零覆盖,不能检验早期价。
 D. 修订敏感:{n_rev} 笔成交落在指数后期修订 >2% 的月份
-   (主要 2023-02 前后西区),聚合列计数标出,不剔除。
+   (主要 2023-02 前后西区),聚合列计数标出,不剔除;
+   全表见 `hpi_revision_sensitivity.md`。
+
+## 9b. 产品完成状态(整合门区分)
+
+`normalization_status_by_product.csv`:
+
+| 产品 | 状态 | 说明 |
+|---|---|---|
+| HOUSE | COMPLETE_OFFICIAL | 5,386 笔,Detached HPI 逐笔归一化 |
+| CONDO | COMPLETE_OFFICIAL | 14,068 笔,Apartment HPI 逐笔归一化(同引擎) |
+| TOWNHOUSE | INDEX_MAPPED_NOT_NORMALIZED | 官方 Townhouse HPI 已映射,逐笔归一化留待下轮 |
+| DUPLEX_HALF/WHOLE | PROXY_SCENARIOS_ONLY | 无官方独立指数;三情景敏感性,非官方 |
+| MULTIPLEX_UNIT | PROXY_SCENARIOS_ONLY | 同上 |
+
+`duplex_proxy_scenarios.csv` 三情景示例(DUPLEX_WHOLE 东区,
+名义 P50 $1.69M):中性(Townhouse)$1.49M / 偏弱(Detached)
+$1.51M / 偏强(Apartment)$1.53M —— 代理区间 ±2%,明确标非官方。
+
+## 9c. 同社区×地块档 新旧配对价差
+
+`house_rebuild_spread_pairs.csv`(旧=31+ freehold 作土地购入代理,
+新=0-5 freehold 1800-2200sf 标准件作重建出售代理;价差非毛利):
+
+| 社区×地块 | n新/n旧 | 旧 P50(26-09) | 新 P50(26-09) | 价差 |
+|---|---|---|---|---|
+| Hastings-Sunrise 4000-5000 | 6/16 | $1.75M | $2.84M | $1.09M |
+| Kensington-CC 4000-5000 | 2/49 | $1.71M | $3.25M | $1.54M(THIN) |
+| Dunbar-Southlands 4000-5000 | 10/46 | $2.41M | $3.79M | $1.37M |
+| Riley Park 4000-5000 | 7/46 | $2.35M | $3.56M | $1.21M |
+| West Point Grey 4000-5000 | 9/30 | $2.38M | $3.80M | $1.42M |
+
+全表 17 对;THIN 标记 n<3 的档。价差仅为"买入旧房 vs 卖新房"
+的市场基准差,不含建造成本/拆迁/GST/融资 —— 不构成 ROI。
 
 ## 10. 不能稳健结论的社区
 

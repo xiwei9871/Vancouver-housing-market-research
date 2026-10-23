@@ -1,0 +1,7 @@
+product,side,n,p50_nominal,factor_kind,note,p50_2026_09_neutral,index_neutral,p50_2026_09_weak,index_weak,p50_2026_09_strong,index_strong
+DUPLEX_HALF,Vancouver East,415,1643000,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",1491817,Townhouse,1497131,Single Family Detached,1537848,Apartment
+DUPLEX_HALF,Vancouver West,192,2222325,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",2072122,Townhouse,2011910,Single Family Detached,2100544,Apartment
+DUPLEX_WHOLE,Vancouver East,979,1687875,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",1488119,Single Family Detached,1505505,Townhouse,1532656,Apartment
+DUPLEX_WHOLE,Vancouver West,370,2454475,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",2108868,Single Family Detached,2222368,Townhouse,2246816,Apartment
+MULTIPLEX_UNIT,Vancouver East,93,1275750,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",1148611,Townhouse,1164219,Single Family Detached,1180798,Apartment
+MULTIPLEX_UNIT,Vancouver West,135,1499000,PROXY,"非官方独立 HPI;三情景为敏感性范围,不得引用为官方指数",1373064,Townhouse,1330800,Single Family Detached,1406882,Apartment

@@ -146,7 +146,7 @@ V1.1 名义 2023-24 vs 2025-26 的 0-5 新房 P50 比值 0.855
 ## 9. 敏感性
 
 A. 时间调整合理性:见 §5,方向性收敛达成;残差为构成效应。
-B. 指数代理:仅 DUPLEX_*/MULTIPLEX_UNIT 需要代理(双情景+
+B. 指数代理:仅 DUPLEX_*/MULTIPLEX_UNIT 需要代理(三情景+
    代理误差说明);HOUSE 用官方 Detached HPI 无代理。
    归一化本批 0 笔 PROXY / 0 笔 INDEX_MISSING。
 C. 外部新房验证:`cmhc_market_crosscheck.md` —— CMHC CMA
@@ -154,7 +154,40 @@ C. 外部新房验证:`cmhc_market_crosscheck.md` —— CMHC CMA
    归一化 $2.47M(东)/$3.80M(西)处于其 P40–P80 上沿,
    量级一致。CMHC 2023→2025H1 对该段零覆盖,不能检验早期价。
 D. 修订敏感:{n_rev} 笔成交落在指数后期修订 >2% 的月份
-   (主要 2023-02 前后西区),聚合列计数标出,不剔除。
+   (主要 2023-02 前后西区),聚合列计数标出,不剔除;
+   全表见 `hpi_revision_sensitivity.md`。
+
+## 9b. 产品完成状态(整合门区分)
+
+`normalization_status_by_product.csv`:
+
+| 产品 | 状态 | 说明 |
+|---|---|---|
+| HOUSE | COMPLETE_OFFICIAL | 5,386 笔,Detached HPI 逐笔归一化 |
+| CONDO | COMPLETE_OFFICIAL | 14,068 笔,Apartment HPI 逐笔归一化(同引擎) |
+| TOWNHOUSE | INDEX_MAPPED_NOT_NORMALIZED | 官方 Townhouse HPI 已映射,逐笔归一化留待下轮 |
+| DUPLEX_HALF/WHOLE | PROXY_SCENARIOS_ONLY | 无官方独立指数;三情景敏感性,非官方 |
+| MULTIPLEX_UNIT | PROXY_SCENARIOS_ONLY | 同上 |
+
+`duplex_proxy_scenarios.csv` 三情景示例(DUPLEX_WHOLE 东区,
+名义 P50 $1.69M):中性(Townhouse)$1.49M / 偏弱(Detached)
+$1.51M / 偏强(Apartment)$1.53M —— 代理区间 ±2%,明确标非官方。
+
+## 9c. 同社区×地块档 新旧配对价差
+
+`house_rebuild_spread_pairs.csv`(旧=31+ freehold 作土地购入代理,
+新=0-5 freehold 1800-2200sf 标准件作重建出售代理;价差非毛利):
+
+| 社区×地块 | n新/n旧 | 旧 P50(26-09) | 新 P50(26-09) | 价差 |
+|---|---|---|---|---|
+| Hastings-Sunrise 4000-5000 | 6/16 | $1.75M | $2.84M | $1.09M |
+| Kensington-CC 4000-5000 | 2/49 | $1.71M | $3.25M | $1.54M(THIN) |
+| Dunbar-Southlands 4000-5000 | 10/46 | $2.41M | $3.79M | $1.37M |
+| Riley Park 4000-5000 | 7/46 | $2.35M | $3.56M | $1.21M |
+| West Point Grey 4000-5000 | 9/30 | $2.38M | $3.80M | $1.42M |
+
+全表 17 对;THIN 标记 n<3 的档。价差仅为"买入旧房 vs 卖新房"
+的市场基准差,不含建造成本/拆迁/GST/融资 —— 不构成 ROI。
 
 ## 10. 不能稳健结论的社区
 
@@ -172,6 +205,8 @@ D. 修订敏感:{n_rev} 笔成交落在指数后期修订 >2% 的月份
 ## 11. 交付物
 
 - `cmhc_market_crosscheck.md`
+- `condo_normalized_summary.csv`
+- `duplex_proxy_scenarios.csv`
 - `gvr_monthly_hpi_2023_2026.csv`
 - `historical_price_normalization_factors.csv`
 - `house_hpi_normalization_v1_2_report.md`
@@ -180,10 +215,13 @@ D. 修订敏感:{n_rev} 笔成交落在指数后期修订 >2% 的月份
 - `house_old_normalized_by_community.csv`
 - `house_price_nominal_vs_2026.csv`
 - `house_rebuild_2000sqft_2026_benchmark.csv`
+- `house_rebuild_spread_pairs.csv`
 - `hpi_product_geography_mapping.csv`
 - `hpi_revision_crosscheck.csv`
+- `hpi_revision_sensitivity.md`
 - `manifest.json`
 - `normalization_convergence_check.csv`
+- `normalization_status_by_product.csv`
 - `official_sales_coverage_comparison.csv`
 - `manifest.json`
 - `house_hpi_normalization_v1_2_report.md`

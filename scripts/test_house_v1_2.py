@@ -194,6 +194,61 @@ def main():
           float(nb["Vancouver East"]["p50"]) <
           float(nb["Vancouver West"]["p50"]))
 
+    # T14b CONDO 官方归一化完成(同一引擎,Apartment 指数)
+    condo = list(csv.DictReader(
+        open(N.OUTD / "condo_price_normalized_per_row.csv")))
+    check("condo_rows_normalized",
+          len(condo) > 10000 and
+          all(r["factor_kind"] == "OFFICIAL" for r in condo))
+    check("condo_uses_apartment_index",
+          all(r["hpi_product"] == "Apartment" for r in condo))
+    csum = list(csv.DictReader(
+        open(DOCS / "condo_normalized_summary.csv")))
+    check("condo_summary_official",
+          all(r["factor_kind"] == "OFFICIAL" for r in csum))
+
+    # T14c DUPLEX 仅代理情景,不入官方因子表
+    px = list(csv.DictReader(
+        open(N.OUTD / "attached_proxy_scenarios_per_row.csv")))
+    check("duplex_all_proxy_labeled",
+          len(px) > 0 and all(r["factor_kind"] == "PROXY" for r in px))
+    check("duplex_three_scenarios",
+          all(r["scenario_neutral_index"] and r["scenario_weak_index"]
+              and r["scenario_strong_index"] for r in px))
+    check("no_duplex_in_official_factors",
+          not any("DUPLEX" in r["hpi_property_type"] or
+                  "MULTIPLEX" in r["hpi_property_type"] for r in fac))
+    check("duplex_scenarios_not_official",
+          all(r["factor_kind"] == "PROXY" for r in csv.DictReader(
+              open(DOCS / "duplex_proxy_scenarios.csv"))))
+
+    # T14d 产品状态区分
+    stt = {r["product"]: r["normalization_status"] for r in csv.DictReader(
+        open(DOCS / "normalization_status_by_product.csv"))}
+    check("status_house_condo_complete",
+          stt["HOUSE"] == "COMPLETE_OFFICIAL" and
+          stt["CONDO"] == "COMPLETE_OFFICIAL")
+    check("status_duplex_proxy_only",
+          stt["DUPLEX_HALF"] == "PROXY_SCENARIOS_ONLY" and
+          stt["DUPLEX_WHOLE"] == "PROXY_SCENARIOS_ONLY")
+    check("status_townhouse_mapped_only",
+          stt["TOWNHOUSE"] == "INDEX_MAPPED_NOT_NORMALIZED")
+
+    # T14e 新旧配对价差(同社区×地块档,不含 ROI)
+    prs = list(csv.DictReader(
+        open(DOCS / "house_rebuild_spread_pairs.csv")))
+    check("spread_pairs_present", len(prs) >= 10)
+    check("spread_pairs_positive_direction",
+          all(float(r["spread_2026_09"]) > 0 for r in prs))
+    check("spread_pairs_no_roi_language",
+          all("ROI" not in r["note"].upper() or "非毛利" in r["note"]
+              for r in prs))
+
+    # T14f 修订敏感性文件存在并声明非统一版本
+    sens_md = (DOCS / "hpi_revision_sensitivity.md").read_text()
+    check("revision_sensitivity_doc",
+          "不是同一修订版本" in sens_md and "REVISION_SENSITIVE" in sens_md)
+
     # T15 V3s 零修改(baseline vs HEAD)
     if run:
         base = "a5b9767c0ff0c5fa4ee148787e1c0eb8c94081a9"
