@@ -1,0 +1,8 @@
+metric,n
+raw_rows,18409
+identity_clusters,11508
+canonical_sales,14192
+merged_rows,4217
+multi_source_sales,4178
+match_pairs,61536
+conflict_pairs,0

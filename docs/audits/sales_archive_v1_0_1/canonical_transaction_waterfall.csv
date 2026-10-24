@@ -1,0 +1,12 @@
+stage,n
+raw_rows,18409
+identity_clusters,11508
+canonical_sales,14192
+merged_rows,4217
+sales_price_known,14192
+sales_age_known,13530
+sales_age_unknown,662
+sales_pid_known,13928
+sales_fa_known,4758
+tax_link_single,8192
+tax_link_ambiguous,76

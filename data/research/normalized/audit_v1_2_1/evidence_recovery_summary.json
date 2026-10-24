@@ -1,0 +1,69 @@
+{
+ "linkage": {
+  "rows": 1531,
+  "conf": {
+   "LOW": 1429,
+   "HIGH": 95,
+   "MED": 7
+  },
+  "methods": {
+   "none": 1179,
+   "permit": 250,
+   "tax_folio+tax_folio_plan": 77,
+   "land_folio+permit": 3,
+   "tax_folio+land_folio+tax_folio_plan": 1,
+   "tax_folio+land_folio+permit+tax_folio_plan": 2,
+   "tax_folio+permit+tax_folio_plan": 15,
+   "land_folio": 4
+  }
+ },
+ "mpx_sales": {
+  "PRE_PERMIT_SALE": 55,
+  "CONFIRMED_TEARDOWN_SALE": 19,
+  "POST_PERMIT_SALE_REVIEW": 1
+ },
+ "specials": {
+  "2609 DUNDAS ST": "NOT_MPX_SALE",
+  "1909 CHARLES ST": "OLD_MULTI_RES_NOT_NEWBUILD",
+  "3122 MARINE DR SE": "VACANT_LAND_NOT_BUILDING"
+ },
+ "house_buckets": {
+  "VERIFIED_FULL": 187,
+  "RECOVERED_NEEDS_REVIEW": 2,
+  "KEY_UNCERTAINTY": 28,
+  "BANNED": 33
+ },
+ "bench_cells": 159,
+ "gap": [
+  {
+   "product": "HOUSE",
+   "sales_confirmed": 217,
+   "projects_confirmed": 216,
+   "verified_comparable": 187,
+   "partial": 2437,
+   "unverified": 2347,
+   "fresh": "2026-06-29",
+   "gap": "yb_no_source×829+MLS首销渠道"
+  },
+  {
+   "product": "DUPLEX",
+   "sales_confirmed": 389,
+   "projects_confirmed": 386,
+   "verified_comparable": 389,
+   "partial": 233,
+   "unverified": 0,
+   "fresh": "2026-07-03",
+   "gap": "半户fa交叉验证+MLS渠道"
+  },
+  {
+   "product": "MPX",
+   "sales_confirmed": 0,
+   "projects_confirmed": 0,
+   "verified_comparable": 0,
+   "partial": 2,
+   "unverified": 0,
+   "fresh": "",
+   "gap": "单元成交源缺失(MLS/GVR)"
+  }
+ ]
+}

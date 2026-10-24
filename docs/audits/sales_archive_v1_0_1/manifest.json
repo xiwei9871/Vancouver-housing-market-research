@@ -1,0 +1,76 @@
+{
+ "version": "sales_archive_v1_0_1",
+ "run": "2026-10-23T12:58:45.181538",
+ "input_sha256": {
+  "comps": "e6c5c447463f356cb1b9020a7faf43abe4384405b11baf1c9fd4563fea0387b7",
+  "arc_2324_all": "2b71db4a7d4017be1bca13c0d3f6934cc5ce32665018790cfe188d3169b62da9",
+  "arc_2326": "5cc5e7e3b8bd43f3e51611545e827811fc0322d8058a3daafe0ec030e0f60aa8",
+  "arc_2326_enriched": "9215a79648f25713f2c49b958c514b13e06db650a71fcba0b124731a1232dda8",
+  "arc_2526": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531",
+  "arc_2526_enriched": "42141220688154ebe934fe58acde9019544f4bf5350fe573023db7bbc86648b6",
+  "arc_spatial": "c07bdb9ac897c1d0b56697ca09b2cc02e459484ce5640f26d4d496de584e4a28",
+  "tax2023f": "71c4bf04e36b767428f87c5eb24b19a999f3b20484614cf22b1359b1b21d4c4f",
+  "tax2024f": "0746fc8cc0c2653a9cd0819770d3e4ce63af4240dc3e5c95e5033a8f1cffe351",
+  "tax2025f": "b55c3e42effc7ec9adb4ff1a2b34163442b7e039ceac66cd9f97308e572f5d20",
+  "tax2026f": "c93042f05fbcee3aab32b38d6cb8386c1e901e8be3c08230c8dc447a89d68df3",
+  "tax2023sub": "70d3d51288a19886a8e5eae16901bfbaf19cbf44affb64919d96081cb1ddfd29",
+  "tax2026sub": "e1c290b660752e3daa45a3684fdb9291e4c6afff6f1b2499fbeaed1c71228be8"
+ },
+ "counts": {
+  "raw_rows": 18409,
+  "canonical_sales": 14192,
+  "identity_clusters": 11508,
+  "merge_log": 4217,
+  "pairs_by_tier": {
+   "SPATIAL_CANDIDATE_ONLY": 51510,
+   "EXACT_PID_UNIT": 4454,
+   "EXACT_PARCEL": 5572
+  },
+  "by_year": {
+   "2025": 6683,
+   "2026": 2342,
+   "2024": 2536,
+   "2023": 2631
+  },
+  "by_product": {
+   "HOUSE": 7613,
+   "TOWNHOUSE": 529,
+   "DUPLEX_HALF": 607,
+   "MULTIPLEX_UNIT": 228,
+   "MULTIPLEX_WHOLE": 35,
+   "UNKNOWN": 82,
+   "CONDO": 4947,
+   "DUPLEX_WHOLE": 15,
+   "OTHER_RESIDENTIAL": 136
+  },
+  "by_age": {
+   "AGE_51_PLUS": 4618,
+   "AGE_31_50": 2735,
+   "AGE_11_20": 2232,
+   "AGE_04_10": 1352,
+   "AGE_21_30": 1838,
+   "AGE_00_03": 753,
+   "AGE_UNKNOWN": 662,
+   "AGE_TEMPORAL_CONFLICT": 2
+  },
+  "tax_years": {
+   "2023": {
+    "rows": 216524,
+    "full": true
+   },
+   "2024": {
+    "rows": 224743,
+    "full": true
+   },
+   "2025": {
+    "rows": 226360,
+    "full": true
+   },
+   "2026": {
+    "rows": 228935,
+    "full": true
+   }
+  },
+  "age_unknown": 662
+ }
+}

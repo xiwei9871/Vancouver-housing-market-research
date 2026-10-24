@@ -1,0 +1,10 @@
+metric,n
+sales_pid_known,23571
+sales_folio_known,23420
+sales_zoning_known,23420
+sales_yb_known,21505
+tax_link_unit,24
+tax_link_parcel,10
+tax_link_single,23386
+tax_link_consensus,217
+tax_link_ambiguous,74

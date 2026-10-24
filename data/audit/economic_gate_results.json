@@ -1,0 +1,331 @@
+{
+ "phase": "V1.5.3 Economic Integrity Gate / Phase A (audit only)",
+ "baseline_commit": "460085354039890c123ac9de728c497dd948e97d",
+ "target_roi_for_residual": 0.15,
+ "audit_assumptions": {
+  "hard_psf": {
+   "HOUSE": 350,
+   "DUPLEX": 400,
+   "MULTIPLEX": 450
+  },
+  "soft_psf": 40,
+  "dcl_psf": 7.53,
+  "acc_psf": 2.32,
+  "metro_2027": {
+   "lotdev": 28322,
+   "town": 25625
+  },
+  "translink": {
+   "sfd": 3416,
+   "town": 2837
+  },
+  "demolition": 35000,
+  "utility": {
+   "1": 40000,
+   "2": 50000,
+   "3": 60000,
+   "4": 70000
+  },
+  "contingency_pct": 0.05,
+  "land_ltv": 0.6,
+  "land_rate": 0.06,
+  "con_ltv": 0.65,
+  "con_rate": 0.09,
+  "loan_fee": 0.015,
+  "prop_tax_pct_yr": 0.0045,
+  "insurance_yr": 12000,
+  "selling_pct": 0.04,
+  "bsmt_psf": 200,
+  "months": 18,
+  "permit_months": 6,
+  "build_months": 10,
+  "target_roi": 0.15
+ },
+ "existing_fa_card": {
+  "880 E 33RD AVENUE": 1657,
+  "5109 SLOCAN STREET": 1975,
+  "7455 WEST BOULEVARD": 2237,
+  "3141 E BROADWAY": 1773,
+  "3055 ROSEMONT DRIVE": 2594
+ },
+ "v152_reproduction": [
+  {
+   "case": "880 E 33RD AVENUE",
+   "scenario": "HOUSE",
+   "roi_v152_csv": 47.7,
+   "roi_recomputed": 47.7
+  },
+  {
+   "case": "880 E 33RD AVENUE",
+   "scenario": "DUPLEX",
+   "roi_v152_csv": 16.0,
+   "roi_recomputed": 16.0
+  },
+  {
+   "case": "5109 SLOCAN STREET",
+   "scenario": "HOUSE",
+   "roi_v152_csv": 8.3,
+   "roi_recomputed": 8.3
+  },
+  {
+   "case": "5109 SLOCAN STREET",
+   "scenario": "DUPLEX",
+   "roi_v152_csv": -1.2,
+   "roi_recomputed": -1.2
+  },
+  {
+   "case": "7455 WEST BOULEVARD",
+   "scenario": "HOUSE",
+   "roi_v152_csv": 44.4,
+   "roi_recomputed": 44.4
+  },
+  {
+   "case": "7455 WEST BOULEVARD",
+   "scenario": "DUPLEX",
+   "roi_v152_csv": 15.0,
+   "roi_recomputed": 15.0
+  },
+  {
+   "case": "3141 E BROADWAY",
+   "scenario": "HOUSE",
+   "roi_v152_csv": 46.6,
+   "roi_recomputed": 46.6
+  },
+  {
+   "case": "3141 E BROADWAY",
+   "scenario": "DUPLEX",
+   "roi_v152_csv": -7.5,
+   "roi_recomputed": -7.5
+  },
+  {
+   "case": "3055 ROSEMONT DRIVE",
+   "scenario": "HOUSE",
+   "roi_v152_csv": 20.0,
+   "roi_recomputed": 20.0
+  },
+  {
+   "case": "3055 ROSEMONT DRIVE",
+   "scenario": "DUPLEX",
+   "roi_v152_csv": -1.5,
+   "roi_recomputed": -1.5
+  }
+ ],
+ "v152_reproduced": true,
+ "comp_geometry_house_pool": {
+  "above_over_lot_p50": 0.4579281736613249,
+  "above_over_lot_max": 0.7098415260600488,
+  "n_lot_dims": 64,
+  "bsmt_over_above_p50": 0.542608695652174,
+  "n_bsmt_yes": 111,
+  "n_bsmt_unknown_or_noraw": 47,
+  "n_bsmt_no": 0
+ },
+ "community_alias_check": {
+  "880 E 33RD AVENUE": {
+   "model_community": "Riley Park",
+   "official_local_area": "Kensington-Cedar Cottage"
+  },
+  "5109 SLOCAN STREET": {
+   "model_community": "Collingwood(南)",
+   "official_local_area": "Renfrew-Collingwood"
+  },
+  "7455 WEST BOULEVARD": {
+   "model_community": "Kerrisdale",
+   "official_local_area": "Kerrisdale"
+  },
+  "3141 E BROADWAY": {
+   "model_community": "Hastings-Sunrise",
+   "official_local_area": "Hastings-Sunrise"
+  },
+  "3055 ROSEMONT DRIVE": {
+   "model_community": "Killarney",
+   "official_local_area": "Killarney"
+  }
+ },
+ "comps_trace_counts": {
+  "880 E 33RD AVENUE|HOUSE": {
+   "included": 158,
+   "excluded": 1
+  },
+  "880 E 33RD AVENUE|DUPLEX": {
+   "included": 570,
+   "excluded": 0
+  },
+  "5109 SLOCAN STREET|HOUSE": {
+   "included": 158,
+   "excluded": 4
+  },
+  "5109 SLOCAN STREET|DUPLEX": {
+   "included": 570,
+   "excluded": 4
+  }
+ },
+ "gate": {
+  "880 E 33RD AVENUE|HOUSE": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1399900.0,
+   "best_residual_land_at_15": 1379547,
+   "residual_minus_ask": -20353,
+   "variants_considered": [
+    "ALIGNED_COMPS_GEOMETRY",
+    "ALIGNED_FSR060_INCL_BSMT"
+   ],
+   "scope_aligned_available": true,
+   "roi_v152_model": 47.7,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 40.7,
+    "ALIGNED_COMPS_GEOMETRY": 14.1,
+    "ALIGNED_FSR060_INCL_BSMT": 5.5
+   }
+  },
+  "880 E 33RD AVENUE|DUPLEX": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1399900.0,
+   "best_residual_land_at_15": 1245579,
+   "residual_minus_ask": -154321,
+   "variants_considered": [
+    "V152_MODEL_GEOMETRY"
+   ],
+   "scope_aligned_available": false,
+   "roi_v152_model": 16.0,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 9.2
+   }
+  },
+  "5109 SLOCAN STREET|HOUSE": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1199900.0,
+   "best_residual_land_at_15": 559640,
+   "residual_minus_ask": -640260,
+   "variants_considered": [
+    "ALIGNED_COMPS_GEOMETRY",
+    "ALIGNED_FSR060_INCL_BSMT"
+   ],
+   "scope_aligned_available": true,
+   "roi_v152_model": 8.3,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 2.3,
+    "ALIGNED_COMPS_GEOMETRY": -17.5,
+    "ALIGNED_FSR060_INCL_BSMT": -24.0
+   }
+  },
+  "5109 SLOCAN STREET|DUPLEX": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1199900.0,
+   "best_residual_land_at_15": 677813,
+   "residual_minus_ask": -522087,
+   "variants_considered": [
+    "V152_MODEL_GEOMETRY"
+   ],
+   "scope_aligned_available": false,
+   "roi_v152_model": -1.2,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": -7.7
+   }
+  },
+  "7455 WEST BOULEVARD|HOUSE": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1699999.0,
+   "best_residual_land_at_15": 1622082,
+   "residual_minus_ask": -77917,
+   "variants_considered": [
+    "ALIGNED_COMPS_GEOMETRY",
+    "ALIGNED_FSR060_INCL_BSMT"
+   ],
+   "scope_aligned_available": true,
+   "roi_v152_model": 44.4,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 38.2,
+    "ALIGNED_COMPS_GEOMETRY": 12.2,
+    "ALIGNED_FSR060_INCL_BSMT": 3.5
+   }
+  },
+  "7455 WEST BOULEVARD|DUPLEX": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1699999.0,
+   "best_residual_land_at_15": 1510763,
+   "residual_minus_ask": -189236,
+   "variants_considered": [
+    "V152_MODEL_GEOMETRY"
+   ],
+   "scope_aligned_available": false,
+   "roi_v152_model": 15.0,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 9.1
+   }
+  },
+  "3141 E BROADWAY|HOUSE": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1600000.0,
+   "best_residual_land_at_15": 1581148,
+   "residual_minus_ask": -18852,
+   "variants_considered": [
+    "ALIGNED_COMPS_GEOMETRY",
+    "ALIGNED_FSR060_INCL_BSMT"
+   ],
+   "scope_aligned_available": true,
+   "roi_v152_model": 46.6,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 40.7,
+    "ALIGNED_COMPS_GEOMETRY": 14.4,
+    "ALIGNED_FSR060_INCL_BSMT": 7.5
+   }
+  },
+  "3141 E BROADWAY|DUPLEX": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1600000.0,
+   "best_residual_land_at_15": 565241,
+   "residual_minus_ask": -1034759,
+   "variants_considered": [
+    "V152_MODEL_GEOMETRY"
+   ],
+   "scope_aligned_available": false,
+   "roi_v152_model": -7.5,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": -12.0
+   }
+  },
+  "3055 ROSEMONT DRIVE|HOUSE": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1599000.0,
+   "best_residual_land_at_15": 979518,
+   "residual_minus_ask": -619482,
+   "variants_considered": [
+    "ALIGNED_COMPS_GEOMETRY",
+    "ALIGNED_FSR060_INCL_BSMT"
+   ],
+   "scope_aligned_available": true,
+   "roi_v152_model": 20.0,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": 14.7,
+    "ALIGNED_COMPS_GEOMETRY": -7.2,
+    "ALIGNED_FSR060_INCL_BSMT": -13.9
+   }
+  },
+  "3055 ROSEMONT DRIVE|DUPLEX": {
+   "status": "FAIL_RESIDUAL_BELOW_ASK",
+   "legal_state": "CONDITIONAL_UNVERIFIED",
+   "asking": 1599000.0,
+   "best_residual_land_at_15": 892669,
+   "residual_minus_ask": -706331,
+   "variants_considered": [
+    "V152_MODEL_GEOMETRY"
+   ],
+   "scope_aligned_available": false,
+   "roi_v152_model": -1.5,
+   "roi_audit_by_variant": {
+    "V152_MODEL_GEOMETRY": -6.7
+   }
+  }
+ },
+ "bylaw_fetch": "bylaws.vancouver.ca R1-1/RM-7 PDF: Cloudflare challenge page (HTTP body 'Attention Required'), not bypassed"
+}

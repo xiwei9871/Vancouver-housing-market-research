@@ -1,0 +1,9 @@
+metric,n,note
+mpx_projects_total,340,
+projects_with_any_sale,74,
+pre_permit_transactions,74,
+pre_permit_projects,73,
+pre_permit_old_building_tx,19,
+pre_permit_unresolved_tx,55,
+post_permit_tx,1,
+confirmed_teardown_tx,0,拆除许可不在LDH数据集;旧建筑出售≠已拆除

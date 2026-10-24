@@ -1,0 +1,92 @@
+{
+ "version": "v1.2.1",
+ "run": "2026-10-23T10:27:37.606958",
+ "parent_commit": "b890f39497330f0861d723cbdf8cf4c0cb4c7149",
+ "input_sha256": {
+  "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
+  "tax2026": "e1c290b660752e3daa45a3684fdb9291e4c6afff6f1b2499fbeaed1c71228be8",
+  "tax2023": "70d3d51288a19886a8e5eae16901bfbaf19cbf44affb64919d96081cb1ddfd29",
+  "comps": "e6c5c447463f356cb1b9020a7faf43abe4384405b11baf1c9fd4563fea0387b7",
+  "v3s": "8ed4af1d6b7c8ecea40fc75b952cebd678776855cc6b680115b6e7eba23b074e",
+  "patch": "fe58e78987eb7d492406f8c42f43a60bf851466a34f7e33cef7d5c32691647d5",
+  "arcgis_all": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531"
+ },
+ "inputs": {
+  "permits": "data/research/raw/official/issued-permits-ldh-2017.csv",
+  "tax2026": "data/research/raw/official/property-tax-2026-yb2018plus.csv",
+  "tax2023": "data/research/raw/official/property-tax-2023-yb2018plus.csv",
+  "comps": "data/research/normalized/standard-residential-comps-v2.csv",
+  "v3s": "data/research/normalized/valuation-v3s-shadow-2026-10-22.json",
+  "patch": "data/research/normalized/house_anchor_patch_v3s.json",
+  "arcgis_all": "data/research/raw/location/bca-arcgis-sales-2025-present-all.json"
+ },
+ "counts": {
+  "linkage": {
+   "rows": 1531,
+   "conf": {
+    "LOW": 1429,
+    "HIGH": 95,
+    "MED": 7
+   },
+   "methods": {
+    "none": 1179,
+    "permit": 250,
+    "tax_folio+tax_folio_plan": 77,
+    "land_folio+permit": 3,
+    "tax_folio+land_folio+tax_folio_plan": 1,
+    "tax_folio+land_folio+permit+tax_folio_plan": 2,
+    "tax_folio+permit+tax_folio_plan": 15,
+    "land_folio": 4
+   }
+  },
+  "mpx_sales": {
+   "PRE_PERMIT_SALE": 55,
+   "CONFIRMED_TEARDOWN_SALE": 19,
+   "POST_PERMIT_SALE_REVIEW": 1
+  },
+  "specials": {
+   "2609 DUNDAS ST": "NOT_MPX_SALE",
+   "1909 CHARLES ST": "OLD_MULTI_RES_NOT_NEWBUILD",
+   "3122 MARINE DR SE": "VACANT_LAND_NOT_BUILDING"
+  },
+  "house_buckets": {
+   "VERIFIED_FULL": 187,
+   "RECOVERED_NEEDS_REVIEW": 2,
+   "KEY_UNCERTAINTY": 28,
+   "BANNED": 33
+  },
+  "bench_cells": 159,
+  "gap": [
+   {
+    "product": "HOUSE",
+    "sales_confirmed": 217,
+    "projects_confirmed": 216,
+    "verified_comparable": 187,
+    "partial": 2437,
+    "unverified": 2347,
+    "fresh": "2026-06-29",
+    "gap": "yb_no_source×829+MLS首销渠道"
+   },
+   {
+    "product": "DUPLEX",
+    "sales_confirmed": 389,
+    "projects_confirmed": 386,
+    "verified_comparable": 389,
+    "partial": 233,
+    "unverified": 0,
+    "fresh": "2026-07-03",
+    "gap": "半户fa交叉验证+MLS渠道"
+   },
+   {
+    "product": "MPX",
+    "sales_confirmed": 0,
+    "projects_confirmed": 0,
+    "verified_comparable": 0,
+    "partial": 2,
+    "unverified": 0,
+    "fresh": "",
+    "gap": "单元成交源缺失(MLS/GVR)"
+   }
+  ]
+ }
+}

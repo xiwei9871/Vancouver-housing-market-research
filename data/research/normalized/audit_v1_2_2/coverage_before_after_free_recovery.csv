@@ -1,0 +1,4 @@
+scope,before,after_conditional,note
+HOUSE usable,217,224,新增均需人工复核;sales_history 未捕获故sale_verified=UNKNOWN
+HOUSE yb confirmed,50,872,829 闭合:旧786+候选12+冲突24+空7
+MPX unit sales,0,0,离线复核后仍无 CONFIRMED_SALE

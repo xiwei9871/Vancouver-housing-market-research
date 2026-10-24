@@ -1,0 +1,21 @@
+{
+ "version": "v2_2",
+ "run": "2026-10-23T17:17:20.047458",
+ "baseline": "d2b26bc",
+ "cutoff": "2026-07-08",
+ "counts": {
+  "house": 5386,
+  "qA_unique": 622,
+  "qA_in128": 104,
+  "sale_verified": 4967,
+  "nh_status_verified": 128,
+  "total_price": 4967,
+  "psf": 3001,
+  "gst_verified": 0,
+  "pricing_ready": 101,
+  "assess_completion_128": 87,
+  "lin_confirmed": 62,
+  "lin_split": 162,
+  "jump": 10925
+ }
+}

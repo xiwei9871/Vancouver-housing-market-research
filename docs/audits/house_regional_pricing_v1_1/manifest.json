@@ -1,0 +1,23 @@
+{
+ "version": "v1_1",
+ "run": "2026-10-23T18:42:09.977984",
+ "baseline": "a5b9767",
+ "cutoff": "2026-07-08",
+ "counts": {
+  "house_rows": 5386,
+  "main_pool": 3734,
+  "excluded": {
+   "FA_OUTLIER": 142,
+   "BIG_LOT": 1290,
+   "STRATA": 183
+  },
+  "nb03": 103,
+  "nn410": 289,
+  "rebuild_1800_2200": 48,
+  "tier_dist": {
+   "STRICT_AGE": 5181,
+   "SUPPORTED_AGE": 56,
+   "AGE_UNKNOWN": 149
+  }
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "version": "v1.2.2+free-integration",
+ "run": "2026-10-23T11:57:06.413108",
+ "input_sha256": {
+  "permits": "acbffd6292b46a4a78d10caa41e5e16a8ebb4891c009fee578da90c88a9306ed",
+  "tax2026": "e1c290b660752e3daa45a3684fdb9291e4c6afff6f1b2499fbeaed1c71228be8",
+  "tax2023": "70d3d51288a19886a8e5eae16901bfbaf19cbf44affb64919d96081cb1ddfd29",
+  "comps": "e6c5c447463f356cb1b9020a7faf43abe4384405b11baf1c9fd4563fea0387b7",
+  "v3s": "8ed4af1d6b7c8ecea40fc75b952cebd678776855cc6b680115b6e7eba23b074e",
+  "patch": "fe58e78987eb7d492406f8c42f43a60bf851466a34f7e33cef7d5c32691647d5",
+  "arcgis_all": "717a0925186b1f8044deba0c5f24a9393e85ffbf15f9bef975a8d12b2ce03531",
+  "bca_yb_backfill": "7c086418b138b4311dc69a3142a1a03e9f5f75ff51909c61b4828f9a54ffd708"
+ },
+ "counts": {
+  "identity": {
+   "IDENTITY_PID_CONFIRMED": 4,
+   "IDENTITY_SINGLE_CANDIDATE": 805,
+   "OUT_OF_SCOPE_MUNICIPALITY": 20
+  },
+  "cat": {
+   "BCA_BLANK": 7,
+   "CONFIRMED_OLD": 786,
+   "TEMPORAL_CONFLICT": 24,
+   "NEW_CANDIDATE": 12
+  },
+  "candidates": {
+   "total": 12,
+   "eligible_reviewed": 7,
+   "excluded": {
+    "EXCLUDE_STRATA_UNIT": 3,
+    "EXCLUDE_MUNICIPALITY": 2
+   }
+  },
+  "mpx_offline": {
+   "NO_MATCH_IN_CURRENT_DATA": 101,
+   "MATCHED_NO_SALE": 239
+  },
+  "fa_quality": {
+   "product": "HOUSE_829scope",
+   "with_floor_area": 821,
+   "with_second_floor": 406,
+   "with_basement": 773,
+   "unit_prefixed": 5,
+   "note": "bca first+second floor=地上层面积;basement单列;均待身份验证后才入估值"
+  }
+ }
+}

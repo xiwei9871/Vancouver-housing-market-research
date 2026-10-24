@@ -1,0 +1,361 @@
+pool,year,community,n
+A_00_03_FIRST,2023,Collingwood(南),1
+A_00_03_FIRST,2023,Dunbar-Southlands,3
+A_00_03_FIRST,2023,Grandview-Woodland,1
+A_00_03_FIRST,2023,Kensington-Cedar Cottage,2
+A_00_03_FIRST,2023,Kerrisdale,1
+A_00_03_FIRST,2023,Killarney,1
+A_00_03_FIRST,2023,Marpole,3
+A_00_03_FIRST,2023,Renfrew(北),1
+A_00_03_FIRST,2023,Riley Park,2
+A_00_03_FIRST,2023,West Point Grey,1
+A_00_03_FIRST,2024,Arbutus Ridge,1
+A_00_03_FIRST,2024,Dunbar-Southlands,2
+A_00_03_FIRST,2024,Grandview-Woodland,1
+A_00_03_FIRST,2024,Hastings-Sunrise,2
+A_00_03_FIRST,2024,Kensington-Cedar Cottage,4
+A_00_03_FIRST,2024,Kerrisdale,1
+A_00_03_FIRST,2024,Killarney,1
+A_00_03_FIRST,2024,Kitsilano,1
+A_00_03_FIRST,2024,Mount Pleasant,2
+A_00_03_FIRST,2024,Renfrew(北),1
+A_00_03_FIRST,2024,Riley Park,1
+A_00_03_FIRST,2025,Collingwood(南),1
+A_00_03_FIRST,2025,Hastings-Sunrise,1
+A_00_03_FIRST,2025,Kensington-Cedar Cottage,1
+A_00_03_FIRST,2025,Riley Park,3
+A_00_03_FIRST,2025,Sunset,1
+A_00_03_FIRST,2026,Hastings-Sunrise,2
+A_00_03_FIRST,2026,Renfrew(北),1
+A_00_03_FIRST,2026,Victoria-Fraserview,1
+A_00_03_RESALE,2023,Dunbar-Southlands,2
+A_00_03_RESALE,2023,Hastings-Sunrise,1
+A_00_03_RESALE,2023,Kensington-Cedar Cottage,1
+A_00_03_RESALE,2023,Marpole,2
+A_00_03_RESALE,2023,Riley Park,2
+A_00_03_RESALE,2023,West Point Grey,4
+A_00_03_RESALE,2024,Collingwood(南),1
+A_00_03_RESALE,2024,Dunbar-Southlands,3
+A_00_03_RESALE,2024,Grandview-Woodland,4
+A_00_03_RESALE,2024,Hastings-Sunrise,5
+A_00_03_RESALE,2024,Kensington-Cedar Cottage,3
+A_00_03_RESALE,2024,Killarney,1
+A_00_03_RESALE,2024,Mount Pleasant,2
+A_00_03_RESALE,2024,Renfrew(北),1
+A_00_03_RESALE,2024,Riley Park,2
+A_00_03_RESALE,2024,Sunset,3
+A_00_03_RESALE,2024,Victoria-Fraserview,1
+A_00_03_RESALE,2024,West Point Grey,1
+A_00_03_RESALE,2025,Arbutus Ridge,2
+A_00_03_RESALE,2025,Dunbar-Southlands,2
+A_00_03_RESALE,2025,Grandview-Woodland,2
+A_00_03_RESALE,2025,Hastings-Sunrise,2
+A_00_03_RESALE,2025,Kensington-Cedar Cottage,1
+A_00_03_RESALE,2025,Kerrisdale,1
+A_00_03_RESALE,2025,Renfrew(北),2
+A_00_03_RESALE,2025,Riley Park,1
+A_00_03_RESALE,2025,Sunset,1
+A_00_03_RESALE,2025,Victoria-Fraserview,1
+A_00_03_RESALE,2025,West Point Grey,4
+A_00_03_RESALE,2026,Collingwood(南),1
+A_00_03_RESALE,2026,Hastings-Sunrise,3
+A_00_03_RESALE,2026,Renfrew(北),2
+A_00_03_RESALE,2026,Sunset,3
+A_00_03_UNK,2023,Arbutus Ridge,1
+A_00_03_UNK,2023,Dunbar-Southlands,2
+A_00_03_UNK,2023,Kensington-Cedar Cottage,2
+A_00_03_UNK,2023,Kitsilano,1
+A_00_03_UNK,2023,Marpole,1
+A_00_03_UNK,2023,Mount Pleasant,3
+A_00_03_UNK,2023,Renfrew(北),2
+A_00_03_UNK,2023,Victoria-Fraserview,1
+A_00_03_UNK,2024,?,2
+A_00_03_UNK,2024,Kensington-Cedar Cottage,1
+A_00_03_UNK,2024,Mount Pleasant,1
+A_00_03_UNK,2026,Kitsilano,1
+C_04_10_RESALE,2023,Arbutus Ridge,10
+C_04_10_RESALE,2023,Collingwood(南),1
+C_04_10_RESALE,2023,Dunbar-Southlands,18
+C_04_10_RESALE,2023,Grandview-Woodland,1
+C_04_10_RESALE,2023,Hastings-Sunrise,3
+C_04_10_RESALE,2023,Kensington-Cedar Cottage,4
+C_04_10_RESALE,2023,Kerrisdale,3
+C_04_10_RESALE,2023,Killarney,2
+C_04_10_RESALE,2023,Kitsilano,4
+C_04_10_RESALE,2023,Marpole,3
+C_04_10_RESALE,2023,Oakridge,2
+C_04_10_RESALE,2023,Renfrew(北),4
+C_04_10_RESALE,2023,Riley Park,6
+C_04_10_RESALE,2023,Shaughnessy,3
+C_04_10_RESALE,2023,Sunset,1
+C_04_10_RESALE,2023,Victoria-Fraserview,1
+C_04_10_RESALE,2023,West Point Grey,15
+C_04_10_RESALE,2024,Arbutus Ridge,10
+C_04_10_RESALE,2024,Collingwood(南),2
+C_04_10_RESALE,2024,Dunbar-Southlands,20
+C_04_10_RESALE,2024,Grandview-Woodland,2
+C_04_10_RESALE,2024,Hastings-Sunrise,8
+C_04_10_RESALE,2024,Kensington-Cedar Cottage,6
+C_04_10_RESALE,2024,Kerrisdale,6
+C_04_10_RESALE,2024,Killarney,3
+C_04_10_RESALE,2024,Kitsilano,6
+C_04_10_RESALE,2024,Marpole,3
+C_04_10_RESALE,2024,Oakridge,2
+C_04_10_RESALE,2024,Renfrew(北),3
+C_04_10_RESALE,2024,Riley Park,9
+C_04_10_RESALE,2024,South Cambie,1
+C_04_10_RESALE,2024,Strathcona,1
+C_04_10_RESALE,2024,Victoria-Fraserview,6
+C_04_10_RESALE,2024,West Point Grey,9
+C_04_10_RESALE,2025,Arbutus Ridge,6
+C_04_10_RESALE,2025,Dunbar-Southlands,13
+C_04_10_RESALE,2025,Grandview-Woodland,5
+C_04_10_RESALE,2025,Hastings-Sunrise,6
+C_04_10_RESALE,2025,Kensington-Cedar Cottage,6
+C_04_10_RESALE,2025,Kerrisdale,5
+C_04_10_RESALE,2025,Killarney,1
+C_04_10_RESALE,2025,Kitsilano,3
+C_04_10_RESALE,2025,Marpole,3
+C_04_10_RESALE,2025,Mount Pleasant,2
+C_04_10_RESALE,2025,Oakridge,1
+C_04_10_RESALE,2025,Renfrew(北),4
+C_04_10_RESALE,2025,Riley Park,5
+C_04_10_RESALE,2025,Shaughnessy,2
+C_04_10_RESALE,2025,South Cambie,1
+C_04_10_RESALE,2025,Sunset,5
+C_04_10_RESALE,2025,Victoria-Fraserview,3
+C_04_10_RESALE,2025,West Point Grey,4
+C_04_10_RESALE,2026,?,1
+C_04_10_RESALE,2026,Arbutus Ridge,1
+C_04_10_RESALE,2026,Dunbar-Southlands,5
+C_04_10_RESALE,2026,Grandview-Woodland,2
+C_04_10_RESALE,2026,Hastings-Sunrise,3
+C_04_10_RESALE,2026,Kensington-Cedar Cottage,6
+C_04_10_RESALE,2026,Kerrisdale,1
+C_04_10_RESALE,2026,Kitsilano,2
+C_04_10_RESALE,2026,Riley Park,1
+C_04_10_RESALE,2026,Shaughnessy,2
+C_04_10_RESALE,2026,Sunset,2
+C_04_10_RESALE,2026,Victoria-Fraserview,4
+C_04_10_RESALE,2026,West Point Grey,1
+C_04_10_UNK,2023,Arbutus Ridge,2
+C_04_10_UNK,2023,Dunbar-Southlands,3
+C_04_10_UNK,2023,Grandview-Woodland,2
+C_04_10_UNK,2023,Hastings-Sunrise,2
+C_04_10_UNK,2023,Kerrisdale,3
+C_04_10_UNK,2023,Marpole,1
+C_04_10_UNK,2023,Oakridge,1
+C_04_10_UNK,2023,Riley Park,1
+C_04_10_UNK,2023,Shaughnessy,5
+C_04_10_UNK,2023,Sunset,2
+C_04_10_UNK,2023,Victoria-Fraserview,1
+C_04_10_UNK,2023,West Point Grey,5
+C_04_10_UNK,2024,Arbutus Ridge,2
+C_04_10_UNK,2024,Dunbar-Southlands,2
+C_04_10_UNK,2024,Grandview-Woodland,1
+C_04_10_UNK,2024,Kensington-Cedar Cottage,4
+C_04_10_UNK,2024,Kerrisdale,1
+C_04_10_UNK,2024,Kitsilano,1
+C_04_10_UNK,2024,Marpole,2
+C_04_10_UNK,2025,Hastings-Sunrise,1
+C_04_10_UNK,2026,Kensington-Cedar Cottage,1
+D_11_PLUS_RESALE,2023,?,4
+D_11_PLUS_RESALE,2023,Arbutus Ridge,32
+D_11_PLUS_RESALE,2023,Dunbar-Southlands,56
+D_11_PLUS_RESALE,2023,Grandview-Woodland,1
+D_11_PLUS_RESALE,2023,Hastings-Sunrise,5
+D_11_PLUS_RESALE,2023,Kensington-Cedar Cottage,6
+D_11_PLUS_RESALE,2023,Kerrisdale,33
+D_11_PLUS_RESALE,2023,Kitsilano,10
+D_11_PLUS_RESALE,2023,Marpole,12
+D_11_PLUS_RESALE,2023,Mount Pleasant,1
+D_11_PLUS_RESALE,2023,Oakridge,28
+D_11_PLUS_RESALE,2023,Renfrew(北),2
+D_11_PLUS_RESALE,2023,Riley Park,13
+D_11_PLUS_RESALE,2023,Shaughnessy,31
+D_11_PLUS_RESALE,2023,South Cambie,10
+D_11_PLUS_RESALE,2023,Sunset,3
+D_11_PLUS_RESALE,2023,Victoria-Fraserview,5
+D_11_PLUS_RESALE,2023,West Point Grey,36
+D_11_PLUS_RESALE,2024,?,2
+D_11_PLUS_RESALE,2024,Arbutus Ridge,33
+D_11_PLUS_RESALE,2024,Collingwood(南),2
+D_11_PLUS_RESALE,2024,Dunbar-Southlands,62
+D_11_PLUS_RESALE,2024,Fairview,1
+D_11_PLUS_RESALE,2024,Grandview-Woodland,7
+D_11_PLUS_RESALE,2024,Hastings-Sunrise,11
+D_11_PLUS_RESALE,2024,Kensington-Cedar Cottage,14
+D_11_PLUS_RESALE,2024,Kerrisdale,48
+D_11_PLUS_RESALE,2024,Killarney,3
+D_11_PLUS_RESALE,2024,Kitsilano,19
+D_11_PLUS_RESALE,2024,Marpole,10
+D_11_PLUS_RESALE,2024,Mount Pleasant,2
+D_11_PLUS_RESALE,2024,Oakridge,16
+D_11_PLUS_RESALE,2024,Renfrew(北),8
+D_11_PLUS_RESALE,2024,Riley Park,18
+D_11_PLUS_RESALE,2024,Shaughnessy,34
+D_11_PLUS_RESALE,2024,South Cambie,8
+D_11_PLUS_RESALE,2024,Strathcona,2
+D_11_PLUS_RESALE,2024,Sunset,8
+D_11_PLUS_RESALE,2024,Victoria-Fraserview,12
+D_11_PLUS_RESALE,2024,West Point Grey,32
+D_11_PLUS_RESALE,2025,?,28
+D_11_PLUS_RESALE,2025,Arbutus Ridge,62
+D_11_PLUS_RESALE,2025,Collingwood(南),28
+D_11_PLUS_RESALE,2025,Dunbar-Southlands,116
+D_11_PLUS_RESALE,2025,Fairview,1
+D_11_PLUS_RESALE,2025,Grandview-Woodland,64
+D_11_PLUS_RESALE,2025,Hastings-Sunrise,21
+D_11_PLUS_RESALE,2025,Kensington-Cedar Cottage,127
+D_11_PLUS_RESALE,2025,Kerrisdale,69
+D_11_PLUS_RESALE,2025,Killarney,42
+D_11_PLUS_RESALE,2025,Kitsilano,68
+D_11_PLUS_RESALE,2025,Marpole,21
+D_11_PLUS_RESALE,2025,Mount Pleasant,20
+D_11_PLUS_RESALE,2025,Oakridge,33
+D_11_PLUS_RESALE,2025,Renfrew(北),84
+D_11_PLUS_RESALE,2025,Riley Park,81
+D_11_PLUS_RESALE,2025,Shaughnessy,31
+D_11_PLUS_RESALE,2025,South Cambie,24
+D_11_PLUS_RESALE,2025,Strathcona,9
+D_11_PLUS_RESALE,2025,Sunset,65
+D_11_PLUS_RESALE,2025,Victoria-Fraserview,55
+D_11_PLUS_RESALE,2025,West Point Grey,76
+D_11_PLUS_RESALE,2026,?,5
+D_11_PLUS_RESALE,2026,Arbutus Ridge,16
+D_11_PLUS_RESALE,2026,Collingwood(南),18
+D_11_PLUS_RESALE,2026,Dunbar-Southlands,37
+D_11_PLUS_RESALE,2026,Fairview,1
+D_11_PLUS_RESALE,2026,Grandview-Woodland,26
+D_11_PLUS_RESALE,2026,Hastings-Sunrise,4
+D_11_PLUS_RESALE,2026,Kensington-Cedar Cottage,39
+D_11_PLUS_RESALE,2026,Kerrisdale,24
+D_11_PLUS_RESALE,2026,Killarney,24
+D_11_PLUS_RESALE,2026,Kitsilano,20
+D_11_PLUS_RESALE,2026,Marpole,1
+D_11_PLUS_RESALE,2026,Mount Pleasant,9
+D_11_PLUS_RESALE,2026,Oakridge,12
+D_11_PLUS_RESALE,2026,Renfrew(北),26
+D_11_PLUS_RESALE,2026,Riley Park,27
+D_11_PLUS_RESALE,2026,Shaughnessy,18
+D_11_PLUS_RESALE,2026,South Cambie,10
+D_11_PLUS_RESALE,2026,Strathcona,5
+D_11_PLUS_RESALE,2026,Sunset,48
+D_11_PLUS_RESALE,2026,Victoria-Fraserview,31
+D_11_PLUS_RESALE,2026,West Point Grey,18
+D_11_PLUS_UNK,2023,?,29
+D_11_PLUS_UNK,2023,Arbutus Ridge,24
+D_11_PLUS_UNK,2023,Collingwood(南),46
+D_11_PLUS_UNK,2023,Downtown,14
+D_11_PLUS_UNK,2023,Dunbar-Southlands,69
+D_11_PLUS_UNK,2023,Fairview,5
+D_11_PLUS_UNK,2023,Grandview-Woodland,61
+D_11_PLUS_UNK,2023,Hastings-Sunrise,112
+D_11_PLUS_UNK,2023,Kensington-Cedar Cottage,142
+D_11_PLUS_UNK,2023,Kerrisdale,40
+D_11_PLUS_UNK,2023,Killarney,39
+D_11_PLUS_UNK,2023,Kitsilano,58
+D_11_PLUS_UNK,2023,Marpole,71
+D_11_PLUS_UNK,2023,Mount Pleasant,31
+D_11_PLUS_UNK,2023,Oakridge,13
+D_11_PLUS_UNK,2023,Renfrew(北),69
+D_11_PLUS_UNK,2023,Riley Park,57
+D_11_PLUS_UNK,2023,Shaughnessy,27
+D_11_PLUS_UNK,2023,South Cambie,11
+D_11_PLUS_UNK,2023,Strathcona,5
+D_11_PLUS_UNK,2023,Sunset,71
+D_11_PLUS_UNK,2023,Victoria-Fraserview,81
+D_11_PLUS_UNK,2023,West Point Grey,57
+D_11_PLUS_UNK,2024,?,23
+D_11_PLUS_UNK,2024,Arbutus Ridge,26
+D_11_PLUS_UNK,2024,Collingwood(南),25
+D_11_PLUS_UNK,2024,Downtown,28
+D_11_PLUS_UNK,2024,Dunbar-Southlands,86
+D_11_PLUS_UNK,2024,Fairview,12
+D_11_PLUS_UNK,2024,Grandview-Woodland,37
+D_11_PLUS_UNK,2024,Hastings-Sunrise,121
+D_11_PLUS_UNK,2024,Kensington-Cedar Cottage,136
+D_11_PLUS_UNK,2024,Kerrisdale,62
+D_11_PLUS_UNK,2024,Killarney,48
+D_11_PLUS_UNK,2024,Kitsilano,60
+D_11_PLUS_UNK,2024,Marpole,55
+D_11_PLUS_UNK,2024,Mount Pleasant,20
+D_11_PLUS_UNK,2024,Oakridge,14
+D_11_PLUS_UNK,2024,Renfrew(北),63
+D_11_PLUS_UNK,2024,Riley Park,71
+D_11_PLUS_UNK,2024,Shaughnessy,15
+D_11_PLUS_UNK,2024,South Cambie,8
+D_11_PLUS_UNK,2024,Strathcona,14
+D_11_PLUS_UNK,2024,Sunset,77
+D_11_PLUS_UNK,2024,Victoria-Fraserview,80
+D_11_PLUS_UNK,2024,West Point Grey,43
+D_11_PLUS_UNK,2025,Collingwood(南),3
+D_11_PLUS_UNK,2025,Downtown,25
+D_11_PLUS_UNK,2025,Dunbar-Southlands,1
+D_11_PLUS_UNK,2025,Fairview,4
+D_11_PLUS_UNK,2025,Grandview-Woodland,1
+D_11_PLUS_UNK,2025,Hastings-Sunrise,108
+D_11_PLUS_UNK,2025,Kensington-Cedar Cottage,40
+D_11_PLUS_UNK,2025,Kitsilano,7
+D_11_PLUS_UNK,2025,Marpole,50
+D_11_PLUS_UNK,2025,Mount Pleasant,2
+D_11_PLUS_UNK,2025,Renfrew(北),7
+D_11_PLUS_UNK,2025,Riley Park,1
+D_11_PLUS_UNK,2025,Shaughnessy,1
+D_11_PLUS_UNK,2025,Strathcona,2
+D_11_PLUS_UNK,2025,Sunset,1
+D_11_PLUS_UNK,2025,Victoria-Fraserview,7
+D_11_PLUS_UNK,2026,?,3
+D_11_PLUS_UNK,2026,Collingwood(南),3
+D_11_PLUS_UNK,2026,Downtown,7
+D_11_PLUS_UNK,2026,Fairview,1
+D_11_PLUS_UNK,2026,Grandview-Woodland,13
+D_11_PLUS_UNK,2026,Hastings-Sunrise,61
+D_11_PLUS_UNK,2026,Kensington-Cedar Cottage,16
+D_11_PLUS_UNK,2026,Kitsilano,1
+D_11_PLUS_UNK,2026,Marpole,20
+D_11_PLUS_UNK,2026,Mount Pleasant,3
+D_11_PLUS_UNK,2026,Renfrew(北),13
+D_11_PLUS_UNK,2026,Riley Park,2
+D_11_PLUS_UNK,2026,South Cambie,2
+D_11_PLUS_UNK,2026,Strathcona,2
+D_11_PLUS_UNK,2026,Sunset,2
+D_11_PLUS_UNK,2026,Victoria-Fraserview,4
+D_11_PLUS_UNK,2026,West Point Grey,1
+X_FIRST,2025,Renfrew(北),1
+X_FIRST,2025,Riley Park,1
+X_RESALE,2023,Dunbar-Southlands,1
+X_RESALE,2023,Riley Park,1
+X_RESALE,2023,Victoria-Fraserview,1
+X_RESALE,2023,West Point Grey,1
+X_RESALE,2025,Arbutus Ridge,3
+X_RESALE,2025,Riley Park,1
+X_RESALE,2025,Shaughnessy,1
+X_RESALE,2025,Victoria-Fraserview,1
+X_RESALE,2026,Killarney,1
+X_RESALE,2026,Oakridge,1
+X_RESALE,2026,Victoria-Fraserview,1
+X_RESALE,2026,West Point Grey,1
+X_UNK,2023,Arbutus Ridge,2
+X_UNK,2023,Dunbar-Southlands,6
+X_UNK,2023,Grandview-Woodland,1
+X_UNK,2023,Hastings-Sunrise,3
+X_UNK,2023,Kensington-Cedar Cottage,6
+X_UNK,2023,Kerrisdale,3
+X_UNK,2023,Killarney,3
+X_UNK,2023,Marpole,2
+X_UNK,2023,Renfrew(北),4
+X_UNK,2023,Riley Park,1
+X_UNK,2023,Shaughnessy,1
+X_UNK,2023,Sunset,3
+X_UNK,2023,Victoria-Fraserview,8
+X_UNK,2023,West Point Grey,3
+X_UNK,2024,Arbutus Ridge,1
+X_UNK,2024,Dunbar-Southlands,1
+X_UNK,2024,Kensington-Cedar Cottage,1
+X_UNK,2024,Kerrisdale,3
+X_UNK,2024,Renfrew(北),1
+X_UNK,2024,Shaughnessy,4
+X_UNK,2024,Sunset,1
+X_UNK,2024,Victoria-Fraserview,1
+X_UNK,2026,Renfrew(北),1

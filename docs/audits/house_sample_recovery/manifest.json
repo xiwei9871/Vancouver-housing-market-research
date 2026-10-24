@@ -1,0 +1,31 @@
+{
+ "version": "house_sample_recovery_gate_v1",
+ "run": "2026-10-23T15:09:39.267859",
+ "baseline": "sales_archive_v1_0_3/5e51b79",
+ "input_sha256": {
+  "sales_evidence.csv": "ca9e0daf2e3e3b7a7d2a54ce5531407a2a3f8746b7de0a0b91f5542f521a127e",
+  "sales_archive.csv": "fd88a5aff1ed7c254e2f6a78464484725618b55754dd1295d43b66aba297b780",
+  "bca-sales-24mo-newbuild-enriched.json": "9aa5cbb3e5550c762091d7e7482d0446554235f480310e556ef000bf30fbd1e7",
+  "bca-sales-2023band-newbuild-enriched.json": "571e6a032f8e44af21545f2430b9fc686d1d095c331d8d75efe8e2071176731e",
+  "bca-sales-lastyear-newbuild-enriched.json": "2faba9d4d4f5630c68eb0beef434fa4d048c4a6a5bf99e2f82b5cc73e65d4dc6",
+  "bca-sales-24mo-newbuild-candidates.json": "65c20a4437551aed3d94424a852f348a5727b0924a238e1e5f9aea3d27e111fa",
+  "bca-sales-2023band-newbuild-candidates.json": "3a7f1fc6fcae740e9f0e1325ac525bdb99da5d563818766a7cf6c0638a41c50b",
+  "bca-sales-lastyear-newbuild-candidates.json": "fc5b2d2c583a45ab24d8a85bf867d6892a2689079bfe943511a6c3163517b0dd"
+ },
+ "counts": {
+  "nb217_recon": {
+   "IN_ARCHIVE_CORRECT": 110,
+   "IN_ARCHIVE_AGE_STALE_TAX_YB": 84,
+   "IN_ARCHIVE_AGE_MISSING": 23
+  },
+  "corrected_canonical": 110,
+  "recovered_newbuild": 3,
+  "suspect_unconfirmed": 2,
+  "CAPTURED_HOUSE_SALES": 5386,
+  "AGE_CLASSIFIED_HOUSE_SALES": 5183,
+  "NEWBUILD_COMPARABLE_SALES": 122,
+  "age_00_03_before": 29,
+  "age_00_03_after": 128,
+  "price_groups": 712
+ }
+}

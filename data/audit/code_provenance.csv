@@ -1,0 +1,29 @@
+item,kind,file,line,value,source_note
+BUILD_COST,CONST,scripts/listing_level_valuation_v1_4.py,42,"{""HOUSE"": 350, ""DUPLEX"": 400, ""MULTIPLEX"": 450}",V3s cost tier $/sf above-grade; no GC quote (docs/research/cost-audit-r7: UNVERIFIED)
+PERMIT_PSQFT,CONST,scripts/listing_level_valuation_v1_4.py,43,40,'办证' $/sf on build_sqft; content undocumented
+SELLING_PCT,CONST,scripts/listing_level_valuation_v1_4.py,44,0.04,"commission+marketing, % of sale"
+GST_PCT,CONST,scripts/listing_level_valuation_v1_4.py,45,0.05,5% federal GST
+FIN_LAND_PCT_YR,CONST,scripts/listing_level_valuation_v1_4.py,46,0.05,"applied to 100% of offer, no LTV"
+FIN_BUILD_PCT_YR,CONST,scripts/listing_level_valuation_v1_4.py,47,0.35 * 0.035 + 0.65 * 0.10,"0.35*3.5%+0.65*10% blended, on 100% hard"
+BASE_YEARS,CONST,scripts/listing_level_valuation_v1_4.py,48,1,unified 1-yr development window (V1.4.1)
+MPX_PRODUCT_FACTOR,CONST,scripts/listing_level_valuation_v1_4.py,52,0.85,V3s stacked-product discount
+SIZE_K,CONST,scripts/listing_level_valuation_v1_4.py,443,"{""HOUSE"": -0.55, ""DUPLEX"": -0.15, ""MULTIPLEX"": -0.15}",V1.4 size curve; V1.5 replaces with fit_k()
+HOOD_COMM_ALIAS,CONST,scripts/listing_level_valuation_v1_4.py,68,{,listing hood -> comp community mapping
+LISTING_JSON,CONST,scripts/listing_level_valuation_v1_4.py,34,"ROOT / ""reports/watchlist/rebuild-value-2026-10-20.json""",frozen 2026-10-20 scenario geometry input
+HPI_ASOF,CONST,scripts/listing_level_valuation_v1_4.py,36,"""2026-09""",price normalization month
+ANCHOR_DEFAULT,CONST,scripts/valuation_v1_5_backtest.py,44,"{""K"": 5, ""K2"": 6, ""R"": 0.6, ""CAP"": 0.15, ""k"": ""fit""}","shrinkage K/K2, radius R km, cap CAP"
+MODEL_VERSION,CONST,scripts/listing_valuation_v1_5.py,42,"""listing_valuation_v1_5_2""",V1.5.2 pipeline
+cost_model,FUNC,scripts/listing_level_valuation_v1_4.py,534-558,,ROI engine used by V1.5.2 (imported)
+bc_ptt,FUNC,scripts/listing_level_valuation_v1_4.py,523-531,,BC PTT 1/2/3%; no +2% >$3M residential
+max_bid,FUNC,scripts/listing_level_valuation_v1_4.py,561-575,,bisection on cost_model ROI
+build_newbuild_pools,FUNC,scripts/listing_level_valuation_v1_4.py,309-346,,"HOUSE pool filter: band 0-5, non-strata, excl=='', fa & price present"
+wmedian,FUNC,scripts/listing_level_valuation_v1_4.py,99-110,,weighted percentile used by nearby factor
+est_anchor,FUNC,scripts/valuation_v1_5_backtest.py,106-150,,V1.5 sale $/sf estimator
+fit_k,FUNC,scripts/valuation_v1_5_backtest.py,72-86,,pooled within-community size elasticity
+load_pools,FUNC,scripts/valuation_v1_5_backtest.py,52-64,,adds cluster/date/conflict to pools
+legal_state,FUNC,scripts/listing_valuation_v1_5.py,51-70,,five-state legality
+main,FUNC,scripts/listing_valuation_v1_5.py,99-248,,"ranking: VERIFIED + ANCHOR only; out_of_support flagged, not excluded"
+def zoning_rules,GENERATOR,/Users/xiwei/northshore_property_watchdog/scripts/rebuild_value_analysis.py,87,def zoning_rules(z):,scenario FSR source (UNCOMMITTED main-repo file); sha256 39936c2d025bdf6d
+MPX_MIN_AREA_SQFT,GENERATOR,/Users/xiwei/northshore_property_watchdog/scripts/rebuild_value_analysis.py,60,MPX_MIN_AREA_SQFT = 3294.0       # 306 m² — base multiplex tier (3-4 units),R1-1 multiplex 306 m2; sha256 39936c2d025bdf6d
+MPX_MIN_DEPTH_FT,GENERATOR,/Users/xiwei/northshore_property_watchdog/scripts/rebuild_value_analysis.py,62,MPX_MIN_DEPTH_FT = 99.7          # 30.4 m,R1-1 multiplex depth 30.4 m; sha256 39936c2d025bdf6d
+DUPLEX_MIN_AREA_SQFT,GENERATOR,/Users/xiwei/northshore_property_watchdog/scripts/rebuild_value_analysis.py,69,DUPLEX_MIN_AREA_SQFT = 3294.0    # bylaw min site area for duplex use,duplex min site area; sha256 39936c2d025bdf6d

@@ -1,0 +1,9 @@
+side,year,n,p50_nominal,p50_2026_09,n_missing_hpi,n_rev_sensitive,factor_kind,note
+Vancouver East,2023,1198,665000,600117,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver East,2024,1254,682850,614448,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver East,2025,1037,660000,613838,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver East,2026,346,615000,599756,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver West,2023,3214,840000,777197,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver West,2024,3455,865000,790037,0,237,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver West,2025,2707,828280,769934,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案
+Vancouver West,2026,857,800000,779226,0,0,OFFICIAL,GVR Apartment HPI 官方指数;成交截点同档案

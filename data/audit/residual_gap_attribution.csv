@@ -1,0 +1,31 @@
+case,scenario,step,residual_land_at_15,delta_vs_prev,asking,market_land,driver,evidence_strength
+880 E 33RD AVENUE,HOUSE,S0_V152_MODEL,2167947,,1399900.0,1328739,,MODEL_ONLY
+880 E 33RD AVENUE,HOUSE,S1_FULL_COST_SAME_GEOMETRY,2022524,-145423,1399900.0,1328739,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+880 E 33RD AVENUE,HOUSE,S2_ALIGNED_COMPS_GEOMETRY,1379547,-642977,1399900.0,1328739,build what comps sold: above=0.458xlot + finished bsmt=0.543xabove; both costed,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+880 E 33RD AVENUE,HOUSE,S2_ALIGNED_FSR060_INCL_BSMT,1192071,-830453,1399900.0,1328739,0.60 FSR total split above/bsmt at comps ratio (basement counted in FSR per v2-4-3 doc citing R1-1 4.1.1/4.1.2); sale on above-grade like comps,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+880 E 33RD AVENUE,DUPLEX,S0_V152_MODEL,1425450,,1399900.0,1328739,,MODEL_ONLY
+880 E 33RD AVENUE,DUPLEX,S1_FULL_COST_SAME_GEOMETRY,1245579,-179871,1399900.0,1328739,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+5109 SLOCAN STREET,HOUSE,S0_V152_MODEL,1068298,,1199900.0,1437425,,MODEL_ONLY
+5109 SLOCAN STREET,HOUSE,S1_FULL_COST_SAME_GEOMETRY,941565,-126733,1199900.0,1437425,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+5109 SLOCAN STREET,HOUSE,S2_ALIGNED_COMPS_GEOMETRY,559640,-381925,1199900.0,1437425,build what comps sold: above=0.458xlot + finished bsmt=0.543xabove; both costed,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+5109 SLOCAN STREET,HOUSE,S2_ALIGNED_FSR060_INCL_BSMT,480813,-460752,1199900.0,1437425,0.60 FSR total split above/bsmt at comps ratio (basement counted in FSR per v2-4-3 doc citing R1-1 4.1.1/4.1.2); sale on above-grade like comps,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+5109 SLOCAN STREET,DUPLEX,S0_V152_MODEL,844661,,1199900.0,1437425,,MODEL_ONLY
+5109 SLOCAN STREET,DUPLEX,S1_FULL_COST_SAME_GEOMETRY,677813,-166848,1199900.0,1437425,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+7455 WEST BOULEVARD,HOUSE,S0_V152_MODEL,2522861,,1699999.0,2003102,,MODEL_ONLY
+7455 WEST BOULEVARD,HOUSE,S1_FULL_COST_SAME_GEOMETRY,2366906,-155955,1699999.0,2003102,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+7455 WEST BOULEVARD,HOUSE,S2_ALIGNED_COMPS_GEOMETRY,1622082,-744824,1699999.0,2003102,build what comps sold: above=0.458xlot + finished bsmt=0.543xabove; both costed,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+7455 WEST BOULEVARD,HOUSE,S2_ALIGNED_FSR060_INCL_BSMT,1399809,-967097,1699999.0,2003102,0.60 FSR total split above/bsmt at comps ratio (basement counted in FSR per v2-4-3 doc citing R1-1 4.1.1/4.1.2); sale on above-grade like comps,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+7455 WEST BOULEVARD,DUPLEX,S0_V152_MODEL,1701387,,1699999.0,2003102,,MODEL_ONLY
+7455 WEST BOULEVARD,DUPLEX,S1_FULL_COST_SAME_GEOMETRY,1510763,-190624,1699999.0,2003102,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+3141 E BROADWAY,HOUSE,S0_V152_MODEL,2655711,,1600000.0,1732185,,MODEL_ONLY
+3141 E BROADWAY,HOUSE,S1_FULL_COST_SAME_GEOMETRY,2478526,-177185,1600000.0,1732185,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+3141 E BROADWAY,HOUSE,S2_ALIGNED_COMPS_GEOMETRY,1581148,-897378,1600000.0,1732185,build what comps sold: above=0.458xlot + finished bsmt=0.543xabove; both costed,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+3141 E BROADWAY,HOUSE,S2_ALIGNED_FSR060_INCL_BSMT,1372408,-1106118,1600000.0,1732185,0.60 FSR total split above/bsmt at comps ratio (basement counted in FSR per v2-4-3 doc citing R1-1 4.1.1/4.1.2); sale on above-grade like comps,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+3141 E BROADWAY,DUPLEX,S0_V152_MODEL,765954,,1600000.0,1732185,,MODEL_ONLY
+3141 E BROADWAY,DUPLEX,S1_FULL_COST_SAME_GEOMETRY,565241,-200713,1600000.0,1732185,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+3055 ROSEMONT DRIVE,HOUSE,S0_V152_MODEL,1740618,,1599000.0,2032752,,MODEL_ONLY
+3055 ROSEMONT DRIVE,HOUSE,S1_FULL_COST_SAME_GEOMETRY,1589855,-150763,1599000.0,2032752,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED
+3055 ROSEMONT DRIVE,HOUSE,S2_ALIGNED_COMPS_GEOMETRY,979518,-610337,1599000.0,2032752,build what comps sold: above=0.458xlot + finished bsmt=0.543xabove; both costed,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+3055 ROSEMONT DRIVE,HOUSE,S2_ALIGNED_FSR060_INCL_BSMT,848183,-741672,1599000.0,2032752,0.60 FSR total split above/bsmt at comps ratio (basement counted in FSR per v2-4-3 doc citing R1-1 4.1.1/4.1.2); sale on above-grade like comps,MEDIUM: comp geometry from BCA fields; basement $/sf no quote; legality UNVERIFIED
+3055 ROSEMONT DRIVE,DUPLEX,S0_V152_MODEL,1080383,,1599000.0,2032752,,MODEL_ONLY
+3055 ROSEMONT DRIVE,DUPLEX,S1_FULL_COST_SAME_GEOMETRY,892669,-187714,1599000.0,2032752,"adds demolition, contingency, DCL/ACC/DCC, utilities, tax, insurance, loan fees; LTV financing over 18 mo",MEDIUM: rates from round-6 shadow script; hard tiers UNVERIFIED

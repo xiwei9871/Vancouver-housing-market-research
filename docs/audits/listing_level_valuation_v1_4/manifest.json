@@ -1,0 +1,44 @@
+{
+  "version": "listing_level_valuation_v1_4",
+  "hpi_asof": "2026-09",
+  "listing_snapshot": "2026-10-20",
+  "cost_version": "v3s-2026-10(ptt+fin-1yr-dev-window)",
+  "active_listings": 224,
+  "deliverables": [
+    "active_house_buildable_scenarios.csv",
+    "active_house_land_valuation.csv",
+    "active_house_listing_roi.csv",
+    "active_house_market_scenarios.csv",
+    "active_house_max_bid_and_negotiation.csv",
+    "active_house_newbuild_sale_estimate.csv",
+    "input_inventory.md",
+    "input_manifest_v1_4.csv",
+    "land_buy_value_ranking.csv",
+    "land_comparable_method_audit.csv",
+    "land_dominant_comp_coverage.csv",
+    "land_lot_compat_fix_diff.csv",
+    "land_nearby_adj_fix_diff.csv",
+    "land_pool_lot_audit.csv",
+    "land_psf_by_community_lot.csv",
+    "land_v143_to_v144_diff.csv",
+    "listing_level_valuation_v1_4_report.md",
+    "listing_map.html",
+    "lot_dims_frozen_input.csv",
+    "manifest.json",
+    "newbuild_alias_fix_diff.csv",
+    "problem_listing_comp_audit.csv",
+    "rebuild_roi_ranking.csv",
+    "valuation_methodology.md"
+  ],
+  "land_pool": {
+    "main": 1979,
+    "aux": 521,
+    "dropped": {
+      "no_yb": 149,
+      "no_tax": 31,
+      "strata": 2,
+      "no_lot": 2,
+      "age_lt50": 2319
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "house_regional_roi_shadow_v1_3",
+  "generated_utc": "2026-10-23T12:43:15.290390Z",
+  "basis": "V1.2 2026-09 normalized prices; frozen V3s cost model (rebuild_value_analysis.py constants); shadow only",
+  "deliverables": [
+    "house_regional_cost_breakdown.csv",
+    "house_regional_max_acquisition_price.csv",
+    "house_regional_roi_sensitivity.csv",
+    "house_regional_roi_shadow.csv",
+    "house_regional_roi_v1_3_report.md",
+    "manifest.json"
+  ],
+  "n_roi_cells": 72,
+  "pair_pool_check": {
+    "cells": 17,
+    "all_match": true
+  }
+}

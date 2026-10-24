@@ -1,0 +1,8 @@
+age_tier,n,with_folio_or_roll,with_pid,note
+AGE_EXACT_PID,4811,4791,4811,原生pid或pid直查税表
+AGE_FOLIO_CONFIRMED,0,0,0,无pid但有真实roll/folio关联(evbc_oid/回连folio)
+AGE_UNIT_CONFIRMED,0,0,0,strata单元级证据
+AGE_ADDRESS_INFERRED,16494,16494,16494,仅地址/门牌区间推断
+AGE_CONSENSUS_ONLY,200,0,10,多候选同年份共识
+AGE_UNKNOWN,2698,2135,2256,无可用年份
+AGE_TEMPORAL_CONFLICT,0,0,0,yb晚于成交年(疑重建污染)

@@ -1,0 +1,41 @@
+{
+ "version": "v2_4",
+ "run": "2026-10-23T18:40:23.273648",
+ "baseline": "a52f911",
+ "cutoff": "2026-07-08",
+ "counts": {
+  "rows": 23496,
+  "products": [
+   "HOUSE",
+   "DUPLEX_HALF",
+   "DUPLEX_WHOLE",
+   "DUPLEX_SCOPE_UNKNOWN",
+   "TOWNHOUSE",
+   "MULTIPLEX_UNIT",
+   "MULTIPLEX_WHOLE",
+   "CONDO"
+  ],
+  "before_0_3_2025": {
+   "HOUSE": 0,
+   "DUPLEX_HALF": 0,
+   "DUPLEX_WHOLE": 0,
+   "DUPLEX_SCOPE_UNKNOWN": 0,
+   "TOWNHOUSE": 0,
+   "MULTIPLEX_UNIT": 0,
+   "MULTIPLEX_WHOLE": 0,
+   "CONDO": 0
+  },
+  "after_0_3_2025": {
+   "HOUSE": 45,
+   "DUPLEX_HALF": 285,
+   "DUPLEX_WHOLE": 2,
+   "DUPLEX_SCOPE_UNKNOWN": 0,
+   "TOWNHOUSE": 128,
+   "MULTIPLEX_UNIT": 46,
+   "MULTIPLEX_WHOLE": 2,
+   "CONDO": 231
+  },
+  "house_2025_0_1_strict": 7,
+  "tax_yb_frozen_at": 2022
+ }
+}
