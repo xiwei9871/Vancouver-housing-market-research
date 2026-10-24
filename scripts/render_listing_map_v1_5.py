@@ -86,8 +86,12 @@ def scen_cell(sc):
         f"</span><br><span class='stat-note'>@${sc['psf']:,.0f}/sf·"
         f"社区n{sc['n']}{near}</span>{v14}"
         f"<br><span class='{cls}'>ROI1y {roi:.1f}%</span> "
-        f"<span class='{cls10}' title='P10 售价下 ROI'>P10 {pct(roi10)}</span>"
-        + ("" if st == "VERIFIED" else f"<br>{tag}") + "</td>")
+        f"<span class='{cls10}' title='历史误差P10压力情景(非概率保证)'>压力 {pct(roi10)}</span>"
+        + ("" if st == "VERIFIED" else f"<br>{tag}")
+        + (f"<br><span class='st st-CONDITIONAL' title='单户面积 "
+           f"{sc['unit_area']:,.0f}sf 超出回测样本 P95,误差未经验证'>"
+           "超样本面积·不排序</span>" if sc.get("out_of_support") else "")
+        + "</td>")
 
 
 def community_table(rows):
@@ -138,12 +142,22 @@ def method_box(summary):
         return (f"<td>{x.get('n', '—')}</td><td>{x.get('mdape', 0):.1%}</td>"
                 f"<td>{x.get('p10_ratio', 0):.2f}</td>"
                 f"<td>{x.get('p90_ratio', 0):.2f}</td>")
-    trs = "".join(
-        f"<tr><td>{p}</td><td>{mm}</td>{line(p + '|ALL', mm)}"
-        f"{line(p + '|TEMPORAL', mm)}</tr>"
-        for p in ("HOUSE", "DUPLEX") for mm in ("V14", "COMM", "ANCHOR"))
+    st = bs["strict_v1_5_1"]
+
+    def cell(x):
+        return (f"<td>{x['n']}</td><td>{x['mdape']:.1%}</td>"
+                f"<td>{x['p10_ratio']:.2f}</td>")
+    trs = ""
+    for p in ("HOUSE", "DUPLEX"):
+        lo = bs["sale"][p + "|ALL"]["methods"]
+        fw = st[p]["forward_expanding"]
+        dv = st[p]["devin_protocol_2025_07_01"]["methods"]
+        for mm, f2, d2 in (("V14", "V14", "V14"),
+                           ("ANCHOR", "ANCHOR", "ANCHOR_SELECTED")):
+            trs += (f"<tr><td>{p}</td><td>{mm}</td>{cell(lo[mm])}"
+                    f"{cell(fw[f2])}{cell(dv[d2])}</tr>")
     ld = bs["land"]
-    lt = "".join(
+    _lt = "".join(
         f"<tr><td>LAND</td><td>{k}</td><td>{ld[k]['n']}</td>"
         f"<td>{ld[k]['mdape']:.1%}</td><td>{ld[k]['p10_ratio']:.2f}</td>"
         f"<td>{ld[k]['p90_ratio']:.2f}</td>"
@@ -160,9 +174,22 @@ def method_box(summary):
         f"DUPLEX k={summary['k_fit']['DUPLEX']:.2f};V1.4 HOUSE 用 −0.55)。"
         "区间 P10/P90 = 回测实际/估价分位;<b>P10 ROI = 下行情景</b>。"
         "地价 = BCA 2026 土地值 × 社区成交/BCA地中位;V1.4 comps 地价作交叉校验。"
-        "<table><tr><th>产品</th><th>方法</th><th>LOPO n</th><th>MdAPE</th>"
-        "<th>P10</th><th>P90</th><th>时间外推 n</th><th>MdAPE</th><th>P10</th>"
-        "<th>P90</th></tr>" + trs + lt + "</table>"
+        "<table><tr><th>产品</th><th>方法</th><th>留一 n</th><th>MdAPE</th>"
+        "<th>P10比</th><th>前向滚动 n</th><th>MdAPE</th><th>P10比</th>"
+        "<th>嵌套选参@2025-07-01 n</th><th>MdAPE</th><th>P10比</th></tr>"
+        + trs + "</table>"
+        f"<b>土地(BCA 按成交年份取当年 roll,比率只用更早成交)</b>:BCA校准 "
+        f"MdAPE {st['LAND']['BCA_CAL_ASOF']['mdape']:.1%} vs comps "
+        f"{st['LAND']['V14_LAND_FWD']['mdape']:.1%}(n{st['LAND']['BCA_CAL_ASOF']['n']})。"
+        "MdAPE=|估价−实际|/实际。<b>压力情景</b>=估售×前向滚动回测的实际/估价"
+        "P10 比值;是历史误差分位,不是单套房概率保证。单户面积超回测样本 P95"
+        f"(HOUSE {summary['area_support_p95']['HOUSE']:,}sf / DUPLEX "
+        f"{summary['area_support_p95']['DUPLEX']:,}sf)的方案不排序。<br>"
+        "<b>ROI≥10% 变化拆解</b>:" + " → ".join(
+            f"{lab} {summary['roi_bridge'][k][10]}" for lab, k in (
+                ("V1.4.4", "roi_s0_v144"), ("仅VERIFIED", "roi_s1_legal"),
+                ("+V1.5售价", "roi_s2_sale"), ("+面积支撑门", "roi_s3_support")))
+        + "(逐房源见 v15_roi_bridge.csv)<br>"
         "<span class='stat-note'>未解决:回测样本即 comp 池本身(同源);"
         "MULTIPLEX 无建面无法回测,仅展示不排序;成交截 ~2026-07-08,"
         "非当前现价;建造成本/产品配置未回测。</span></div>")
@@ -218,7 +245,7 @@ def main():
         if r["roi"] is not None:
             bt = (f"<span class='roi-pos'>{r['roi']:.0f}% {r['best']}</span>"
                   f"<br><span class='{'roi-pos' if (r['roi_p10'] or -1) >= 0 else 'roi-neg'}'"
-                  f" title='P10 售价下'>P10 {pct(r['roi_p10'])}</span>")
+                  f" title='历史误差P10压力情景'>压力 {pct(r['roi_p10'])}</span>")
         else:
             bt = "—"
         cb = r["cond_best"]
@@ -392,18 +419,18 @@ def render(rows, body, meta, points, contra, summary):
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>{CSS}</style>
-<title>V1.5 回测校准估值 — {len(rows)} ACTIVE HOUSE · 2026-10-20</title>
+<title>V1.5.1 回测校准估值 — {len(rows)} ACTIVE HOUSE · 2026-10-20</title>
 </head><body>
 <div style="background:#e8f0fe;border:1px solid #4285f4;padding:8px 12px;
 margin:6px 0;font-size:13px;border-radius:4px">
-<b>V1.5 回测校准估值(研究层 · V3s 生产零修改):</b>
+<b>V1.5.1 回测校准估值(研究层 · V3s 生产零修改):</b>
 售价改为「社区基准 + 附近修正(收缩、±15%封顶)」,面积弹性由数据拟合;
-每个售价带回测误差区间,<b>P10 ROI = 售价落在历史误差 P10 时的 ROI</b>。
+每个售价带回测误差区间,<b>压力 ROI = 估售×历史前向回测误差 P10 比值时的 ROI(非概率保证)</b>;超回测面积样本的方案不排序。
 地价改为 BCA 校准(回测误差更低),comps 地价作交叉校验。
 法规拆五态,<b>仅 VERIFIED 进最优 ROI 排名</b>;需审批/未核方案单列「待审」。
 <span class="badge">P50 ROI≥10%: {rg[10]}</span>
 <span class="badge">≥20%: {rg[20]}</span><span class="badge">≥30%: {rg[30]}</span>
-<span class="badge">P10 ROI≥0%: {rp[0]}</span>
+<span class="badge">压力ROI≥0%: {rp[0]}</span>
 <span class="badge">矛盾触发: {len(contra)}</span>
 快照 2026-10-20 · Ask=watchlist latest_asking · HPI 2026-09 · 成交截至 2026-07-08
 </div>
@@ -415,7 +442,7 @@ margin:6px 0;font-size:13px;border-radius:4px">
 <option value="BOTH">双优</option><option value="ROI_ONLY">仅ROI</option>
 <option value="LAND_VALUE">仅地价</option><option value="NEITHER">双缺</option></select>
 <select data-x="p10"><option value="">全部下行</option>
-<option value="pos">P10 ROI≥0</option></select>
+<option value="pos">压力ROI≥0</option></select>
 <select data-x="cx"><option value="">全部矛盾</option>
 <option value="any">有矛盾触发</option><option value="none">无矛盾</option></select>
 <span class="tools"> · <button id="btn-export-all">导出全部</button>
@@ -423,7 +450,7 @@ margin:6px 0;font-size:13px;border-radius:4px">
 <button id="btn-import">导入</button>
 <input type="file" id="file-import" accept=".json" style="display:none"></span>
 </div>
-<h1>逐房源估值与重建 ROI — V1.5 回测校准 · {len(rows)} 套 ACTIVE HOUSE</h1>
+<h1>逐房源估值与重建 ROI — V1.5.1 回测校准 · {len(rows)} 套 ACTIVE HOUSE</h1>
 <div class="viewbar"><button id="btn-list" class="vbtn on">列表</button>
 <button id="btn-map" class="vbtn">地图</button>
 <span class="map-legend"><i style="background:{QC['BOTH']}"></i>双优

@@ -135,5 +135,35 @@ check("C09 community lot P50 uses corrected pool",
                 r"</b></td>){3}<td>" + re.escape(lot_p50), html) is not None,
       f"HS lot P50={lot_p50}")
 
+# 11. V1.5.1: strict forward test — ANCHOR still beats V1.4, no future info
+ST = json.load(open(D / "backtest_summary.json"))["strict_v1_5_1"]
+for n in ("HOUSE", "DUPLEX"):
+    fw = ST[n]["forward_expanding"]
+    check(f"{n} forward ANCHOR MdAPE < V14",
+          fw["ANCHOR"]["mdape"] < fw["V14"]["mdape"],
+          f"{fw['ANCHOR']['mdape']} vs {fw['V14']['mdape']}")
+check("APE uses actual as denominator",
+      json.load(open(D / "backtest_summary.json"))["ape_definition"]
+      == "|estimate-actual|/actual")
+
+# 12. out-of-support scenarios never drive the ranked ROI
+br = list(csv.DictReader(open(D / "v15_roi_bridge.csv")))
+oos = {(r["listing"], r["scenario"]) for r in sr
+       if r["out_of_support"] == "True"}
+check("out-of-support never ranked",
+      not [b for b in br if (b["listing"], b["best_s3"]) in oos])
+
+# 13. summary counts == counts from displayed (rounded) CSV values
+sm = json.load(open(D / "v15_summary.json"))
+for t in (10, 20, 30):
+    n_csv = sum(1 for b in br if b["roi_s3_support"]
+                and float(b["roi_s3_support"]) >= t)
+    check(f"ROI>={t} summary == CSV", n_csv == sm["roi_ge"][str(t)],
+          f"{n_csv} vs {sm['roi_ge'][str(t)]}")
+
+# 14. bridge anchors on V1.4.4 page counts (74/15/2)
+check("bridge S0 reproduces V1.4.4 74/15/2",
+      sm["roi_bridge"]["roi_s0_v144"] == {"10": 74, "20": 15, "30": 2})
+
 print(f"\n{sum(res)}/{len(res)} passed")
 sys.exit(0 if all(res) else 1)

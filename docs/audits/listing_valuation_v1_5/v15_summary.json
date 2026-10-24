@@ -7,38 +7,38 @@
  },
  "sale_band": {
   "HOUSE": {
-   "n": 158,
-   "mdape": 0.0795,
-   "mape": 0.1241,
-   "bias_median_ratio": 0.9923,
-   "p10_ratio": 0.7021,
-   "p90_ratio": 1.1491,
-   "within_10pct": 0.595,
-   "within_20pct": 0.816,
-   "worst_30pct_share": 0.108
+   "n": 118,
+   "mdape": 0.1016,
+   "mape": 0.1902,
+   "bias_median_ratio": 0.9793,
+   "p10_ratio": 0.6295,
+   "p90_ratio": 1.1511,
+   "within_10pct": 0.492,
+   "within_20pct": 0.729,
+   "worst_30pct_share": 0.195
   },
   "DUPLEX": {
-   "n": 570,
-   "mdape": 0.088,
-   "mape": 0.1188,
-   "bias_median_ratio": 0.9991,
-   "p10_ratio": 0.8317,
-   "p90_ratio": 1.218,
-   "within_10pct": 0.551,
-   "within_20pct": 0.819,
-   "worst_30pct_share": 0.051
+   "n": 529,
+   "mdape": 0.0967,
+   "mape": 0.1206,
+   "bias_median_ratio": 0.9997,
+   "p10_ratio": 0.8302,
+   "p90_ratio": 1.2188,
+   "within_10pct": 0.516,
+   "within_20pct": 0.822,
+   "worst_30pct_share": 0.062
   }
  },
  "land_band": {
-  "n": 1964,
-  "mdape": 0.0578,
-  "mape": 0.0902,
-  "bias_median_ratio": 0.9999,
-  "p10_ratio": 0.8829,
-  "p90_ratio": 1.1273,
-  "within_10pct": 0.73,
-  "within_20pct": 0.921,
-  "worst_30pct_share": 0.034
+  "n": 1769,
+  "mdape": 0.0712,
+  "mape": 0.0947,
+  "bias_median_ratio": 0.965,
+  "p10_ratio": 0.8584,
+  "p90_ratio": 1.1069,
+  "within_10pct": 0.652,
+  "within_20pct": 0.906,
+  "worst_30pct_share": 0.031
  },
  "legal_states": {
   "HOUSE:VERIFIED": 167,
@@ -62,14 +62,44 @@
   "C04": 6
  },
  "roi_ge": {
-  "10": 121,
-  "20": 59,
-  "30": 16
+  "10": 104,
+  "20": 47,
+  "30": 8
  },
  "roi_p10_ge": {
-  "0": 4,
+  "0": 0,
   "10": 0,
   "20": 0
+ },
+ "roi_bridge": {
+  "roi_s0_v144": {
+   "10": 74,
+   "20": 15,
+   "30": 2
+  },
+  "roi_s1_legal": {
+   "10": 63,
+   "20": 13,
+   "30": 1
+  },
+  "roi_s2_sale": {
+   "10": 122,
+   "20": 60,
+   "30": 16
+  },
+  "roi_s3_support": {
+   "10": 104,
+   "20": 47,
+   "30": 8
+  }
+ },
+ "area_support_p95": {
+  "HOUSE": 2876,
+  "DUPLEX": 1808
+ },
+ "out_of_support": {
+  "HOUSE": 18,
+  "DUPLEX": 9
  },
  "price_refreshed": 0,
  "watchlist": "/Users/xiwei/northshore_property_watchdog/data/research/watchlist/property-watchlist.json"

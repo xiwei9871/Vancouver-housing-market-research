@@ -102,13 +102,18 @@ def main():
     sale_pool = {n: [c for c in pools[n] if c["psf"] and 200 < c["psf"] < 6000
                      and c["lat"]] for n in ("HOUSE", "DUPLEX")}
     k_fit = {n: bt.fit_k(p) for n, p in sale_pool.items()}
-    band = {n: summ["sale"][f"{n}|ALL"]["methods"]["ANCHOR"]
+    # V1.5.1: stress band from the strict forward (expanding-window,
+    # no future info) test, not the LOPO set the method was chosen on
+    st = summ["strict_v1_5_1"]
+    band = {n: st[n]["forward_expanding"]["ANCHOR"]
             for n in ("HOUSE", "DUPLEX")}
+    support = {n: st[n]["area_support"]["fa_p95"]
+               for n in ("HOUSE", "DUPLEX")}
     tax = v.load_tax()
     land_pool, _, _ = v.build_land_pool(hr, arch, v.load_resolved_yb(),
                                         tax, v.load_lot_dims())
     r_comm, r_side = bca_ratio_tables(land_pool, tax)
-    lband = summ["land"]["BCA_CAL"]
+    lband = st["LAND"]["BCA_CAL_ASOF"]
 
     rows, scen_out, price_fix = [], [], []
     for r in listings:
@@ -184,6 +189,10 @@ def main():
                     sc.update(method="NO_EVIDENCE")
             else:
                 ua = sc["net_saleable"] / sc["units"]
+                # beyond P95 of backtested unit areas the error band is
+                # not evidenced — keep estimate, exclude from ranking
+                sc["out_of_support"] = ua > support[name]
+                sc["unit_area"] = ua
                 t = {"lat": row["lat"], "lng": row["lng"],
                      "community": comm, "side": side, "area": ua}
                 psf, det = bt.est_anchor(t, sale_pool[name], k_fit[name])
@@ -198,11 +207,12 @@ def main():
                           v14_level=s14.get("comp_level", ""))
             if sc.get("est"):
                 cm = v.cost_model(asking, sc, sc["est"], v.BASE_YEARS, "EXCL")
-                sc["roi"] = 100 * cm["roi"]
+                # round once at source: summary counts == displayed CSV
+                sc["roi"] = round(100 * cm["roi"], 1)
                 sc["cost"] = cm["total"]
                 if sc.get("p10"):
-                    sc["roi_p10"] = 100 * v.cost_model(
-                        asking, sc, sc["p10"], v.BASE_YEARS, "EXCL")["roi"]
+                    sc["roi_p10"] = round(100 * v.cost_model(
+                        asking, sc, sc["p10"], v.BASE_YEARS, "EXCL")["roi"], 1)
                     mb = v.max_bid(sc, sc["p10"], 0.0, v.BASE_YEARS)
                     sc["breakeven_bid_p10"] = mb if isinstance(mb, float) \
                         else None
@@ -210,17 +220,19 @@ def main():
                 sc["mb20"] = mb if isinstance(mb, float) else None
         ranked = [sc for sc in row["scen"].values()
                   if sc["state"] == "VERIFIED" and sc.get("method") == "ANCHOR"
-                  and sc.get("roi") is not None]
+                  and sc.get("roi") is not None
+                  and not sc.get("out_of_support")]
         best = max(ranked, key=lambda x: x["roi"]) if ranked else None
         cond = [sc for sc in row["scen"].values()
-                if sc["state"] in ("CONDITIONAL", "ELIGIBLE")
+                if (sc["state"] in ("CONDITIONAL", "ELIGIBLE")
+                    or sc.get("out_of_support"))
                 and sc.get("method") == "ANCHOR" and sc.get("roi") is not None]
         row["best"] = best["name"] if best else None
         row["roi"] = best["roi"] if best else None
         row["roi_p10"] = best.get("roi_p10") if best else None
         row["cond_best"] = max(cond, key=lambda x: x["roi"]) if cond else None
         rows.append(row)
-    return finish(rows, scen_out, price_fix, k_fit, band, lband)
+    return finish(rows, scen_out, price_fix, k_fit, band, lband, support)
 
 
 # ======================================================== contradictions
@@ -305,8 +317,53 @@ def detect(rows):
     return out
 
 
-def finish(rows, scen_out, price_fix, k_fit, band, lband):
+def bridge(rows):
+    """74 -> N decomposition. Steps applied cumulatively per listing:
+    S0 V1.4.4 page (eligible scenarios, V1.4 sale)
+    S1 + legal scope (only V1.5 VERIFIED), V1.4 sale
+    S2 + V1.5 sale (ANCHOR), all VERIFIED
+    S3 + area-support gate (= V1.5.1 final)"""
+    r14 = {(r["listing"], r["scenario"]): float(r["roi_development_1y"])
+           for r in csv.DictReader(open(V14 / "active_house_listing_roi.csv"))
+           if r["gst_scenario"] == "EXCL"}
+    sc14 = {(r["listing"], r["scenario"]): r for r in csv.DictReader(
+        open(V14 / "active_house_buildable_scenarios.csv"))}
+    out = []
+    for r in rows:
+        L = r["listing"]
+
+        def best(cands):
+            c = [(x, n) for x, n in cands if x is not None]
+            return max(c) if c else (None, None)
+        s0 = best((r14.get((L, n)), n) for n in ("HOUSE", "DUPLEX", "MULTIPLEX")
+                  if sc14.get((L, n), {}).get("eligible") == "True")
+        ver = [n for n, sc in r["scen"].items() if sc["state"] == "VERIFIED"
+               and sc.get("method") == "ANCHOR"]
+        s1 = best((r14.get((L, n)), n) for n in ver)
+        s2 = best((r["scen"][n].get("roi"), n) for n in ver)
+        s3 = (r["roi"], r["best"])
+        why = []
+        if s0[1] and s0[1] not in ver:
+            why.append(f"{s0[1]}:{r['scen'].get(s0[1], {}).get('state', '?')}")
+        if s0[1] == "MULTIPLEX":
+            why.append("MPX_UNITPX_NOT_RANKED")
+        out.append({"listing": L, "roi_s0_v144": s0[0], "best_s0": s0[1],
+                    "roi_s1_legal": s1[0], "roi_s2_sale": s2[0],
+                    "best_s2": s2[1], "roi_s3_support": s3[0],
+                    "best_s3": s3[1], "scope_change": ";".join(why),
+                    "d_sale": round(s2[0] - s1[0], 1)
+                    if s1[0] is not None and s2[0] is not None else ""})
+    steps = {k: {t: sum(1 for x in out if x[k] is not None and x[k] >= t)
+                 for t in (10, 20, 30)}
+             for k in ("roi_s0_v144", "roi_s1_legal", "roi_s2_sale",
+                       "roi_s3_support")}
+    v.wcsv(OUT / "v15_roi_bridge.csv", out)
+    return steps
+
+
+def finish(rows, scen_out, price_fix, k_fit, band, lband, support=None):
     contra = detect(rows)
+    steps = bridge(rows)
     # C09: lineage — page community table must come from the same
     # dims-corrected pool as the per-listing land values (asserted in
     # the renderer + tests); recorded here as the declared source.
@@ -326,6 +383,8 @@ def finish(rows, scen_out, price_fix, k_fit, band, lband):
                 "sale_p10": rd(sc.get("p10")), "sale_p50": rd(sc.get("est")),
                 "sale_p90": rd(sc.get("p90")),
                 "roi_p50": rd(sc.get("roi"), 1),
+                "unit_area": rd(sc.get("unit_area")),
+                "out_of_support": bool(sc.get("out_of_support")),
                 "roi_p10": rd(sc.get("roi_p10"), 1),
                 "breakeven_bid_p10": rd(sc.get("breakeven_bid_p10")),
                 "max_bid_roi20": rd(sc.get("mb20")),
@@ -358,6 +417,10 @@ def finish(rows, scen_out, price_fix, k_fit, band, lband):
         "contradictions": Counter(c["code"] for c in contra),
         "roi_ge": {t: sum(x >= t for x in roi) for t in (10, 20, 30)},
         "roi_p10_ge": {t: sum(x >= t for x in roi10) for t in (0, 10, 20)},
+        "roi_bridge": steps, "area_support_p95": support,
+        "out_of_support": Counter(n for r in rows for n, sc in r["scen"].items()
+                                  if sc.get("out_of_support")
+                                  and sc["state"] == "VERIFIED"),
         "price_refreshed": len(price_fix),
         "watchlist": str(WATCHLIST)}
     (OUT / "v15_summary.json").write_text(

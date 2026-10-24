@@ -159,7 +159,10 @@ def metrics(ratios):
     r = [x for x in ratios if x]
     if not r:
         return {"n": 0}
-    ape = [abs(x - 1) for x in r]
+    # ratio = actual/estimate; APE uses the conventional denominator:
+    # |estimate - actual| / actual = |1 - 1/ratio|  (V1.5.1 — V1.5
+    # reported |ratio - 1|, i.e. estimate as denominator)
+    ape = [abs(1 - 1 / x) for x in r]
     return {"n": len(r),
             "mdape": round(statistics.median(ape), 4),
             "mape": round(statistics.mean(ape), 4),
@@ -319,5 +322,144 @@ def main():
                    for m, x in land_sum.items()})
 
 
+
+
+# ================================================ V1.5.1 strict tests
+def forward_test(pool, name, min_train=40):
+    """Expanding window: each sale priced ONLY from sales strictly
+    earlier (and not on its parcel). No future information."""
+    pool = sorted(pool, key=lambda c: c["date"])
+    res = defaultdict(list)
+    for c in pool:
+        train = [x for x in pool if x["date"] < c["date"]
+                 and x["cluster"] != c["cluster"]]
+        if len(train) < min_train:
+            continue
+        t = target_of(c)
+        p14 = est_v14(t, train, name)[0]
+        pa = est_anchor(t, train, fit_k(train))[0]
+        res["V14"].append(c["psf"] / p14 if p14 else None)
+        res["ANCHOR"].append(c["psf"] / pa if pa else None)
+    return {m: metrics(r) for m, r in res.items()}
+
+
+def nested_select(pool, name, cut):
+    """Pick ANCHOR params by LOPO restricted to the pre-cutoff sample,
+    then score the chosen params (and V1.4) once on post-cutoff sales.
+    Removes the selection bias of choosing params on the reported set."""
+    train = [c for c in pool if c["date"] < cut]
+    test = [c for c in pool if c["date"] >= cut]
+    inner = []
+    for gi, P in enumerate(GRID):
+        r = []
+        for c in train:
+            tr = [x for x in train if x["cluster"] != c["cluster"]]
+            p = est_anchor(target_of(c), tr, anchor_k(tr, P), P)[0]
+            r.append(c["psf"] / p if p else None)
+        inner.append((metrics(r)["mdape"], gi))
+    best = min(inner)[1]
+    P = GRID[best]
+    out = {"V14": [], "ANCHOR_SELECTED": [], "ANCHOR_DEFAULT": []}
+    kk = anchor_k(train, P)
+    kd = fit_k(train)
+    for c in test:
+        t = target_of(c)
+        p14 = est_v14(t, train, name)[0]
+        ps = est_anchor(t, train, kk, P)[0]
+        pd_ = est_anchor(t, train, kd)[0]
+        out["V14"].append(c["psf"] / p14 if p14 else None)
+        out["ANCHOR_SELECTED"].append(c["psf"] / ps if ps else None)
+        out["ANCHOR_DEFAULT"].append(c["psf"] / pd_ if pd_ else None)
+    return {"cut": cut, "n_train": len(train), "n_test": len(test),
+            "selected_params": P, "inner_mdape": dict(
+                (str(gi), md) for md, gi in inner),
+            "methods": {m: metrics(r) for m, r in out.items()}}
+
+
+def by_area(rows, product):
+    """residual bias/error by unit-area bucket (support diagnostics)"""
+    rs = [r for r in rows if r["product"] == product
+          and r["variant"] == "ALL" and r["anchor_psf"]]
+    fa = sorted(r["fa"] for r in rs)
+    q = [v.pct(fa, p) for p in (25, 50, 75, 90, 95)]
+    edges = [0] + q + [1e9]
+    out = []
+    for lo, hi in zip(edges, edges[1:]):
+        b = [r["actual_psf"] / r["anchor_psf"] for r in rs
+             if lo <= r["fa"] < hi]
+        out.append({"lo": round(lo), "hi": round(hi) if hi < 1e9 else None,
+                    **metrics(b)})
+    return {"fa_p95": round(q[4]), "fa_max": round(fa[-1]), "buckets": out}
+
+
+def land_asof_test(hr, arch):
+    """BCA-calibrated land with publication-date discipline: a sale in
+    year Y may only use roll Y (published Jan Y, valued Jul Y-1), and
+    the calibration ratio uses only earlier sales on their own roll."""
+    tax = v.load_tax()
+    pool, _, _ = v.build_land_pool(hr, arch, v.load_resolved_yb(), tax,
+                                   v.load_lot_dims())
+    pool = [r for r in pool if r["land_psf"] and r["lat"]]
+    for r in pool:
+        r["cluster"] = arch.get(r["tx"], {}).get("parcel_cluster") or r["tx"]
+        yr = int(r["date"][:4])
+        r["bl_asof"] = (tax.get(r["pid"], {}).get(yr) or (None,))[0]
+    pool.sort(key=lambda r: r["date"])
+    res = defaultdict(list)
+    for c in pool:
+        if not c["bl_asof"]:
+            continue
+        train = [x for x in pool if x["date"] < c["date"]
+                 and x["cluster"] != c["cluster"]]
+        if len(train) < 200:
+            continue
+        rat = [x["price_2026_09"] / x["bl_asof"] for x in train
+               if x["community"] == c["community"] and x["bl_asof"]]
+        if len(rat) < 5:
+            rat = [x["price_2026_09"] / x["bl_asof"] for x in train
+                   if x["side"] == c["side"] and x["bl_asof"]]
+        pb = c["bl_asof"] * statistics.median(rat) if rat else None
+        cp = defaultdict(list)
+        for x in train:
+            cp[x["community"]].append(x["land_psf"])
+        m = v.match_land({"lot_sqft": c["lot"], "hood_comm": c["community"],
+                          "lat": c["lat"], "lng": c["lng"],
+                          "side_key": c["side"]}, train,
+                         {k: statistics.median(l) for k, l in cp.items()})
+        p14 = m["p50"] * c["lot"] if m["p50"] else None
+        if pb and p14:
+            res["BCA_CAL_ASOF"].append(c["price_2026_09"] / pb)
+            res["V14_LAND_FWD"].append(c["price_2026_09"] / p14)
+    return {m: metrics(r) for m, r in res.items()}
+
+
+def strict_main():
+    pools, hr, arch = load_pools()
+    S = json.loads((OUT / "backtest_summary.json").read_text())
+    rows = list(csv.DictReader(open(OUT / "backtest_sale_lopo.csv")))
+    for r in rows:
+        for k in ("fa", "actual_psf", "anchor_psf"):
+            r[k] = float(r[k]) if r[k] else None
+    strict = {}
+    for name in ("HOUSE", "DUPLEX"):
+        full = [c for c in pools[name] if c["psf"] and 200 < c["psf"] < 6000
+                and c["lat"]]
+        strict[name] = {
+            "forward_expanding": forward_test(full, name),
+            # Devin V1.4.5 protocol: ALL pool, cutoff 2025-07-01
+            "devin_protocol_2025_07_01": nested_select(full, name,
+                                                       "2025-07-01"),
+            "nested_split": nested_select(full, name, HOLDOUT_SPLIT[name]),
+            "area_support": by_area(rows, name)}
+    strict["LAND"] = land_asof_test(hr, arch)
+    S["strict_v1_5_1"] = strict
+    S["ape_definition"] = "|estimate-actual|/actual"
+    (OUT / "backtest_summary.json").write_text(
+        json.dumps(S, indent=1, ensure_ascii=False))
+    for k, x in strict.items():
+        print(k, json.dumps(x, ensure_ascii=False)[:900])
+
+
 if __name__ == "__main__":
     main()
+    strict_main()
