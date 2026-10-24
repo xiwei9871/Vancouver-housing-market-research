@@ -1,0 +1,166 @@
+check,detail,value
+extrapolation,HOUSE backtest fa max / n>3000 / n>3500,3781.0 / 6 / 3
+extrapolation_row,fa=3113 Dunbar-Southlands,actual 1720.5 anchor 1758.7 v14 1537.6
+extrapolation_row,fa=3779 Dunbar-Southlands,actual 1581.0 anchor 1749.1 v14 1382.1
+extrapolation_row,fa=3758 Dunbar-Southlands,actual 1090.7 anchor 1691.4 v14 1373.9
+extrapolation_row,fa=3078 Collingwood(南),actual 602.6 anchor 1369.2 v14 1073.9
+extrapolation_row,fa=3781 Dunbar-Southlands,actual 1117.6 anchor 1685.6 v14 1369.3
+extrapolation_row,fa=3164 Kerrisdale,actual 1587.0 anchor 1800.8 v14 1491.1
+large_build_est,3141 E BROADWAY,build 4483sf psf 1353 est 6067241 roi 46.6% n_comm 21 n_near 0
+large_build_est,715 E 63RD AVENUE,build 3838sf psf 1415 est 5430788 roi 38.6% n_comm 9 n_near 0
+large_build_est,1861 E KENT AVENUE NORTH,build 3946sf psf 1234 est 4868638 roi 26.2% n_comm 5 n_near 1
+roi_attribution,cross>=10 up/down/net,62 / 13 / 49
+roi_gain_row,120 KOOTENAY STREET|HOUSE,roi 6.0 -> 20.5; v14psf 1265.6240407725052 -> v15psf 1493; est 3064759 -> 3615419
+roi_gain_row,1222 E 51ST AVENUE|HOUSE,roi 9.8 -> 10.0; v14psf 1394.945291740771 -> v15psf 1398; est 2982951 -> 2989763
+roi_gain_row,1372 E 64TH AVENUE|HOUSE,roi 5.3 -> 20.9; v14psf 1216.8505023085706 -> v15psf 1419; est 3322002 -> 3873476
+roi_gain_row,1563 E 59TH AVENUE|HOUSE,roi -3.3 -> 17.1; v14psf 1062.50840586493 -> v15psf 1313; est 3307376 -> 4086898
+roi_gain_row,1685 E 55TH AVENUE|HOUSE,roi 2.3 -> 13.9; v14psf 1130.593646240973 -> v15psf 1363; est 3143503 -> 3789442
+roi_gain_row,1750 SLOCAN STREET|HOUSE,roi 5.6 -> 14.6; v14psf 1197.0616793604854 -> v15psf 1408; est 2998288 -> 3527054
+roi_gain_row,1807 E 38TH AVENUE|HOUSE,roi 3.6 -> 10.6; v14psf 1324.5081027825568 -> v15psf 1423; est 2947560 -> 3166884
+roi_gain_row,1939 E 39TH AVENUE|HOUSE,roi 8.5 -> 10.3; v14psf 1412.4178934905403 -> v15psf 1438; est 2796587 -> 2846908
+roi_gain_row,2137 20TH AVENUE|HOUSE,roi 1.2 -> 23.7; v14psf 1165.1452616157278 -> v15psf 1457; est 3377290 -> 4224099
+roi_gain_row,2179 E 29TH AVENUE|HOUSE,roi -0.3 -> 12.1; v14psf 1307.9146329028313 -> v15psf 1489; est 2978122 -> 3389786
+roi_gain_row,2258 34TH AVE E AVENUE|HOUSE,roi -0.7 -> 14.4; v14psf 1266.0921147445736 -> v15psf 1481; est 3058372 -> 3577392
+roi_gain_row,2354 E 33RD AVENUE|HOUSE,roi 0.7 -> 10.7; v14psf 1146.977390937348 -> v15psf 1323; est 2572097 -> 2967669
+roi_gain_row,2478 E 28TH AVENUE|HOUSE,roi 0.8 -> 12.5; v14psf 1177.358667951016 -> v15psf 1329; est 2517664 -> 2841818
+roi_gain_row,2520 E 24 AVENUE|HOUSE,roi 0.8 -> 14.0; v14psf 1263.763679167409 -> v15psf 1448; est 3002703 -> 3440148
+roi_gain_row,2528 E 24TH AVENUE|HOUSE,roi 8.7 -> 22.7; v14psf 1263.763679167409 -> v15psf 1448; est 3002703 -> 3440148
+roi_gain_row,2593 E 25TH AVENUE|HOUSE,roi -1.2 -> 19.8; v14psf 1152.1471354096643 -> v15psf 1427; est 3238686 -> 4009952
+roi_gain_row,2608 E 4TH AVENUE|HOUSE,roi 7.6 -> 18.5; v14psf 1221.1499123708709 -> v15psf 1429; est 2949810 -> 3452508
+roi_gain_row,2633 VENABLES STREET|HOUSE,roi 7.3 -> 11.8; v14psf 1209.0564393181712 -> v15psf 1375; est 2634050 -> 2996229
+roi_gain_row,2635 W 7TH AVENUE|HOUSE,roi 1.4 -> 10.2; v14psf 1792.4887230695697 -> v15psf 1965; est 3223791 -> 3533518
+roi_gain_row,2665 WARD STREET|HOUSE,roi -0.1 -> 10.0; v14psf 1214.959375096257 -> v15psf 1352; est 2453732 -> 2730072
+roi_gain_row,2719 DUKE STREET|HOUSE,roi -0.0 -> 11.0; v14psf 1214.959375096257 -> v15psf 1364; est 2453732 -> 2754479
+roi_gain_row,2758 HORLEY STREET|HOUSE,roi 4.5 -> 15.0; v14psf 1214.959375096257 -> v15psf 1352; est 2453732 -> 2730072
+roi_gain_row,2865 GRANT STREET|HOUSE,roi 6.6 -> 13.5; v14psf 1189.412309315393 -> v15psf 1377; est 2990896 -> 3462254
+roi_gain_row,3006 E 27TH AVENUE|HOUSE,roi 8.1 -> 17.6; v14psf 1334.443719982798 -> v15psf 1466; est 2767102 -> 3039984
+roi_gain_row,3017 E 17TH AVENUE|HOUSE,roi 0.1 -> 10.9; v14psf 1317.2807566455165 -> v15psf 1476; est 2712545 -> 3038356
+roi_gain_row,3061 PARKER STREET|HOUSE,roi 5.1 -> 15.9; v14psf 1152.4778852598993 -> v15psf 1421; est 3069095 -> 3785049
+roi_gain_row,3120 TURNER STREET|HOUSE,roi 5.4 -> 14.5; v14psf 1292.7094174263766 -> v15psf 1445; est 2815521 -> 3146818
+roi_gain_row,3126 E 20TH AVENUE|HOUSE,roi 0.5 -> 14.0; v14psf 1277.264104852937 -> v15psf 1468; est 2781881 -> 3197756
+roi_gain_row,3144 E 18TH AVENUE|HOUSE,roi 4.6 -> 18.5; v14psf 1278.1377432775944 -> v15psf 1468; est 2780325 -> 3194134
+roi_gain_row,3157 PENTICTON STREET|HOUSE,roi 0.2 -> 23.0; v14psf 1137.0400494244632 -> v15psf 1429; est 3273850 -> 4113539
+roi_gain_row,3161 E 15TH AVENUE|HOUSE,roi 1.2 -> 19.2; v14psf 1213.5389489148201 -> v15psf 1456; est 2900844 -> 3480861
+roi_gain_row,3185 E 16TH AVENUE|HOUSE,roi -0.1 -> 23.9; v14psf 1134.4427750521936 -> v15psf 1440; est 3065303 -> 3892278
+roi_gain_row,3302 E 5TH AVENUE|HOUSE,roi 5.9 -> 17.3; v14psf 1221.1499123708709 -> v15psf 1450; est 2949810 -> 3502326
+roi_gain_row,3305 WORTHINGTON DRIVE|HOUSE,roi 4.4 -> 30.4; v14psf 1097.1865949038379 -> v15psf 1408; est 3247782 -> 4167080
+roi_gain_row,3326 SLOCAN STREET|HOUSE,roi -1.7 -> 14.8; v14psf 1323.308962665322 -> v15psf 1476; est 2891695 -> 3224951
+roi_gain_row,3350 E 8 AVENUE|HOUSE,roi 5.3 -> 13.8; v14psf 1221.1499123708709 -> v15psf 1429; est 2949810 -> 3452508
+roi_gain_row,3356 WILLIAM STREET|HOUSE,roi 3.6 -> 10.1; v14psf 1292.7094174263766 -> v15psf 1413; est 2815521 -> 3076978
+roi_gain_row,3481 DIEPPE DRIVE|HOUSE,roi -1.6 -> 21.6; v14psf 1104.2202916468814 -> v15psf 1396; est 3133777 -> 3962378
+roi_gain_row,3662 E 25TH AVENUE|HOUSE,roi -2.9 -> 19.4; v14psf 1056.2309121215596 -> v15psf 1328; est 3249799 -> 4086104
+roi_gain_row,3687 E 26TH AVENUE|HOUSE,roi 4.7 -> 12.1; v14psf 1267.4096399705309 -> v15psf 1368; est 2799566 -> 3020676
+roi_gain_row,3939 BOUNDARY ROAD|HOUSE,roi -0.0 -> 32.5; v14psf 984.9022304822299 -> v15psf 1349; est 3688804 -> 5050991
+roi_gain_row,425 E 57TH AVENUE|HOUSE,roi 4.0 -> 12.4; v14psf 1398.256411981272 -> v15psf 1523; est 2977170 -> 3242162
+roi_gain_row,4332 VICTORIA DRIVE|HOUSE,roi -0.4 -> 16.0; v14psf 1249.288389269884 -> v15psf 1478; est 3091989 -> 3657501
+roi_gain_row,4535 RUPERT STREET|HOUSE,roi -5.2 -> 10.5; v14psf 1117.2932656163562 -> v15psf 1324; est 2627874 -> 3113425
+roi_gain_row,4561 MANOR STREET|HOUSE,roi 7.7 -> 29.8; v14psf 991.9662810484377 -> v15psf 1280; est 3527035 -> 4550072
+roi_gain_row,4561 NANAIMO STREET|HOUSE,roi 6.5 -> 35.0; v14psf 1111.6863699716598 -> v15psf 1450; est 3401760 -> 4438004
+roi_gain_row,4605 RUPERT STREET|HOUSE,roi 4.6 -> 15.9; v14psf 1192.622499320062 -> v15psf 1338; est 2491269 -> 2794291
+roi_gain_row,4695 NANAIMO STREET|HOUSE,roi -0.6 -> 21.7; v14psf 1168.3820791200756 -> v15psf 1462; est 3266095 -> 4086779
+roi_gain_row,4702 CLARENDON STREET|HOUSE,roi -4.8 -> 11.1; v14psf 1111.0719042663472 -> v15psf 1317; est 2639907 -> 3128312
+roi_gain_row,4711 GOTHARD STREET|HOUSE,roi 0.6 -> 17.3; v14psf 1111.0719042663472 -> v15psf 1317; est 2639907 -> 3128312
+roi_gain_row,4863 RUPERT STREET|HOUSE,roi -6.4 -> 19.6; v14psf 937.1699638756387 -> v15psf 1286; est 3097958 -> 4252484
+roi_gain_row,4904 RUPERT STREET|HOUSE,roi -5.3 -> 14.1; v14psf 1054.3290889408406 -> v15psf 1313; est 2755595 -> 3432734
+roi_gain_row,4987 HOY STREET|HOUSE,roi 2.4 -> 14.7; v14psf 1149.0565827962196 -> v15psf 1304; est 2622090 -> 2974742
+roi_gain_row,5319 SOMERVILLE STREET|HOUSE,roi 5.8 -> 28.1; v14psf 1436.8709914067178 -> v15psf 1780; est 2845005 -> 3523937
+roi_gain_row,5363 DUMFRIES STREET|HOUSE,roi 8.8 -> 22.5; v14psf 1269.4994305254352 -> v15psf 1450; est 3148394 -> 3595303
+roi_gain_row,586 E 60TH AVENUE|HOUSE,roi 8.3 -> 17.2; v14psf 1378.6420932615504 -> v15psf 1506; est 3011782 -> 3289002
+roi_gain_row,6527 TYNE STREET|HOUSE,roi 2.6 -> 13.7; v14psf 1093.2808914377083 -> v15psf 1292; est 3305635 -> 3907950
+roi_gain_row,6779 MAIN STREET|HOUSE,roi 9.2 -> 13.2; v14psf 1448.2630496989657 -> v15psf 1506; est 2892795 -> 3008084
+roi_gain_row,6819 KNIGHT STREET|HOUSE,roi 4.1 -> 13.6; v14psf 1344.5501786667721 -> v15psf 1482; est 3061541 -> 3374086
+roi_gain_row,7223 GLADSTONE STREET|HOUSE,roi 7.4 -> 11.8; v14psf 1280.3531587608084 -> v15psf 1390; est 2839311 -> 3083410
+roi_gain_row,7541 KERR STREET|HOUSE,roi 9.9 -> 14.9; v14psf 1104.087425075943 -> v15psf 1276; est 3279140 -> 3790705
+roi_gain_row,77 W 62ND AVENUE|HOUSE,roi 2.7 -> 32.1; v14psf 1373.0318208985964 -> v15psf 1821; est 3138899 -> 4162341
+roi_loss_row,1333 E 41ST AVENUE,"roi14 18.3 -> v15 best (22.0, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,1661 E 49TH AVENUE,"roi14 12.2 -> v15 best (7.9, 'HOUSE', 'VERIFIED')"
+roi_loss_row,2216 E 41ST AVENUE,"roi14 17.8 -> v15 best (4.2, 'DUPLEX', 'CONDITIONAL')"
+roi_loss_row,2284 E 45TH AVENUE,"roi14 16.3 -> v15 best (18.3, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,266 E 32ND AVENUE,"roi14 12.9 -> v15 best (4.6, 'DUPLEX', 'CONDITIONAL')"
+roi_loss_row,2733 E 28TH AVENUE,"roi14 11.1 -> v15 best (23.2, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,3135-3137 HEATHER STREET,"roi14 13.5 -> v15 best (-3.4, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,3151 HEATHER STREET,"roi14 11.3 -> v15 best (-9.0, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,3253 SCHOOL AVENUE,"roi14 10.1 -> v15 best (9.6, 'HOUSE', 'VERIFIED')"
+roi_loss_row,48 E 22ND AVENUE,"roi14 25.0 -> v15 best (15.0, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,4883 BEATRICE STREET,"roi14 11.0 -> v15 best (5.7, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,522 E CORDOVA STREET,"roi14 17.9 -> v15 best (6.6, 'HOUSE', 'CONDITIONAL')"
+roi_loss_row,614 E 19TH AVENUE,"roi14 35.0 -> v15 best (16.5, 'DUPLEX', 'CONDITIONAL')"
+p10p90_coverage,DUPLEX,456/570 = 80% (nominal 80%)
+p10p90_coverage,HOUSE,126/158 = 80% (nominal 80%)
+p10p90_coverage,comm:?,6/7 = 86% (nominal 80%)
+p10p90_coverage,comm:Arbutus Ridge,12/16 = 75% (nominal 80%)
+p10p90_coverage,comm:Collingwood(南),18/21 = 86% (nominal 80%)
+p10p90_coverage,comm:Dunbar-Southlands,36/45 = 80% (nominal 80%)
+p10p90_coverage,comm:Fairview,3/5 = 60% (nominal 80%)
+p10p90_coverage,comm:Grandview-Woodland,79/92 = 86% (nominal 80%)
+p10p90_coverage,comm:Hastings-Sunrise,20/26 = 77% (nominal 80%)
+p10p90_coverage,comm:Kensington-Cedar Cottage,64/91 = 70% (nominal 80%)
+p10p90_coverage,comm:Kerrisdale,16/18 = 89% (nominal 80%)
+p10p90_coverage,comm:Killarney,28/31 = 90% (nominal 80%)
+p10p90_coverage,comm:Kitsilano,60/79 = 76% (nominal 80%)
+p10p90_coverage,comm:Marpole,9/9 = 100% (nominal 80%)
+p10p90_coverage,comm:Mount Pleasant,34/41 = 83% (nominal 80%)
+p10p90_coverage,comm:Oakridge,1/4 = 25% (nominal 80%)
+p10p90_coverage,comm:Renfrew(北),50/59 = 85% (nominal 80%)
+p10p90_coverage,comm:Riley Park,46/60 = 77% (nominal 80%)
+p10p90_coverage,comm:South Cambie,3/3 = 100% (nominal 80%)
+p10p90_coverage,comm:Strathcona,7/9 = 78% (nominal 80%)
+p10p90_coverage,comm:Sunset,42/52 = 81% (nominal 80%)
+p10p90_coverage,comm:Victoria-Fraserview,23/32 = 72% (nominal 80%)
+p10p90_coverage,comm:West Point Grey,25/28 = 89% (nominal 80%)
+p10p90_coverage,fa2000-3000,36/43 = 84% (nominal 80%)
+p10p90_coverage,fa<2000,543/679 = 80% (nominal 80%)
+p10p90_coverage,fa>3000,3/6 = 50% (nominal 80%)
+rounding_boundary,listing best-verified roi displayed-1dp >=10 / >=20,123 / 60 (summary json raw: 122 / 59)
+rounding_edge,best-roi rows displayed exactly 10.0 / 20.0,"[('3055 ROSEMONT DRIVE', 20.0), ('1222 E 51ST AVENUE', 10.0), ('2665 WARD STREET', 10.0), ('4458 SKEENA STREET', 20.0), ('5302 INVERNESS STREET', 20.0)]"
+legal_conditional,CONDITIONAL total / variance_required,49 / 36
+legal_conditional_row,4265 SLOCAN STREET|HOUSE,zoning=C-1 var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,1333 E 41ST AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,1333 E 41ST AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,2284 E 45TH AVENUE|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,2733 E 28TH AVENUE|HOUSE,zoning=CD-1 var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,3025 E 45TH AVENUE|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,4011 KAMLOOPS STREET|HOUSE,zoning=CD-1 var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,48 E 22ND AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,48 E 22ND AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,4940 KILLARNEY STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,4940 KILLARNEY STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,1588 E 41ST AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,1588 E 41ST AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,2216 E 41ST AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,2216 E 41ST AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,2316 NANAIMO STREET|HOUSE,zoning=C-2A var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,2472 E 41ST AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,2472 E 41ST AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,2474 E 24TH AVENUE|HOUSE,zoning=CD-1 var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,266 E 32ND AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,266 E 32ND AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,266 E 49TH AVENUE|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,2764 DUNDAS STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,2764 DUNDAS STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,3060 EUCLID AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,3060 EUCLID AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,3135-3137 HEATHER STREET|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,3151 HEATHER STREET|HOUSE,zoning=C-2A var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,473 E 6TH AVENUE|HOUSE,zoning=R5-3 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,473 E 6TH AVENUE|DUPLEX,zoning=R5-3 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,4820 MOSS STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,4820 MOSS STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,4882 MOSS STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,4882 MOSS STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,4883 BEATRICE STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,4883 BEATRICE STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,5036 SHERBROOKE STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,5036 SHERBROOKE STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,5075 PAYNE STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,5075 PAYNE STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,522 E CORDOVA STREET|HOUSE,zoning=DEOD var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,5743 ST. MARGARETS STREET|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,5743 ST. MARGARETS STREET|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,5771 SHERBROOKE STREET|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+legal_conditional_row,614 E 19TH AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,614 E 19TH AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,776 E 63RD AVENUE|HOUSE,zoning=R1-1 var=True vraw=True reason=variance_required (lot below standard)
+legal_conditional_row,776 E 63RD AVENUE|DUPLEX,zoning=R1-1 var=True vraw=False reason=variance_required (lot below standard)
+legal_conditional_row,912 E 57TH AVENUE|HOUSE,zoning=blank var=False vraw=True reason=verified on non-residential/unknown zone
+committed_summary,roi_ge / price_refreshed,"{'10': 122, '20': 59, '30': 15} / 9"
