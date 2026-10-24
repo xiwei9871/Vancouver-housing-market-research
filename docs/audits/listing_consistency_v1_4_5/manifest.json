@@ -1,0 +1,26 @@
+{
+  "audit": "listing_consistency_v1_4_5",
+  "ruleset": "V1.4.5-C01..C11-r1",
+  "date": "2026-10-23",
+  "baseline": "V1.4.4 aa45207",
+  "inputs_sha256": {
+    "land_valuation": "3a06411c854fd208fc64ba421e4cef1dd824825f2686ed176e601e2969422e59",
+    "roi": "c6f82dab4b7164fbac8055556dd344dc8876eb133fd9f12e63641317729f6700",
+    "sale": "155b1c567845bd5708950d3f5ed38ec68900bbc5027be8a7f32f03a4b9669506",
+    "scenarios": "07f4df58f41414052df72410d81d9afd57073854178980775e7f4da34ba8396d",
+    "listing_json": "2011e64d887c161f885cec90f6edbf6cc27ef2204765e2a6fa4230af5c2ffa7a",
+    "lot_dims_frozen": "bf1379be69bc5be3551290f2cb49196fc06d40d38f3250bd9e061d7a78f147c5"
+  },
+  "outputs_sha256": {
+    "audit_report.md": "b2ae9960ae38659857a3b7acd14b377b058a2e4644393427325223123b272b7c",
+    "c09_r11_duplex_conditional.csv": "c6e55b3ac5f0dede5f6e70de5063dbd11ea50e71ffdc2b2bf7fa9400d4c1f498",
+    "comparable_pair_anomalies.csv": "c5c058fcc3ad2f12cb4ac0cc50533119bbe86951a59ef4c9cd2bbfe2fb3a3b23",
+    "consistency_findings.csv": "4399807a49c8c4c23c845c4ec69d8b2586dbddddb1278b50c94fb37e1cde68aa",
+    "listing_consistency_summary.csv": "7c7cea4fda9eeb4910172dc37a2dfa05359d8db2a32d2042a217a765cd957b97",
+    "pricing_backtest.csv": "14b8c3e929b8ee1cce4507e0fbcb7e2e2a52be05d3e5b4b2acab5ba1e21861b7",
+    "pricing_backtest_summary.csv": "931e2eec18bc7b17de8784ae34c8093c66cc04d50b31cba95785f5f9441978b6",
+    "valuation_bridge.csv": "33d744fdb6efc74ba8d26dfcefcf844a71da623053f3db7b958d718378a38333",
+    "zoning_conflicts.csv": "77f5ff4c991ce70970ca51274eefb08b6e4f165b78a6fb63c6255afa3d0cbdcf",
+    "zoning_rule_matrix.csv": "ef8a697d10fb57347e739290fd709b1ed7a2bb4f4e7a7b87913082604feb14f9"
+  }
+}
