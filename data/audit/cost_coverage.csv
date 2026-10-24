@@ -1,0 +1,30 @@
+cost_item,v152_status,v152_formula,audit_status,audit_formula,physical_scope,note
+land,EXPLICIT,offer = Ask,EXPLICIT,Ask (latest_asking),site,
+PTT,EXPLICIT,bc_ptt 1/2/3% tiers,EXPLICIT,same; +2% >$3M residential tier absent in bc_ptt -> N/A for these cases (land <$3M),site,
+demolition/abatement,UNKNOWN,not in cost_model,EXPLICIT,"$35,000 (round-6 shadow; RFQ asks to include abatement)",existing house,abatement for 1940s-60s stock UNKNOWN
+hard above-grade,EXPLICIT,build_sqft x $350/400/450,EXPLICIT,same tiers on above-grade GFA,above-grade FSR area,tiers UNVERIFIED: no GC quote (cost-audit-r7)
+basement construction,UNKNOWN,not costed; comps priced incl. basement,EXPLICIT,"basement sf x $200 (doc range 150-250, no quote)",below-grade finished,only in scope-aligned variants
+contingency,UNKNOWN,none,EXPLICIT,5% of hard+basement,construction,
+soft (design/engineering/permit),EXPLICIT,build_sqft x $40 ('办证'),EXPLICIT,"same $40/sf, counted once",project,content of $40 undocumented; audit does not add a second soft line
+City DCL,UNKNOWN,not separate; may or may not sit inside $40,EXPLICIT,"$7.53/sf x GFA, full (DCL bulletin 6.2 per cost-audit-r7)",GFA,"if $40 already contains DCL, audit double counts <= $7.53/sf (disclosed)"
+ACC,UNKNOWN,none,EXPLICIT,$2.32/sf x GFA unless new GFA <= existing (s7.1(d)); existing from MLS card area -> city GFA UNKNOWN,GFA,
+Metro Van DCC,UNKNOWN,none,EXPLICIT,(units-1) x 2027 rate (net-new-unit credit),units,
+TransLink DCC,UNKNOWN,none,EXPLICIT,units x rate - 1 SFD credit; credit rule UNKNOWN (cost-audit-r7),units,
+utility connections,UNKNOWN,none,EXPLICIT,$40k/50k/60k/70k by units,site,
+property tax during hold,UNKNOWN,none,EXPLICIT,0.45%/yr x land x months,site,
+builder's risk insurance,UNKNOWN,none,EXPLICIT,$12k/yr x months,project,
+land interest,EXPLICIT,offer x 5% x 1y (100% debt),EXPLICIT,60% LTV x 6%/yr monthly over full period,site,
+construction interest,EXPLICIT,hard x 7.725% x 1y on full hard,EXPLICIT,"65% LTV, linear draws x 9%/yr",construction,
+loan fees,UNKNOWN,none,EXPLICIT,1.5% of committed loans,finance,
+equity opportunity cost,NOT_APPLICABLE,excluded (project cash ROI),NOT_APPLICABLE,excluded (cost-audit-r7 D),finance,
+selling,EXPLICIT,4% of sale,EXPLICIT,4% of sale,sale,
+GST on sale,EXPLICIT,"5% x sale as a cost (labelled 'EXCL' but economically = price includes GST, overstated 0.24% of sale)",EXPLICIT,INCL_NO_ITC: sale x 5/105 (comps mostly GST-free resales),sale,GST basis of comps UNKNOWN_LIKELY_* only
+GST input tax credits,UNKNOWN,none,UNKNOWN,whether $350 tiers are GST-inclusive is undocumented -> ITC not credited (conservative),construction,
+new housing rebate / FTHB GST relief,NOT_APPLICABLE,none,UNKNOWN,buyer-side; effect on achievable price not modelled,sale,
+BC home flipping tax,UNKNOWN,none,UNKNOWN,sale <730 days; builder exemption exists (gov.bc.ca page) but conditions not retrieved,profit,exposure if NOT exempt shown as sensitivity only
+speculation & vacancy / empty homes tax,UNKNOWN,none,UNKNOWN,redevelopment exemptions exist; applicability not verified,site,
+BC Housing new home registration + 2-5-10 warranty,UNKNOWN,none,UNKNOWN,not quantified; plausibly inside $40 soft,project,
+landscaping/site works,UNKNOWN,unclear if in $350,UNKNOWN,assumed inside hard tier (RFQ item 7 open),site,
+laneway house,NOT_APPLICABLE,not built,NOT_APPLICABLE,not in any scenario,-,
+income tax on profit,NOT_APPLICABLE,pre-tax ROI,NOT_APPLICABLE,pre-tax ROI,-,
+post-completion carry / sales period,UNKNOWN,sold at completion,UNKNOWN,months sensitivity 18/24/30,time,
