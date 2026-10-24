@@ -123,10 +123,18 @@ fa3,078 实 $603 估 $1,369)。原因:拟合 k=-0.088 接近平坦,
 - 值得肯定:roi_p10 作为压力情景展示是合理设计,只是不能当
   预测区间。
 
-## 6. 18 条法规条件方案 — PASS
+## 6. 18 条法规条件方案 — PASS(分类勘误见 V1.5.1 报告 §7)
 
-- `DUPLEX:CONDITIONAL=18` 逐条核对:`verified_raw=True ∧
-  variance_required=True` → `CONDITIONAL`,保留假设售价/ROI
+> **勘误(2026-10-24)**:本节原文误写"`var&verified` 18 条为
+> DUPLEX"。经 V1.5.1 数据逐行复核:`verified_raw=True ∧
+> variance_required=True` 的 18 条是 **HOUSE** 行(0.60 FSR
+> 用途许可但 lot<3,294sf 需放宽);同 18 个地址的 DUPLEX 行
+> 为 `variance_required=True ∧ verified_raw=False`,经另一路径
+> 落 CONDITIONAL。分类数据本身正确,仅本节文字归属有误。
+> 详见 `v1_5_1_acceptance_review/acceptance_review_v1_5_1.md` §7。
+
+- `verified_raw=True ∧ variance_required=True` 的 18 条(HOUSE)
+  逐条核对 → `CONDITIONAL`,保留假设售价/ROI
   但不进 VERIFIED 排名——正确实现了"可申请放宽 ≠ 已批准"。
 - 全套 CONDITIONAL 共 49 条(HOUSE 31 + DUPLEX 18):18 条
   variance + 其余为空/C-*/CD-1 zoning 上 verified → CONDITIONAL,
