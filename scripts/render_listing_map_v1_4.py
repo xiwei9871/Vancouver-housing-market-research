@@ -155,7 +155,11 @@ function matchExpr(t, q) {
         const v = parseFloat(val.replace(/,/g, ''));
         return op === '>' ? n > v : op === '<' ? n < v :
                op === '>=' ? n >= v : op === '<=' ? n <= v :
-               Math.abs(n - v) < Math.abs(v) * 0.05 + 0.5;
+               // bare number: digit-substring on the rendered value
+               // (ratio cells like Ask/BCA "0.6" -> rows showing 0.6x);
+               // ±5% approx kept only for large magnitudes ($ values)
+               (t.toLowerCase().includes(val) ||
+                (v >= 100 && Math.abs(n - v) < Math.abs(v) * 0.05 + 0.5));
     }
     return t.toLowerCase().includes(val);
 }
