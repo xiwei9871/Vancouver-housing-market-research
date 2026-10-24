@@ -1,0 +1,62 @@
+{
+ "source_findings": {
+  "V1.4.5": 199,
+  "V1.5": 56
+ },
+ "unified_rows": 237,
+ "absorbed_duplicates": 18,
+ "rows_by_sources": {
+  "V1.4.5": 181,
+  "V1.4.5+V1.5": 18,
+  "V1.5": 38
+ },
+ "rows_by_topic": {
+  "LAND_BCA_HIGH_MODEL_DISCOUNT": 4,
+  "LAND_BCA_LOW_MODEL_PREMIUM": 7,
+  "LAND_MODEL_VS_BCA_GAP": 16,
+  "LAND_PREMIUM_WITH_HIGH_ROI": 4,
+  "LEGAL_SMALL_LOT_DUPLEX": 17,
+  "LEGAL_VERIFIED_WITH_VARIANCE": 18,
+  "PAIR_LAND_GAP": 9,
+  "PAIR_ROI_GAP": 34,
+  "PAIR_SALE_PSF_GAP": 121,
+  "SALE_PSF_V14_TO_V15_JUMP": 7
+ },
+ "v145_recheck": {
+  "CLEARED_BY_V15": 174,
+  "STILL_TRIGGERS": 5,
+  "N/A": 20
+ },
+ "v145_recheck_by_rule": {
+  "C01": {
+   "CLEARED_BY_V15": 6,
+   "STILL_TRIGGERS": 1
+  },
+  "C02": {
+   "CLEARED_BY_V15": 11
+  },
+  "C03": {
+   "CLEARED_BY_V15": 4
+  },
+  "C04": {
+   "CLEARED_BY_V15": 3,
+   "STILL_TRIGGERS": 1
+  },
+  "C05": {
+   "N/A": 1
+  },
+  "C06": {
+   "CLEARED_BY_V15": 118,
+   "STILL_TRIGGERS": 3
+  },
+  "C07": {
+   "CLEARED_BY_V15": 32,
+   "N/A": 2
+  },
+  "C09": {
+   "N/A": 17
+  }
+ },
+ "listings_with_any": 122,
+ "note": "counts are never summed across sources; CLEARED_BY_V15 != RESOLVED (review_status stays OPEN)"
+}

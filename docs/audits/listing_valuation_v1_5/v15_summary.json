@@ -1,5 +1,5 @@
 {
- "model_version": "listing_valuation_v1_5",
+ "model_version": "listing_valuation_v1_5_2",
  "n_listings": 224,
  "k_fit": {
   "HOUSE": -0.0884,
@@ -62,15 +62,23 @@
   "C04": 6
  },
  "roi_ge": {
-  "10": 104,
-  "20": 47,
-  "30": 8
+  "10": 122,
+  "20": 60,
+  "30": 16
  },
  "roi_p10_ge": {
   "0": 0,
   "10": 0,
   "20": 0
  },
+ "roi_m10_ge0": 120,
+ "roi_m20_ge0": 43,
+ "roi_in_support_ge": {
+  "10": 104,
+  "20": 47,
+  "30": 8
+ },
+ "best_is_out_of_support": 18,
  "roi_bridge": {
   "roi_s0_v144": {
    "10": 74,
@@ -91,6 +99,11 @@
    "10": 104,
    "20": 47,
    "30": 8
+  },
+  "roi_full": {
+   "10": 122,
+   "20": 60,
+   "30": 16
   }
  },
  "area_support_p95": {

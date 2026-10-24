@@ -39,7 +39,7 @@ OUT = bt.OUT
 V14 = v.DOCS
 WATCHLIST = Path(os.environ.get(
     "WATCHLIST", ROOT / "data/research/watchlist/property-watchlist.json"))
-MODEL_VERSION = "listing_valuation_v1_5"
+MODEL_VERSION = "listing_valuation_v1_5_2"
 SIDE = {"东区": "Vancouver East", "西区": "Vancouver West"}
 
 
@@ -218,18 +218,31 @@ def main():
                         else None
                 mb = v.max_bid(sc, sc["est"], 0.20, v.BASE_YEARS)
                 sc["mb20"] = mb if isinstance(mb, float) else None
+                # fixed sale haircuts alongside the error-quantile stress
+                for cut in (10, 20):
+                    sc[f"roi_m{cut}"] = round(100 * v.cost_model(
+                        asking, sc, sc["est"], v.BASE_YEARS, "EXCL",
+                        -cut / 100)["roi"], 1)
+        # V1.5.2: legality is the only ranking gate. Out-of-support area
+        # is disclosed (flag) — it does not remove a scenario from the
+        # full research ranking; an in-support view is kept separately.
         ranked = [sc for sc in row["scen"].values()
                   if sc["state"] == "VERIFIED" and sc.get("method") == "ANCHOR"
-                  and sc.get("roi") is not None
-                  and not sc.get("out_of_support")]
+                  and sc.get("roi") is not None]
         best = max(ranked, key=lambda x: x["roi"]) if ranked else None
+        ins = [sc for sc in ranked if not sc.get("out_of_support")]
+        best_in = max(ins, key=lambda x: x["roi"]) if ins else None
         cond = [sc for sc in row["scen"].values()
-                if (sc["state"] in ("CONDITIONAL", "ELIGIBLE")
-                    or sc.get("out_of_support"))
+                if sc["state"] in ("CONDITIONAL", "ELIGIBLE")
                 and sc.get("method") == "ANCHOR" and sc.get("roi") is not None]
         row["best"] = best["name"] if best else None
         row["roi"] = best["roi"] if best else None
         row["roi_p10"] = best.get("roi_p10") if best else None
+        row["roi_m10"] = best.get("roi_m10") if best else None
+        row["roi_m20"] = best.get("roi_m20") if best else None
+        row["best_oos"] = bool(best and best.get("out_of_support"))
+        row["best_in"] = best_in["name"] if best_in else None
+        row["roi_in"] = best_in["roi"] if best_in else None
         row["cond_best"] = max(cond, key=lambda x: x["roi"]) if cond else None
         rows.append(row)
     return finish(rows, scen_out, price_fix, k_fit, band, lband, support)
@@ -341,7 +354,7 @@ def bridge(rows):
                and sc.get("method") == "ANCHOR"]
         s1 = best((r14.get((L, n)), n) for n in ver)
         s2 = best((r["scen"][n].get("roi"), n) for n in ver)
-        s3 = (r["roi"], r["best"])
+        s3 = (r["roi_in"], r["best_in"])
         why = []
         if s0[1] and s0[1] not in ver:
             why.append(f"{s0[1]}:{r['scen'].get(s0[1], {}).get('state', '?')}")
@@ -350,19 +363,25 @@ def bridge(rows):
         out.append({"listing": L, "roi_s0_v144": s0[0], "best_s0": s0[1],
                     "roi_s1_legal": s1[0], "roi_s2_sale": s2[0],
                     "best_s2": s2[1], "roi_s3_support": s3[0],
-                    "best_s3": s3[1], "scope_change": ";".join(why),
+                    "best_s3": s3[1], "roi_full": r["roi"],
+                    "best_full": r["best"], "best_full_oos": r["best_oos"],
+                    "scope_change": ";".join(why),
                     "d_sale": round(s2[0] - s1[0], 1)
                     if s1[0] is not None and s2[0] is not None else ""})
     steps = {k: {t: sum(1 for x in out if x[k] is not None and x[k] >= t)
                  for t in (10, 20, 30)}
              for k in ("roi_s0_v144", "roi_s1_legal", "roi_s2_sale",
-                       "roi_s3_support")}
+                       "roi_s3_support", "roi_full")}
     v.wcsv(OUT / "v15_roi_bridge.csv", out)
     return steps
 
 
 def finish(rows, scen_out, price_fix, k_fit, band, lband, support=None):
     contra = detect(rows)
+    seq = Counter()
+    for c in contra:
+        seq[c["code"]] += 1
+        c["id"] = f"V15-{c['code']}-{seq[c['code']]:03d}"
     steps = bridge(rows)
     # C09: lineage — page community table must come from the same
     # dims-corrected pool as the per-listing land values (asserted in
@@ -383,6 +402,8 @@ def finish(rows, scen_out, price_fix, k_fit, band, lband, support=None):
                 "sale_p10": rd(sc.get("p10")), "sale_p50": rd(sc.get("est")),
                 "sale_p90": rd(sc.get("p90")),
                 "roi_p50": rd(sc.get("roi"), 1),
+                "roi_sale_m10": rd(sc.get("roi_m10"), 1),
+                "roi_sale_m20": rd(sc.get("roi_m20"), 1),
                 "unit_area": rd(sc.get("unit_area")),
                 "out_of_support": bool(sc.get("out_of_support")),
                 "roi_p10": rd(sc.get("roi_p10"), 1),
@@ -403,7 +424,7 @@ def finish(rows, scen_out, price_fix, k_fit, band, lband, support=None):
         "v14_comps_disc_pct": rd(r["comps_disc"], 1),
         "v14_comps_level": r["comps_level"]} for r in rows])
     v.wcsv(OUT / "v15_contradictions.csv", contra,
-           fields=["code", "listing", "other", "severity", "detail", "status"])
+           fields=["id", "code", "listing", "other", "severity", "detail", "status"])
     v.wcsv(OUT / "v15_price_refresh.csv", price_fix,
            fields=["listing", "snapshot_ask", "latest_asking"])
     roi = [r["roi"] for r in rows if r["roi"] is not None]
@@ -417,6 +438,11 @@ def finish(rows, scen_out, price_fix, k_fit, band, lband, support=None):
         "contradictions": Counter(c["code"] for c in contra),
         "roi_ge": {t: sum(x >= t for x in roi) for t in (10, 20, 30)},
         "roi_p10_ge": {t: sum(x >= t for x in roi10) for t in (0, 10, 20)},
+        "roi_m10_ge0": sum(1 for r in rows if (r["roi_m10"] or -1) >= 0),
+        "roi_m20_ge0": sum(1 for r in rows if (r["roi_m20"] or -1) >= 0),
+        "roi_in_support_ge": {t: sum(1 for r in rows if r["roi_in"] is not None
+                                     and r["roi_in"] >= t) for t in (10, 20, 30)},
+        "best_is_out_of_support": sum(r["best_oos"] for r in rows),
         "roi_bridge": steps, "area_support_p95": support,
         "out_of_support": Counter(n for r in rows for n, sc in r["scen"].items()
                                   if sc.get("out_of_support")

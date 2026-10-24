@@ -87,10 +87,12 @@ def scen_cell(sc):
         f"社区n{sc['n']}{near}</span>{v14}"
         f"<br><span class='{cls}'>ROI1y {roi:.1f}%</span> "
         f"<span class='{cls10}' title='历史误差P10压力情景(非概率保证)'>压力 {pct(roi10)}</span>"
+        f"<br><span class='band'>售价−10% {pct(sc.get('roi_m10'))} · −20% "
+        f"{pct(sc.get('roi_m20'))}</span>"
         + ("" if st == "VERIFIED" else f"<br>{tag}")
         + (f"<br><span class='st st-CONDITIONAL' title='单户面积 "
            f"{sc['unit_area']:,.0f}sf 超出回测样本 P95,误差未经验证'>"
-           "超样本面积·不排序</span>" if sc.get("out_of_support") else "")
+           "⚠超历史样本面积</span>" if sc.get("out_of_support") else "")
         + "</td>")
 
 
@@ -184,12 +186,18 @@ def method_box(summary):
         "MdAPE=|估价−实际|/实际。<b>压力情景</b>=估售×前向滚动回测的实际/估价"
         "P10 比值;是历史误差分位,不是单套房概率保证。单户面积超回测样本 P95"
         f"(HOUSE {summary['area_support_p95']['HOUSE']:,}sf / DUPLEX "
-        f"{summary['area_support_p95']['DUPLEX']:,}sf)的方案不排序。<br>"
+        f"{summary['area_support_p95']['DUPLEX']:,}sf)标注 ⚠ 但<b>仍参与完整研究排名</b>;"
+        "「样本覆盖内」视图可在扩展筛选切换。<br>"
         "<b>ROI≥10% 变化拆解</b>:" + " → ".join(
             f"{lab} {summary['roi_bridge'][k][10]}" for lab, k in (
                 ("V1.4.4", "roi_s0_v144"), ("仅VERIFIED", "roi_s1_legal"),
-                ("+V1.5售价", "roi_s2_sale"), ("+面积支撑门", "roi_s3_support")))
-        + "(逐房源见 v15_roi_bridge.csv)<br>"
+                ("+V1.5售价 = 完整研究排名", "roi_s2_sale")))
+        + f";样本覆盖内视图 {summary['roi_bridge']['roi_s3_support'][10]}"
+        "(逐房源见 v15_roi_bridge.csv)<br>"
+        "<span class='stat-note'>限定:ANCHOR 默认参数曾在全样本留一上比较选出,"
+        "前向滚动成绩非完全独立;嵌套选参列为更强证据。土地前向检验按成交年取"
+        "BCA roll,但成交价已经 HPI 归一到 2026-09,并非当时可得信息的真实模拟。"
+        "</span><br>"
         "<span class='stat-note'>未解决:回测样本即 comp 池本身(同源);"
         "MULTIPLEX 无建面无法回测,仅展示不排序;成交截 ~2026-07-08,"
         "非当前现价;建造成本/产品配置未回测。</span></div>")
@@ -198,8 +206,7 @@ def method_box(summary):
 def main():
     rows, contra, summary = v15.main()
     cx_by = defaultdict(list)
-    for i, c in enumerate(contra):
-        c["id"] = f"X{i:03d}"
+    for c in contra:
         cx_by[c["listing"]].append(c)
         if c["other"]:
             cx_by[c["other"]].append(c)
@@ -215,6 +222,7 @@ def main():
         cxs = cx_by.get(r["listing"], [])
         meta.append({"quad": r["quad"], "roi": rd(r["roi"], 1),
                      "roi10": rd(r["roi_p10"], 1),
+                     "oos": r["best_oos"], "roi_in": r["roi_in"],
                      "has_h": bool((r["scen"].get("HOUSE") or {}).get("roi")),
                      "has_d": bool((r["scen"].get("DUPLEX") or {}).get("roi")),
                      "has_m": bool((r["scen"].get("MULTIPLEX") or {}).get("roi")),
@@ -245,7 +253,13 @@ def main():
         if r["roi"] is not None:
             bt = (f"<span class='roi-pos'>{r['roi']:.0f}% {r['best']}</span>"
                   f"<br><span class='{'roi-pos' if (r['roi_p10'] or -1) >= 0 else 'roi-neg'}'"
-                  f" title='历史误差P10压力情景'>压力 {pct(r['roi_p10'])}</span>")
+                  f" title='历史误差P10压力情景'>压力 {pct(r['roi_p10'])}</span>"
+                  f"<br><span class='band'>−10% {pct(r['roi_m10'])} · −20% "
+                  f"{pct(r['roi_m20'])}</span>"
+                  + ("<br><span class='st st-CONDITIONAL'>⚠超样本面积</span>"
+                     + (f"<br><span class='stat-note'>覆盖内最优 {r['best_in']} "
+                        f"{r['roi_in']:.0f}%</span>" if r["best_in"] else "")
+                     if r["best_oos"] else ""))
         else:
             bt = "—"
         cb = r["cond_best"]
@@ -295,6 +309,8 @@ function xbarOk(meta) {
     if (x.prod === 'DUPLEX' && !meta.has_d) return false;
     if (x.prod === 'MPX' && !meta.has_m) return false;
     if (x.p10 === 'pos' && !(meta.roi10 != null && meta.roi10 >= 0)) return false;
+    if (x.sup === 'in' && meta.oos) return false;
+    if (x.sup === 'oos' && !meta.oos) return false;
     if (x.cx === 'any' && !meta.cx) return false;
     if (x.cx === 'none' && meta.cx) return false;
     return true;
@@ -419,17 +435,20 @@ def render(rows, body, meta, points, contra, summary):
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>{CSS}</style>
-<title>V1.5.1 回测校准估值 — {len(rows)} ACTIVE HOUSE · 2026-10-20</title>
+<title>V1.5.2 回测校准估值 — {len(rows)} ACTIVE HOUSE · 2026-10-20</title>
 </head><body>
 <div style="background:#e8f0fe;border:1px solid #4285f4;padding:8px 12px;
 margin:6px 0;font-size:13px;border-radius:4px">
-<b>V1.5.1 回测校准估值(研究层 · V3s 生产零修改):</b>
+<b>V1.5.2 回测校准估值(研究层 · V3s 生产零修改):</b>
 售价改为「社区基准 + 附近修正(收缩、±15%封顶)」,面积弹性由数据拟合;
-每个售价带回测误差区间,<b>压力 ROI = 估售×历史前向回测误差 P10 比值时的 ROI(非概率保证)</b>;超回测面积样本的方案不排序。
+每个售价带回测误差区间,<b>压力 ROI = 估售×历史前向回测误差 P10 比值时的 ROI(非概率保证)</b>;超回测面积样本的方案标注⚠、不剔除。
 地价改为 BCA 校准(回测误差更低),comps 地价作交叉校验。
 法规拆五态,<b>仅 VERIFIED 进最优 ROI 排名</b>;需审批/未核方案单列「待审」。
 <span class="badge">P50 ROI≥10%: {rg[10]}</span>
 <span class="badge">≥20%: {rg[20]}</span><span class="badge">≥30%: {rg[30]}</span>
+<span class="badge">覆盖内≥10%: {summary['roi_in_support_ge'][10]}</span>
+<span class="badge">售价−10%仍≥0: {summary['roi_m10_ge0']}</span>
+<span class="badge">−20%仍≥0: {summary['roi_m20_ge0']}</span>
 <span class="badge">压力ROI≥0%: {rp[0]}</span>
 <span class="badge">矛盾触发: {len(contra)}</span>
 快照 2026-10-20 · Ask=watchlist latest_asking · HPI 2026-09 · 成交截至 2026-07-08
@@ -443,6 +462,8 @@ margin:6px 0;font-size:13px;border-radius:4px">
 <option value="LAND_VALUE">仅地价</option><option value="NEITHER">双缺</option></select>
 <select data-x="p10"><option value="">全部下行</option>
 <option value="pos">压力ROI≥0</option></select>
+<select data-x="sup"><option value="">完整研究排名</option>
+<option value="in">样本覆盖内最优</option><option value="oos">仅⚠超样本面积</option></select>
 <select data-x="cx"><option value="">全部矛盾</option>
 <option value="any">有矛盾触发</option><option value="none">无矛盾</option></select>
 <span class="tools"> · <button id="btn-export-all">导出全部</button>
@@ -450,7 +471,7 @@ margin:6px 0;font-size:13px;border-radius:4px">
 <button id="btn-import">导入</button>
 <input type="file" id="file-import" accept=".json" style="display:none"></span>
 </div>
-<h1>逐房源估值与重建 ROI — V1.5.1 回测校准 · {len(rows)} 套 ACTIVE HOUSE</h1>
+<h1>逐房源估值与重建 ROI — V1.5.2 回测校准 · {len(rows)} 套 ACTIVE HOUSE</h1>
 <div class="viewbar"><button id="btn-list" class="vbtn on">列表</button>
 <button id="btn-map" class="vbtn">地图</button>
 <span class="map-legend"><i style="background:{QC['BOTH']}"></i>双优

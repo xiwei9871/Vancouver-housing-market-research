@@ -146,24 +146,55 @@ check("APE uses actual as denominator",
       json.load(open(D / "backtest_summary.json"))["ape_definition"]
       == "|estimate-actual|/actual")
 
-# 12. out-of-support scenarios never drive the ranked ROI
+# 12. V1.5.2: out-of-support is disclosed, never a ranking gate —
+#     full ranking may pick it (flagged); in-support view never does
 br = list(csv.DictReader(open(D / "v15_roi_bridge.csv")))
 oos = {(r["listing"], r["scenario"]) for r in sr
        if r["out_of_support"] == "True"}
-check("out-of-support never ranked",
+check("in-support view never picks out-of-support",
       not [b for b in br if (b["listing"], b["best_s3"]) in oos])
+full_oos = [b for b in br if (b["listing"], b["best_full"]) in oos]
+check("full ranking keeps out-of-support and flags it",
+      full_oos and all(b["best_full_oos"] == "True" for b in full_oos),
+      f"n={len(full_oos)}")
+check("no listing loses its best ROI to the support gate",
+      not [b for b in br if b["roi_s2_sale"] and not b["roi_full"]])
 
 # 13. summary counts == counts from displayed (rounded) CSV values
 sm = json.load(open(D / "v15_summary.json"))
 for t in (10, 20, 30):
-    n_csv = sum(1 for b in br if b["roi_s3_support"]
-                and float(b["roi_s3_support"]) >= t)
-    check(f"ROI>={t} summary == CSV", n_csv == sm["roi_ge"][str(t)],
-          f"{n_csv} vs {sm['roi_ge'][str(t)]}")
+    n_full = sum(1 for b in br if b["roi_full"] and float(b["roi_full"]) >= t)
+    n_in = sum(1 for b in br if b["roi_s3_support"]
+               and float(b["roi_s3_support"]) >= t)
+    check(f"ROI>={t} full summary == CSV", n_full == sm["roi_ge"][str(t)],
+          f"{n_full} vs {sm['roi_ge'][str(t)]}")
+    check(f"ROI>={t} in-support summary == CSV",
+          n_in == sm["roi_in_support_ge"][str(t)])
+check("haircut ROI ordered: P50 >= -10% >= -20%",
+      all(float(r["roi_p50"]) >= float(r["roi_sale_m10"])
+          >= float(r["roi_sale_m20"]) for r in sr if r["roi_sale_m10"]))
 
 # 14. bridge anchors on V1.4.4 page counts (74/15/2)
 check("bridge S0 reproduces V1.4.4 74/15/2",
       sm["roi_bridge"]["roi_s0_v144"] == {"10": 74, "20": 15, "30": 2})
+
+# 15. unified contradiction index: every source ID appears exactly once,
+#     counts are not summed, no finding is marked RESOLVED automatically
+subprocess.run([sys.executable, "scripts/unify_contradictions_v1_5.py"],
+               cwd=ROOT, check=True, capture_output=True)
+U = list(csv.DictReader(open(D / "unified_contradictions.csv")))
+ids = [i for u in U for i in u["source_ids"].split(";")]
+d145 = ROOT / "docs/audits/listing_consistency_v1_4_5/consistency_findings.csv"
+src145 = [r["finding_id"] for r in csv.DictReader(open(d145))]
+src15 = [r["id"] for r in csv.DictReader(open(D / "v15_contradictions.csv"))]
+check("every source ID kept exactly once",
+      sorted(ids) == sorted(src145 + src15) and len(set(ids)) == len(ids),
+      f"{len(ids)} ids / {len(U)} unified rows")
+check("unified rows < summed source count",
+      len(U) < len(src145) + len(src15))
+check("no automatic RESOLVED", all(u["review_status"] == "OPEN" for u in U))
+check("V1.5 contradiction IDs stable (code-prefixed)",
+      all(re.match(r"V15-C\d\d-\d{3}$", i) for i in src15))
 
 print(f"\n{sum(res)}/{len(res)} passed")
 sys.exit(0 if all(res) else 1)
